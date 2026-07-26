@@ -1,0 +1,6 @@
+# Ignore tile directories and files
+hro_tiles/
+lidar_tiles/
+*tiles*
+oregon_lidar/
+*.laz
