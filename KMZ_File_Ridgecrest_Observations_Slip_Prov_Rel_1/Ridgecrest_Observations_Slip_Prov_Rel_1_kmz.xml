@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Ponti, Daniel J.</origin>
+        <origin>Blair, J. Luke</origin>
+        <origin>Rosa, Carla M.</origin>
+        <origin>Thomas, Kate</origin>
+        <origin>Pickering, Alexandra J.</origin>
+        <origin>Dawson, Timothy</origin>
+        <origin>Akciz, Sinan</origin>
+        <origin>Angster, Stephen</origin>
+        <origin>Bacon, Steven</origin>
+        <origin>Barth, Nicolas</origin>
+        <origin>Bennett, Scott</origin>
+        <origin>Blake, Kelly</origin>
+        <origin>Bork, Stephan</origin>
+        <origin>Bormann, Jayne</origin>
+        <origin>Brooks, Benjamin</origin>
+        <origin>Bullard, Thomas</origin>
+        <origin>Burgess, Paul</origin>
+        <origin>DeFrisco, Michael</origin>
+        <origin>Delano, Jaime</origin>
+        <origin>Dolan, James</origin>
+        <origin>DuRoss, Christopher</origin>
+        <origin>Ericksen, Todd</origin>
+        <origin>Frost, Erik</origin>
+        <origin>Funning, Gareth</origin>
+        <origin>Gold, Ryan</origin>
+        <origin>Graehl, Nicholas</origin>
+        <origin>Gutierrez, Carlos</origin>
+        <origin>Haddon, Elizabeth</origin>
+        <origin>Hatem, Alexandra</origin>
+        <origin>Hernandez, Janis</origin>
+        <origin>Hitchcock, Christopher</origin>
+        <origin>Holland, Peter</origin>
+        <origin>Hudnut, Kenneth</origin>
+        <origin>Kendrick, Katherine</origin>
+        <origin>Koehler, Richard</origin>
+        <origin>Kozaci, Ozgur</origin>
+        <origin>Ladinsky, Tyler</origin>
+        <origin>Madugo, Christopher</origin>
+        <origin>Mareschal, Maxime</origin>
+        <origin>McPhillips, Devin</origin>
+        <origin>Milliner, Christopher</origin>
+        <origin>Morelan, Alexander</origin>
+        <origin>Nevitt, Johanna</origin>
+        <origin>Olson, Brian</origin>
+        <origin>O'Neal, Matt</origin>
+        <origin>Padilla, Salena</origin>
+        <origin>Patton, Jason</origin>
+        <origin>Philibosian, Belle</origin>
+        <origin>Pierce, Ian</origin>
+        <origin>Sandwell, David</origin>
+        <origin>Scharer, Katherine</origin>
+        <origin>Seitz, Gordon</origin>
+        <origin>Singleton, Drake</origin>
+        <origin>Spangler, Eleanor</origin>
+        <origin>Swanson, Brian</origin>
+        <origin>Thompson Jobe, Jessica</origin>
+        <origin>Treiman, Jerome</origin>
+        <origin>Valencia, Francesca</origin>
+        <origin>Williams, Alana</origin>
+        <origin>Zachariasen, Judith</origin>
+        <origin>Zinke, Robert</origin>
+        <pubdate>202007</pubdate>
+        <title>KMZ File of Observations With Quantitative Displacement Measurements Obtained From
+          Surface Faulting and Ground Deformation Features Produced by the Ridgecrest M6.4 and M7.1
+          Earthquake Sequence of July 4 and 5, 2019: Provisional Release 1</title>
+        <geoform>vector digital data</geoform>
+        <pubinfo>
+          <pubplace>Moffett Field, CA</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.5066/P9BZ5IJ9</onlink>
+        <lworkcit>
+          <citeinfo>
+            <origin>Ponti, Daniel J.</origin>
+            <origin>Blair, J. Luke</origin>
+            <origin>Rosa, Carla M.</origin>
+            <origin>Thomas, Kate</origin>
+            <origin>Pickering, Alexandra J.</origin>
+            <origin>Akciz, Sinan</origin>
+            <origin>Angster, Stephen</origin>
+            <origin>Avouac, Jean-Philipe</origin>
+            <origin>Bachhuber, Jeffrey</origin>
+            <origin>Bacon, Steven</origin>
+            <origin>Barth, Nicolas</origin>
+            <origin>Bennett, Scott</origin>
+            <origin>Blake, Kelly</origin>
+            <origin>Bork, Stephan</origin>
+            <origin>Brooks, Benjamin</origin>
+            <origin>Bullard, Thomas</origin>
+            <origin>Burgess, Paul</origin>
+            <origin>Chupik, Colin</origin>
+            <origin>Dawson, Timothy</origin>
+            <origin>DeFrisco, Michael</origin>
+            <origin>Delano, Jaime</origin>
+            <origin>DeLong, Stephen</origin>
+            <origin>Dolan, James</origin>
+            <origin>Donnellan, Andrea</origin>
+            <origin>DuRoss, Christopher</origin>
+            <origin>Ericksen, Todd</origin>
+            <origin>Frost, Erik</origin>
+            <origin>Funning, Gareth</origin>
+            <origin>Gold, Ryan</origin>
+            <origin>Graehl, Nicholas</origin>
+            <origin>Gutierrez, Carlos</origin>
+            <origin>Haddon, Elizabeth</origin>
+            <origin>Hatem, Alexandra</origin>
+            <origin>Helms, John</origin>
+            <origin>Hernandez, Janis</origin>
+            <origin>Hitchcock, Christopher</origin>
+            <origin>Holland, Peter</origin>
+            <origin>Hudnut, Kenneth</origin>
+            <origin>Kendrick, Katherine</origin>
+            <origin>Koehler, Richard</origin>
+            <origin>Kozaci, Ozgur</origin>
+            <origin>Ladinsky, Tyler</origin>
+            <origin>Leeper, Robert</origin>
+            <origin>Madugo, Christopher</origin>
+            <origin>Mareschal, Maxime</origin>
+            <origin>McDonald, James</origin>
+            <origin>McPhillips, Devin</origin>
+            <origin>Milliner, Christopher</origin>
+            <origin>Mongovin, Daniel</origin>
+            <origin>Morelan, Alexander</origin>
+            <origin>Nale, Stephanie</origin>
+            <origin>Nevitt, Johanna</origin>
+            <origin>O'Neal, Matt</origin>
+            <origin>Olson, Brian</origin>
+            <origin>Oskin, Michael</origin>
+            <origin>Padilla, Salena</origin>
+            <origin>Patton, Jason</origin>
+            <origin>Philibosian, Belle</origin>
+            <origin>Pierce, Ian</origin>
+            <origin>Pridmore, Cynthia</origin>
+            <origin>Roth, Nathaniel</origin>
+            <origin>Sandwell, David</origin>
+            <origin>Scharer, Katherine</origin>
+            <origin>Seitz, Gordon</origin>
+            <origin>Singleton, Drake</origin>
+            <origin>Smith-Konter, Bridget</origin>
+            <origin>Spangler, Eleanor</origin>
+            <origin>Swanson, Brian</origin>
+            <origin>Thompson Jobe, Jessica</origin>
+            <origin>Treiman, Jerome</origin>
+            <origin>Valencia, Francesca</origin>
+            <origin>Vanderwal, Joshua</origin>
+            <origin>Williams, Alana</origin>
+            <origin>Xu, Xiaohua</origin>
+            <origin>Zachariasen, Judith</origin>
+            <origin>Zimmerman, Jade</origin>
+            <origin>Zinke, Robert</origin>
+            <pubdate>2020</pubdate>
+            <title>Documentation of surface fault rupture and ground-deformation features produced
+              by the 4 and 5 July 2019 Mw 6.4 and Mw 7.1 Ridgecrest earthquake sequence</title>
+            <geoform>Publication (Journal)</geoform>
+            <pubinfo>
+              <pubplace>Albany, CA</pubplace>
+              <publish>Seismological Research Letters</publish>
+            </pubinfo>
+            <onlink>https://doi.org/10.1785/0220190322</onlink>
+          </citeinfo>
+        </lworkcit>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>This dataset contains a provisional release of field observations at sites of fault
+        rupture and ground deformation features where quantitative displacement measurements were
+        obtained. This release does not include associated photographs and some observations where
+        there are outstanding questions about the measurements received; some duplicate observations
+        may exist in this dataset. Photos and resolved measurement data are anticipated for a future
+        release. This dataset consists of a comma-delimited ASCII text file where each line in the
+        file represents an observation, suitable for importing into a spreadsheet, database or GIS
+        application for visualization and analysis. These data are also summarized in a companion
+        Google Earth Keyhole Markup Language (kmz) file for easy visualization, which shows each
+        observation as a placemark with observation data displayed in the description
+        balloon.</abstract>
+      <purpose>The purpose of this compilation is to present the data as reported, interpreted only
+        as necessary to assemble the information into the compilation schema and with as much
+        metadata about the observation as possible. We apply no measure of field quality; future
+        researchers can evaluate the reported data for their purposes by assessing measurement
+        completeness, reported uncertainties and measurement approaches, variability of multiple
+        measurements at the same site or nearby, and/or evaluation of photographic
+        evidence.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>20190704</begdate>
+          <enddate>20191122</enddate>
+        </rngdates>
+      </timeinfo>
+      <current>ground condition</current>
+    </timeperd>
+    <status>
+      <progress>In work</progress>
+      <update>As needed</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-117.827412</westbc>
+        <eastbc>-117.34783</eastbc>
+        <northbc>35.932634</northbc>
+        <southbc>35.501797</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>USGS Thesaurus</themekt>
+        <themekey>earthquake occurrences</themekey>
+        <themekey>tectonic processes</themekey>
+        <themekey>geolocation measurement</themekey>
+        <themekey>hazards</themekey>
+        <themekey>seismology</themekey>
+        <themekey>field inventory and monitoring</themekey>
+        <themekey>maps and atlases</themekey>
+        <themekey>faulting (geologic)</themekey>
+        <themekey>deformation (geologic)</themekey>
+      </theme>
+      <place>
+        <placekt>Geographid Names Information System (GNIS)</placekt>
+        <placekey>California</placekey>
+        <placekey>Ridgecrest</placekey>
+        <placekey>Kern County</placekey>
+        <placekey>China Lake</placekey>
+        <placekey>Indian Wells Valley</placekey>
+        <placekey>Searles Valley</placekey>
+        <placekey>San Bernardino County</placekey>
+        <placekey>Inyo County</placekey>
+      </place>
+    </keywords>
+    <accconst>None</accconst>
+    <useconst>none</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Daniel J Ponti</cntper>
+          <cntorg>SOUTHWEST REGION: EARTHQUAKE SCIENCE CENTER</cntorg>
+        </cntperp>
+        <cntpos>Scientist Emeritus</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>350 North Akron Road</address>
+          <city>Moffett Field</city>
+          <state>CA</state>
+          <postal>94035</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>650-439-2679</cntvoice>
+        <cntemail>dponti@usgs.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>No formal attribute accuracy tests were conducted.</attraccr>
+    </attracc>
+    <logic>No formal logical accuracy tests were conducted.</logic>
+    <complete>Data set is considered complete for the information presented, as described in the
+      abstract. Users are advised to read the rest of the metadata record carefully for additional
+      details.</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>No formal positional accuracy tests were conducted. See larger work for discussion
+          on location accuracy.</horizpar>
+      </horizpa>
+      <vertacc>
+        <vertaccr>No formal positional accuracy tests were conducted.</vertaccr>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <procstep>
+        <procdesc>Field observations were submitted directly from field participants and consist of
+          notes, descriptions, and measurements that document the existence and character of
+          faulting or ground deformation at a geographic point. Observations of damage to buildings
+          or earthen structures such as embankments or fills are not included in the compilation
+          unless they reflect permanent deformation of the natural ground surface. All contributed
+          site data were extracted from their originally provided formats, parsed, and loaded into a
+          spatial database using a compilation schema developed by USGS and CGS. Each data record
+          represents an observation of faulting, ground deformation or no deformation, that was made
+          by an investigator or field team working together during a unique visit on a specific
+          date. If the same observer/team revisits the same locality on a different day or time and
+          records a separate observation, this constitutes a separate data record. Similarly,
+          observations made by different field teams at the same locality are preserved as separate
+          observation records. The goal of the compilation is to present the data as reported,
+          interpreted only as necessary to assemble the information into the compilation schema and
+          with as much metadata about the observation as possible.</procdesc>
+        <procdate>2020</procdate>
+        <proccont>
+          <cntinfo>
+            <cntperp>
+              <cntper>Daniel J Ponti</cntper>
+              <cntorg>SOUTHWEST REGION: EARTHQUAKE SCIENCE CENTER</cntorg>
+            </cntperp>
+            <cntpos>Scientist Emeritus</cntpos>
+            <cntaddr>
+              <addrtype>mailing and physical</addrtype>
+              <address>350 North Akron Road</address>
+              <city>Moffett Field</city>
+              <state>CA</state>
+              <postal>94035</postal>
+              <country>US</country>
+            </cntaddr>
+            <cntvoice>650-439-2679</cntvoice>
+            <cntemail>dponti@usgs.gov</cntemail>
+          </cntinfo>
+        </proccont>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <spdoinfo>
+    <indspref>China Lake, Ridgecrest, California</indspref>
+    <direct>Point</direct>
+    <ptvctinf>
+      <sdtsterm>
+        <sdtstype>Entity point</sdtstype>
+        <ptvctcnt>1130</ptvctcnt>
+      </sdtsterm>
+    </ptvctinf>
+  </spdoinfo>
+  <spref>
+    <horizsys>
+      <geograph>
+        <latres>8.983152841195215E-9</latres>
+        <longres>8.983152841195215E-9</longres>
+        <geogunit>Decimal degrees</geogunit>
+      </geograph>
+      <geodetic>
+        <horizdn>D WGS 1984</horizdn>
+        <ellips>WGS 1984</ellips>
+        <semiaxis>6378137.0</semiaxis>
+        <denflat>298.257223563</denflat>
+      </geodetic>
+    </horizsys>
+  </spref>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>Google Earth KMZ pop-up description bubble for each location placemark.</enttypl>
+        <enttypd>An html-based text description containing attribute information associated with the
+          dataset</enttypd>
+        <enttypds>Producer defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>Pop-up description bubble</attrlabl>
+        <attrdef>Values in the pop-up bubble are derived from the original table provided as a csv
+          document in this data release; definitions of the csv document attributes are given in the
+          metadata xml file associated with the data table . The values for each observation
+          location (placemark) are formatted for easy reading. Note that all of the information
+          present in the observation table is incorporated into the kmz bubbles if values are
+          present, although some fields are merged with others or included in labels and therefore
+          and do not stand alone as separate field entities. Any null or empty field values in the
+          csv table are not included in the description bubble.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>An html-based textual description incorporating the attributes from the associated
+            csv file.</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntperp>
+          <cntper>U.S. Geological Survey - ScienceBase</cntper>
+          <cntorg>U.S. Geological Survey - ScienceBase</cntorg>
+        </cntperp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>Denver Federal Center, Building 810, Mail Stop 302</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>United States</country>
+        </cntaddr>
+        <cntvoice>888-275-8747</cntvoice>
+        <cntemail>sciencebase@usgs.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>Distributor assumes no liability for misuse of data.</distliab>
+    <techpreq>This KMZ file contains data available in Keyhole Markup Language, an XML notation for
+      expressing geographic annotation and visualization within Internet-based, two-dimensional maps
+      and three-dimensional Earth browsers. Google Earth or another Earth browser is required to
+      view the data.</techpreq>
+  </distinfo>
+  <metainfo>
+    <metd>20200707</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>James Luke Blair</cntper>
+          <cntorg>SOUTHWEST REGION: EARTHQUAKE SCIENCE CENTER</cntorg>
+        </cntperp>
+        <cntpos>Geologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>350 North Akron Road</address>
+          <city>Moffett Field</city>
+          <state>CA</state>
+          <postal>94035</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>650-439-2707</cntvoice>
+        <cntemail>lblair@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>
