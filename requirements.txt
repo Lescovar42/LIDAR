@@ -1,0 +1,7 @@
+shapely
+requests
+# geopandas
+# rasterio
+# fiona
+# matplotlib
+# numpy
