@@ -1,7 +1,14 @@
-shapely
-requests
-# geopandas
-# rasterio
-# fiona
-# matplotlib
-# numpy
+# Core acquisition and geometry
+requests>=2.31
+shapely>=2.0
+pyproj>=3.6
+rasterio>=1.3
+
+# LiDAR and terrain processing
+numpy>=1.26
+scipy>=1.11
+laspy[lazrs]>=2.5
+
+# Diagnostics and training
+matplotlib>=3.8
+torch>=2.2
