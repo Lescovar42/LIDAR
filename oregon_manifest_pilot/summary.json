@@ -1,0 +1,18 @@
+{
+  "generated_at_utc": "2026-07-26T20:14:39Z",
+  "slido_geojson": "D:\\Research_LIDAR\\slido_deposits_oregon_city.geojson",
+  "discovered_tile_records": 572,
+  "evaluated_deposits": 511,
+  "intersecting_pairs": 2138,
+  "status_counts": {
+    "accepted": 0,
+    "uncertain": 2138,
+    "rejected": 0
+  },
+  "tile_metadata_errors": 0,
+  "download_requested": true,
+  "download_statuses": [
+    "uncertain"
+  ],
+  "max_tiles": 10
+}
