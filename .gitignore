@@ -1,6 +1,32 @@
-# Ignore tile directories and files
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Large LiDAR and temporary downloads
+*.laz
+*.las
+*.copc.laz
+*.part
+*.tmp
 hro_tiles/
 lidar_tiles/
-*tiles*
-oregon_lidar/
-*.laz
+oregon/lidar_tiles/
+oregon/oregon_lidar/
+
+# Generated Oregon outputs
+oregon/outputs/
+oregon/oregon_manifest*/
+oregon/dataset*/
+oregon/training_output*/
+oregon/3dep_tile_discovery.json
+
+# Keep source GeoJSON and documentation tracked unless intentionally excluded.

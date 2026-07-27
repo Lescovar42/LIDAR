@@ -9,10 +9,10 @@ Design goals:
 - One manifest row is written per intersecting landslide/tile pair.
 - Unknown or same-year temporal relationships are quarantined as "uncertain".
 
-This script expects the existing pipeline stages:
-    03_discover_3dep_tiles.py
-    04_select_tile_subset.py
-    05_download_tile_subset.py
+This script expects local active-pipeline modules:
+    discover_3dep.py
+    slido_utils.py
+    download_tiles.py (only when --download is used)
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ import json
 import re
 import sys
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
@@ -485,6 +485,16 @@ def main() -> int:
     parser.add_argument("--slido-geojson", "--slido_geojson", dest="slido_geojson", required=True)
     parser.add_argument("--pipeline-dir", type=Path, default=Path(__file__).resolve().parent)
     parser.add_argument("--manifest-dir", type=Path, default=Path("./oregon_manifest"))
+    parser.add_argument(
+        "--slido-description",
+        default="Landslide",
+        help="Keep only this SLIDO DESCRIPTION value (default: Landslide).",
+    )
+    parser.add_argument(
+        "--include-all-deposit-types",
+        action="store_true",
+        help="Disable the DESCRIPTION filter. Not recommended for training labels.",
+    )
     parser.add_argument("--outdir", type=Path, default=Path("./oregon_lidar"))
     parser.add_argument(
         "--download",
@@ -534,7 +544,7 @@ def main() -> int:
 
     pipeline_dir = args.pipeline_dir.resolve()
     discover_module = load_stage_module("oregon_discover", pipeline_dir / "discover_3dep.py")
-    select_module = load_stage_module("oregon_select", pipeline_dir.parent / "archive" / "04_select_tile_subset.py")
+    slido_module = load_stage_module("oregon_slido", pipeline_dir / "slido_utils.py")
     download_module = None
     if args.download:
         download_module = load_stage_module("oregon_download", pipeline_dir / "download_tiles.py")
@@ -549,7 +559,8 @@ def main() -> int:
     print(f"Discovered {len(tiles)} LiDAR tile records.")
 
     print("\n--- Stage 2: Loading SLIDO deposits ---")
-    deposits = list(select_module.load_deposits(str(slido_path)))
+    description_filter = None if args.include_all_deposit_types else args.slido_description
+    deposits = list(slido_module.load_deposits(str(slido_path), description=description_filter))
     if args.max_deposits is not None:
         deposits = deposits[: args.max_deposits]
     print(f"Evaluating {len(deposits)} SLIDO deposits.")
@@ -576,10 +587,11 @@ def main() -> int:
 
     status_counts = {status: sum(1 for row in rows if row["temporal_status"] == status) for status in ("accepted", "uncertain", "rejected")}
     summary = {
-        "generated_at_utc": datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
+        "generated_at_utc": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "slido_geojson": str(slido_path),
         "discovered_tile_records": len(tiles),
         "evaluated_deposits": len(deposits),
+        "slido_description_filter": None if args.include_all_deposit_types else args.slido_description,
         "intersecting_pairs": len(rows),
         "status_counts": status_counts,
         "tile_metadata_errors": len(tile_errors),
