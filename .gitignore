@@ -22,11 +22,4 @@ lidar_tiles/
 oregon/lidar_tiles/
 oregon/oregon_lidar/
 
-# Generated Oregon outputs
-oregon/outputs/
-oregon/oregon_manifest*/
-oregon/dataset*/
-oregon/training_output*/
-oregon/3dep_tile_discovery.json
-
 # Keep source GeoJSON and documentation tracked unless intentionally excluded.
