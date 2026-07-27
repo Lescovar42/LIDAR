@@ -533,11 +533,11 @@ def main() -> int:
         parser.error("--max-deposits must be greater than zero")
 
     pipeline_dir = args.pipeline_dir.resolve()
-    discover_module = load_stage_module("oregon_discover", pipeline_dir / "03_discover_3dep_tiles.py")
-    select_module = load_stage_module("oregon_select", pipeline_dir / "04_select_tile_subset.py")
+    discover_module = load_stage_module("oregon_discover", pipeline_dir / "discover_3dep.py")
+    select_module = load_stage_module("oregon_select", pipeline_dir.parent / "archive" / "04_select_tile_subset.py")
     download_module = None
     if args.download:
-        download_module = load_stage_module("oregon_download", pipeline_dir / "05_download_tile_subset.py")
+        download_module = load_stage_module("oregon_download", pipeline_dir / "download_tiles.py")
 
     slido_path = Path(args.slido_geojson).resolve()
     if not slido_path.exists():
