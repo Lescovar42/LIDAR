@@ -1,0 +1,283 @@
+{
+  "generated_at_utc": "2026-07-27T02:20:02+00:00",
+  "laz_dir": "D:\\LIDAR\\oregon\\oregon_lidar_pilot",
+  "slido_geojson": "D:\\LIDAR\\oregon\\slido_deposits_oregon_city.geojson",
+  "outdir": "D:\\LIDAR\\oregon\\dataset_pilot",
+  "processed_tiles": 10,
+  "failed_tiles": 0,
+  "saved_patches": 199,
+  "split_counts": {
+    "test": 26,
+    "train": 149,
+    "validation": 24
+  },
+  "category_counts": {
+    "negative": 131,
+    "positive_boundary": 30,
+    "positive_interior": 38
+  },
+  "split_category_counts": {
+    "test": {
+      "negative": 20,
+      "positive_boundary": 6
+    },
+    "train": {
+      "positive_boundary": 20,
+      "positive_interior": 38,
+      "negative": 91
+    },
+    "validation": {
+      "negative": 20,
+      "positive_boundary": 4
+    }
+  },
+  "feature_names": [
+    "local_relief",
+    "slope_degrees",
+    "aspect_sin",
+    "aspect_cos",
+    "curvature",
+    "multidirectional_hillshade",
+    "tri"
+  ],
+  "feature_dtype": "float16",
+  "cell_size": 1.0,
+  "patch_size": 256,
+  "stride": 128,
+  "description_filter": "Landslide",
+  "tile_summaries": [
+    {
+      "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2051n2776.laz",
+      "split": "test",
+      "crs": "COMPD_CS[\"NAD83(2011) / Conus Albers + NAVD88 height - Geoid12B (m)\",PROJCS[\"NAD83(2011) / Conus Albers\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Albers_Conic_Equal_Area\"],PARAMETER[\"standard_parallel_1\",29.5],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_center\",23],PARAMETER[\"longitude_of_center\",-96],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6350\"]],VERT_CS[\"NAVD88 height - Geoid12B (m)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Up\",UP],AUTHORITY[\"EPSG\",\"5703\"]]]",
+      "dem_shape": [
+        1000,
+        1000
+      ],
+      "ground_point_count": 2054262,
+      "ground_cell_fraction": 0.684018,
+      "intersecting_slido_polygons": 0,
+      "mask_positive_fraction": 0.0,
+      "saved_patches": 10,
+      "category_counts": {
+        "negative": 10
+      },
+      "skipped_low_ground_coverage": 2,
+      "skipped_trace_positives": 0,
+      "eligible_negative_candidates": 34
+    },
+    {
+      "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2051n2777.laz",
+      "split": "test",
+      "crs": "COMPD_CS[\"NAD83(2011) / Conus Albers + NAVD88 height - Geoid12B (m)\",PROJCS[\"NAD83(2011) / Conus Albers\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Albers_Conic_Equal_Area\"],PARAMETER[\"standard_parallel_1\",29.5],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_center\",23],PARAMETER[\"longitude_of_center\",-96],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6350\"]],VERT_CS[\"NAVD88 height - Geoid12B (m)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Up\",UP],AUTHORITY[\"EPSG\",\"5703\"]]]",
+      "dem_shape": [
+        1000,
+        1000
+      ],
+      "ground_point_count": 1985093,
+      "ground_cell_fraction": 0.634362,
+      "intersecting_slido_polygons": 6,
+      "mask_positive_fraction": 0.00597,
+      "saved_patches": 16,
+      "category_counts": {
+        "positive_boundary": 6,
+        "negative": 10
+      },
+      "skipped_low_ground_coverage": 4,
+      "skipped_trace_positives": 2,
+      "eligible_negative_candidates": 20
+    },
+    {
+      "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2051n2779.laz",
+      "split": "train",
+      "crs": "COMPD_CS[\"NAD83(2011) / Conus Albers + NAVD88 height - Geoid12B (m)\",PROJCS[\"NAD83(2011) / Conus Albers\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Albers_Conic_Equal_Area\"],PARAMETER[\"standard_parallel_1\",29.5],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_center\",23],PARAMETER[\"longitude_of_center\",-96],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6350\"]],VERT_CS[\"NAVD88 height - Geoid12B (m)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Up\",UP],AUTHORITY[\"EPSG\",\"5703\"]]]",
+      "dem_shape": [
+        1000,
+        1000
+      ],
+      "ground_point_count": 2880443,
+      "ground_cell_fraction": 0.692938,
+      "intersecting_slido_polygons": 3,
+      "mask_positive_fraction": 0.057888,
+      "saved_patches": 31,
+      "category_counts": {
+        "positive_boundary": 6,
+        "positive_interior": 7,
+        "negative": 18
+      },
+      "skipped_low_ground_coverage": 2,
+      "skipped_trace_positives": 1,
+      "eligible_negative_candidates": 18
+    },
+    {
+      "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2051n2780.laz",
+      "split": "train",
+      "crs": "COMPD_CS[\"NAD83(2011) / Conus Albers + NAVD88 height - Geoid12B (m)\",PROJCS[\"NAD83(2011) / Conus Albers\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Albers_Conic_Equal_Area\"],PARAMETER[\"standard_parallel_1\",29.5],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_center\",23],PARAMETER[\"longitude_of_center\",-96],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6350\"]],VERT_CS[\"NAVD88 height - Geoid12B (m)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Up\",UP],AUTHORITY[\"EPSG\",\"5703\"]]]",
+      "dem_shape": [
+        1000,
+        1000
+      ],
+      "ground_point_count": 2153591,
+      "ground_cell_fraction": 0.657016,
+      "intersecting_slido_polygons": 4,
+      "mask_positive_fraction": 0.189119,
+      "saved_patches": 35,
+      "category_counts": {
+        "negative": 21,
+        "positive_boundary": 5,
+        "positive_interior": 9
+      },
+      "skipped_low_ground_coverage": 0,
+      "skipped_trace_positives": 0,
+      "eligible_negative_candidates": 21
+    },
+    {
+      "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2051n2781.laz",
+      "split": "validation",
+      "crs": "COMPD_CS[\"NAD83(2011) / Conus Albers + NAVD88 height - Geoid12B (m)\",PROJCS[\"NAD83(2011) / Conus Albers\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Albers_Conic_Equal_Area\"],PARAMETER[\"standard_parallel_1\",29.5],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_center\",23],PARAMETER[\"longitude_of_center\",-96],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6350\"]],VERT_CS[\"NAVD88 height - Geoid12B (m)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Up\",UP],AUTHORITY[\"EPSG\",\"5703\"]]]",
+      "dem_shape": [
+        1000,
+        1000
+      ],
+      "ground_point_count": 1377966,
+      "ground_cell_fraction": 0.595457,
+      "intersecting_slido_polygons": 3,
+      "mask_positive_fraction": 0.006306,
+      "saved_patches": 10,
+      "category_counts": {
+        "negative": 10
+      },
+      "skipped_low_ground_coverage": 5,
+      "skipped_trace_positives": 3,
+      "eligible_negative_candidates": 25
+    },
+    {
+      "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2051n2782.laz",
+      "split": "train",
+      "crs": "COMPD_CS[\"NAD83(2011) / Conus Albers + NAVD88 height - Geoid12B (m)\",PROJCS[\"NAD83(2011) / Conus Albers\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Albers_Conic_Equal_Area\"],PARAMETER[\"standard_parallel_1\",29.5],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_center\",23],PARAMETER[\"longitude_of_center\",-96],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6350\"]],VERT_CS[\"NAVD88 height - Geoid12B (m)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Up\",UP],AUTHORITY[\"EPSG\",\"5703\"]]]",
+      "dem_shape": [
+        1000,
+        1000
+      ],
+      "ground_point_count": 2378188,
+      "ground_cell_fraction": 0.695636,
+      "intersecting_slido_polygons": 1,
+      "mask_positive_fraction": 0.001861,
+      "saved_patches": 10,
+      "category_counts": {
+        "negative": 10
+      },
+      "skipped_low_ground_coverage": 0,
+      "skipped_trace_positives": 0,
+      "eligible_negative_candidates": 36
+    },
+    {
+      "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2052n2773.laz",
+      "split": "train",
+      "crs": "COMPD_CS[\"NAD83(2011) / Conus Albers + NAVD88 height - Geoid12B (m)\",PROJCS[\"NAD83(2011) / Conus Albers\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Albers_Conic_Equal_Area\"],PARAMETER[\"standard_parallel_1\",29.5],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_center\",23],PARAMETER[\"longitude_of_center\",-96],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6350\"]],VERT_CS[\"NAVD88 height - Geoid12B (m)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Up\",UP],AUTHORITY[\"EPSG\",\"5703\"]]]",
+      "dem_shape": [
+        1000,
+        1000
+      ],
+      "ground_point_count": 1762414,
+      "ground_cell_fraction": 0.623394,
+      "intersecting_slido_polygons": 3,
+      "mask_positive_fraction": 0.097959,
+      "saved_patches": 32,
+      "category_counts": {
+        "positive_interior": 10,
+        "negative": 16,
+        "positive_boundary": 6
+      },
+      "skipped_low_ground_coverage": 1,
+      "skipped_trace_positives": 1,
+      "eligible_negative_candidates": 16
+    },
+    {
+      "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2052n2774.laz",
+      "split": "train",
+      "crs": "COMPD_CS[\"NAD83(2011) / Conus Albers + NAVD88 height - Geoid12B (m)\",PROJCS[\"NAD83(2011) / Conus Albers\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Albers_Conic_Equal_Area\"],PARAMETER[\"standard_parallel_1\",29.5],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_center\",23],PARAMETER[\"longitude_of_center\",-96],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6350\"]],VERT_CS[\"NAVD88 height - Geoid12B (m)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Up\",UP],AUTHORITY[\"EPSG\",\"5703\"]]]",
+      "dem_shape": [
+        1000,
+        1000
+      ],
+      "ground_point_count": 2248266,
+      "ground_cell_fraction": 0.665799,
+      "intersecting_slido_polygons": 5,
+      "mask_positive_fraction": 0.119578,
+      "saved_patches": 31,
+      "category_counts": {
+        "positive_interior": 12,
+        "positive_boundary": 3,
+        "negative": 16
+      },
+      "skipped_low_ground_coverage": 0,
+      "skipped_trace_positives": 1,
+      "eligible_negative_candidates": 16
+    },
+    {
+      "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2052n2775.laz",
+      "split": "train",
+      "crs": "COMPD_CS[\"NAD83(2011) / Conus Albers + NAVD88 height - Geoid12B (m)\",PROJCS[\"NAD83(2011) / Conus Albers\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Albers_Conic_Equal_Area\"],PARAMETER[\"standard_parallel_1\",29.5],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_center\",23],PARAMETER[\"longitude_of_center\",-96],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6350\"]],VERT_CS[\"NAVD88 height - Geoid12B (m)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Up\",UP],AUTHORITY[\"EPSG\",\"5703\"]]]",
+      "dem_shape": [
+        1000,
+        1000
+      ],
+      "ground_point_count": 2356777,
+      "ground_cell_fraction": 0.659946,
+      "intersecting_slido_polygons": 1,
+      "mask_positive_fraction": 0.002475,
+      "saved_patches": 10,
+      "category_counts": {
+        "negative": 10
+      },
+      "skipped_low_ground_coverage": 9,
+      "skipped_trace_positives": 0,
+      "eligible_negative_candidates": 27
+    },
+    {
+      "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2052n2776.laz",
+      "split": "validation",
+      "crs": "COMPD_CS[\"NAD83(2011) / Conus Albers + NAVD88 height - Geoid12B (m)\",PROJCS[\"NAD83(2011) / Conus Albers\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Albers_Conic_Equal_Area\"],PARAMETER[\"standard_parallel_1\",29.5],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_center\",23],PARAMETER[\"longitude_of_center\",-96],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6350\"]],VERT_CS[\"NAVD88 height - Geoid12B (m)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"meter\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Up\",UP],AUTHORITY[\"EPSG\",\"5703\"]]]",
+      "dem_shape": [
+        1000,
+        1000
+      ],
+      "ground_point_count": 2953332,
+      "ground_cell_fraction": 0.756268,
+      "intersecting_slido_polygons": 7,
+      "mask_positive_fraction": 0.005441,
+      "saved_patches": 14,
+      "category_counts": {
+        "positive_boundary": 4,
+        "negative": 10
+      },
+      "skipped_low_ground_coverage": 1,
+      "skipped_trace_positives": 2,
+      "eligible_negative_candidates": 26
+    }
+  ],
+  "parameters": {
+    "laz_dir": "oregon_lidar_pilot",
+    "slido_geojson": "slido_deposits_oregon_city.geojson",
+    "outdir": "dataset_pilot",
+    "cell_size": 1.0,
+    "patch_size": 256,
+    "stride": 128,
+    "max_tiles": 10,
+    "max_cells": 80000000,
+    "min_ground_cell_fraction": 0.25,
+    "min_patch_ground_fraction": 0.5,
+    "interior_threshold": 0.1,
+    "boundary_threshold": 0.01,
+    "include_trace_positives": false,
+    "negative_buffer_m": 50.0,
+    "hard_negative_slope": 8.0,
+    "negative_ratio": 1.5,
+    "max_negatives_per_tile": 100,
+    "seed": 42,
+    "feature_dtype": "float16",
+    "all_touched": false,
+    "overwrite": true
+  }
+}
