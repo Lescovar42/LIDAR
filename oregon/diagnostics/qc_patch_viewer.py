@@ -50,6 +50,7 @@ except ImportError as exc:
 
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib.figure import Figure
+from matplotlib.patches import Rectangle
 
 
 QC_OPTIONS: tuple[tuple[str, str, str], ...] = (
@@ -141,6 +142,70 @@ def parse_bool(value: str) -> bool:
     return value.strip().casefold() in {"true", "1", "yes", "y"}
 
 
+def load_naip_manifest(path: Path) -> dict[str, dict[str, str]]:
+    if not path.exists():
+        return {}
+    return {
+        row.get("patch_id", ""): row
+        for row in read_csv(path)
+        if row.get("patch_id", "") and row.get("naip_path", "")
+    }
+
+
+def stretch_rgb(
+    red: np.ndarray,
+    green: np.ndarray,
+    blue: np.ndarray,
+    valid: np.ndarray,
+    *,
+    false_color: bool = False,
+) -> np.ndarray:
+    """Create a natural-looking uint8 NAIP RGB or CIR display."""
+    rgb = np.stack([red, green, blue], axis=-1).astype(np.float32)
+    finite_valid = valid & np.all(np.isfinite(rgb), axis=-1)
+    output = np.zeros_like(rgb, dtype=np.float32)
+
+    for channel_index in range(3):
+        channel = rgb[..., channel_index]
+        values = channel[finite_valid]
+        if values.size:
+            low = float(np.percentile(values, 1))
+            high = float(np.percentile(values, 99))
+        else:
+            low, high = 0.0, 255.0
+        if high <= low:
+            high = low + 1.0
+        output[..., channel_index] = np.clip(
+            (channel - low) / (high - low), 0.0, 1.0
+        )
+
+    output = np.power(output, 0.85)
+    output[~finite_valid] = 0.65
+    return output
+
+def naip_visuals(
+    naip_path: Path,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, dict[str, Any]]:
+    with np.load(naip_path) as data:
+        bands = data["bands"].astype(np.float32)
+        valid = data["valid_mask"].astype(bool)
+        metadata_raw = data.get("metadata_json")
+        if metadata_raw is None:
+            metadata: dict[str, Any] = {}
+        else:
+            metadata = json.loads(str(metadata_raw.item()))
+    if bands.shape[0] < 4:
+        raise ValueError(f"Expected 4 NAIP bands, found shape {bands.shape}")
+    red, green, blue, nir = bands[:4]
+    true_color = stretch_rgb(red, green, blue, valid)
+    false_color = stretch_rgb(nir, red, green, valid, false_color=True)
+    denominator = nir + red
+    ndvi = np.full_like(nir, np.nan, dtype=np.float32)
+    usable = valid & np.isfinite(denominator) & (np.abs(denominator) > 1e-6)
+    ndvi[usable] = (nir[usable] - red[usable]) / denominator[usable]
+    return true_color, false_color, ndvi, metadata
+
+
 def select_indices(
     rows: list[dict[str, str]],
     *,
@@ -183,6 +248,8 @@ class PatchQCViewer:
         channels: list[str],
         indices: list[int],
         start_position: int,
+        naip_by_patch: dict[str, dict[str, str]],
+        naip_root: Path,
     ) -> None:
         self.root = root
         self.dataset_dir = dataset_dir
@@ -193,6 +260,8 @@ class PatchQCViewer:
         self.channel_index = {name: index for index, name in enumerate(channels)}
         self.indices = indices
         self.position = start_position
+        self.naip_by_patch = naip_by_patch
+        self.naip_root = naip_root
         self.current_index: int | None = None
         self.notes_dirty = False
 
@@ -206,9 +275,9 @@ class PatchQCViewer:
         self.metadata_var = tk.StringVar()
         self.search_var = tk.StringVar()
 
-        self.root.title("Oregon LiDAR / SLIDO Patch QC")
-        self.root.geometry("1500x930")
-        self.root.minsize(1050, 700)
+        self.root.title("Oregon LiDAR / SLIDO / NAIP Patch QC")
+        self.root.geometry("1600x980")
+        self.root.minsize(1150, 760)
         self.root.protocol("WM_DELETE_WINDOW", self.close)
         self.build_ui()
         self.bind_keys()
@@ -240,8 +309,8 @@ class PatchQCViewer:
             font=("Consolas", 9),
         ).pack(fill=tk.X)
 
-        self.figure = Figure(figsize=(14, 7), dpi=100, constrained_layout=True)
-        self.axes = [self.figure.add_subplot(1, 4, i + 1) for i in range(4)]
+        self.figure = Figure(figsize=(15, 8), dpi=100, constrained_layout=True)
+        self.axes = [self.figure.add_subplot(2, 3, i + 1) for i in range(6)]
         self.canvas = FigureCanvasTkAgg(self.figure, master=self.root)
         self.canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
 
@@ -417,18 +486,129 @@ class PatchQCViewer:
         rmin, rmax = robust_limits(relief)
         slope_max = max(45.0, float(np.nanpercentile(slope, 99)))
 
-        self.axes[0].imshow(hillshade, cmap="gray", vmin=hmin, vmax=hmax)
-        self.axes[0].set_title("Multidirectional hillshade")
-        self.axes[1].imshow(relief, cmap="gray", vmin=rmin, vmax=rmax)
-        self.axes[1].set_title(relief_title)
-        self.axes[2].imshow(slope, cmap="magma", vmin=0, vmax=slope_max)
-        self.axes[2].set_title("Slope (degrees)")
+        naip_record = self.naip_by_patch.get(row.get("patch_id", ""), {})
+        naip_relative = naip_record.get("naip_path", "")
+        naip_metadata: dict[str, Any] = {}
+        if naip_relative:
+            naip_path = self.naip_root / naip_relative
+        else:
+            naip_path = Path()
+
+        if naip_relative and naip_path.exists():
+            try:
+                true_color, false_color, ndvi, naip_metadata = naip_visuals(
+                    naip_path
+                )
+                context_bounds = naip_metadata.get("context_bounds_3857")
+                patch_bounds = naip_metadata.get("patch_bounds_3857")
+
+                if context_bounds and patch_bounds:
+                    cx0, cy0, cx1, cy1 = map(float, context_bounds)
+                    px0, py0, px1, py1 = map(float, patch_bounds)
+                    extent = (cx0, cx1, cy0, cy1)
+                    patch_extent = (px0, px1, py0, py1)
+
+                    for axis_index, image, title in (
+                        (0, true_color, "NAIP natural color — context"),
+                        (1, true_color, "NAIP natural color + SLIDO"),
+                        (2, false_color, "NAIP color infrared (NIR/R/G)"),
+                    ):
+                        self.axes[axis_index].imshow(
+                            image,
+                            extent=extent,
+                            origin="upper",
+                            interpolation="bilinear",
+                        )
+                        self.axes[axis_index].add_patch(
+                            Rectangle(
+                                (px0, py0),
+                                px1 - px0,
+                                py1 - py0,
+                                fill=False,
+                                edgecolor="cyan",
+                                linewidth=1.4,
+                            )
+                        )
+                        self.axes[axis_index].set_xlim(cx0, cx1)
+                        self.axes[axis_index].set_ylim(cy0, cy1)
+                        self.axes[axis_index].set_title(title)
+
+                    naip_overlay = np.ma.masked_where(mask == 0, mask)
+                    self.axes[1].imshow(
+                        naip_overlay,
+                        extent=patch_extent,
+                        origin="upper",
+                        cmap="Reds",
+                        alpha=0.48,
+                        vmin=0,
+                        vmax=1,
+                        interpolation="nearest",
+                    )
+                    if mask.min() != mask.max():
+                        self.axes[1].contour(
+                            mask,
+                            levels=[0.5],
+                            colors="red",
+                            linewidths=1.1,
+                            extent=patch_extent,
+                            origin="upper",
+                        )
+                else:
+                    from PIL import Image
+
+                    target_h, target_w = true_color.shape[:2]
+                    mask_small = np.asarray(
+                        Image.fromarray(mask.astype(np.uint8)).resize(
+                            (target_w, target_h),
+                            resample=Image.Resampling.NEAREST,
+                        )
+                    )
+                    self.axes[0].imshow(true_color, interpolation="nearest")
+                    self.axes[0].set_title("NAIP true color — legacy cache")
+                    self.axes[1].imshow(true_color, interpolation="nearest")
+                    self.axes[1].imshow(
+                        np.ma.masked_where(mask_small == 0, mask_small),
+                        cmap="Reds",
+                        alpha=0.48,
+                        vmin=0,
+                        vmax=1,
+                        interpolation="nearest",
+                    )
+                    self.axes[1].set_title("NAIP + SLIDO — legacy cache")
+                    self.axes[2].imshow(false_color, interpolation="nearest")
+                    self.axes[2].set_title("NAIP color infrared — legacy cache")
+            except Exception as exc:
+                for axis_index in (0, 1, 2):
+                    self.axes[axis_index].text(
+                        0.5,
+                        0.5,
+                        f"NAIP cache error\n{type(exc).__name__}: {exc}",
+                        ha="center",
+                        va="center",
+                        wrap=True,
+                    )
+                    self.axes[axis_index].set_title("NAIP unavailable")
+        else:
+            for axis_index in (0, 1, 2):
+                self.axes[axis_index].text(
+                    0.5,
+                    0.5,
+                    "No NAIP cache\nRun fetch_naip_qc.py",
+                    ha="center",
+                    va="center",
+                )
+                self.axes[axis_index].set_title("NAIP unavailable")
+
         self.axes[3].imshow(hillshade, cmap="gray", vmin=hmin, vmax=hmax)
+        self.axes[3].set_title("LiDAR multidirectional hillshade")
+        self.axes[4].imshow(slope, cmap="magma", vmin=0, vmax=slope_max)
+        self.axes[4].set_title("LiDAR slope (degrees)")
+        self.axes[5].imshow(hillshade, cmap="gray", vmin=hmin, vmax=hmax)
         overlay = np.ma.masked_where(mask == 0, mask)
-        self.axes[3].imshow(overlay, cmap="Reds", alpha=0.50, vmin=0, vmax=1)
+        self.axes[5].imshow(overlay, cmap="Reds", alpha=0.50, vmin=0, vmax=1)
         if mask.min() != mask.max():
-            self.axes[3].contour(mask, levels=[0.5], colors="red", linewidths=1.1)
-        self.axes[3].set_title("SLIDO ground-truth overlay")
+            self.axes[5].contour(mask, levels=[0.5], colors="red", linewidths=1.1)
+        self.axes[5].set_title("LiDAR + SLIDO ground truth")
 
         self.figure.suptitle(f"{row.get('patch_id', '')}\n{row.get('tile_name', '')}", fontsize=12)
         self.canvas.draw_idle()
@@ -448,7 +628,11 @@ class PatchQCViewer:
             f"mean slope={mean_slope:.1f}°    hard negative={parse_bool(row.get('is_hard_negative', ''))}\n"
             f"row/col={row.get('row_offset', '')}/{row.get('col_offset', '')}    "
             f"CRS={row.get('crs', '')}    distance to positive={row.get('distance_to_positive_m', '')} m\n"
-            f"SLIDO refs in tile={row.get('slido_ref_ids_in_tile', '')}"
+            f"SLIDO refs in tile={row.get('slido_ref_ids_in_tile', '')}\n"
+            f"NAIP year={naip_record.get('naip_year', '') or 'not cached'}    "
+            f"resolution={naip_record.get('naip_resolution_m', '')} m    "
+            f"valid={naip_record.get('naip_valid_fraction', '')}    "
+            f"NIR={naip_record.get('naip_has_nir', '')}"
         )
         self.update_labels()
 
@@ -492,6 +676,12 @@ def main() -> int:
         default="all",
         help="Filter category: positive_interior, positive_boundary, negative, etc.",
     )
+    parser.add_argument(
+        "--naip-manifest",
+        type=Path,
+        default=None,
+        help="Default: DATASET_DIR/naip/naip_manifest.csv.",
+    )
     parser.add_argument("--only-unreviewed", action="store_true")
     parser.add_argument("--shuffle", action="store_true")
     parser.add_argument("--seed", type=int, default=42)
@@ -503,6 +693,12 @@ def main() -> int:
     manifest_path = (args.manifest or default_manifest).resolve()
     output_path = (args.out or qc_manifest).resolve()
     channels_path = dataset_dir / "channels.json"
+    naip_root = dataset_dir / "naip"
+    naip_manifest_path = (
+        args.naip_manifest.resolve()
+        if args.naip_manifest
+        else naip_root / "naip_manifest.csv"
+    )
 
     if not dataset_dir.exists():
         parser.error(f"Dataset directory does not exist: {dataset_dir}")
@@ -522,6 +718,14 @@ def main() -> int:
         print(f"Imported {imported} decision(s) from {review_path}")
 
     channels = json.loads(channels_path.read_text(encoding="utf-8")).get("feature_names", [])
+    naip_by_patch = load_naip_manifest(naip_manifest_path)
+    if naip_by_patch:
+        print(f"Loaded NAIP context for {len(naip_by_patch)} patch(es)")
+    else:
+        print(
+            f"No NAIP manifest found at {naip_manifest_path}. "
+            "The viewer will still run with LiDAR-only panels."
+        )
     if not channels:
         parser.error(f"No feature_names found in {channels_path}")
 
@@ -555,6 +759,8 @@ def main() -> int:
             channels=channels,
             indices=indices,
             start_position=start,
+            naip_by_patch=naip_by_patch,
+            naip_root=naip_root,
         )
     except Exception as exc:
         root.destroy()

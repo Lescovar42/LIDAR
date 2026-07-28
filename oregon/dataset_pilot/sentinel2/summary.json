@@ -1,0 +1,46 @@
+{
+  "generated_at_utc": "2026-07-28T08:02:54+00:00",
+  "dataset_dir": "D:\\LIDAR\\oregon\\dataset_pilot",
+  "patch_manifest": "D:\\LIDAR\\oregon\\dataset_pilot\\patches_qc.csv",
+  "outdir": "D:\\LIDAR\\oregon\\dataset_pilot\\sentinel2",
+  "collection": "sentinel-2-l2a",
+  "stac_search_url": "https://earth-search.aws.element84.com/v1/search",
+  "band_names": [
+    "blue",
+    "green",
+    "red",
+    "nir"
+  ],
+  "resolution_m": 10.0,
+  "invalid_scl_classes": [
+    0,
+    1,
+    3,
+    8,
+    9,
+    10,
+    11
+  ],
+  "status_counts": {
+    "cached": 199
+  },
+  "tile_count": 10,
+  "patch_count": 199,
+  "parameters": {
+    "dataset_dir": "dataset_pilot",
+    "manifest": null,
+    "outdir": null,
+    "start_date": "2019-06-01",
+    "end_date": "2020-09-30",
+    "year_radius": 1,
+    "months": "6,7,8,9",
+    "max_cloud": 30.0,
+    "search_limit": 100,
+    "resolution": 10.0,
+    "max_tiles": 10,
+    "max_patches": 0,
+    "timeout": 60.0,
+    "retries": 3,
+    "overwrite": false
+  }
+}
