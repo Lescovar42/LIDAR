@@ -187,6 +187,18 @@ def query_records(
     return [feature.get("attributes", {}) for feature in data.get("features", [])]
 
 
+
+def parse_year(value: Any) -> int | None:
+    """Return a valid four-digit year, or None for null/malformed values."""
+    if value in (None, ""):
+        return None
+    try:
+        year = int(float(str(value).strip()))
+    except (TypeError, ValueError):
+        return None
+    return year if 1900 <= year <= 2100 else None
+
+
 def choose_year(
     records: list[dict[str, Any]],
     *,
@@ -195,13 +207,19 @@ def choose_year(
 ) -> int:
     years = sorted(
         {
-            int(record["Year"])
+            year
             for record in records
-            if record.get("Year") not in (None, "")
+            if (year := parse_year(record.get("Year"))) is not None
         }
     )
     if not years:
-        raise RuntimeError("NAIP query returned no usable acquisition years")
+        sample_values = sorted(
+            {repr(record.get("Year")) for record in records}
+        )[:10]
+        raise RuntimeError(
+            "NAIP query returned no usable acquisition years. "
+            f"Observed Year values: {sample_values}"
+        )
 
     if requested_year is not None:
         if requested_year not in years:
@@ -517,7 +535,9 @@ def main() -> int:
                 requested_year=args.year,
             )
             selected_records = [
-                record for record in records if int(record.get("Year", -1)) == selected_year
+                record
+                for record in records
+                if parse_year(record.get("Year")) == selected_year
             ]
             print(
                 f"  selected NAIP year={selected_year} "
@@ -531,9 +551,9 @@ def main() -> int:
                     "selected_naip_year": selected_year,
                     "available_years": sorted(
                         {
-                            int(record["Year"])
+                            year
                             for record in records
-                            if record.get("Year") not in (None, "")
+                            if (year := parse_year(record.get("Year"))) is not None
                         }
                     ),
                     "source_records": selected_records,
