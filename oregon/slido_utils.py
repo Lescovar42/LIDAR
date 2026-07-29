@@ -42,6 +42,51 @@ def _repair_geometry(geometry: BaseGeometry) -> BaseGeometry:
     return repaired
 
 
+def normalize_confidence(value: Any) -> str:
+    """Normalize dirty SLIDO ``CONFIDENCE`` values to four stable classes.
+
+    DOGAMI values have historically contained inconsistent inequality symbols,
+    spacing, and trailing whitespace.  The leading quality label is the stable
+    part of the field, so qualifiers are intentionally ignored.
+    """
+    if value is None:
+        return "unknown"
+    normalized = " ".join(str(value).strip().casefold().split())
+    if normalized.startswith("high"):
+        return "high"
+    if normalized.startswith("moderate"):
+        return "moderate"
+    if normalized.startswith("low"):
+        return "low"
+    return "unknown"
+
+
+def add_confidence_class(feature: dict[str, Any]) -> str:
+    """Add and return ``confidence_class`` for one GeoJSON feature."""
+    properties = feature.setdefault("properties", {})
+    confidence_class = normalize_confidence(_property_value(properties, "CONFIDENCE"))
+    properties["confidence_class"] = confidence_class
+    return confidence_class
+
+
+def property_counts(
+    features: Iterable[Mapping[str, Any]],
+) -> tuple[dict[str, int], dict[str, int]]:
+    """Return stable confidence and source counts for GeoJSON features."""
+    confidence = Counter({name: 0 for name in ("high", "moderate", "low", "unknown")})
+    sources: Counter[str] = Counter()
+    for feature in features:
+        properties = feature.get("properties") or {}
+        confidence_class = normalize_confidence(
+            _property_value(properties, "confidence_class")
+            or _property_value(properties, "CONFIDENCE")
+        )
+        confidence[confidence_class] += 1
+        source = _property_value(properties, "REF_ID_COD")
+        sources[str(source).strip() if source not in (None, "") else "unknown"] += 1
+    return dict(confidence), dict(sorted(sources.items()))
+
+
 def load_deposits(
     geojson_path: str | Path,
     description: str | None = "Landslide",

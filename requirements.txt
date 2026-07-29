@@ -1,14 +1,54 @@
-# Core acquisition and geometry
-requests>=2.31
-shapely>=2.0
-pyproj>=3.6
-rasterio>=1.3
+# Pinned direct dependencies for the LIDAR landslide-detection pipeline.
+# Versions captured from the working .venv on Python 3.12.10 (Windows, AMD64).
+#
+# Rebuild on another machine:
+#   py -3.12 -m venv .venv
+#   .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+#
+# GPU training (NVIDIA RTX 2060, Turing, CUDA 12.6 driver or newer required):
+#   The training machine has an RTX 2060, so torch below is pinned to the
+#   CUDA 12.6 build (2.13.0+cu126) instead of the CPU-only build. The
+#   --extra-index-url line lets pip pull that one wheel from the PyTorch
+#   index while everything else still resolves from PyPI as normal.
+#   Verify after install with:
+#     python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
+#   If this ever runs on a machine without an NVIDIA GPU (e.g. this dev
+#   machine, which has an AMD Radeon 780M), replace the two torch lines with
+#   the CPU wheel instead:
+#     torch==2.13.0
+#   train_baseline.py auto-detects cuda vs cpu at runtime either way, and
+#   --device lets you override the choice explicitly.
+#
+# Tkinter note that pip cannot express:
+#   oregon/diagnostics/qc_patch_viewer.py needs tkinter, which ships with the
+#   Python installer rather than pip. Install Python from python.org with the
+#   "tcl/tk and IDLE" option enabled, or the viewer exits with a message.
 
-# LiDAR and terrain processing
-numpy>=1.26
-scipy>=1.11
-laspy[lazrs]>=2.5
+--extra-index-url https://download.pytorch.org/whl/cu126
 
-# Diagnostics and training
-matplotlib>=3.8
-torch>=2.2
+# Arrays and numerics
+numpy==2.5.1
+scipy==1.18.0
+
+# Tabular QC review (used by the patch QC guide one-liners)
+pandas==3.0.5
+
+# Plotting and image handling
+matplotlib==3.11.1
+pillow==12.3.0
+
+# Raster and geospatial
+rasterio==1.5.0
+pyproj==3.7.2
+shapely==2.1.2
+
+# LiDAR point cloud reading, lazrs supplies the LAZ codec
+laspy==2.7.0
+lazrs==0.8.1
+
+# HTTP for SLIDO, TNM Access, and NAIP services
+requests==2.34.2
+urllib3==2.7.0
+
+# Model training (CUDA 12.6 build for the RTX 2060 training machine)
+torch==2.13.0+cu126
