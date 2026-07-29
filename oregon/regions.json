@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "regions": [
+    {
+      "id": "R1",
+      "slug": "tillamook",
+      "name": "Tillamook Coast Range",
+      "bbox": [-123.95, 45.35, -123.55, 45.70],
+      "role": "train_val",
+      "tile_budget": 60,
+      "storage_budget_gb": 20,
+      "slido_max_features": 5000,
+      "slido_output": "slido_tillamook.geojson",
+      "tnm_records": "regions/tillamook_tnm.json",
+      "naip_records": "regions/tillamook_naip.json",
+      "candidate_projects": [
+        "OR_TILLAMOOK_ODF_2007",
+        "OR_NORTHCOAST_2008_2009",
+        "OR_WesternWildfires_A22",
+        "CA_West_Coast_LiDAR_2016"
+      ],
+      "include_in_candidate_report": true
+    },
+    {
+      "id": "R2",
+      "slug": "buxton_vernonia",
+      "name": "Buxton / Vernonia",
+      "bbox": [-123.30, 45.65, -123.00, 45.85],
+      "role": "test_rural",
+      "tile_budget": 30,
+      "storage_budget_gb": 10,
+      "slido_max_features": 3000,
+      "slido_output": "slido_buxton_vernonia.geojson",
+      "tnm_records": "regions/buxton_vernonia_tnm.json",
+      "naip_records": "regions/buxton_vernonia_naip.json",
+      "candidate_projects": [
+        "OR_WILLAMETTE_VALLEY_OLC_2008",
+        "OR_NORTHCOAST_2008_2009"
+      ],
+      "include_in_candidate_report": true
+    },
+    {
+      "id": "R3",
+      "slug": "oregon_city",
+      "name": "Oregon City",
+      "bbox": [-122.90, 45.35, -122.55, 45.65],
+      "role": "test_urban_ood",
+      "tile_budget": 10,
+      "storage_budget_gb": 0,
+      "slido_max_features": 1000,
+      "slido_output": "slido_deposits_oregon_city.geojson",
+      "tnm_records": "oregon_manifest_pilot/selected_tiles.json",
+      "naip_records": "regions/oregon_city_naip.json",
+      "lidar_dir": "oregon_lidar_pilot",
+      "candidate_projects": ["USGS_LPC_OR_OLCMetro_2019"],
+      "existing_data": true,
+      "include_in_candidate_report": false
+    },
+    {
+      "id": "R4",
+      "slug": "marion",
+      "name": "Marion foothills",
+      "bbox": [-122.90, 44.75, -122.40, 45.05],
+      "role": "train_val",
+      "tile_budget": 25,
+      "storage_budget_gb": 10,
+      "slido_max_features": 3000,
+      "slido_output": "slido_marion.geojson",
+      "tnm_records": "regions/marion_tnm.json",
+      "naip_records": "regions/marion_naip.json",
+      "candidate_projects": ["OR_SILVER_FALLS_OPRD_2007"],
+      "include_in_candidate_report": true
+    }
+  ],
+  "comparison_candidates": [
+    {
+      "id": "C1",
+      "slug": "gorge",
+      "name": "Columbia River Gorge",
+      "bbox": [-122.20, 45.55, -121.60, 45.75],
+      "role": "test_rural",
+      "tile_budget": 0,
+      "storage_budget_gb": 0,
+      "slido_max_features": 1000,
+      "slido_output": "slido_gorge.geojson",
+      "tnm_records": "regions/gorge_tnm.json",
+      "naip_records": "regions/gorge_naip.json",
+      "candidate_projects": ["REJECTED_UNPINNED_LPC"],
+      "status": "rejected",
+      "rejection_reason": "Sparse, mostly unattributed inventory and urban transport/water artifacts.",
+      "include_in_candidate_report": true
+    },
+    {
+      "id": "C2",
+      "slug": "rogue",
+      "name": "Rogue River-Siskiyou",
+      "bbox": [-123.90, 42.25, -123.30, 42.65],
+      "role": "test_rural",
+      "tile_budget": 0,
+      "storage_budget_gb": 0,
+      "slido_max_features": 1000,
+      "slido_output": "slido_rogue.geojson",
+      "tnm_records": "regions/rogue_tnm.json",
+      "naip_records": "regions/rogue_naip.json",
+      "candidate_projects": ["NO_3DEP_LPC_COVERAGE"],
+      "status": "rejected",
+      "rejection_reason": "No 3DEP LPC coverage and no attributed polygons in the measured sample.",
+      "include_in_candidate_report": true
+    }
+  ]
+}

@@ -39,9 +39,11 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import math
 import os
+import random
 import re
 import tempfile
 import time
@@ -197,6 +199,125 @@ def parse_year(value: Any) -> int | None:
     except (TypeError, ValueError):
         return None
     return year if 1900 <= year <= 2100 else None
+
+
+def compute_year_gap(
+    lidar_year: Any, naip_year: Any
+) -> tuple[int | None, bool | None]:
+    """Return signed NAIP-minus-LiDAR gap and an absolute-gap warning flag."""
+    parsed_lidar = parse_year(lidar_year)
+    parsed_naip = parse_year(naip_year)
+    if parsed_lidar is None or parsed_naip is None:
+        return None, None
+    gap = parsed_naip - parsed_lidar
+    return gap, abs(gap) > 2
+
+
+def lidar_year_for_row(row: dict[str, str]) -> int | None:
+    """Read the authoritative manifest year, with legacy manifest fallback."""
+    if "lidar_year" in row:
+        raw_year = row.get("lidar_year", "").strip()
+        year = parse_year(raw_year)
+        if raw_year and year is None:
+            raise ValueError(
+                f"Patch {row.get('patch_id', '<unknown>')} has invalid "
+                f"lidar_year={raw_year!r}"
+            )
+        return year
+    return infer_year(row.get("tile_name", ""))
+
+
+def lidar_year_for_tile(rows: list[dict[str, str]]) -> int | None:
+    """Return the single authoritative LiDAR year represented by a tile."""
+    years = {
+        year for row in rows if (year := lidar_year_for_row(row)) is not None
+    }
+    if len(years) > 1:
+        tile_name = rows[0].get("tile_name", "<unknown>") if rows else "<unknown>"
+        raise ValueError(
+            f"Tile {tile_name} contains conflicting lidar_year values: "
+            f"{sorted(years)}"
+        )
+    return next(iter(years), None)
+
+
+def stratified_sample_rows(
+    rows: list[dict[str, str]], *, sample_per_region: int, seed: int
+) -> list[dict[str, str]]:
+    """Select up to N rows per region, balanced across category strata.
+
+    Input ordering does not affect membership. Selected rows are returned in
+    their original manifest order so the unsampled tile-processing behavior is
+    preserved downstream.
+    """
+    if sample_per_region <= 0:
+        return list(rows)
+    if not rows:
+        return []
+
+    required = {"region_id", "category"}
+    missing = sorted(required - set(rows[0]))
+    if missing:
+        raise ValueError(
+            f"Stratified sampling requires manifest columns: {missing}"
+        )
+
+    by_region_category: dict[
+        str, dict[str, list[tuple[int, dict[str, str]]]]
+    ] = defaultdict(lambda: defaultdict(list))
+    for index, row in enumerate(rows):
+        region_id = row.get("region_id", "").strip()
+        category = row.get("category", "").strip()
+        if not region_id or not category:
+            raise ValueError(
+                "Stratified sampling requires non-empty region_id and category "
+                f"for patch {row.get('patch_id', '<unknown>')}"
+            )
+        by_region_category[region_id][category].append((index, row))
+
+    def stable_rng(*parts: object) -> random.Random:
+        payload = "\0".join(str(part) for part in (seed, *parts)).encode("utf-8")
+        stable_seed = int.from_bytes(hashlib.sha256(payload).digest()[:8], "big")
+        return random.Random(stable_seed)
+
+    selected_indices: set[int] = set()
+    for region_id in sorted(by_region_category, key=str.casefold):
+        category_groups = by_region_category[region_id]
+        categories = sorted(category_groups, key=str.casefold)
+        stable_rng("category-order", region_id).shuffle(categories)
+
+        queues: dict[str, list[tuple[int, dict[str, str]]]] = {}
+        total_available = 0
+        for category in categories:
+            members = sorted(
+                category_groups[category],
+                key=lambda item: (
+                    item[1].get("patch_id", "").casefold(),
+                    item[1].get("tile_name", "").casefold(),
+                    item[1].get("row_offset", ""),
+                    item[1].get("col_offset", ""),
+                ),
+            )
+            stable_rng("members", region_id, category).shuffle(members)
+            queues[category] = members
+            total_available += len(members)
+
+        target = min(sample_per_region, total_available)
+        region_selected = 0
+        while region_selected < target:
+            added = False
+            for category in categories:
+                if queues[category]:
+                    index, _ = queues[category].pop()
+                    selected_indices.add(index)
+                    region_selected += 1
+                    added = True
+                    if region_selected >= target:
+                        break
+            if not added:
+                break
+
+    return [row for index, row in enumerate(rows) if index in selected_indices]
 
 
 def choose_year(
@@ -436,6 +557,21 @@ def main() -> int:
         default=0.6,
         help="Requested output resolution in metres. Default: 0.6.",
     )
+    parser.add_argument(
+        "--sample-per-region",
+        type=int,
+        default=0,
+        help=(
+            "Select up to N patches per region, balanced across category strata. "
+            "Default 0 processes the full manifest."
+        ),
+    )
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=42,
+        help="Seed for deterministic stratified sampling. Default: 42.",
+    )
     parser.add_argument("--max-tiles", type=int, default=0)
     parser.add_argument("--max-patches", type=int, default=0)
     parser.add_argument("--timeout", type=float, default=60.0)
@@ -445,6 +581,10 @@ def main() -> int:
 
     if args.context_size_m <= 0 or args.resolution <= 0:
         parser.error("--context-size-m and --resolution must be positive")
+    if args.sample_per_region < 0:
+        parser.error("--sample-per-region must be non-negative")
+    if args.max_tiles < 0 or args.max_patches < 0:
+        parser.error("--max-tiles and --max-patches must be non-negative")
 
     dataset_dir = args.dataset_dir.resolve()
     qc_manifest = dataset_dir / "patches_qc.csv"
@@ -467,6 +607,17 @@ def main() -> int:
     missing = sorted(required - set(rows[0]))
     if missing:
         parser.error(f"Patch manifest is missing columns: {missing}")
+
+    full_manifest_count = len(rows)
+    if args.sample_per_region:
+        try:
+            rows = stratified_sample_rows(
+                rows,
+                sample_per_region=args.sample_per_region,
+                seed=args.seed,
+            )
+        except ValueError as exc:
+            parser.error(str(exc))
 
     if args.max_patches:
         rows = rows[: args.max_patches]
@@ -528,7 +679,7 @@ def main() -> int:
                 timeout=args.timeout,
                 retries=args.retries,
             )
-            target_year = infer_year(tile_name)
+            target_year = lidar_year_for_tile(tile_rows)
             selected_year = choose_year(
                 records,
                 target_year=target_year,
@@ -541,7 +692,7 @@ def main() -> int:
             ]
             print(
                 f"  selected NAIP year={selected_year} "
-                f"(LiDAR-name year={target_year}, records={len(selected_records)})"
+                f"(LiDAR year={target_year}, records={len(selected_records)})"
             )
 
             selections.append(
@@ -582,6 +733,10 @@ def main() -> int:
                         "actual_resolution_m": float(
                             metadata.get("actual_pixel_size_x", args.resolution)
                         ),
+                        "selected_year": (
+                            parse_year(metadata.get("selected_year"))
+                            or selected_year
+                        ),
                     }
                     status = "cached"
                 else:
@@ -605,16 +760,25 @@ def main() -> int:
                         export_info=export_info,
                         requested_resolution_m=args.resolution,
                     )
+                    result["selected_year"] = selected_year
                     temporary_tif.unlink(missing_ok=True)
                     status = "ok"
 
+                lidar_year = lidar_year_for_row(row)
+                actual_naip_year = result["selected_year"]
+                year_gap, gap_flag = compute_year_gap(
+                    lidar_year, actual_naip_year
+                )
                 result_rows.append(
                     {
                         "patch_id": row["patch_id"],
                         "tile_name": tile_name,
                         "split": row["split"],
                         "naip_path": str(relative),
-                        "naip_year": selected_year,
+                        "lidar_year": lidar_year if lidar_year is not None else "",
+                        "naip_year": actual_naip_year,
+                        "year_gap": year_gap if year_gap is not None else "",
+                        "gap_flag": gap_flag if gap_flag is not None else "",
                         "naip_width": result["width"],
                         "naip_height": result["height"],
                         "naip_resolution_m": result["actual_resolution_m"],
@@ -636,13 +800,21 @@ def main() -> int:
             print(f"  FAILED TILE: {error}")
             selections.append({"tile_name": tile_name, "error": error})
             for row in tile_rows:
+                lidar_year = (
+                    parse_year(row.get("lidar_year"))
+                    if "lidar_year" in row
+                    else infer_year(tile_name)
+                )
                 result_rows.append(
                     {
                         "patch_id": row["patch_id"],
                         "tile_name": tile_name,
                         "split": row["split"],
                         "naip_path": "",
+                        "lidar_year": lidar_year if lidar_year is not None else "",
                         "naip_year": "",
+                        "year_gap": "",
+                        "gap_flag": "",
                         "naip_width": "",
                         "naip_height": "",
                         "naip_resolution_m": "",
@@ -655,9 +827,10 @@ def main() -> int:
                 status_counts["error"] += 1
 
         fields = [
-            "patch_id", "tile_name", "split", "naip_path", "naip_year",
-            "naip_width", "naip_height", "naip_resolution_m",
-            "naip_valid_fraction", "naip_has_nir", "status", "error",
+            "patch_id", "tile_name", "split", "naip_path", "lidar_year",
+            "naip_year", "year_gap", "gap_flag", "naip_width", "naip_height",
+            "naip_resolution_m", "naip_valid_fraction", "naip_has_nir",
+            "status", "error",
         ]
         atomic_write_csv(outdir / "naip_manifest.csv", result_rows, fields)
         outdir.mkdir(parents=True, exist_ok=True)
@@ -688,6 +861,9 @@ def main() -> int:
         "outdir": str(outdir),
         "requested_context_size_m": args.context_size_m,
         "requested_resolution_m": args.resolution,
+        "sample_per_region": args.sample_per_region,
+        "sample_seed": args.seed,
+        "source_patch_count": full_manifest_count,
         "status_counts": dict(status_counts),
         "tile_count": len(tile_names),
         "patch_count": len(result_rows),

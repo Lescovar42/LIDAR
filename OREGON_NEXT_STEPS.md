@@ -18,7 +18,7 @@ LIDAR/
     ├── slido_utils.py
     ├── discover_3dep.py              # keep your existing file
     ├── download_tiles.py             # keep your existing file
-    ├── build_manifest.py
+    ├── buildx  _manifest.py
     ├── terrain_utils.py
     ├── build_dataset.py
     ├── train_baseline.py

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Train a small segmentation baseline from a prebuilt patch dataset.
+"""Train an ignore-aware seven-channel landslide segmentation baseline.
 
-The dataset must first be created by ``build_dataset.py``. Splits are read from
-``patches.csv`` and are therefore tile-level rather than random patch-level.
+The dataset must first be created by ``build_dataset.py``. Splits and region
+roles are read from the patch manifest, so normalization and training can be
+restricted to the intended rural training region.
 """
 
 from __future__ import annotations
@@ -12,14 +13,25 @@ import csv
 import json
 import random
 from pathlib import Path
-from typing import Any
+from typing import Any, Mapping
 
 import numpy as np
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 from torch.utils.data import DataLoader, Dataset
 
 ACCEPTED_QC = {"accept", "accept_approximate_boundary"}
+IGNORE_INDEX = 255
+EXPECTED_CHANNELS = (
+    "local_relief",
+    "slope_degrees",
+    "aspect_sin",
+    "aspect_cos",
+    "curvature",
+    "multidirectional_hillshade",
+    "tri",
+)
 
 
 def read_manifest(path: Path) -> list[dict[str, str]]:
@@ -32,6 +44,114 @@ def filter_rows(rows: list[dict[str, str]], split: str, require_qc: bool) -> lis
     if require_qc:
         selected = [row for row in selected if row.get("qc_status", "").strip().casefold() in ACCEPTED_QC]
     return selected
+
+
+def validate_channels(channels: list[str]) -> None:
+    if tuple(channels) != EXPECTED_CHANNELS:
+        raise ValueError(
+            "Expected the seven canonical LiDAR channels in order: "
+            + ", ".join(EXPECTED_CHANNELS)
+        )
+
+
+def validate_training_region_roles(
+    train_rows: list[Mapping[str, str]], training_region: str | None = None
+) -> dict[str, str]:
+    """Validate all train-row roles and resolve exactly one baseline region."""
+    region_roles: dict[str, str] = {}
+    for index, row in enumerate(train_rows, start=1):
+        region_id = str(row.get("region_id", "")).strip()
+        region_role = str(row.get("region_role", "")).strip()
+        if not region_id or not region_role:
+            raise ValueError(
+                f"Training row {index} is missing region_id or region_role; rebuild the regional dataset"
+            )
+        previous = region_roles.setdefault(region_id, region_role)
+        if previous != region_role:
+            raise ValueError(
+                f"Region {region_id} has inconsistent training roles: {previous!r} and {region_role!r}"
+            )
+
+    roles = set(region_roles.values())
+    if len(roles) > 1:
+        raise ValueError(f"Training split spans more than one region role: {sorted(roles)}")
+    if roles != {"train_val"}:
+        raise ValueError(
+            f"Training rows must have region_role='train_val', found: {sorted(roles) or ['<none>']}"
+        )
+
+    requested_region = training_region.strip() if training_region is not None else None
+    if training_region is not None and not requested_region:
+        raise ValueError("--training-region must not be empty")
+    if requested_region is None:
+        if len(region_roles) != 1:
+            raise ValueError(
+                "Training split contains multiple train_val regions "
+                f"{sorted(region_roles)}; pass --training-region to select exactly one"
+            )
+        requested_region = next(iter(region_roles))
+    elif requested_region not in region_roles:
+        raise ValueError(
+            f"Requested training region {requested_region!r} has no training rows; "
+            f"available train_val regions: {sorted(region_roles)}"
+        )
+    return {requested_region: region_roles[requested_region]}
+
+
+def select_training_rows(
+    rows: list[dict[str, str]], require_qc: bool, training_region: str | None = None
+) -> tuple[list[dict[str, str]], dict[str, str]]:
+    """Validate every train row, resolve one region, then optionally QC-filter it."""
+    all_train_rows = filter_rows(rows, "train", require_qc=False)
+    if not all_train_rows:
+        raise ValueError("No training rows in manifest")
+    training_regions = validate_training_region_roles(all_train_rows, training_region)
+    selected_region = next(iter(training_regions))
+    selected = [
+        row for row in all_train_rows if str(row.get("region_id", "")).strip() == selected_region
+    ]
+    if require_qc:
+        selected = [
+            row
+            for row in selected
+            if row.get("qc_status", "").strip().casefold() in ACCEPTED_QC
+        ]
+    if not selected:
+        raise ValueError(f"No training rows for region {selected_region!r} after filtering")
+    return selected, training_regions
+
+
+def select_validation_rows(
+    rows: list[dict[str, str]], training_region: str, require_qc: bool
+) -> tuple[list[dict[str, str]], list[str]]:
+    """Select model-selection rows from the training region and report excluded regions."""
+    all_validation_rows = filter_rows(rows, "validation", require_qc=False)
+    eligible: list[dict[str, str]] = []
+    excluded_regions: set[str] = set()
+    for index, row in enumerate(all_validation_rows, start=1):
+        region_id = str(row.get("region_id", "")).strip()
+        region_role = str(row.get("region_role", "")).strip()
+        if not region_id or not region_role:
+            raise ValueError(
+                f"Validation row {index} is missing region_id or region_role; rebuild the regional dataset"
+            )
+        if region_id != training_region:
+            excluded_regions.add(region_id)
+            continue
+        if region_role != "train_val":
+            raise ValueError(
+                f"Validation rows for training region {training_region!r} must have "
+                f"region_role='train_val', found {region_role!r}"
+            )
+        eligible.append(row)
+
+    if require_qc:
+        eligible = [
+            row
+            for row in eligible
+            if row.get("qc_status", "").strip().casefold() in ACCEPTED_QC
+        ]
+    return eligible, sorted(excluded_regions)
 
 
 def compute_channel_statistics(dataset_dir: Path, rows: list[dict[str, str]]) -> tuple[np.ndarray, np.ndarray]:
@@ -62,15 +182,14 @@ def compute_channel_statistics(dataset_dir: Path, rows: list[dict[str, str]]) ->
 
 def compute_pos_weight(dataset_dir: Path, rows: list[dict[str, str]], cap: float = 50.0) -> float:
     positive = 0
-    total = 0
+    negative = 0
     for row in rows:
         with np.load(dataset_dir / row["patch_path"]) as data:
             mask = data["mask"]
-        positive += int(mask.sum())
-        total += int(mask.size)
-    negative = max(0, total - positive)
+        positive += int((mask == 1).sum())
+        negative += int((mask == 0).sum())
     if positive == 0:
-        raise ValueError("Training split contains zero positive pixels")
+        raise ValueError("Training split contains zero positive, non-ignored pixels")
     return float(min(cap, max(1.0, negative / positive)))
 
 
@@ -128,48 +247,108 @@ class MiniUNet(nn.Module):
         return self.head(dec1)
 
 
-def soft_dice_loss(logits: torch.Tensor, target: torch.Tensor, epsilon: float = 1.0) -> torch.Tensor:
-    probabilities = torch.sigmoid(logits)
-    intersection = (probabilities * target).sum(dim=(1, 2, 3))
-    denominator = probabilities.sum(dim=(1, 2, 3)) + target.sum(dim=(1, 2, 3))
+def masked_bce_with_logits(
+    logits: torch.Tensor,
+    target: torch.Tensor,
+    pos_weight: torch.Tensor | None = None,
+    ignore_index: int = IGNORE_INDEX,
+) -> torch.Tensor:
+    """Mean BCE over non-ignored pixels only."""
+    valid = target != ignore_index
+    safe_target = torch.where(valid, target, torch.zeros_like(target))
+    elementwise = F.binary_cross_entropy_with_logits(
+        logits, safe_target, pos_weight=pos_weight, reduction="none"
+    )
+    valid_float = valid.to(elementwise.dtype)
+    valid_count = valid_float.sum()
+    if not bool(valid_count.item()):
+        return logits.sum() * 0.0
+    return (elementwise * valid_float).sum() / valid_count
+
+
+def soft_dice_loss(
+    logits: torch.Tensor,
+    target: torch.Tensor,
+    epsilon: float = 1.0,
+    ignore_index: int = IGNORE_INDEX,
+) -> torch.Tensor:
+    """Per-patch soft Dice loss with ignored pixels removed from both terms."""
+    valid = target != ignore_index
+    valid_float = valid.to(logits.dtype)
+    truth = (target == 1).to(logits.dtype)
+    probabilities = torch.sigmoid(logits) * valid_float
+    intersection = (probabilities * truth).sum(dim=(1, 2, 3))
+    denominator = probabilities.sum(dim=(1, 2, 3)) + truth.sum(dim=(1, 2, 3))
+    has_valid = valid.flatten(1).any(dim=1)
+    if not bool(has_valid.any().item()):
+        return logits.sum() * 0.0
     dice = (2.0 * intersection + epsilon) / (denominator + epsilon)
-    return 1.0 - dice.mean()
+    return 1.0 - dice[has_valid].mean()
+
+
+def segmentation_loss(
+    logits: torch.Tensor,
+    target: torch.Tensor,
+    pos_weight: torch.Tensor | None = None,
+) -> torch.Tensor:
+    return masked_bce_with_logits(logits, target, pos_weight) + soft_dice_loss(logits, target)
+
+
+def confusion_counts(logits: torch.Tensor, target: torch.Tensor) -> dict[str, int]:
+    valid = target != IGNORE_INDEX
+    prediction = torch.sigmoid(logits) >= 0.5
+    truth = target == 1
+    return {
+        "tp": int((valid & prediction & truth).sum().item()),
+        "fp": int((valid & prediction & ~truth).sum().item()),
+        "fn": int((valid & ~prediction & truth).sum().item()),
+        "tn": int((valid & ~prediction & ~truth).sum().item()),
+        "ignored": int((~valid).sum().item()),
+        "total": int(target.numel()),
+    }
+
+
+def metrics_from_counts(counts: Mapping[str, int]) -> dict[str, float]:
+    tp = int(counts.get("tp", 0))
+    fp = int(counts.get("fp", 0))
+    fn = int(counts.get("fn", 0))
+    tn = int(counts.get("tn", 0))
+    ignored = int(counts.get("ignored", 0))
+    total = int(counts.get("total", tp + fp + fn + tn + ignored))
+
+    def ratio(numerator: float, denominator: float) -> float:
+        return float(numerator / denominator) if denominator else 0.0
+
+    return {
+        "dice": ratio(2 * tp, 2 * tp + fp + fn),
+        "iou": ratio(tp, tp + fp + fn),
+        "precision": ratio(tp, tp + fp),
+        "recall": ratio(tp, tp + fn),
+        "specificity": ratio(tn, tn + fp),
+        "ignore_fraction": ratio(ignored, total),
+    }
 
 
 def evaluate(model: nn.Module, loader: DataLoader, device: torch.device) -> dict[str, float]:
     model.eval()
-    tp = fp = fn = tn = 0
+    counts = {key: 0 for key in ("tp", "fp", "fn", "tn", "ignored", "total")}
     total_loss = 0.0
     batches = 0
-    bce = nn.BCEWithLogitsLoss()
     with torch.no_grad():
         for features, target in loader:
             features = features.to(device)
             target = target.to(device)
             logits = model(features)
-            loss = bce(logits, target) + soft_dice_loss(logits, target)
-            total_loss += float(loss.item())
+            total_loss += float(segmentation_loss(logits, target).item())
             batches += 1
-            prediction = torch.sigmoid(logits) >= 0.5
-            truth = target >= 0.5
-            tp += int((prediction & truth).sum().item())
-            fp += int((prediction & ~truth).sum().item())
-            fn += int((~prediction & truth).sum().item())
-            tn += int((~prediction & ~truth).sum().item())
+            for key, value in confusion_counts(logits, target).items():
+                counts[key] += value
 
-    epsilon = 1e-9
-    return {
-        "loss": total_loss / max(1, batches),
-        "dice": (2 * tp) / max(epsilon, 2 * tp + fp + fn),
-        "iou": tp / max(epsilon, tp + fp + fn),
-        "precision": tp / max(epsilon, tp + fp),
-        "recall": tp / max(epsilon, tp + fn),
-        "specificity": tn / max(epsilon, tn + fp),
-    }
+    return {"loss": total_loss / max(1, batches), **metrics_from_counts(counts)}
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Train a tile-split Oregon landslide segmentation baseline.")
+    parser = argparse.ArgumentParser(description="Train an ignore-aware rural landslide segmentation baseline.")
     parser.add_argument("--dataset-dir", type=Path, default=Path("dataset_pilot"))
     parser.add_argument("--outdir", type=Path, default=Path("training_output"))
     parser.add_argument("--epochs", type=int, default=15)
@@ -178,11 +357,27 @@ def main() -> int:
     parser.add_argument("--num-workers", type=int, default=0)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument(
+        "--training-region",
+        help=(
+            "Region ID to use for both training and model-selection validation. "
+            "Required when the manifest train split contains multiple train_val regions."
+        ),
+    )
+    parser.add_argument(
         "--require-qc",
         action="store_true",
         help="Use only rows with qc_status accept/accept_approximate_boundary.",
     )
+    parser.add_argument(
+        "--device",
+        choices=("auto", "cuda", "cpu"),
+        default="auto",
+        help="Training device. Default: cuda if available, otherwise cpu.",
+    )
     args = parser.parse_args()
+
+    if args.device == "cuda" and not torch.cuda.is_available():
+        parser.error("--device cuda was requested but torch.cuda.is_available() is False")
 
     random.seed(args.seed)
     np.random.seed(args.seed)
@@ -198,14 +393,30 @@ def main() -> int:
         parser.error("Dataset is missing patches.csv/patches_qc.csv or channels.json; run build_dataset.py first")
 
     rows = read_manifest(manifest_path)
-    train_rows = filter_rows(rows, "train", args.require_qc)
-    validation_rows = filter_rows(rows, "validation", args.require_qc)
+    try:
+        train_rows, training_regions = select_training_rows(
+            rows, args.require_qc, args.training_region
+        )
+        training_region = next(iter(training_regions))
+        validation_rows, excluded_validation_regions = select_validation_rows(
+            rows, training_region, args.require_qc
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
     test_rows = filter_rows(rows, "test", args.require_qc)
-    if not train_rows:
-        parser.error("No training rows after filtering")
 
     channels = json.loads(channels_path.read_text(encoding="utf-8"))["feature_names"]
+    try:
+        validate_channels(channels)
+    except ValueError as exc:
+        parser.error(str(exc))
     print(f"Rows: train={len(train_rows)}, validation={len(validation_rows)}, test={len(test_rows)}")
+    print(f"Training region: {training_region!r} (role='train_val')")
+    if excluded_validation_regions:
+        print(
+            "Excluded validation rows from non-training regions: "
+            + ", ".join(excluded_validation_regions)
+        )
     print(f"Channels ({len(channels)}): {channels}")
 
     output_dir = args.outdir.resolve()
@@ -217,7 +428,7 @@ def main() -> int:
     (output_dir / "normalization.json").write_text(json.dumps(normalization, indent=2), encoding="utf-8")
 
     pos_weight = compute_pos_weight(dataset_dir, train_rows)
-    print(f"Positive-class weight: {pos_weight:.3f}")
+    print(f"Positive-class weight (ignored pixels excluded): {pos_weight:.3f}")
 
     train_dataset = PatchDataset(dataset_dir, train_rows, mean, std)
     validation_dataset = PatchDataset(dataset_dir, validation_rows, mean, std)
@@ -234,15 +445,19 @@ def main() -> int:
     validation_loader = DataLoader(validation_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.num_workers)
     test_loader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.num_workers)
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if args.device == "auto":
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    else:
+        device = torch.device(args.device)
     model = MiniUNet(len(channels)).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate)
-    bce = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([pos_weight], device=device))
+    pos_weight_tensor = torch.tensor(pos_weight, device=device)
 
     history: list[dict[str, Any]] = []
     best_score = -1.0
     best_path = output_dir / "best_model.pt"
-    print(f"Training on {device}")
+    device_name = torch.cuda.get_device_name(device) if device.type == "cuda" else "cpu"
+    print(f"Training on {device} ({device_name})")
 
     for epoch in range(1, args.epochs + 1):
         model.train()
@@ -253,7 +468,7 @@ def main() -> int:
             target = target.to(device)
             optimizer.zero_grad(set_to_none=True)
             logits = model(features)
-            loss = bce(logits, target) + soft_dice_loss(logits, target)
+            loss = segmentation_loss(logits, target, pos_weight_tensor)
             loss.backward()
             optimizer.step()
             running_loss += float(loss.item())
@@ -264,7 +479,11 @@ def main() -> int:
             validation_metrics = evaluate(model, validation_loader, device)
             selection_score = validation_metrics["dice"]
         else:
-            validation_metrics = {"loss": float("nan"), "dice": float("nan"), "iou": float("nan"), "precision": float("nan"), "recall": float("nan"), "specificity": float("nan")}
+            validation_metrics = {
+                "loss": float("nan"), "dice": float("nan"), "iou": float("nan"),
+                "precision": float("nan"), "recall": float("nan"),
+                "specificity": float("nan"), "ignore_fraction": float("nan"),
+            }
             selection_score = -train_loss
 
         record = {
@@ -275,7 +494,8 @@ def main() -> int:
         history.append(record)
         print(
             f"Epoch {epoch:03d}/{args.epochs} | train loss {train_loss:.4f} | "
-            f"val Dice {validation_metrics['dice']:.4f} | val IoU {validation_metrics['iou']:.4f}"
+            f"val Dice {validation_metrics['dice']:.4f} | val IoU {validation_metrics['iou']:.4f} | "
+            f"val ignored {validation_metrics['ignore_fraction']:.2%}"
         )
 
         if selection_score > best_score:
@@ -288,6 +508,7 @@ def main() -> int:
                     "std": std,
                     "epoch": epoch,
                     "validation_metrics": validation_metrics,
+                    "training_regions": training_regions,
                 },
                 best_path,
             )
@@ -306,6 +527,8 @@ def main() -> int:
         "train_rows": len(train_rows),
         "validation_rows": len(validation_rows),
         "test_rows": len(test_rows),
+        "training_regions": training_regions,
+        "excluded_validation_regions": excluded_validation_regions,
         "require_qc": args.require_qc,
     }
     (output_dir / "metrics.json").write_text(json.dumps(final_metrics, indent=2), encoding="utf-8")

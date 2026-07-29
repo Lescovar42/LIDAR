@@ -8,10 +8,12 @@ Keyboard shortcuts
 ------------------
 A  accept
 B  accept_approximate_boundary
+L  unmapped_landslide_suspected
 M  reject_misaligned
 V  reject_not_visible
 E  reject_engineered_landform
 D  reject_bad_dem
+T  reject_vintage_mismatch
 U  clear / unreviewed
 
 Right / Space / PageDown   next patch
@@ -56,10 +58,12 @@ from matplotlib.patches import Rectangle
 QC_OPTIONS: tuple[tuple[str, str, str], ...] = (
     ("A", "accept", "Accept"),
     ("B", "accept_approximate_boundary", "Accept approximate boundary"),
+    ("L", "unmapped_landslide_suspected", "Unmapped landslide suspected"),
     ("M", "reject_misaligned", "Reject: misaligned"),
     ("V", "reject_not_visible", "Reject: not visible / unclear"),
     ("E", "reject_engineered_landform", "Reject: engineered landform"),
     ("D", "reject_bad_dem", "Reject: bad DEM"),
+    ("T", "reject_vintage_mismatch", "Reject: vintage mismatch"),
     ("U", "", "Clear / unreviewed"),
 )
 ACCEPTED_QC = {"accept", "accept_approximate_boundary"}
@@ -138,8 +142,56 @@ def robust_limits(array: np.ndarray) -> tuple[float, float]:
     return float(low), float(high)
 
 
+def slido_mask_visuals(mask: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """Return an RGBA overlay and a positive-only mask for contouring.
+
+    Binary masks remain 0=background and 1=positive. Three-state masks add
+    255=ignore, shown in blue and deliberately excluded from the contour mask.
+    """
+    values = np.asarray(mask)
+    if values.ndim != 2:
+        raise ValueError(f"Expected a 2D SLIDO mask, found shape {values.shape}")
+
+    positive = values == 1
+    ignored = values == 255
+    overlay = np.zeros((*values.shape, 4), dtype=np.float32)
+    overlay[positive] = (1.0, 0.0, 0.0, 0.50)
+    overlay[ignored] = (0.10, 0.35, 1.0, 0.50)
+    return overlay, positive.astype(np.uint8)
+
+
 def parse_bool(value: str) -> bool:
     return value.strip().casefold() in {"true", "1", "yes", "y"}
+
+
+def parse_optional_int(value: Any) -> int | None:
+    if value in (None, ""):
+        return None
+    try:
+        return int(float(str(value).strip()))
+    except (TypeError, ValueError):
+        return None
+
+
+def vintage_context(
+    row: dict[str, str], naip_record: dict[str, str]
+) -> tuple[int | None, int | None, int | None, bool]:
+    """Resolve displayed vintage values, including legacy NAIP manifests."""
+    lidar_year = parse_optional_int(
+        naip_record.get("lidar_year") or row.get("lidar_year")
+    )
+    naip_year = parse_optional_int(naip_record.get("naip_year"))
+    year_gap = parse_optional_int(naip_record.get("year_gap"))
+    if year_gap is None and lidar_year is not None and naip_year is not None:
+        year_gap = naip_year - lidar_year
+
+    raw_flag = naip_record.get("gap_flag", "").strip()
+    gap_flag = (
+        parse_bool(raw_flag)
+        if raw_flag
+        else year_gap is not None and abs(year_gap) > 2
+    )
+    return lidar_year, naip_year, year_gap, gap_flag
 
 
 def load_naip_manifest(path: Path) -> dict[str, dict[str, str]]:
@@ -273,6 +325,7 @@ class PatchQCViewer:
         self.progress_var = tk.StringVar()
         self.status_var = tk.StringVar()
         self.metadata_var = tk.StringVar()
+        self.vintage_warning_var = tk.StringVar()
         self.search_var = tk.StringVar()
 
         self.root.title("Oregon LiDAR / SLIDO / NAIP Patch QC")
@@ -308,6 +361,16 @@ class PatchQCViewer:
             padding=(10, 0, 10, 5),
             font=("Consolas", 9),
         ).pack(fill=tk.X)
+
+        self.vintage_warning_label = tk.Label(
+            self.root,
+            textvariable=self.vintage_warning_var,
+            anchor=tk.CENTER,
+            font=("Segoe UI", 10, "bold"),
+            padx=10,
+            pady=3,
+        )
+        self.vintage_warning_label.pack(fill=tk.X)
 
         self.figure = Figure(figsize=(15, 8), dpi=100, constrained_layout=True)
         self.axes = [self.figure.add_subplot(2, 3, i + 1) for i in range(6)]
@@ -487,6 +550,27 @@ class PatchQCViewer:
         slope_max = max(45.0, float(np.nanpercentile(slope, 99)))
 
         naip_record = self.naip_by_patch.get(row.get("patch_id", ""), {})
+        lidar_year, naip_year, year_gap, gap_flag = vintage_context(
+            row, naip_record
+        )
+        if gap_flag:
+            self.vintage_warning_var.set(
+                "WARNING: LiDAR/NAIP vintage mismatch exceeds 2 years; "
+                "do not interpret land-cover differences as terrain change."
+            )
+            self.vintage_warning_label.configure(
+                background="#8B0000", foreground="white"
+            )
+        else:
+            self.vintage_warning_var.set(
+                "LiDAR/NAIP vintage gap is within 2 years."
+                if year_gap is not None
+                else "LiDAR/NAIP vintage gap unavailable."
+            )
+            self.vintage_warning_label.configure(
+                background=self.root.cget("background"), foreground="black"
+            )
+
         naip_relative = naip_record.get("naip_path", "")
         naip_metadata: dict[str, Any] = {}
         if naip_relative:
@@ -510,7 +594,11 @@ class PatchQCViewer:
 
                     for axis_index, image, title in (
                         (0, true_color, "NAIP natural color — context"),
-                        (1, true_color, "NAIP natural color + SLIDO"),
+                        (
+                            1,
+                            true_color,
+                            "NAIP + SLIDO (red=positive, blue=ignore)",
+                        ),
                         (2, false_color, "NAIP color infrared (NIR/R/G)"),
                     ):
                         self.axes[axis_index].imshow(
@@ -533,20 +621,16 @@ class PatchQCViewer:
                         self.axes[axis_index].set_ylim(cy0, cy1)
                         self.axes[axis_index].set_title(title)
 
-                    naip_overlay = np.ma.masked_where(mask == 0, mask)
+                    naip_overlay, positive_contour = slido_mask_visuals(mask)
                     self.axes[1].imshow(
                         naip_overlay,
                         extent=patch_extent,
                         origin="upper",
-                        cmap="Reds",
-                        alpha=0.48,
-                        vmin=0,
-                        vmax=1,
                         interpolation="nearest",
                     )
-                    if mask.min() != mask.max():
+                    if positive_contour.any() and not positive_contour.all():
                         self.axes[1].contour(
-                            mask,
+                            positive_contour,
                             levels=[0.5],
                             colors="red",
                             linewidths=1.1,
@@ -563,18 +647,17 @@ class PatchQCViewer:
                             resample=Image.Resampling.NEAREST,
                         )
                     )
+                    legacy_overlay, _ = slido_mask_visuals(mask_small)
                     self.axes[0].imshow(true_color, interpolation="nearest")
                     self.axes[0].set_title("NAIP true color — legacy cache")
                     self.axes[1].imshow(true_color, interpolation="nearest")
                     self.axes[1].imshow(
-                        np.ma.masked_where(mask_small == 0, mask_small),
-                        cmap="Reds",
-                        alpha=0.48,
-                        vmin=0,
-                        vmax=1,
+                        legacy_overlay,
                         interpolation="nearest",
                     )
-                    self.axes[1].set_title("NAIP + SLIDO — legacy cache")
+                    self.axes[1].set_title(
+                        "NAIP + SLIDO — legacy cache (red=positive, blue=ignore)"
+                    )
                     self.axes[2].imshow(false_color, interpolation="nearest")
                     self.axes[2].set_title("NAIP color infrared — legacy cache")
             except Exception as exc:
@@ -604,13 +687,27 @@ class PatchQCViewer:
         self.axes[4].imshow(slope, cmap="magma", vmin=0, vmax=slope_max)
         self.axes[4].set_title("LiDAR slope (degrees)")
         self.axes[5].imshow(hillshade, cmap="gray", vmin=hmin, vmax=hmax)
-        overlay = np.ma.masked_where(mask == 0, mask)
-        self.axes[5].imshow(overlay, cmap="Reds", alpha=0.50, vmin=0, vmax=1)
-        if mask.min() != mask.max():
-            self.axes[5].contour(mask, levels=[0.5], colors="red", linewidths=1.1)
-        self.axes[5].set_title("LiDAR + SLIDO ground truth")
+        lidar_overlay, positive_contour = slido_mask_visuals(mask)
+        self.axes[5].imshow(lidar_overlay, interpolation="nearest")
+        if positive_contour.any() and not positive_contour.all():
+            self.axes[5].contour(
+                positive_contour, levels=[0.5], colors="red", linewidths=1.1
+            )
+        self.axes[5].set_title(
+            "LiDAR + SLIDO ground truth (red=positive, blue=ignore)"
+        )
 
-        self.figure.suptitle(f"{row.get('patch_id', '')}\n{row.get('tile_name', '')}", fontsize=12)
+        lidar_year_text = str(lidar_year) if lidar_year is not None else "unknown"
+        naip_year_text = str(naip_year) if naip_year is not None else "unknown"
+        gap_text = f"{year_gap:+d} years" if year_gap is not None else "unknown"
+        warning_title = " | VINTAGE WARNING" if gap_flag else ""
+        self.figure.suptitle(
+            f"{row.get('patch_id', '')}\n{row.get('tile_name', '')}\n"
+            f"LiDAR {lidar_year_text} | NAIP {naip_year_text} | "
+            f"gap {gap_text}{warning_title}",
+            fontsize=12,
+            color="darkred" if gap_flag else "black",
+        )
         self.canvas.draw_idle()
 
         self.notes.delete("1.0", tk.END)
@@ -619,7 +716,7 @@ class PatchQCViewer:
         self.notes_dirty = False
         self.search_var.set(row.get("patch_id", ""))
 
-        positive = float(row.get("positive_fraction") or mask.mean())
+        positive = float(row.get("positive_fraction") or np.mean(mask == 1))
         ground = float(row.get("ground_fraction") or 0)
         mean_slope = float(row.get("mean_slope_degrees") or np.nanmean(slope))
         self.metadata_var.set(
@@ -629,8 +726,9 @@ class PatchQCViewer:
             f"row/col={row.get('row_offset', '')}/{row.get('col_offset', '')}    "
             f"CRS={row.get('crs', '')}    distance to positive={row.get('distance_to_positive_m', '')} m\n"
             f"SLIDO refs in tile={row.get('slido_ref_ids_in_tile', '')}\n"
-            f"NAIP year={naip_record.get('naip_year', '') or 'not cached'}    "
-            f"resolution={naip_record.get('naip_resolution_m', '')} m    "
+            f"LiDAR year={lidar_year_text}    NAIP year={naip_year_text}    "
+            f"year gap={gap_text}    gap flag={gap_flag}\n"
+            f"NAIP resolution={naip_record.get('naip_resolution_m', '')} m    "
             f"valid={naip_record.get('naip_valid_fraction', '')}    "
             f"NIR={naip_record.get('naip_has_nir', '')}"
         )
@@ -746,7 +844,7 @@ def main() -> int:
     print(f"Loaded {len(rows)} patch(es); showing {len(indices)}")
     print(f"QC status counts: {dict(counts)}")
     print(f"Saving decisions to: {output_path}")
-    print("Keyboard: A/B/M/V/E/D/U, arrows, Ctrl+S, Q")
+    print("Keyboard: A/B/L/M/V/E/D/T/U, arrows, Ctrl+S, Q")
 
     root = tk.Tk()
     try:
