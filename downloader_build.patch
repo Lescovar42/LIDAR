@@ -1,0 +1,681 @@
+--- a/oregon/download_tiles.py
++++ b/oregon/download_tiles.py
+@@ -1,20 +1,46 @@
+-"""Resume-safe, budgeted downloader for selected TNM LiDAR tiles."""
++"""Resume-safe, budgeted downloader for selected TNM LiDAR tiles.
++
++The downloader accepts both normal selections (a JSON list of tile records) and
++probe selections emitted by ``select_tiles.py --probe`` (a JSON mapping from
++project name to a list of co-located tile records). Probe groups are written to
++separate project directories so they can be passed directly to
++``diagnostics/probe_tiles.py``.
++"""
+ from __future__ import annotations
+ 
+ import argparse
+ import csv
+ import json
+ import os
++import re
+ import sys
+ import time
+ from collections import defaultdict
+ from pathlib import Path
+-from typing import Any, Callable, Mapping
++from typing import Any, Callable, Mapping, Sequence
+ from urllib.parse import unquote, urlparse
+ 
+ import requests
+ 
+-LOG_FIELDS = ("tile", "url", "region", "path", "bytes", "elapsed_seconds", "status", "error")
++LOG_FIELDS = (
++    "tile",
++    "url",
++    "region",
++    "path",
++    "bytes",
++    "elapsed_seconds",
++    "status",
++    "error",
++)
++_SELECTION_LIST_KEYS = ("items", "features", "selected_tiles", "tiles", "records")
++_WINDOWS_RESERVED_NAMES = {
++    "CON",
++    "PRN",
++    "AUX",
++    "NUL",
++    *(f"COM{index}" for index in range(1, 10)),
++    *(f"LPT{index}" for index in range(1, 10)),
++}
+ 
+ 
+ def _filename(url: str, tile: Mapping[str, Any]) -> str:
+@@ -32,28 +58,153 @@
+         return 0
+ 
+ 
++def _size_matches(actual: int, expected: int) -> bool:
++    """Apply exact checks to small fixtures and a 1 KiB tolerance to real tiles."""
++    if expected <= 0:
++        return actual > 0
++    tolerance = 0 if expected < 1_000_000 else 1024
++    return abs(actual - expected) <= tolerance
++
++
+ def _write_log(path: Path, rows: list[dict[str, Any]]) -> None:
+     path.parent.mkdir(parents=True, exist_ok=True)
+-    with path.open("w", newline="", encoding="utf-8") as handle:
++    temporary = path.with_name(path.name + ".tmp")
++    with temporary.open("w", newline="", encoding="utf-8") as handle:
+         writer = csv.DictWriter(handle, fieldnames=LOG_FIELDS)
+         writer.writeheader()
+         writer.writerows(rows)
++    os.replace(temporary, path)
++
++
++def _safe_component(value: Any, *, label: str, sanitize: bool = False) -> str:
++    text = str(value or "").strip()
++    if sanitize:
++        text = re.sub(r'[<>:"/\\|?*\x00-\x1f]+', "_", text)
++        text = re.sub(r"\s+", "_", text).strip(" ._")
++        if text.upper() in _WINDOWS_RESERVED_NAMES:
++            text += "_"
++    component = Path(text)
++    if (
++        not text
++        or component.is_absolute()
++        or component.name != text
++        or text in {".", ".."}
++    ):
++        raise ValueError(f"{label} must resolve to one safe directory name: {value!r}")
++    return text
+ 
+ 
+ def _region_directory(root: Path, region: Any) -> Path:
+     if region in (None, ""):
+         return root
+-    value = str(region)
+-    component = Path(value)
+-    if component.is_absolute() or component.name != value or value in {".", ".."}:
+-        raise ValueError(f"region must be a single safe directory name: {value!r}")
+-    destination = (root / component).resolve()
++    value = _safe_component(region, label="region")
++    destination = (root / value).resolve()
+     resolved_root = root.resolve()
+     if resolved_root not in destination.parents:
+-        raise ValueError(f"region escapes output directory: {value!r}")
++        raise ValueError(f"region escapes output directory: {region!r}")
+     return destination
+ 
+ 
++def _destination_directory(root: Path, region: Any, group: str | None) -> Path:
++    destination = _region_directory(root, region)
++    if group not in (None, ""):
++        group_component = _safe_component(group, label="project group", sanitize=True)
++        destination = (destination / group_component).resolve()
++        resolved_root = root.resolve()
++        if resolved_root not in destination.parents:
++            raise ValueError(f"project group escapes output directory: {group!r}")
++    return destination
++
++
++def _validate_tile_list(value: Any, *, context: str) -> list[dict[str, Any]]:
++    if not isinstance(value, list):
++        raise ValueError(f"{context} must contain a list of tile records")
++    output: list[dict[str, Any]] = []
++    for index, tile in enumerate(value):
++        if not isinstance(tile, Mapping):
++            raise ValueError(f"{context}[{index}] is not a tile record")
++        output.append(dict(tile))
++    return output
++
++
++def _load_selection(path: Path) -> tuple[list[tuple[str | None, dict[str, Any]]], str]:
++    """Load normal, wrapped, or project-grouped selection JSON.
++
++    Returns ``(entries, format_name)`` where every entry is ``(group, tile)``.
++    ``group`` is populated only for project-keyed probe output.
++    """
++    with path.open(encoding="utf-8") as handle:
++        raw = json.load(handle)
++
++    if isinstance(raw, list):
++        return [(None, tile) for tile in _validate_tile_list(raw, context="subset JSON")], "list"
++
++    if not isinstance(raw, Mapping):
++        raise ValueError("subset JSON must contain a tile list or a project-to-list mapping")
++
++    for key in _SELECTION_LIST_KEYS:
++        if key in raw:
++            tiles = _validate_tile_list(raw[key], context=f"subset JSON field {key!r}")
++            return [(None, tile) for tile in tiles], f"wrapped:{key}"
++
++    if not raw:
++        return [], "grouped"
++
++    if not all(isinstance(value, list) for value in raw.values()):
++        raise ValueError(
++            "subset JSON object must contain one supported tile-list field or map every project to a tile list"
++        )
++
++    entries: list[tuple[str | None, dict[str, Any]]] = []
++    safe_groups: dict[str, str] = {}
++    for project, value in raw.items():
++        project_name = str(project).strip()
++        safe_name = _safe_component(project_name, label="project group", sanitize=True)
++        collision_key = safe_name.casefold()
++        previous = safe_groups.get(collision_key)
++        if previous is not None and previous != project_name:
++            raise ValueError(
++                f"project names {previous!r} and {project_name!r} map to the same output directory {safe_name!r}"
++            )
++        safe_groups[collision_key] = project_name
++        tiles = _validate_tile_list(value, context=f"project group {project_name!r}")
++        entries.extend((project_name, tile) for tile in tiles)
++    return entries, "grouped"
++
++
++def _relative_directory(root: Path, directory: Path) -> str:
++    try:
++        return directory.resolve().relative_to(root.resolve()).as_posix()
++    except ValueError:
++        return str(directory)
++
++
++def _preflight_destinations(
++    entries: Sequence[tuple[str | None, Mapping[str, Any]]],
++    *,
++    root: Path,
++    region: str | None,
++) -> None:
++    """Reject output collisions before any transport call or file deletion."""
++    destinations: dict[str, tuple[str, str]] = {}
++    for group, tile in entries:
++        url = str(tile.get("downloadURL") or tile.get("downloadUrl") or tile.get("download_url") or "")
++        tile_region = region or tile.get("region_id") or tile.get("_region_id")
++        directory = _destination_directory(root, tile_region, group)
++        filename = _filename(url, tile)
++        key = str((directory / filename).resolve()).casefold()
++        identity = (
++            url,
++            str(tile.get("title") or tile.get("tile_id") or filename),
++        )
++        previous = destinations.get(key)
++        if previous is not None and previous != identity:
++            raise ValueError(
++                f"multiple tile records resolve to the same output path: {directory / filename}"
++            )
++        destinations[key] = identity
++
++
+ def download_tiles(
+     subset_path: str | Path,
+     outdir: str | Path,
+@@ -65,36 +216,46 @@
+     timeout: float = 120,
+     clock: Callable[[], float] = time.perf_counter,
+ ) -> dict[str, Any]:
+-    """Download a JSON tile list, with injectable transport for offline tests.
++    """Download selected tiles with resume, integrity, and byte-budget guards.
+ 
+-    The original ``download_tiles(subset_path, outdir)`` call remains valid.
+-    A supplied region writes beneath ``outdir/region``; otherwise a tile's
+-    ``region_id``/``_region_id`` is honored when present.
++    Supported subset formats:
++
++    * a normal JSON list of tile records;
++    * a wrapper such as ``{"items": [...]}``; or
++    * the project-keyed mapping written by ``select_tiles.py --probe``.
++
++    For grouped probe selections, each project is written below its own safe
++    subdirectory. A supplied region is retained as the parent directory, so the
++    layout becomes ``outdir/region/project``.
+     """
+     if max_total_gb is not None and max_total_gb < 0:
+         raise ValueError("max_total_gb must be non-negative")
+-    with Path(subset_path).open(encoding="utf-8") as handle:
+-        tiles = json.load(handle)
+-    if not isinstance(tiles, list):
+-        raise ValueError("subset JSON must contain a list of tile records")
+ 
++    subset = Path(subset_path)
++    entries, selection_format = _load_selection(subset)
+     root = Path(outdir)
+     root.mkdir(parents=True, exist_ok=True)
++    _preflight_destinations(entries, root=root, region=region)
++
+     transport = session or requests
+     budget_bytes = int(max_total_gb * 1_000_000_000) if max_total_gb is not None else None
+     committed_bytes = 0
+     rows_by_directory: dict[Path, list[dict[str, Any]]] = defaultdict(list)
+-    downloaded = skipped = budget_skipped = 0
++    downloaded = skipped = budget_skipped = no_url_skipped = 0
+     failures: list[tuple[str, str]] = []
+ 
+-    print(f"Downloading {len(tiles)} tile(s) to {root}")
++    groups = sorted({group for group, _ in entries if group is not None}, key=str.casefold)
++    print(f"Downloading {len(entries)} tile(s) to {root}")
++    print(f"Selection format: {selection_format}")
++    if groups:
++        print("Project groups: " + ", ".join(groups))
+     if budget_bytes is not None:
+-        print(f"Run budget: {budget_bytes / 1e9:.3f} GB")
++        print(f"Total on-disk budget for this selection: {budget_bytes / 1e9:.3f} GB")
+ 
+-    for index, tile in enumerate(tiles, 1):
++    for index, (group, tile) in enumerate(entries, 1):
+         url = str(tile.get("downloadURL") or tile.get("downloadUrl") or tile.get("download_url") or "")
+         tile_region = region or tile.get("region_id") or tile.get("_region_id")
+-        destination_dir = _region_directory(root, tile_region)
++        destination_dir = _destination_directory(root, tile_region, group)
+         destination_dir.mkdir(parents=True, exist_ok=True)
+         started = clock()
+         filename = _filename(url, tile)
+@@ -104,7 +265,7 @@
+         record = {
+             "tile": str(tile.get("title") or tile.get("tile_id") or filename),
+             "url": url,
+-            "region": str(tile_region or ""),
++            "region": _relative_directory(root, destination_dir),
+             "path": str(out_path),
+             "bytes": 0,
+             "elapsed_seconds": 0.0,
+@@ -113,40 +274,53 @@
+         }
+ 
+         if not url:
++            no_url_skipped += 1
+             record["status"] = "skipped_no_url"
+             record["elapsed_seconds"] = round(clock() - started, 6)
+             rows_by_directory[destination_dir].append(record)
+-            print(f"  [{index}/{len(tiles)}] SKIP: no downloadURL for {record['tile']}")
++            print(f"  [{index}/{len(entries)}] SKIP: no downloadURL for {record['tile']}")
+             continue
+ 
+         if out_path.exists():
+             actual_size = out_path.stat().st_size
+-            size_matches = abs(actual_size - expected_size) < 1024 if expected_size else actual_size > 0
+-            if size_matches:
++            if _size_matches(actual_size, expected_size):
++                if budget_bytes is not None and committed_bytes + actual_size > budget_bytes:
++                    raise RuntimeError(
++                        "existing selected files already exceed --max-total-gb; "
++                        "increase the budget or use a different output directory"
++                    )
+                 committed_bytes += actual_size
+                 skipped += 1
+-                record.update(bytes=actual_size, elapsed_seconds=round(clock() - started, 6), status="skipped_existing")
++                record.update(
++                    bytes=actual_size,
++                    elapsed_seconds=round(clock() - started, 6),
++                    status="skipped_existing",
++                )
+                 rows_by_directory[destination_dir].append(record)
+-                print(f"  [{index}/{len(tiles)}] SKIP (already downloaded): {filename}")
++                print(f"  [{index}/{len(entries)}] SKIP (already downloaded): {filename}")
+                 continue
+-            print(f"  [{index}/{len(tiles)}] Existing size mismatch; re-downloading: {filename}")
++            print(f"  [{index}/{len(entries)}] Existing size mismatch; re-downloading: {filename}")
+             out_path.unlink()
+ 
+         if budget_bytes is not None and expected_size and committed_bytes + expected_size > budget_bytes:
+             budget_skipped += 1
+             record.update(elapsed_seconds=round(clock() - started, 6), status="skipped_budget")
+             rows_by_directory[destination_dir].append(record)
+-            print(f"  [{index}/{len(tiles)}] BUDGET STOP: {filename}")
++            print(f"  [{index}/{len(entries)}] BUDGET STOP: {filename}")
+             continue
+ 
+         bytes_written = 0
+         try:
+             if part_path.exists():
+                 part_path.unlink()
+-            print(f"  [{index}/{len(tiles)}] Downloading: {filename} ({expected_size / 1e6:.1f} MB)")
++            print(f"  [{index}/{len(entries)}] Downloading: {filename} ({expected_size / 1e6:.1f} MB)")
+             response = transport.get(url, stream=True, timeout=timeout)
+             response.raise_for_status()
+-            total_length = expected_size or int(response.headers.get("content-length", 0))
++            try:
++                response_size = max(0, int((response.headers or {}).get("content-length", 0) or 0))
++            except (TypeError, ValueError):
++                response_size = 0
++            authoritative_size = expected_size or response_size
+             last_print = started
+             with part_path.open("wb") as output:
+                 for chunk in response.iter_content(chunk_size=8192):
+@@ -160,23 +334,41 @@
+                     if now - last_print > 0.5:
+                         elapsed = max(now - started, 1e-12)
+                         speed = (bytes_written / 1e6) / elapsed
+-                        if total_length:
+-                            sys.stdout.write(f"\r    {bytes_written / total_length * 100:.1f}% | {speed:.2f} MB/s")
++                        if authoritative_size:
++                            sys.stdout.write(
++                                f"\r    {bytes_written / authoritative_size * 100:.1f}% | {speed:.2f} MB/s"
++                            )
+                         else:
+                             sys.stdout.write(f"\r    {bytes_written / 1e6:.1f} MB | {speed:.2f} MB/s")
+                         sys.stdout.flush()
+                         last_print = now
++                output.flush()
++                os.fsync(output.fileno())
++
++            if authoritative_size and not _size_matches(bytes_written, authoritative_size):
++                raise RuntimeError(
++                    f"downloaded size mismatch for {filename}: expected {authoritative_size}, got {bytes_written}"
++                )
++
+             os.replace(part_path, out_path)
+             committed_bytes += bytes_written
+             downloaded += 1
+-            record.update(bytes=bytes_written, elapsed_seconds=round(clock() - started, 6), status="downloaded")
++            record.update(
++                bytes=bytes_written,
++                elapsed_seconds=round(clock() - started, 6),
++                status="downloaded",
++            )
+             print()
+         except Exception as exc:
+             if part_path.exists():
+                 part_path.unlink()
+-            # Remove only the temporary stream; mismatched finals were removed before retry.
+             failures.append((filename, str(exc)))
+-            record.update(bytes=bytes_written, elapsed_seconds=round(clock() - started, 6), status="failed", error=str(exc))
++            record.update(
++                bytes=bytes_written,
++                elapsed_seconds=round(clock() - started, 6),
++                status="failed",
++                error=str(exc),
++            )
+             print(f"\n    FAILED: {exc}")
+         rows_by_directory[destination_dir].append(record)
+ 
+@@ -190,31 +382,51 @@
+             _write_log(directory / "download_log.csv", rows)
+ 
+     summary = {
++        "selection_format": selection_format,
++        "project_groups": groups,
++        "selected": len(entries),
+         "downloaded": downloaded,
+         "skipped": skipped,
++        "no_url_skipped": no_url_skipped,
+         "budget_skipped": budget_skipped,
+         "failed": len(failures),
+         "bytes": committed_bytes,
+         "failures": failures,
+     }
+     print("\n--- Summary ---")
+-    print(f"Downloaded: {downloaded}; skipped: {skipped}; budget-skipped: {budget_skipped}; failed: {len(failures)}")
++    print(
++        f"Downloaded: {downloaded}; skipped: {skipped}; no-url: {no_url_skipped}; "
++        f"budget-skipped: {budget_skipped}; failed: {len(failures)}"
++    )
+     return summary
+ 
+ 
+ def main() -> int:
+-    parser = argparse.ArgumentParser(description="Download a selected LiDAR subset with resume and byte-budget guards.")
+-    parser.add_argument("--subset", required=True, type=Path, help="Path to selected tile JSON")
++    parser = argparse.ArgumentParser(
++        description="Download normal or grouped LiDAR selections with resume, integrity, and byte-budget guards."
++    )
++    parser.add_argument("--subset", required=True, type=Path, help="Selected tile JSON or project-grouped probe JSON")
+     parser.add_argument("--outdir", default=Path("./lidar_tiles"), type=Path, help="Base output directory")
+-    parser.add_argument("--region", help="Optional region subdirectory name")
+-    parser.add_argument("--max-total-gb", type=float, help="Maximum bytes committed by this invocation")
++    parser.add_argument("--region", help="Optional parent region subdirectory name")
++    parser.add_argument(
++        "--max-total-gb",
++        type=float,
++        help="Maximum total size of existing plus newly downloaded files from this selection",
++    )
+     parser.add_argument("--download-log", type=Path, help="Override download_log.csv path")
++    parser.add_argument("--timeout", type=float, default=120.0, help="Per-request timeout in seconds")
+     args = parser.parse_args()
+     if args.max_total_gb is not None and args.max_total_gb < 0:
+         parser.error("--max-total-gb must be non-negative")
++    if args.timeout <= 0:
++        parser.error("--timeout must be positive")
+     summary = download_tiles(
+-        args.subset, args.outdir, max_total_gb=args.max_total_gb,
+-        region=args.region, log_path=args.download_log,
++        args.subset,
++        args.outdir,
++        max_total_gb=args.max_total_gb,
++        region=args.region,
++        log_path=args.download_log,
++        timeout=args.timeout,
+     )
+     return 1 if summary["failed"] else 0
+ 
+--- a/tests/test_download_tiles.py
++++ b/tests/test_download_tiles.py
+@@ -8,23 +8,30 @@
+ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "oregon"))
+ from download_tiles import download_tiles
+ 
++
+ class Response:
+     headers = {}
+-    def __init__(self, chunks=None, error=None):
++
++    def __init__(self, chunks=None, error=None, headers=None):
+         self.chunks = chunks or []
+         self.error = error
++        self.headers = headers or {}
++
+     def raise_for_status(self):
+         return None
++
+     def iter_content(self, chunk_size=8192):
+         for chunk in self.chunks:
+             yield chunk
+         if self.error:
+             raise self.error
+ 
++
+ class Session:
+     def __init__(self, response):
+         self.response = response
+         self.calls = []
++
+     def get(self, url, **kwargs):
+         self.calls.append(url)
+         return self.response
+@@ -35,58 +42,185 @@
+         path = root / "tiles.json"
+         path.write_text(json.dumps(tiles), encoding="utf-8")
+         return path
++
+     def test_budget_stop_avoids_transport_call(self):
+         with tempfile.TemporaryDirectory() as raw:
+             root = Path(raw)
+-            subset = self.write_subset(root, [{"title":"large", "downloadURL":"https://x/large.laz", "sizeInBytes":2000}])
++            subset = self.write_subset(
++                root,
++                [{"title": "large", "downloadURL": "https://x/large.laz", "sizeInBytes": 2000}],
++            )
+             session = Session(Response([b"x"]))
+             summary = download_tiles(subset, root / "out", max_total_gb=0.000001, session=session)
+             self.assertEqual([], session.calls)
+             self.assertEqual(1, summary["budget_skipped"])
++
+     def test_size_match_resume_is_logged_and_skipped(self):
+         with tempfile.TemporaryDirectory() as raw:
+             root = Path(raw)
+             out = root / "out"
+             out.mkdir()
+             (out / "same.laz").write_bytes(b"abc")
+-            subset = self.write_subset(root, [{"title":"same", "downloadURL":"https://x/same.laz", "sizeInBytes":3}])
++            subset = self.write_subset(
++                root,
++                [{"title": "same", "downloadURL": "https://x/same.laz", "sizeInBytes": 3}],
++            )
+             session = Session(Response())
+             summary = download_tiles(subset, out, session=session)
+             self.assertEqual(1, summary["skipped"])
+             self.assertEqual([], session.calls)
+             with (out / "download_log.csv").open(newline="", encoding="utf-8") as handle:
+                 self.assertEqual("skipped_existing", next(csv.DictReader(handle))["status"])
++
+     def test_partial_file_is_removed_after_transport_failure(self):
+         with tempfile.TemporaryDirectory() as raw:
+             root = Path(raw)
+             out = root / "out"
+-            subset = self.write_subset(root, [{"title":"bad", "downloadURL":"https://x/bad.laz", "sizeInBytes":10}])
+-            summary = download_tiles(subset, out, session=Session(Response([b"abc"], RuntimeError("broken"))))
++            subset = self.write_subset(
++                root,
++                [{"title": "bad", "downloadURL": "https://x/bad.laz", "sizeInBytes": 10}],
++            )
++            summary = download_tiles(
++                subset,
++                out,
++                session=Session(Response([b"abc"], RuntimeError("broken"))),
++            )
+             self.assertEqual(1, summary["failed"])
+             self.assertFalse((out / "bad.laz").exists())
+             self.assertFalse((out / "bad.laz.part").exists())
++
+     def test_mismatched_final_is_removed_when_retry_fails(self):
+         with tempfile.TemporaryDirectory() as raw:
+             root = Path(raw)
+             out = root / "out"
+             out.mkdir()
+             (out / "bad.laz").write_bytes(b"stale")
+-            subset = self.write_subset(root, [{"title":"bad", "downloadURL":"https://x/bad.laz", "sizeInBytes":5000}])
+-            download_tiles(subset, out, session=Session(Response(error=RuntimeError("broken"))))
++            subset = self.write_subset(
++                root,
++                [{"title": "bad", "downloadURL": "https://x/bad.laz", "sizeInBytes": 5000}],
++            )
++            download_tiles(
++                subset,
++                out,
++                session=Session(Response(error=RuntimeError("broken"))),
++            )
+             self.assertFalse((out / "bad.laz").exists())
++
+     def test_region_cannot_escape_output_root(self):
+         with tempfile.TemporaryDirectory() as raw:
+             root = Path(raw)
+-            subset = self.write_subset(root, [{"title":"x", "downloadURL":"https://x/x.laz", "sizeInBytes":1}])
++            subset = self.write_subset(
++                root,
++                [{"title": "x", "downloadURL": "https://x/x.laz", "sizeInBytes": 1}],
++            )
+             with self.assertRaisesRegex(ValueError, "safe directory"):
+-                download_tiles(subset, root / "out", region="../escape", session=Session(Response([b"x"])))
++                download_tiles(
++                    subset,
++                    root / "out",
++                    region="../escape",
++                    session=Session(Response([b"x"])),
++                )
++
+     def test_region_uses_region_subdirectory(self):
+         with tempfile.TemporaryDirectory() as raw:
+             root = Path(raw)
+-            subset = self.write_subset(root, [{"title":"x", "downloadURL":"https://x/x.laz", "sizeInBytes":1}])
+-            download_tiles(subset, root / "out", region="r1", session=Session(Response([b"x"])))
++            subset = self.write_subset(
++                root,
++                [{"title": "x", "downloadURL": "https://x/x.laz", "sizeInBytes": 1}],
++            )
++            download_tiles(
++                subset,
++                root / "out",
++                region="r1",
++                session=Session(Response([b"x"])),
++            )
+             self.assertTrue((root / "out" / "r1" / "x.laz").exists())
+ 
++    def test_grouped_probe_selection_writes_one_directory_per_project(self):
++        with tempfile.TemporaryDirectory() as raw:
++            root = Path(raw)
++            subset = self.write_subset(
++                root,
++                {
++                    "USGS_LPC_OR_WesternWildfires_A22": [
++                        {"title": "a22", "downloadURL": "https://x/a22.laz", "sizeInBytes": 1}
++                    ],
++                    "USGS_LPC_legacy": [
++                        {"title": "legacy", "downloadURL": "https://x/legacy.laz", "sizeInBytes": 1}
++                    ],
++                },
++            )
++            summary = download_tiles(
++                subset,
++                root / "out",
++                region="tillamook_probe",
++                session=Session(Response([b"x"])),
++            )
++            self.assertEqual("grouped", summary["selection_format"])
++            self.assertEqual(2, summary["downloaded"])
++            self.assertTrue(
++                (
++                    root
++                    / "out"
++                    / "tillamook_probe"
++                    / "USGS_LPC_OR_WesternWildfires_A22"
++                    / "a22.laz"
++                ).is_file()
++            )
++            self.assertTrue(
++                (
++                    root
++                    / "out"
++                    / "tillamook_probe"
++                    / "USGS_LPC_legacy"
++                    / "legacy.laz"
++                ).is_file()
++            )
++
++    def test_wrapped_items_selection_remains_flat(self):
++        with tempfile.TemporaryDirectory() as raw:
++            root = Path(raw)
++            subset = self.write_subset(
++                root,
++                {
++                    "items": [
++                        {"title": "x", "downloadURL": "https://x/x.laz", "sizeInBytes": 1}
++                    ]
++                },
++            )
++            summary = download_tiles(subset, root / "out", session=Session(Response([b"x"])))
++            self.assertEqual("wrapped:items", summary["selection_format"])
++            self.assertTrue((root / "out" / "x.laz").is_file())
++
++    def test_truncated_success_response_is_rejected(self):
++        with tempfile.TemporaryDirectory() as raw:
++            root = Path(raw)
++            out = root / "out"
++            subset = self.write_subset(
++                root,
++                [{"title": "truncated", "downloadURL": "https://x/truncated.laz", "sizeInBytes": 10}],
++            )
++            summary = download_tiles(subset, out, session=Session(Response([b"abc"])))
++            self.assertEqual(1, summary["failed"])
++            self.assertFalse((out / "truncated.laz").exists())
++            self.assertFalse((out / "truncated.laz.part").exists())
++            self.assertIn("size mismatch", summary["failures"][0][1])
++
++    def test_destination_collision_is_rejected_before_transport(self):
++        with tempfile.TemporaryDirectory() as raw:
++            root = Path(raw)
++            subset = self.write_subset(
++                root,
++                [
++                    {"title": "first", "downloadURL": "https://one/x.laz", "sizeInBytes": 1},
++                    {"title": "second", "downloadURL": "https://two/x.laz", "sizeInBytes": 1},
++                ],
++            )
++            session = Session(Response([b"x"]))
++            with self.assertRaisesRegex(ValueError, "same output path"):
++                download_tiles(subset, root / "out", session=session)
++            self.assertEqual([], session.calls)
++
+ 
+ if __name__ == "__main__":
+     unittest.main()
