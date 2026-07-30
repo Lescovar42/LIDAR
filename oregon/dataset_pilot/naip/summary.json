@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "generated_at_utc": "2026-07-29T00:05:26+00:00",
+  "source_service": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+  "dataset_dir": "F:\\LIDAR\\oregon\\dataset_pilot",
+  "patch_manifest": "F:\\LIDAR\\oregon\\dataset_pilot\\patches_qc.csv",
+  "outdir": "F:\\LIDAR\\oregon\\dataset_pilot\\naip",
+  "requested_context_size_m": 512.0,
+  "requested_resolution_m": 0.6,
+  "status_counts": {
+    "ok": 199
+  },
+  "tile_count": 10,
+  "patch_count": 199
+}

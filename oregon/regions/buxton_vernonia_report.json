@@ -1,0 +1,85 @@
+{
+  "region_id": "R2",
+  "slug": "buxton_vernonia",
+  "name": "Buxton / Vernonia",
+  "status": "active",
+  "role": "test_rural",
+  "bbox_wgs84": [
+    -123.3,
+    45.65,
+    -123.0,
+    45.85
+  ],
+  "tile_budget": 30,
+  "storage_budget_gb": 10,
+  "candidate_projects": [
+    "OR_WILLAMETTE_VALLEY_OLC_2008",
+    "OR_NORTHCOAST_2008_2009"
+  ],
+  "inputs": {
+    "slido": "F:\\LIDAR\\oregon\\slido_buxton_vernonia.geojson",
+    "tnm": "F:\\LIDAR\\oregon\\regions\\buxton_vernonia_tnm.json",
+    "naip": "F:\\LIDAR\\oregon\\regions\\buxton_vernonia_naip.json"
+  },
+  "slido": {
+    "available": true,
+    "feature_count": 1206,
+    "by_confidence": {
+      "high": 659,
+      "moderate": 238,
+      "low": 55,
+      "unknown": 254
+    },
+    "by_source": {
+      "BurnWJ2012k": 51,
+      "BurnWJ2013a": 291,
+      "BurnWJ2018": 1,
+      "HairRW2021": 609,
+      "WellRE2020": 254
+    }
+  },
+  "tnm_lpc": {
+    "available": true,
+    "record_count": 593,
+    "projects": {
+      "USGS_LPC_OR_OLCMetro_2019_A19": {
+        "tile_count": 8,
+        "summed_bytes": 833788817,
+        "summed_gb": 0.8338,
+        "aoi_coverage_share": 0.007809,
+        "projected_gb_at_tile_budget": 3.1267,
+        "registry_candidates": []
+      },
+      "USGS_LPC_OR_PortlandMetro_B24": {
+        "tile_count": 75,
+        "summed_bytes": 8884508939,
+        "summed_gb": 8.8845,
+        "aoi_coverage_share": 0.052233,
+        "projected_gb_at_tile_budget": 3.5538,
+        "registry_candidates": []
+      },
+      "USGS_LPC_OR_WesternWildfires_A22": {
+        "tile_count": 56,
+        "summed_bytes": 6828198087,
+        "summed_gb": 6.8282,
+        "aoi_coverage_share": 0.047683,
+        "projected_gb_at_tile_budget": 3.658,
+        "registry_candidates": []
+      },
+      "USGS_LPC_legacy": {
+        "tile_count": 454,
+        "summed_bytes": 83825532488,
+        "summed_gb": 83.8255,
+        "aoi_coverage_share": 0.892249,
+        "projected_gb_at_tile_budget": 5.5391,
+        "registry_candidates": []
+      }
+    }
+  },
+  "naip": {
+    "available": true,
+    "years": [
+      2022
+    ]
+  }
+}

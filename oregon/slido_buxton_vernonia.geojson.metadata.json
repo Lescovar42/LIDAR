@@ -1,0 +1,30 @@
+{
+  "retrieved_at_utc": "2026-07-29T23:34:05+00:00",
+  "service_url": "https://gis.dogami.oregon.gov/arcgis/rest/services/Public/SLIDO42/MapServer/3/query",
+  "region_id": "R2",
+  "region_slug": "buxton_vernonia",
+  "bbox_wgs84": [
+    -123.3,
+    45.65,
+    -123.0,
+    45.85
+  ],
+  "where": "DESCRIPTION = 'Landslide'",
+  "feature_count": 1206,
+  "max_features": 3000,
+  "counts_by_confidence": {
+    "high": 659,
+    "moderate": 238,
+    "low": 55,
+    "unknown": 254
+  },
+  "counts_by_source": {
+    "BurnWJ2012k": 51,
+    "BurnWJ2013a": 291,
+    "BurnWJ2018": 1,
+    "HairRW2021": 609,
+    "WellRE2020": 254
+  },
+  "output": "F:\\LIDAR\\oregon\\slido_buxton_vernonia.geojson",
+  "note": "DESCRIPTION='Landslide' is the default to exclude Fan and Talus-Colluvium labels."
+}

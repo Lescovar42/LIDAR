@@ -1,0 +1,732 @@
+[
+  {
+    "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2051n2776.laz",
+    "target_lidar_year": 2019,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 160802,
+        "Name": "m_4512236_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512236_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224297",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161320,
+        "Name": "Ov_i02_L01_R0000016F_C00000041.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2051n2777.laz",
+    "target_lidar_year": 2019,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 160802,
+        "Name": "m_4512236_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512236_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224297",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161320,
+        "Name": "Ov_i02_L01_R0000016F_C00000041.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2051n2779.laz",
+    "target_lidar_year": 2019,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 160802,
+        "Name": "m_4512236_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512236_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224297",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161320,
+        "Name": "Ov_i02_L01_R0000016F_C00000041.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2051n2780.laz",
+    "target_lidar_year": 2019,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 160802,
+        "Name": "m_4512236_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512236_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224297",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161320,
+        "Name": "Ov_i02_L01_R0000016F_C00000041.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2051n2781.laz",
+    "target_lidar_year": 2019,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 160802,
+        "Name": "m_4512236_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512236_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224297",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161320,
+        "Name": "Ov_i02_L01_R0000016F_C00000041.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2051n2782.laz",
+    "target_lidar_year": 2019,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 160800,
+        "Name": "m_4512236_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512236_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224295",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 160801,
+        "Name": "m_4512236_nw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512236_nw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224296",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 160802,
+        "Name": "m_4512236_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512236_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224297",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 160803,
+        "Name": "m_4512236_sw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512236_sw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224298",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161320,
+        "Name": "Ov_i02_L01_R0000016F_C00000041.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2052n2773.laz",
+    "target_lidar_year": 2019,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 160832,
+        "Name": "m_4512244_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512244_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224327",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161320,
+        "Name": "Ov_i02_L01_R0000016F_C00000041.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2052n2774.laz",
+    "target_lidar_year": 2019,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 160832,
+        "Name": "m_4512244_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512244_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224327",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161320,
+        "Name": "Ov_i02_L01_R0000016F_C00000041.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2052n2775.laz",
+    "target_lidar_year": 2019,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 160802,
+        "Name": "m_4512236_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512236_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224297",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 160832,
+        "Name": "m_4512244_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512244_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224327",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161320,
+        "Name": "Ov_i02_L01_R0000016F_C00000041.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_OLCMetro_2019_A19_w2052n2776.laz",
+    "target_lidar_year": 2019,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 160802,
+        "Name": "m_4512236_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512236_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224297",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 160832,
+        "Name": "m_4512244_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512244_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224327",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161320,
+        "Name": "Ov_i02_L01_R0000016F_C00000041.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  }
+]
