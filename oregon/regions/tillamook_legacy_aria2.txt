@@ -1,0 +1,24 @@
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001881.laz
+  dir=F:\LIDAR\oregon\probe_lidar\tillamook_probe\USGS_LPC_legacy
+  out=USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001881.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001898.laz
+  dir=F:\LIDAR\oregon\probe_lidar\tillamook_probe\USGS_LPC_legacy
+  out=USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001898.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001870.laz
+  dir=F:\LIDAR\oregon\probe_lidar\tillamook_probe\USGS_LPC_legacy
+  out=USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001870.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001880.laz
+  dir=F:\LIDAR\oregon\probe_lidar\tillamook_probe\USGS_LPC_legacy
+  out=USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001880.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001897.laz
+  dir=F:\LIDAR\oregon\probe_lidar\tillamook_probe\USGS_LPC_legacy
+  out=USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001897.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001869.laz
+  dir=F:\LIDAR\oregon\probe_lidar\tillamook_probe\USGS_LPC_legacy
+  out=USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001869.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001879.laz
+  dir=F:\LIDAR\oregon\probe_lidar\tillamook_probe\USGS_LPC_legacy
+  out=USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001879.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001901.laz
+  dir=F:\LIDAR\oregon\probe_lidar\tillamook_probe\USGS_LPC_legacy
+  out=USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001901.laz

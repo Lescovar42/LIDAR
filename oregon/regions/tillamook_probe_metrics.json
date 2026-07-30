@@ -1,0 +1,1240 @@
+{
+  "parameters": {
+    "cell_sizes": [
+      1.0,
+      1.5,
+      2.0
+    ],
+    "patch_size": 256,
+    "stride": 128,
+    "min_patch_ground_fraction": 0.5,
+    "analysis_extent": "matched_project_intersection",
+    "selection": "F:\\LIDAR\\oregon\\regions\\tillamook_probe_selection.json"
+  },
+  "tiles": [
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04350w14040.laz",
+      "cell_size": 1.0,
+      "shape": [
+        1745,
+        279
+      ],
+      "ground_cell_fraction": 0.07497406718908871,
+      "patch_ground_fraction": {
+        "count": 12,
+        "min": 0.0,
+        "mean": 0.075439453125,
+        "median": 0.0800933837890625,
+        "p05": 0.0,
+        "p95": 0.1458587646484375,
+        "histogram": {
+          "0.00-0.25": 12,
+          "0.25-0.50": 0,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 62197,
+        "max_cells": 1745,
+        "mean_cells": 14.481566635046706,
+        "p95_cells": 27.0,
+        "max_m": 1745.0,
+        "mean_m": 14.481566635046706,
+        "p95_m": 27.0
+      },
+      "dem_fragmentation": {
+        "component_count": 18140,
+        "largest_component_cells": 76,
+        "largest_component_fraction": 0.0020821917808219177,
+        "singleton_components": 9796
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04350w14040.laz",
+      "cell_size": 1.5,
+      "shape": [
+        1163,
+        187
+      ],
+      "ground_cell_fraction": 0.15593140839047,
+      "patch_ground_fraction": {
+        "count": 0,
+        "min": null,
+        "mean": null,
+        "median": null,
+        "p05": null,
+        "p95": null,
+        "histogram": {
+          "0.00-0.25": 0,
+          "0.25-0.50": 0,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 44092,
+        "max_cells": 1163,
+        "mean_cells": 8.326771296380295,
+        "p95_cells": 13.0,
+        "max_m": 1744.5,
+        "mean_m": 12.490156944570444,
+        "p95_m": 19.5
+      },
+      "dem_fragmentation": {
+        "component_count": 3814,
+        "largest_component_cells": 1293,
+        "largest_component_fraction": 0.03813146952136601,
+        "singleton_components": 1400
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04350w14040.laz",
+      "cell_size": 2.0,
+      "shape": [
+        873,
+        140
+      ],
+      "ground_cell_fraction": 0.23470924237712565,
+      "patch_ground_fraction": {
+        "count": 0,
+        "min": null,
+        "mean": null,
+        "median": null,
+        "p05": null,
+        "p95": null,
+        "histogram": {
+          "0.00-0.25": 0,
+          "0.25-0.50": 0,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 26780,
+        "max_cells": 873,
+        "mean_cells": 6.985735623599702,
+        "p95_cells": 11.0,
+        "max_m": 1746.0,
+        "mean_m": 13.971471247199403,
+        "p95_m": 22.0
+      },
+      "dem_fragmentation": {
+        "component_count": 146,
+        "largest_component_cells": 28261,
+        "largest_component_fraction": 0.9853561591297375,
+        "singleton_components": 74
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04350w14100.laz",
+      "cell_size": 1.0,
+      "shape": [
+        507,
+        544
+      ],
+      "ground_cell_fraction": 0.036563256900027555,
+      "patch_ground_fraction": {
+        "count": 6,
+        "min": 0.000396728515625,
+        "mean": 0.029337565104166668,
+        "median": 0.026153564453125,
+        "p05": 0.0031890869140625,
+        "p95": 0.0590057373046875,
+        "histogram": {
+          "0.00-0.25": 6,
+          "0.25-0.50": 0,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 17986,
+        "max_cells": 544,
+        "mean_cells": 29.547870565995776,
+        "p95_cells": 118.75,
+        "max_m": 544.0,
+        "mean_m": 29.547870565995776,
+        "p95_m": 118.75
+      },
+      "dem_fragmentation": {
+        "component_count": 5765,
+        "largest_component_cells": 24,
+        "largest_component_fraction": 0.002380007933359778,
+        "singleton_components": 3474
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04350w14100.laz",
+      "cell_size": 1.5,
+      "shape": [
+        338,
+        363
+      ],
+      "ground_cell_fraction": 0.07707732185650706,
+      "patch_ground_fraction": {
+        "count": 1,
+        "min": 0.0361785888671875,
+        "mean": 0.0361785888671875,
+        "median": 0.0361785888671875,
+        "p05": 0.0361785888671875,
+        "p95": 0.0361785888671875,
+        "histogram": {
+          "0.00-0.25": 1,
+          "0.25-0.50": 0,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 13584,
+        "max_cells": 363,
+        "mean_cells": 16.67226148409894,
+        "p95_cells": 61.0,
+        "max_m": 544.5,
+        "mean_m": 25.00839222614841,
+        "p95_m": 91.5
+      },
+      "dem_fragmentation": {
+        "component_count": 2588,
+        "largest_component_cells": 55,
+        "largest_component_fraction": 0.005816412859560068,
+        "singleton_components": 928
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04350w14100.laz",
+      "cell_size": 2.0,
+      "shape": [
+        254,
+        273
+      ],
+      "ground_cell_fraction": 0.11840226187556799,
+      "patch_ground_fraction": {
+        "count": 0,
+        "min": null,
+        "mean": null,
+        "median": null,
+        "p05": null,
+        "p95": null,
+        "histogram": {
+          "0.00-0.25": 0,
+          "0.25-0.50": 0,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 10338,
+        "max_cells": 273,
+        "mean_cells": 11.827045850261172,
+        "p95_cells": 42.0,
+        "max_m": 546.0,
+        "mean_m": 23.654091700522343,
+        "p95_m": 84.0
+      },
+      "dem_fragmentation": {
+        "component_count": 1196,
+        "largest_component_cells": 373,
+        "largest_component_fraction": 0.04544346978557505,
+        "singleton_components": 435
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04380w14040.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        2871
+      ],
+      "ground_cell_fraction": 0.06564766010037794,
+      "patch_ground_fraction": {
+        "count": 462,
+        "min": 0.0,
+        "mean": 0.06976255606779289,
+        "median": 0.00518035888671875,
+        "p05": 0.0,
+        "p95": 0.19414825439453126,
+        "histogram": {
+          "0.00-0.25": 462,
+          "0.25-0.50": 0,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 893470,
+        "max_cells": 3001,
+        "mean_cells": 18.04782701153928,
+        "p95_cells": 19.0,
+        "max_m": 3001.0,
+        "mean_m": 18.04782701153928,
+        "p95_m": 19.0
+      },
+      "dem_fragmentation": {
+        "component_count": 246752,
+        "largest_component_cells": 401,
+        "largest_component_fraction": 0.0007247752022050517,
+        "singleton_components": 124094
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04380w14040.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        1914
+      ],
+      "ground_cell_fraction": 0.1351215579922912,
+      "patch_ground_fraction": {
+        "count": 182,
+        "min": 0.0,
+        "mean": 0.15699365636804602,
+        "median": 0.090667724609375,
+        "p05": 0.0,
+        "p95": 0.39174880981445315,
+        "histogram": {
+          "0.00-0.25": 118,
+          "0.25-0.50": 64,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 610592,
+        "max_cells": 2001,
+        "mean_cells": 10.886811487867512,
+        "p95_cells": 9.0,
+        "max_m": 3001.5,
+        "mean_m": 16.330217231801267,
+        "p95_m": 13.5
+      },
+      "dem_fragmentation": {
+        "component_count": 46058,
+        "largest_component_cells": 10945,
+        "largest_component_fraction": 0.021621290600418005,
+        "singleton_components": 16232
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04380w14040.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1436
+      ],
+      "ground_cell_fraction": 0.19979133296388799,
+      "patch_ground_fraction": {
+        "count": 100,
+        "min": 0.0,
+        "mean": 0.22968826293945313,
+        "median": 0.13677978515625,
+        "p05": 0.0,
+        "p95": 0.5790855407714843,
+        "histogram": {
+          "0.00-0.25": 56,
+          "0.25-0.50": 20,
+          "0.50-0.75": 24,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 24,
+        "surviving_fraction": 0.24
+      },
+      "void_runs": {
+        "run_count": 363715,
+        "max_cells": 1501,
+        "mean_cells": 9.536824161775016,
+        "p95_cells": 5.0,
+        "max_m": 3002.0,
+        "mean_m": 19.07364832355003,
+        "p95_m": 10.0
+      },
+      "dem_fragmentation": {
+        "component_count": 1484,
+        "largest_component_cells": 404888,
+        "largest_component_fraction": 0.9615168145754026,
+        "singleton_components": 815
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04380w14100.laz",
+      "cell_size": 1.0,
+      "shape": [
+        2223,
+        2624
+      ],
+      "ground_cell_fraction": 0.04928244379262306,
+      "patch_ground_fraction": {
+        "count": 304,
+        "min": 0.0,
+        "mean": 0.04477912501284951,
+        "median": 0.01656341552734375,
+        "p05": 0.0,
+        "p95": 0.18072433471679683,
+        "histogram": {
+          "0.00-0.25": 304,
+          "0.25-0.50": 0,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 447427,
+        "max_cells": 2624,
+        "mean_cells": 24.81202073187358,
+        "p95_cells": 49.0,
+        "max_m": 2624.0,
+        "mean_m": 24.81202073187358,
+        "p95_m": 49.0
+      },
+      "dem_fragmentation": {
+        "component_count": 120916,
+        "largest_component_cells": 182,
+        "largest_component_fraction": 0.0006445489573889393,
+        "singleton_components": 61531
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04380w14100.laz",
+      "cell_size": 1.5,
+      "shape": [
+        1482,
+        1750
+      ],
+      "ground_cell_fraction": 0.0997834686245448,
+      "patch_ground_fraction": {
+        "count": 120,
+        "min": 0.0,
+        "mean": 0.08219134012858073,
+        "median": 0.035308837890625,
+        "p05": 0.0,
+        "p95": 0.2966880798339843,
+        "histogram": {
+          "0.00-0.25": 110,
+          "0.25-0.50": 10,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 311508,
+        "max_cells": 1750,
+        "mean_cells": 15.019543639328685,
+        "p95_cells": 27.0,
+        "max_m": 2625.0,
+        "mean_m": 22.529315458993025,
+        "p95_m": 40.5
+      },
+      "dem_fragmentation": {
+        "component_count": 42088,
+        "largest_component_cells": 9387,
+        "largest_component_fraction": 0.036935462293327455,
+        "singleton_components": 14587
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04380w14100.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1112,
+        1313
+      ],
+      "ground_cell_fraction": 0.1472843613169109,
+      "patch_ground_fraction": {
+        "count": 63,
+        "min": 0.0,
+        "mean": 0.11244734506758433,
+        "median": 0.0626983642578125,
+        "p05": 0.0,
+        "p95": 0.3645599365234374,
+        "histogram": {
+          "0.00-0.25": 54,
+          "0.25-0.50": 8,
+          "0.50-0.75": 1,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 1,
+        "surviving_fraction": 0.015873015873015872
+      },
+      "void_runs": {
+        "run_count": 215114,
+        "max_cells": 1313,
+        "mean_cells": 11.611647777457534,
+        "p95_cells": 19.0,
+        "max_m": 2626.0,
+        "mean_m": 23.22329555491507,
+        "p95_m": 38.0
+      },
+      "dem_fragmentation": {
+        "component_count": 15151,
+        "largest_component_cells": 71923,
+        "largest_component_fraction": 0.3406380540110447,
+        "singleton_components": 5152
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04410w13920.laz",
+      "cell_size": 1.0,
+      "shape": [
+        310,
+        2610
+      ],
+      "ground_cell_fraction": 0.11294999419083239,
+      "patch_ground_fraction": {
+        "count": 19,
+        "min": 0.0,
+        "mean": 0.12112747995476973,
+        "median": 0.14813232421875,
+        "p05": 0.0,
+        "p95": 0.16003875732421874,
+        "histogram": {
+          "0.00-0.25": 19,
+          "0.25-0.50": 0,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 145482,
+        "max_cells": 2610,
+        "mean_cells": 9.866732654211518,
+        "p95_cells": 30.949999999982538,
+        "max_m": 2610.0,
+        "mean_m": 9.866732654211518,
+        "p95_m": 30.949999999982538
+      },
+      "dem_fragmentation": {
+        "component_count": 37848,
+        "largest_component_cells": 93,
+        "largest_component_fraction": 0.001017683620765123,
+        "singleton_components": 18192
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04410w13920.laz",
+      "cell_size": 1.5,
+      "shape": [
+        207,
+        1741
+      ],
+      "ground_cell_fraction": 0.2293328227243211,
+      "patch_ground_fraction": {
+        "count": 0,
+        "min": null,
+        "mean": null,
+        "median": null,
+        "p05": null,
+        "p95": null,
+        "histogram": {
+          "0.00-0.25": 0,
+          "0.25-0.50": 0,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 97469,
+        "max_cells": 1741,
+        "mean_cells": 5.699165888641517,
+        "p95_cells": 17.0,
+        "max_m": 2611.5,
+        "mean_m": 8.548748832962275,
+        "p95_m": 25.5
+      },
+      "dem_fragmentation": {
+        "component_count": 8320,
+        "largest_component_cells": 631,
+        "largest_component_fraction": 0.007635435195605087,
+        "singleton_components": 2660
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04410w13920.laz",
+      "cell_size": 2.0,
+      "shape": [
+        156,
+        1306
+      ],
+      "ground_cell_fraction": 0.33213712389358807,
+      "patch_ground_fraction": {
+        "count": 0,
+        "min": null,
+        "mean": null,
+        "median": null,
+        "p05": null,
+        "p95": null,
+        "histogram": {
+          "0.00-0.25": 0,
+          "0.25-0.50": 0,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 60890,
+        "max_cells": 1306,
+        "mean_cells": 4.469699458039087,
+        "p95_cells": 13.0,
+        "max_m": 2612.0,
+        "mean_m": 8.939398916078174,
+        "p95_m": 26.0
+      },
+      "dem_fragmentation": {
+        "component_count": 961,
+        "largest_component_cells": 58231,
+        "largest_component_fraction": 0.8606923258838832,
+        "singleton_components": 429
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04410w14040.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        2668
+      ],
+      "ground_cell_fraction": 0.09186630521232543,
+      "patch_ground_fraction": {
+        "count": 418,
+        "min": 0.0,
+        "mean": 0.0911474638578424,
+        "median": 0.085479736328125,
+        "p05": 0.0,
+        "p95": 0.19195175170898432,
+        "histogram": {
+          "0.00-0.25": 416,
+          "0.25-0.50": 2,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 1116124,
+        "max_cells": 3001,
+        "mean_cells": 13.060292583978125,
+        "p95_cells": 43.0,
+        "max_m": 3001.0,
+        "mean_m": 13.060292583978125,
+        "p95_m": 43.0
+      },
+      "dem_fragmentation": {
+        "component_count": 299369,
+        "largest_component_cells": 10543,
+        "largest_component_fraction": 0.014679448354601337,
+        "singleton_components": 148045
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04410w14040.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        1779
+      ],
+      "ground_cell_fraction": 0.18523630961251542,
+      "patch_ground_fraction": {
+        "count": 168,
+        "min": 0.0,
+        "mean": 0.18446831476120723,
+        "median": 0.179107666015625,
+        "p05": 0.0,
+        "p95": 0.3810272216796875,
+        "histogram": {
+          "0.00-0.25": 130,
+          "0.25-0.50": 38,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 760836,
+        "max_cells": 2001,
+        "mean_cells": 7.665028994421926,
+        "p95_cells": 25.0,
+        "max_m": 3001.5,
+        "mean_m": 11.49754349163289,
+        "p95_m": 37.5
+      },
+      "dem_fragmentation": {
+        "component_count": 85129,
+        "largest_component_cells": 22256,
+        "largest_component_fraction": 0.034566305927959944,
+        "singleton_components": 28157
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04410w14040.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1335
+      ],
+      "ground_cell_fraction": 0.2715295782612319,
+      "patch_ground_fraction": {
+        "count": 90,
+        "min": 0.0,
+        "mean": 0.27367723253038195,
+        "median": 0.26522064208984375,
+        "p05": 0.0038604736328125,
+        "p95": 0.5374610900878906,
+        "histogram": {
+          "0.00-0.25": 36,
+          "0.25-0.50": 44,
+          "0.50-0.75": 10,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 10,
+        "surviving_fraction": 0.1111111111111111
+      },
+      "void_runs": {
+        "run_count": 498613,
+        "max_cells": 1501,
+        "mean_cells": 5.9074111585538285,
+        "p95_cells": 18.0,
+        "max_m": 3002.0,
+        "mean_m": 11.814822317107657,
+        "p95_m": 36.0
+      },
+      "dem_fragmentation": {
+        "component_count": 23047,
+        "largest_component_cells": 275830,
+        "largest_component_fraction": 0.5193765899235331,
+        "singleton_components": 7366
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04410w14130.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        2295
+      ],
+      "ground_cell_fraction": 0.07181458558781945,
+      "patch_ground_fraction": {
+        "count": 352,
+        "min": 0.0,
+        "mean": 0.06956304203380238,
+        "median": 0.0844879150390625,
+        "p05": 0.0,
+        "p95": 0.12606124877929686,
+        "histogram": {
+          "0.00-0.25": 352,
+          "0.25-0.50": 0,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 772651,
+        "max_cells": 3001,
+        "mean_cells": 16.58247255229075,
+        "p95_cells": 45.0,
+        "max_m": 3001.0,
+        "mean_m": 16.58247255229075,
+        "p95_m": 45.0
+      },
+      "dem_fragmentation": {
+        "component_count": 225197,
+        "largest_component_cells": 89,
+        "largest_component_fraction": 0.00018500695335122426,
+        "singleton_components": 116897
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04410w14130.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        1530
+      ],
+      "ground_cell_fraction": 0.14679137194044042,
+      "patch_ground_fraction": {
+        "count": 140,
+        "min": 0.0,
+        "mean": 0.13946827479771207,
+        "median": 0.17430877685546875,
+        "p05": 0.0,
+        "p95": 0.23832702636718725,
+        "histogram": {
+          "0.00-0.25": 133,
+          "0.25-0.50": 7,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 555429,
+        "max_cells": 2001,
+        "mean_cells": 9.449765856662149,
+        "p95_cells": 24.0,
+        "max_m": 3001.5,
+        "mean_m": 14.174648784993224,
+        "p95_m": 36.0
+      },
+      "dem_fragmentation": {
+        "component_count": 83359,
+        "largest_component_cells": 1635,
+        "largest_component_fraction": 0.0037397671051457824,
+        "singleton_components": 28521
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04410w14130.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1148
+      ],
+      "ground_cell_fraction": 0.2196562419075555,
+      "patch_ground_fraction": {
+        "count": 70,
+        "min": 0.0,
+        "mean": 0.20273851667131695,
+        "median": 0.25757598876953125,
+        "p05": 0.0,
+        "p95": 0.3510826110839843,
+        "histogram": {
+          "0.00-0.25": 33,
+          "0.25-0.50": 37,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 391190,
+        "max_cells": 1501,
+        "mean_cells": 6.927661750044735,
+        "p95_cells": 16.0,
+        "max_m": 3002.0,
+        "mean_m": 13.85532350008947,
+        "p95_m": 32.0
+      },
+      "dem_fragmentation": {
+        "component_count": 26547,
+        "largest_component_cells": 66259,
+        "largest_component_fraction": 0.17998706985537796,
+        "singleton_components": 8476
+      }
+    }
+  ],
+  "project_cell_size_summary": [
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "cell_size": 1.0,
+      "tile_count": 7,
+      "ground_cell_fraction": {
+        "mean": 0.07187118756758493,
+        "min": 0.036563256900027555,
+        "max": 0.11294999419083239
+      },
+      "patch_ground_fraction": {
+        "count": 1573,
+        "weighted_mean": 0.07108182234136602,
+        "histogram": {
+          "0.00-0.25": 1571,
+          "0.25-0.50": 2,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 3455337,
+        "max_cells": 3001,
+        "max_m": 3001.0,
+        "weighted_mean_cells": 16.636212328927684
+      },
+      "dem_fragmentation": {
+        "component_count": 953987,
+        "singleton_components": 482029,
+        "mean_largest_component_fraction": 0.0031019518289276244
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "cell_size": 1.5,
+      "tile_count": 7,
+      "ground_cell_fraction": {
+        "mean": 0.14703918016301284,
+        "min": 0.07707732185650706,
+        "max": 0.2293328227243211
+      },
+      "patch_ground_fraction": {
+        "count": 611,
+        "weighted_mean": 0.14564356827306668,
+        "histogram": {
+          "0.00-0.25": 492,
+          "0.25-0.50": 119,
+          "0.50-0.75": 0,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 0,
+        "surviving_fraction": 0.0
+      },
+      "void_runs": {
+        "run_count": 2393510,
+        "max_cells": 2001,
+        "max_m": 3001.5,
+        "weighted_mean_cells": 9.841498050979524
+      },
+      "dem_fragmentation": {
+        "component_count": 271356,
+        "singleton_components": 92485,
+        "mean_largest_component_fraction": 0.021206591929054625
+      }
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "cell_size": 2.0,
+      "tile_count": 7,
+      "ground_cell_fraction": {
+        "mean": 0.217644306085124,
+        "min": 0.11840226187556799,
+        "max": 0.33213712389358807
+      },
+      "patch_ground_fraction": {
+        "count": 323,
+        "weighted_mean": 0.21323732547346652,
+        "histogram": {
+          "0.00-0.25": 179,
+          "0.25-0.50": 109,
+          "0.50-0.75": 35,
+          "0.75-1.00": 0
+        },
+        "surviving_count": 35,
+        "surviving_fraction": 0.10835913312693499
+      },
+      "void_runs": {
+        "run_count": 1566640,
+        "max_cells": 1501,
+        "max_m": 3002.0,
+        "weighted_mean_cells": 7.789641525813205
+      },
+      "dem_fragmentation": {
+        "component_count": 68532,
+        "singleton_components": 22747,
+        "mean_largest_component_fraction": 0.5561443547377934
+      }
+    }
+  ],
+  "failures": [
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04380w13950.laz",
+      "cell_size": "1.0",
+      "error": "RuntimeError: No ASPRS class-2 ground points in USGS_LPC_OR_WesternWildfires_A22_s04380w13950.laz"
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04380w13950.laz",
+      "cell_size": "1.5",
+      "error": "RuntimeError: No ASPRS class-2 ground points in USGS_LPC_OR_WesternWildfires_A22_s04380w13950.laz"
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04380w13950.laz",
+      "cell_size": "2.0",
+      "error": "RuntimeError: No ASPRS class-2 ground points in USGS_LPC_OR_WesternWildfires_A22_s04380w13950.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001881.laz",
+      "cell_size": "1.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001881.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001881.laz",
+      "cell_size": "1.5",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001881.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001881.laz",
+      "cell_size": "2.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001881.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001898.laz",
+      "cell_size": "1.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001898.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001898.laz",
+      "cell_size": "1.5",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001898.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001898.laz",
+      "cell_size": "2.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001898.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001870.laz",
+      "cell_size": "1.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001870.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001870.laz",
+      "cell_size": "1.5",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001870.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001870.laz",
+      "cell_size": "2.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001870.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001880.laz",
+      "cell_size": "1.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001880.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001880.laz",
+      "cell_size": "1.5",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001880.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001880.laz",
+      "cell_size": "2.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001880.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001897.laz",
+      "cell_size": "1.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001897.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001897.laz",
+      "cell_size": "1.5",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001897.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001897.laz",
+      "cell_size": "2.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001897.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001869.laz",
+      "cell_size": "1.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001869.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001869.laz",
+      "cell_size": "1.5",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001869.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001869.laz",
+      "cell_size": "2.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001869.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001879.laz",
+      "cell_size": "1.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001879.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001879.laz",
+      "cell_size": "1.5",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001879.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001879.laz",
+      "cell_size": "2.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001879.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001901.laz",
+      "cell_size": "1.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001901.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001901.laz",
+      "cell_size": "1.5",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001901.laz"
+    },
+    {
+      "project": "USGS_LPC_legacy",
+      "tile": "USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001901.laz",
+      "cell_size": "2.0",
+      "error": "RuntimeError: No CRS found in LAZ header: USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001901.laz"
+    }
+  ],
+  "matched_windows": [
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_OR_WesternWildfires_A22\\USGS_LPC_OR_WesternWildfires_A22_s04350w14040.laz",
+      "pair_id": "probe_001",
+      "footprint_iou": 0.03532805496357712,
+      "smaller_footprint_overlap": 1.0
+    },
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_OR_WesternWildfires_A22\\USGS_LPC_OR_WesternWildfires_A22_s04350w14100.laz",
+      "pair_id": "probe_002",
+      "footprint_iou": 0.017141819470862702,
+      "smaller_footprint_overlap": 1.0
+    },
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_OR_WesternWildfires_A22\\USGS_LPC_OR_WesternWildfires_A22_s04380w13950.laz",
+      "pair_id": "probe_003",
+      "footprint_iou": 0.21574236238929445,
+      "smaller_footprint_overlap": 1.0
+    },
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_OR_WesternWildfires_A22\\USGS_LPC_OR_WesternWildfires_A22_s04380w14040.laz",
+      "pair_id": "probe_004",
+      "footprint_iou": 0.4928993074433003,
+      "smaller_footprint_overlap": 0.9187077462911954
+    },
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_OR_WesternWildfires_A22\\USGS_LPC_OR_WesternWildfires_A22_s04380w14100.laz",
+      "pair_id": "probe_005",
+      "footprint_iou": 0.33254096294608115,
+      "smaller_footprint_overlap": 0.8480737196821212
+    },
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_OR_WesternWildfires_A22\\USGS_LPC_OR_WesternWildfires_A22_s04410w13920.laz",
+      "pair_id": "probe_006",
+      "footprint_iou": 0.06267791545260898,
+      "smaller_footprint_overlap": 1.0
+    },
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_OR_WesternWildfires_A22\\USGS_LPC_OR_WesternWildfires_A22_s04410w14040.laz",
+      "pair_id": "probe_007",
+      "footprint_iou": 0.4422528698079925,
+      "smaller_footprint_overlap": 0.85339547591611
+    },
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_OR_WesternWildfires_A22\\USGS_LPC_OR_WesternWildfires_A22_s04410w14130.laz",
+      "pair_id": "probe_008",
+      "footprint_iou": 0.39089683169821776,
+      "smaller_footprint_overlap": 0.9006120069485328
+    },
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_legacy\\USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001869.laz",
+      "pair_id": "probe_006",
+      "footprint_iou": 0.06267791545260898,
+      "smaller_footprint_overlap": 1.0
+    },
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_legacy\\USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001870.laz",
+      "pair_id": "probe_003",
+      "footprint_iou": 0.21574236238929445,
+      "smaller_footprint_overlap": 1.0
+    },
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_legacy\\USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001879.laz",
+      "pair_id": "probe_007",
+      "footprint_iou": 0.4422528698079925,
+      "smaller_footprint_overlap": 0.85339547591611
+    },
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_legacy\\USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001880.laz",
+      "pair_id": "probe_004",
+      "footprint_iou": 0.4928993074433003,
+      "smaller_footprint_overlap": 0.9187077462911954
+    },
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_legacy\\USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001881.laz",
+      "pair_id": "probe_001",
+      "footprint_iou": 0.03532805496357712,
+      "smaller_footprint_overlap": 1.0
+    },
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_legacy\\USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001897.laz",
+      "pair_id": "probe_005",
+      "footprint_iou": 0.33254096294608115,
+      "smaller_footprint_overlap": 0.8480737196821212
+    },
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_legacy\\USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001898.laz",
+      "pair_id": "probe_002",
+      "footprint_iou": 0.017141819470862702,
+      "smaller_footprint_overlap": 1.0
+    },
+    {
+      "path": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_legacy\\USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001901.laz",
+      "pair_id": "probe_008",
+      "footprint_iou": 0.39089683169821776,
+      "smaller_footprint_overlap": 0.9006120069485328
+    }
+  ]
+}

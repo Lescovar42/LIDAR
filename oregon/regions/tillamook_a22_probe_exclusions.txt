@@ -1,0 +1,3 @@
+# A22 tiles excluded from representative probes after content inspection.
+# This tile contains no ASPRS class-2 ground points.
+USGS_LPC_OR_WesternWildfires_A22_s04380w13950.laz
