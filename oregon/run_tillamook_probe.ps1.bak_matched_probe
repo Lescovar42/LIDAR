@@ -4,8 +4,6 @@ param(
     [int]$ProbeCount = 8,
     [double]$MaxTotalGB = 5.0,
     [double]$OverlapThreshold = 0.8,
-    [ValidateSet("iou", "smaller")]
-    [string]$OverlapMetric = "smaller",
     [string]$A22Project = "USGS_LPC_OR_WesternWildfires_A22",
     [string]$LegacyProject = "USGS_LPC_legacy",
     [switch]$SkipSelection,
@@ -47,7 +45,6 @@ try {
             --project $LegacyProject `
             --probe $ProbeCount `
             --overlap-threshold $OverlapThreshold `
-            --probe-overlap-metric $OverlapMetric `
             --max-total-gb $MaxTotalGB `
             --output $Selection
         if ($LASTEXITCODE -ne 0) {
@@ -83,10 +80,9 @@ try {
 
     if (-not $SkipProbe) {
         Write-Host "`n[3/3] Measuring 1.0, 1.5, and 2.0 m ground coverage without writing patches..."
-        & $Python ".\diagnostics\probe_matched_tiles.py" `
+        & $Python ".\diagnostics\probe_tiles.py" `
             --project "$A22Project=$A22Directory" `
             --project "$LegacyProject=$LegacyDirectory" `
-            --selection $Selection `
             --cell-size 1.0 `
             --cell-size 1.5 `
             --cell-size 2.0 `

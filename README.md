@@ -1,18 +1,31 @@
-# LIDAR Project
+# Tillamook matched-project downloader/probe fix
 
-A pipeline for discovering, downloading, and processing 3DEP LiDAR tiles and mapping them against landslide data.
+Applies the measured result without changing the 0.80 coverage requirement:
 
-## Directory Structure
+- ordinary deduplication stays IoU based;
+- probe matching uses smaller-footprint coverage >= 0.80 explicitly;
+- selected records retain IoU, smaller-overlap, pair ID, and intersection geometry;
+- project diagnostics are calculated only over the identical intersection window;
+- no project or cell size is pinned automatically.
 
-*   `oregon/`: Scripts and data for processing the Oregon SLIDO dataset against 3DEP LiDAR.
-*   `quebec/`: Scripts and data for processing Quebec landslide points.
-*   `ridgecrest/`: Scripts for visualizing the Ridgecrest earthquake observations (KMZ/GeoJSON).
-*   `archive/`: Older pipeline stages, notebooks, and unused files.
+## Apply from the repository root
 
-## Setup
+```powershell
+python .\apply_tillamook_probe_fix.py --repo-root .
+```
 
-1. Install requirements:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Run regional scripts from their respective directories.
+## Test
+
+```powershell
+python -m unittest .\tests\test_select_tiles.py .\tests\test_probe_overlap_fix.py -v
+python -m unittest discover -s .\tests -v
+python -m unittest discover -s .\oregon\tests -v
+python -m compileall -q .\oregon .\tests
+```
+
+## Run
+
+```powershell
+cd .\oregon
+.\run_tillamook_probe.ps1
+```

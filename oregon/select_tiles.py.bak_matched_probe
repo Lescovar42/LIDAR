@@ -9,7 +9,7 @@ from itertools import product
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
-from shapely.geometry import box, mapping, shape
+from shapely.geometry import box, shape
 from shapely.geometry.base import BaseGeometry
 from shapely.ops import unary_union
 
@@ -244,15 +244,14 @@ def select_probe_tiles(
     projects: Sequence[str],
     count: int,
     overlap_threshold: float = 0.8,
-    overlap_metric: str = "iou",
     max_total_gb: float | None = None,
 ) -> dict[str, list[dict[str, Any]]]:
-    """Return exactly ``count`` co-located footprint sets per project.
+    """Return exactly ``count`` pairwise co-located footprints per project.
 
-    ``overlap_metric="iou"`` preserves the original behavior. The explicit
-    ``"smaller"`` option uses intersection area divided by the smaller source
-    footprint. Every selected record is annotated with the common intersection
-    geometry so downstream diagnostics can compare identical ground extents.
+    Candidate footprint sets are enumerated iteratively. Backtracking then
+    recurses only once per selected set, rather than once per TNM anchor record.
+    This keeps recursion depth bounded by ``count`` even for catalogs containing
+    thousands of unmatched anchors.
     """
     if count < 0:
         raise ValueError("count must be non-negative")
@@ -260,8 +259,6 @@ def select_probe_tiles(
         raise ValueError("max_total_gb must be non-negative")
     if not 0 < overlap_threshold <= 1:
         raise ValueError("overlap_threshold must be in (0, 1]")
-    if overlap_metric not in {"iou", "smaller"}:
-        raise ValueError("overlap_metric must be 'iou' or 'smaller'")
 
     unique_projects = list(dict.fromkeys(projects))
     if len(unique_projects) < 2:
@@ -274,13 +271,10 @@ def select_probe_tiles(
         )
         for project in unique_projects
     }
-    missing_projects = [project for project, values in grouped.items() if not values]
-    if missing_projects:
-        raise ValueError("No TNM records matched project(s): " + ", ".join(missing_projects))
-
     budget_bytes = (
         math.floor(max_total_gb * 1_000_000_000)
-        if max_total_gb is not None else 2**63 - 1
+        if max_total_gb is not None
+        else 2**63 - 1
     )
     if max_total_gb is not None:
         unknown_sizes = [
@@ -305,134 +299,116 @@ def select_probe_tiles(
         for tile in project_tiles
     }
 
-    def score(left: BaseGeometry, right: BaseGeometry) -> float:
-        return footprint_iou(left, right) if overlap_metric == "iou" else overlap_fraction(left, right)
-
-    candidate_sets: list[dict[str, Any]] = []
+    # Each entry is one complete, pairwise-compatible project set plus its bytes.
+    # Enumeration is iterative, so catalogs with >1,000 unmatched anchors cannot
+    # exhaust Python's recursion limit.
+    candidate_sets: list[tuple[dict[str, dict[str, Any]], int]] = []
     for anchor in anchors:
         anchor_geometry = geometries[(anchor_project, tile_id(anchor))]
         options: list[list[dict[str, Any]]] = []
+
         for project in unique_projects[1:]:
-            scored_matches: list[tuple[float, float, str, dict[str, Any]]] = []
+            scored_matches: list[tuple[float, dict[str, Any]]] = []
             for tile in grouped[project]:
-                geometry = geometries[(project, tile_id(tile))]
-                match_score = score(anchor_geometry, geometry)
-                if match_score >= overlap_threshold:
-                    scored_matches.append((
-                        match_score,
-                        footprint_iou(anchor_geometry, geometry),
-                        tile_id(tile).casefold(),
-                        tile,
-                    ))
-            scored_matches.sort(key=lambda item: (-item[0], -item[1], item[2]))
-            matches = [tile for _, _, _, tile in scored_matches]
+                iou = footprint_iou(
+                    anchor_geometry,
+                    geometries[(project, tile_id(tile))],
+                )
+                if iou >= overlap_threshold:
+                    scored_matches.append((iou, tile))
+
+            scored_matches.sort(
+                key=lambda item: (-item[0], tile_id(item[1]).casefold())
+            )
+            matches = [tile for _, tile in scored_matches]
             if not matches:
                 options = []
                 break
             options.append(matches)
 
         for combination in product(*options) if options else ():
-            selected = {anchor_project: anchor} | dict(zip(unique_projects[1:], combination))
+            selected = {anchor_project: anchor} | dict(
+                zip(unique_projects[1:], combination)
+            )
             selected_geometries = [
                 geometries[(project, tile_id(selected[project]))]
                 for project in unique_projects
             ]
-            pair_scores: list[float] = []
-            pair_ious: list[float] = []
-            pair_smaller: list[float] = []
-            compatible = True
-            for left in range(len(selected_geometries)):
-                for right in range(left + 1, len(selected_geometries)):
-                    lg = selected_geometries[left]
-                    rg = selected_geometries[right]
-                    pair_score = score(lg, rg)
-                    if pair_score < overlap_threshold:
-                        compatible = False
-                        break
-                    pair_scores.append(pair_score)
-                    pair_ious.append(footprint_iou(lg, rg))
-                    pair_smaller.append(overlap_fraction(lg, rg))
-                if not compatible:
-                    break
-            if not compatible:
-                continue
-
-            common_geometry = selected_geometries[0]
-            for geometry in selected_geometries[1:]:
-                common_geometry = common_geometry.intersection(geometry)
-            if common_geometry.is_empty or common_geometry.area <= 0:
+            if any(
+                footprint_iou(selected_geometries[left], selected_geometries[right])
+                < overlap_threshold
+                for left in range(len(selected_geometries))
+                for right in range(left + 1, len(selected_geometries))
+            ):
                 continue
 
             set_bytes = sum(tile_size(selected[project]) for project in unique_projects)
             if set_bytes > budget_bytes:
                 continue
-            candidate_sets.append({
-                "selected": selected,
-                "bytes": set_bytes,
-                "score": min(pair_scores),
-                "iou": min(pair_ious),
-                "smaller_overlap": min(pair_smaller),
-                "intersection": common_geometry,
-            })
+            candidate_sets.append((selected, set_bytes))
 
-    selected_candidates: list[dict[str, Any]] = []
+    # Search over complete candidate sets. Recursion depth is at most ``count``.
+    selected_sets: list[dict[str, dict[str, Any]]] = []
     used = {project: set() for project in unique_projects}
 
     def choose(start_index: int, used_bytes: int) -> bool:
-        if len(selected_candidates) == count:
+        if len(selected_sets) == count:
             return True
-        needed = count - len(selected_candidates)
+
+        needed = count - len(selected_sets)
         if len(candidate_sets) - start_index < needed:
             return False
+
         for candidate_index in range(start_index, len(candidate_sets)):
-            candidate = candidate_sets[candidate_index]
-            if used_bytes + candidate["bytes"] > budget_bytes:
+            selected, set_bytes = candidate_sets[candidate_index]
+            if used_bytes + set_bytes > budget_bytes:
                 continue
-            selected = candidate["selected"]
-            selected_ids = {project: tile_id(selected[project]) for project in unique_projects}
-            if any(selected_ids[project] in used[project] for project in unique_projects):
+
+            selected_ids = {
+                project: tile_id(selected[project]) for project in unique_projects
+            }
+            if any(
+                selected_ids[project] in used[project]
+                for project in unique_projects
+            ):
                 continue
-            selected_candidates.append(candidate)
+
+            selected_sets.append(selected)
             for project in unique_projects:
                 used[project].add(selected_ids[project])
-            if choose(candidate_index + 1, used_bytes + candidate["bytes"]):
+
+            if choose(candidate_index + 1, used_bytes + set_bytes):
                 return True
+
             for project in unique_projects:
                 used[project].remove(selected_ids[project])
-            selected_candidates.pop()
+            selected_sets.pop()
+
         return False
 
     if not choose(0, 0):
-        complete_anchor_count = len({
-            tile_id(candidate["selected"][anchor_project]) for candidate in candidate_sets
-        })
-        budget_note = f" within {max_total_gb:g} GB" if max_total_gb is not None else ""
-        metric_label = "IoU" if overlap_metric == "iou" else "smaller-footprint overlap"
+        complete_anchor_count = len(
+            {
+                tile_id(candidate[anchor_project])
+                for candidate, _ in candidate_sets
+            }
+        )
+        budget_note = (
+            f" within {max_total_gb:g} GB"
+            if max_total_gb is not None
+            else ""
+        )
         raise ValueError(
-            f"Could not select {count} unique co-located sets at {metric_label} "
-            f">= {overlap_threshold:g}{budget_note}; {complete_anchor_count} anchor "
-            "footprints had at least one complete project match"
+            f"Could not select {count} unique co-located sets at IoU "
+            f">= {overlap_threshold:g}{budget_note}; "
+            f"{complete_anchor_count} anchor footprints had at least one "
+            "complete project match"
         )
 
-    output = {project: [] for project in unique_projects}
-    for pair_index, candidate in enumerate(selected_candidates, 1):
-        pair_id = f"probe_{pair_index:03d}"
-        intersection_mapping = mapping(candidate["intersection"])
-        for project in unique_projects:
-            annotated = dict(candidate["selected"][project])
-            annotated.update({
-                "_probe_pair_id": pair_id,
-                "_probe_overlap_metric": overlap_metric,
-                "_probe_overlap_threshold": float(overlap_threshold),
-                "_probe_pair_score": float(candidate["score"]),
-                "_probe_footprint_iou": float(candidate["iou"]),
-                "_probe_smaller_overlap": float(candidate["smaller_overlap"]),
-                "_probe_intersection_geometry": intersection_mapping,
-                "_probe_intersection_crs": "EPSG:4326",
-            })
-            output[project].append(annotated)
-    return output
-
+    return {
+        project: [selected[project] for selected in selected_sets]
+        for project in unique_projects
+    }
 def _load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -450,13 +426,6 @@ def main() -> int:
         "--overlap-threshold", type=float,
         help="Footprint IoU for dedup (default: 0.8) or probe co-location (default: 0.8)",
     )
-    parser.add_argument(
-        "--probe-overlap-metric",
-        choices=("iou", "smaller"),
-        default="iou",
-        help=("Probe matching metric. 'iou' preserves legacy behavior; "
-              "'smaller' requires substantial coverage of the smaller footprint."),
-    )
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
 
@@ -466,7 +435,6 @@ def main() -> int:
         result: Any = select_probe_tiles(
             tiles, projects=args.project, count=args.probe,
             overlap_threshold=args.overlap_threshold if args.overlap_threshold is not None else 0.8,
-            overlap_metric=args.probe_overlap_metric,
             max_total_gb=args.max_total_gb,
         )
     else:
