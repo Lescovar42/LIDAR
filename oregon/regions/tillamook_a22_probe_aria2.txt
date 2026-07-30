@@ -1,0 +1,72 @@
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s05310w14190.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s05310w14190.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04440w14190.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s04440w14190.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04890w13770.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s04890w13770.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s05160w13530.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s05160w13530.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s05130w14070.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s05130w14070.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s05070w13830.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s05070w13830.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04710w14520.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s04710w14520.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04680w13380.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s04680w13380.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04560w14400.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s04560w14400.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04620w13770.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s04620w13770.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s05100w13680.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s05100w13680.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s05280w14190.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s05280w14190.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s05130w13650.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s05130w13650.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s05160w14070.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s05160w14070.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s05310w14100.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s05310w14100.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s05310w14160.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s05310w14160.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s05160w13590.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s05160w13590.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s05040w13830.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s05040w13830.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s05070w14550.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s05070w14550.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04770w14130.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s04770w14130.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04950w13260.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s04950w13260.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s05310w14520.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s05310w14520.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04980w14280.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s04980w14280.laz
+https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s05310w13800.laz
+  dir=F:/LIDAR/oregon/probe_lidar/tillamook_probe/USGS_LPC_OR_WesternWildfires_A22
+  out=USGS_LPC_OR_WesternWildfires_A22_s05310w13800.laz

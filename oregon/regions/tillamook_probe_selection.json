@@ -1,0 +1,1094 @@
+{
+  "USGS_LPC_OR_WesternWildfires_A22": [
+    {
+      "title": "USGS Lidar Point Cloud OR_WesternWildfires_A22 s04350w14040",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "68030439d4be0210cdcd1e18",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/68030439d4be0210cdcd1e18",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/OR_WesternWildfires_A22/OR_WWildfires_2_A22",
+      "publicationDate": "2025-04-17",
+      "lastUpdated": "2025-04-18T20:02:33.055-06:00",
+      "dateCreated": "2025-04-18T20:02:33.055-06:00",
+      "sizeInBytes": 1697146,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04350w14040.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/browse/USGS_LPC_OR_WesternWildfires_A22_s04350w14040.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04350w14040.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04350w14040.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.915340547,
+        "maxX": -123.9139742278,
+        "minY": 45.5551896315,
+        "maxY": 45.5600004642
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2025-04-18",
+      "_probe_pair_id": "probe_001",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 1.0,
+      "_probe_footprint_iou": 0.03532805496357712,
+      "_probe_smaller_overlap": 1.0,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.915340547,
+              45.5551896315
+            ],
+            [
+              -123.915340547,
+              45.5600004642
+            ],
+            [
+              -123.9139742278,
+              45.5600004642
+            ],
+            [
+              -123.9139742278,
+              45.5551896315
+            ],
+            [
+              -123.915340547,
+              45.5551896315
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    },
+    {
+      "title": "USGS Lidar Point Cloud OR_WesternWildfires_A22 s04350w14100",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "680303b7d4be0210cdcd1836",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/680303b7d4be0210cdcd1836",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/OR_WesternWildfires_A22/OR_WWildfires_2_A22",
+      "publicationDate": "2025-04-17",
+      "lastUpdated": "2025-04-19T06:17:18.902-06:00",
+      "dateCreated": "2025-04-18T20:00:23.821-06:00",
+      "sizeInBytes": 2453548,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04350w14100.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/browse/USGS_LPC_OR_WesternWildfires_A22_s04350w14100.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04350w14100.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04350w14100.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.9169444332,
+        "maxX": -123.9147442319,
+        "minY": 45.5681584852,
+        "maxY": 45.5696086605
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2025-04-18",
+      "_probe_pair_id": "probe_002",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 1.0,
+      "_probe_footprint_iou": 0.017141819470862702,
+      "_probe_smaller_overlap": 1.0,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.9169444332,
+              45.5681584852
+            ],
+            [
+              -123.9169444332,
+              45.5696086605
+            ],
+            [
+              -123.9147442319,
+              45.5696086605
+            ],
+            [
+              -123.9147442319,
+              45.5681584852
+            ],
+            [
+              -123.9169444332,
+              45.5681584852
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    },
+    {
+      "title": "USGS Lidar Point Cloud OR_WesternWildfires_A22 s04380w13950",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "6803048dd4be0210cdcd21e8",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/6803048dd4be0210cdcd21e8",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/OR_WesternWildfires_A22/OR_WWildfires_2_A22",
+      "publicationDate": "2025-04-17",
+      "lastUpdated": "2025-04-18T20:03:57.688-06:00",
+      "dateCreated": "2025-04-18T20:03:57.688-06:00",
+      "sizeInBytes": 4895425,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04380w13950.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/browse/USGS_LPC_OR_WesternWildfires_A22_s04380w13950.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04380w13950.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04380w13950.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.9059747764,
+        "maxX": -123.9006638114,
+        "minY": 45.5281296526,
+        "maxY": 45.5356817223
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2025-04-18",
+      "_probe_pair_id": "probe_003",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 1.0,
+      "_probe_footprint_iou": 0.21574236238929445,
+      "_probe_smaller_overlap": 1.0,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.9059747764,
+              45.5281296526
+            ],
+            [
+              -123.9059747764,
+              45.5356817223
+            ],
+            [
+              -123.9006638114,
+              45.5356817223
+            ],
+            [
+              -123.9006638114,
+              45.5281296526
+            ],
+            [
+              -123.9059747764,
+              45.5281296526
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    },
+    {
+      "title": "USGS Lidar Point Cloud OR_WesternWildfires_A22 s04380w14040",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "680300b0d4be0210cdcd1628",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/680300b0d4be0210cdcd1628",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/OR_WesternWildfires_A22/OR_WWildfires_2_A22",
+      "publicationDate": "2025-04-17",
+      "lastUpdated": "2025-04-19T06:07:37.487-06:00",
+      "dateCreated": "2025-04-18T19:47:28.544-06:00",
+      "sizeInBytes": 34638095,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04380w14040.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/browse/USGS_LPC_OR_WesternWildfires_A22_s04380w14040.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04380w14040.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04380w14040.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.914257278,
+        "maxX": -123.9020706556,
+        "minY": 45.5517805012,
+        "maxY": 45.560341908
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2025-04-18",
+      "_probe_pair_id": "probe_004",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 0.9187077462911954,
+      "_probe_footprint_iou": 0.4928993074433003,
+      "_probe_smaller_overlap": 0.9187077462911954,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.9020706556,
+              45.560341908
+            ],
+            [
+              -123.9020706556,
+              45.5517805012
+            ],
+            [
+              -123.9132666,
+              45.5517805012
+            ],
+            [
+              -123.9132666,
+              45.560341908
+            ],
+            [
+              -123.9020706556,
+              45.560341908
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    },
+    {
+      "title": "USGS Lidar Point Cloud OR_WesternWildfires_A22 s04380w14100",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "68030594d4be0210cdcd3661",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/68030594d4be0210cdcd3661",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/OR_WesternWildfires_A22/OR_WWildfires_2_A22",
+      "publicationDate": "2025-04-17",
+      "lastUpdated": "2025-04-18T20:08:20.414-06:00",
+      "dateCreated": "2025-04-18T20:08:20.414-06:00",
+      "sizeInBytes": 53791519,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04380w14100.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/browse/USGS_LPC_OR_WesternWildfires_A22_s04380w14100.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04380w14100.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04380w14100.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.9151050307,
+        "maxX": -123.903041083,
+        "minY": 45.5682204084,
+        "maxY": 45.5746508998
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2025-04-18",
+      "_probe_pair_id": "probe_005",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 0.8480737196821212,
+      "_probe_footprint_iou": 0.33254096294608115,
+      "_probe_smaller_overlap": 0.8480737196821212,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.903041083,
+              45.5746508998
+            ],
+            [
+              -123.903041083,
+              45.5682204084
+            ],
+            [
+              -123.9132722,
+              45.5682204084
+            ],
+            [
+              -123.9132722,
+              45.5746508998
+            ],
+            [
+              -123.903041083,
+              45.5746508998
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    },
+    {
+      "title": "USGS Lidar Point Cloud OR_WesternWildfires_A22 s04410w13920",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "680304e7d4be0210cdcd26d1",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/680304e7d4be0210cdcd26d1",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/OR_WesternWildfires_A22/OR_WWildfires_2_A22",
+      "publicationDate": "2025-04-17",
+      "lastUpdated": "2025-04-18T20:05:27.381-06:00",
+      "dateCreated": "2025-04-18T20:05:27.381-06:00",
+      "sizeInBytes": 5849429,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04410w13920.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/browse/USGS_LPC_OR_WesternWildfires_A22_s04410w13920.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04410w13920.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04410w13920.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.8990917076,
+        "maxX": -123.8888714568,
+        "minY": 45.5266615109,
+        "maxY": 45.5278016559
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2025-04-18",
+      "_probe_pair_id": "probe_006",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 1.0,
+      "_probe_footprint_iou": 0.06267791545260898,
+      "_probe_smaller_overlap": 1.0,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.8990917076,
+              45.5266615109
+            ],
+            [
+              -123.8990917076,
+              45.5278016559
+            ],
+            [
+              -123.8888714568,
+              45.5278016559
+            ],
+            [
+              -123.8888714568,
+              45.5266615109
+            ],
+            [
+              -123.8990917076,
+              45.5266615109
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    },
+    {
+      "title": "USGS Lidar Point Cloud OR_WesternWildfires_A22 s04410w14040",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "6803043bd4be0210cdcd1e30",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/6803043bd4be0210cdcd1e30",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/OR_WesternWildfires_A22/OR_WWildfires_2_A22",
+      "publicationDate": "2025-04-17",
+      "lastUpdated": "2025-04-18T20:02:35.020-06:00",
+      "dateCreated": "2025-04-18T20:02:35.020-06:00",
+      "sizeInBytes": 105337712,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04410w14040.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/browse/USGS_LPC_OR_WesternWildfires_A22_s04410w14040.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04410w14040.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04410w14040.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.9025557902,
+        "maxX": -123.8903706942,
+        "minY": 45.55212189,
+        "maxY": 45.5606821722
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2025-04-18",
+      "_probe_pair_id": "probe_007",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 0.85339547591611,
+      "_probe_footprint_iou": 0.4422528698079925,
+      "_probe_smaller_overlap": 0.85339547591611,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.8903706942,
+              45.5606821722
+            ],
+            [
+              -123.8903706942,
+              45.55212189
+            ],
+            [
+              -123.9007694,
+              45.55212189
+            ],
+            [
+              -123.9007694,
+              45.5606821722
+            ],
+            [
+              -123.8903706942,
+              45.5606821722
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    },
+    {
+      "title": "USGS Lidar Point Cloud OR_WesternWildfires_A22 s04410w14130",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "68030096d4be0210cdcd14f0",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/68030096d4be0210cdcd14f0",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/OR_WesternWildfires_A22/OR_WWildfires_2_A22",
+      "publicationDate": "2025-04-17",
+      "lastUpdated": "2025-04-19T06:01:53.063-06:00",
+      "dateCreated": "2025-04-18T19:47:02.502-06:00",
+      "sizeInBytes": 102073494,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04410w14130.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/browse/USGS_LPC_OR_WesternWildfires_A22_s04410w14130.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04410w14130.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/OR_WesternWildfires_A22/OR_WWildfires_2_A22/LAZ/USGS_LPC_OR_WesternWildfires_A22_s04410w14130.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.9017568491,
+        "maxX": -123.8918215534,
+        "minY": 45.5768474896,
+        "maxY": 45.5853421297
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2025-04-18",
+      "_probe_pair_id": "probe_008",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 0.9006120069485328,
+      "_probe_footprint_iou": 0.39089683169821776,
+      "_probe_smaller_overlap": 0.9006120069485328,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.8918215534,
+              45.5853421297
+            ],
+            [
+              -123.8918215534,
+              45.5768474896
+            ],
+            [
+              -123.9007694,
+              45.5768474896
+            ],
+            [
+              -123.9007694,
+              45.5853421297
+            ],
+            [
+              -123.8918215534,
+              45.5853421297
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    }
+  ],
+  "USGS_LPC_legacy": [
+    {
+      "title": "USGS Lidar Point Cloud OR_NORTHCOAST_2008_2009 OR_NorthCoast_2008-2009_001881",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "642f44f1d34ee8d4add501d9",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/642f44f1d34ee8d4add501d9",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/legacy/OR_NORTHCOAST_2008-2009",
+      "publicationDate": "2014-09-11",
+      "lastUpdated": "2023-04-06T16:17:24.118-06:00",
+      "dateCreated": "2023-04-06T16:17:21.497-06:00",
+      "sizeInBytes": 176664087,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001881.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/browse/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001881.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001881.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001881.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.9257721,
+        "maxX": -123.9117416,
+        "minY": 45.5496277,
+        "maxY": 45.5628888
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2023-04-06",
+      "_probe_pair_id": "probe_001",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 1.0,
+      "_probe_footprint_iou": 0.03532805496357712,
+      "_probe_smaller_overlap": 1.0,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.915340547,
+              45.5551896315
+            ],
+            [
+              -123.915340547,
+              45.5600004642
+            ],
+            [
+              -123.9139742278,
+              45.5600004642
+            ],
+            [
+              -123.9139742278,
+              45.5551896315
+            ],
+            [
+              -123.915340547,
+              45.5551896315
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    },
+    {
+      "title": "USGS Lidar Point Cloud OR_NORTHCOAST_2008_2009 OR_NorthCoast_2008-2009_001898",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "642f4c71d34ee8d4add5135c",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/642f4c71d34ee8d4add5135c",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/legacy/OR_NORTHCOAST_2008-2009",
+      "publicationDate": "2014-09-11",
+      "lastUpdated": "2023-04-06T16:49:23.565-06:00",
+      "dateCreated": "2023-04-06T16:49:21.514-06:00",
+      "sizeInBytes": 331046821,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001898.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/browse/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001898.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001898.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001898.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.9257777,
+        "maxX": -123.9117416,
+        "minY": 45.5621277,
+        "maxY": 45.5753888
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2023-04-06",
+      "_probe_pair_id": "probe_002",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 1.0,
+      "_probe_footprint_iou": 0.017141819470862702,
+      "_probe_smaller_overlap": 1.0,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.9169444332,
+              45.5681584852
+            ],
+            [
+              -123.9169444332,
+              45.5696086605
+            ],
+            [
+              -123.9147442319,
+              45.5696086605
+            ],
+            [
+              -123.9147442319,
+              45.5681584852
+            ],
+            [
+              -123.9169444332,
+              45.5681584852
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    },
+    {
+      "title": "USGS Lidar Point Cloud OR_NORTHCOAST_2008_2009 OR_NorthCoast_2008-2009_001870",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "642f472dd34ee8d4add508d8",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/642f472dd34ee8d4add508d8",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/legacy/OR_NORTHCOAST_2008-2009",
+      "publicationDate": "2014-09-11",
+      "lastUpdated": "2023-04-06T16:26:55.448-06:00",
+      "dateCreated": "2023-04-06T16:26:53.110-06:00",
+      "sizeInBytes": 74898854,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001870.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/browse/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001870.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001870.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001870.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.9132666,
+        "maxX": -123.8992444,
+        "minY": 45.5246277,
+        "maxY": 45.537886
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2023-04-06",
+      "_probe_pair_id": "probe_003",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 1.0,
+      "_probe_footprint_iou": 0.21574236238929445,
+      "_probe_smaller_overlap": 1.0,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.9059747764,
+              45.5281296526
+            ],
+            [
+              -123.9059747764,
+              45.5356817223
+            ],
+            [
+              -123.9006638114,
+              45.5356817223
+            ],
+            [
+              -123.9006638114,
+              45.5281296526
+            ],
+            [
+              -123.9059747764,
+              45.5281296526
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    },
+    {
+      "title": "USGS Lidar Point Cloud OR_NORTHCOAST_2008_2009 OR_NorthCoast_2008-2009_001880",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "642f487ad34ee8d4add50c34",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/642f487ad34ee8d4add50c34",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/legacy/OR_NORTHCOAST_2008-2009",
+      "publicationDate": "2014-09-11",
+      "lastUpdated": "2023-04-06T16:32:34.875-06:00",
+      "dateCreated": "2023-04-06T16:32:26.950-06:00",
+      "sizeInBytes": 106750982,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001880.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/browse/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001880.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001880.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001880.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.9132666,
+        "maxX": -123.8992388,
+        "minY": 45.5496277,
+        "maxY": 45.5628861
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2023-04-06",
+      "_probe_pair_id": "probe_004",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 0.9187077462911954,
+      "_probe_footprint_iou": 0.4928993074433003,
+      "_probe_smaller_overlap": 0.9187077462911954,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.9020706556,
+              45.560341908
+            ],
+            [
+              -123.9020706556,
+              45.5517805012
+            ],
+            [
+              -123.9132666,
+              45.5517805012
+            ],
+            [
+              -123.9132666,
+              45.560341908
+            ],
+            [
+              -123.9020706556,
+              45.560341908
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    },
+    {
+      "title": "USGS Lidar Point Cloud OR_NORTHCOAST_2008_2009 OR_NorthCoast_2008-2009_001897",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "642f4c70d34ee8d4add5135a",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/642f4c70d34ee8d4add5135a",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/legacy/OR_NORTHCOAST_2008-2009",
+      "publicationDate": "2014-09-11",
+      "lastUpdated": "2023-04-06T16:49:22.956-06:00",
+      "dateCreated": "2023-04-06T16:49:20.788-06:00",
+      "sizeInBytes": 234576052,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001897.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/browse/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001897.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001897.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001897.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.9132722,
+        "maxX": -123.8992388,
+        "minY": 45.562125,
+        "maxY": 45.5753832
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2023-04-06",
+      "_probe_pair_id": "probe_005",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 0.8480737196821212,
+      "_probe_footprint_iou": 0.33254096294608115,
+      "_probe_smaller_overlap": 0.8480737196821212,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.903041083,
+              45.5746508998
+            ],
+            [
+              -123.903041083,
+              45.5682204084
+            ],
+            [
+              -123.9132722,
+              45.5682204084
+            ],
+            [
+              -123.9132722,
+              45.5746508998
+            ],
+            [
+              -123.903041083,
+              45.5746508998
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    },
+    {
+      "title": "USGS Lidar Point Cloud OR_NORTHCOAST_2008_2009 OR_NorthCoast_2008-2009_001869",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "642f436ad34ee8d4add4fc7e",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/642f436ad34ee8d4add4fc7e",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/legacy/OR_NORTHCOAST_2008-2009",
+      "publicationDate": "2014-09-11",
+      "lastUpdated": "2023-04-06T16:11:10.834-06:00",
+      "dateCreated": "2023-04-06T16:10:50.594-06:00",
+      "sizeInBytes": 173841380,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001869.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/browse/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001869.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001869.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001869.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.9007694,
+        "maxX": -123.8867471,
+        "minY": 45.5246277,
+        "maxY": 45.537886
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2023-04-06",
+      "_probe_pair_id": "probe_006",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 1.0,
+      "_probe_footprint_iou": 0.06267791545260898,
+      "_probe_smaller_overlap": 1.0,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.8990917076,
+              45.5266615109
+            ],
+            [
+              -123.8990917076,
+              45.5278016559
+            ],
+            [
+              -123.8888714568,
+              45.5278016559
+            ],
+            [
+              -123.8888714568,
+              45.5266615109
+            ],
+            [
+              -123.8990917076,
+              45.5266615109
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    },
+    {
+      "title": "USGS Lidar Point Cloud OR_NORTHCOAST_2008_2009 OR_NorthCoast_2008-2009_001879",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "642f4350d34ee8d4add4fbf5",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/642f4350d34ee8d4add4fbf5",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/legacy/OR_NORTHCOAST_2008-2009",
+      "publicationDate": "2014-09-11",
+      "lastUpdated": "2023-04-06T16:10:43.131-06:00",
+      "dateCreated": "2023-04-06T16:10:24.049-06:00",
+      "sizeInBytes": 186275758,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001879.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/browse/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001879.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001879.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001879.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.9007694,
+        "maxX": -123.8867416,
+        "minY": 45.5496221,
+        "maxY": 45.5628805
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2023-04-06",
+      "_probe_pair_id": "probe_007",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 0.85339547591611,
+      "_probe_footprint_iou": 0.4422528698079925,
+      "_probe_smaller_overlap": 0.85339547591611,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.8903706942,
+              45.5606821722
+            ],
+            [
+              -123.8903706942,
+              45.55212189
+            ],
+            [
+              -123.9007694,
+              45.55212189
+            ],
+            [
+              -123.9007694,
+              45.5606821722
+            ],
+            [
+              -123.8903706942,
+              45.5606821722
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    },
+    {
+      "title": "USGS Lidar Point Cloud OR_NORTHCOAST_2008_2009 OR_NorthCoast_2008-2009_001901",
+      "moreInfo": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing [...]",
+      "sourceId": "642f44f3d34ee8d4add501df",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/642f44f3d34ee8d4add501df",
+      "vendorMetaUrl": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/legacy/OR_NORTHCOAST_2008-2009",
+      "publicationDate": "2014-09-11",
+      "lastUpdated": "2023-04-06T16:17:25.161-06:00",
+      "dateCreated": "2023-04-06T16:17:23.396-06:00",
+      "sizeInBytes": 225273306,
+      "extent": "Varies",
+      "format": "LAZ",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001901.laz",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/browse/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001901.jpg",
+      "downloadLazURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001901.laz",
+      "urls": {
+        "LAZ": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/legacy/OR_NORTHCOAST_2008_2009/LAZ/USGS_LPC_OR_NORTHCOAST_2008_2009_OR_NorthCoast_2008-2009_001901.laz"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -123.9007694,
+        "maxX": -123.886736,
+        "minY": 45.5746277,
+        "maxY": 45.587886
+      },
+      "bestFitIndex": 0.0,
+      "body": "Lidar (Light detection and ranging) discrete-return point cloud data are available in the American Society for Photogrammetry and Remote Sensing (ASPRS) LAS format. The LAS format is a standardized binary format for storing 3-dimensional point cloud data and point attributes along with header information and variable length records specific to the data. Millions of data points are stored as a 3-dimensional data cloud as a series of x (longitude), y (latitude) and z (elevation) points. A few older projects in this collection are in ASCII format. Please refer to http://www.asprs.org/Committee-General/LASer-LAS-File-Format-Exchange-Activities.html for additional information. This data set is a LAZ (compressed LAS) format file containing lidar point cloud data. Compression to an LAZ file was done with the LAStools 'laszip' program and can be unzipped with the same free program (laszip.org).",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2023-04-06",
+      "_probe_pair_id": "probe_008",
+      "_probe_overlap_metric": "smaller",
+      "_probe_overlap_threshold": 0.8,
+      "_probe_pair_score": 0.9006120069485328,
+      "_probe_footprint_iou": 0.39089683169821776,
+      "_probe_smaller_overlap": 0.9006120069485328,
+      "_probe_intersection_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.8918215534,
+              45.5853421297
+            ],
+            [
+              -123.8918215534,
+              45.5768474896
+            ],
+            [
+              -123.9007694,
+              45.5768474896
+            ],
+            [
+              -123.9007694,
+              45.5853421297
+            ],
+            [
+              -123.8918215534,
+              45.5853421297
+            ]
+          ]
+        ]
+      },
+      "_probe_intersection_crs": "EPSG:4326"
+    }
+  ]
+}
