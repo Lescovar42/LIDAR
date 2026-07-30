@@ -1,0 +1,7 @@
+region_id,tile_name,error
+legacy,USGS_LPC_OR_WesternWildfires_A22_s04350w14040.laz,dropped_split_buffer: footprint is 317.354 m from a differently assigned block (required > 500.000 m)
+legacy,USGS_LPC_OR_WesternWildfires_A22_s04380w14040.laz,dropped_split_buffer: footprint is 0.000 m from a differently assigned block (required > 500.000 m)
+legacy,USGS_LPC_OR_WesternWildfires_A22_s04410w14040.laz,dropped_split_buffer: footprint is 0.000 m from a differently assigned block (required > 500.000 m)
+legacy,USGS_LPC_OR_WesternWildfires_A22_s04440w14190.laz,dropped_split_buffer: footprint is 399.973 m from a differently assigned block (required > 500.000 m)
+legacy,USGS_LPC_OR_WesternWildfires_A22_s04890w13770.laz,dropped_split_buffer: footprint is 0.000 m from a differently assigned block (required > 500.000 m)
+legacy,USGS_LPC_OR_WesternWildfires_A22_s04380w13950.laz,RuntimeError: No ASPRS class-2 ground points in USGS_LPC_OR_WesternWildfires_A22_s04380w13950.laz

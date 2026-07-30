@@ -1,0 +1,3702 @@
+{
+  "parameters": {
+    "selection": "F:\\LIDAR\\oregon\\regions\\tillamook_a22_probe_selection.json",
+    "laz_dir": "F:\\LIDAR\\oregon\\probe_lidar\\tillamook_probe\\USGS_LPC_OR_WesternWildfires_A22",
+    "slido": "F:\\LIDAR\\oregon\\slido_tillamook.geojson",
+    "project": "USGS_LPC_OR_WesternWildfires_A22",
+    "lidar_year": 2020,
+    "cell_sizes": [
+      1.0,
+      1.5,
+      2.0
+    ],
+    "patch_size": 256,
+    "stride": 128,
+    "min_patch_ground_fraction": 0.3,
+    "label_rule": "SLIDO Landslide polygons with high/moderate confidence are positive; low/unknown confidence and known post-LiDAR events are ignore",
+    "decision_status": "not_pinned"
+  },
+  "tiles": [
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05310w14190.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1401129,
+      "ground_cell_fraction": 0.11512168386390363,
+      "missing_ground_cell_fraction": 0.8848783161360964,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.11538882294962229,
+          "min": 0.042083740234375,
+          "max": 0.241607666015625
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1884",
+        "Tillamook_1885",
+        "Tillamook_1887",
+        "Tillamook_1904"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05310w14190.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1401129,
+      "ground_cell_fraction": 0.23810208838609181,
+      "missing_ground_cell_fraction": 0.7618979116139082,
+      "patches": {
+        "total": 196,
+        "accepted": 28,
+        "accepted_fraction": 0.14285714285714285,
+        "rejected_ground": 168,
+        "positive_total": 25,
+        "positive_interior": 24,
+        "positive_boundary": 1,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 3,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.24039350237165177,
+          "min": 0.1235504150390625,
+          "max": 0.4542388916015625
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.7438654218401227,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1884",
+        "Tillamook_1885",
+        "Tillamook_1887",
+        "Tillamook_1904"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_1884"
+      ],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05310w14190.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1401129,
+      "ground_cell_fraction": 0.35214276425088137,
+      "missing_ground_cell_fraction": 0.6478572357491186,
+      "patches": {
+        "total": 100,
+        "accepted": 70,
+        "accepted_fraction": 0.7,
+        "rejected_ground": 30,
+        "positive_total": 65,
+        "positive_interior": 56,
+        "positive_boundary": 9,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 5,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.3554815673828125,
+          "min": 0.2237701416015625,
+          "max": 0.611968994140625
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.6204164777483259,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1884",
+        "Tillamook_1885",
+        "Tillamook_1887",
+        "Tillamook_1904"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_1884",
+        "Tillamook_1887"
+      ],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04440w14190.laz",
+      "cell_size": 1.0,
+      "shape": [
+        2845,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1283115,
+      "ground_cell_fraction": 0.1411924203355765,
+      "missing_ground_cell_fraction": 0.8588075796644234,
+      "patches": {
+        "total": 462,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 462,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.14531668130453532,
+          "min": 0.026214599609375,
+          "max": 0.2469024658203125
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1168",
+        "Tillamook_1169",
+        "Tillamook_1173",
+        "Tillamook_1190",
+        "Tillamook_1191",
+        "Tillamook_1203",
+        "Tillamook_1204",
+        "Tillamook_1208",
+        "Tillamook_1212",
+        "Tillamook_3153"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [
+        "Tillamook_1174",
+        "Tillamook_3154"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04440w14190.laz",
+      "cell_size": 1.5,
+      "shape": [
+        1897,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1283115,
+      "ground_cell_fraction": 0.282600397218365,
+      "missing_ground_cell_fraction": 0.717399602781635,
+      "patches": {
+        "total": 182,
+        "accepted": 101,
+        "accepted_fraction": 0.554945054945055,
+        "rejected_ground": 81,
+        "positive_total": 63,
+        "positive_interior": 45,
+        "positive_boundary": 12,
+        "positive_trace": 6,
+        "positive_with_ignore": 0,
+        "negative": 32,
+        "ignore_only": 6,
+        "ground_fraction": {
+          "mean": 0.29999559004228193,
+          "min": 0.080413818359375,
+          "max": 0.438568115234375
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.27530783473855197,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.005023465298189975,
+          "max": 0.1700439453125
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1168",
+        "Tillamook_1169",
+        "Tillamook_1173",
+        "Tillamook_1190",
+        "Tillamook_1191",
+        "Tillamook_1203",
+        "Tillamook_1204",
+        "Tillamook_1208",
+        "Tillamook_1212",
+        "Tillamook_3153"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_1168",
+        "Tillamook_1169",
+        "Tillamook_1173",
+        "Tillamook_1190",
+        "Tillamook_1203",
+        "Tillamook_1204",
+        "Tillamook_1208"
+      ],
+      "ignored_polygon_keys": [
+        "Tillamook_1174",
+        "Tillamook_3154"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04440w14190.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1423,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1283115,
+      "ground_cell_fraction": 0.41062013939641084,
+      "missing_ground_cell_fraction": 0.5893798606035892,
+      "patches": {
+        "total": 100,
+        "accepted": 89,
+        "accepted_fraction": 0.89,
+        "rejected_ground": 11,
+        "positive_total": 70,
+        "positive_interior": 50,
+        "positive_boundary": 16,
+        "positive_trace": 4,
+        "positive_with_ignore": 5,
+        "negative": 14,
+        "ignore_only": 5,
+        "ground_fraction": {
+          "mean": 0.43427978515625,
+          "min": 0.155914306640625,
+          "max": 0.6113739013671875
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.33694303705451195,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.005426642600070225,
+          "max": 0.095611572265625
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1168",
+        "Tillamook_1169",
+        "Tillamook_1173",
+        "Tillamook_1190",
+        "Tillamook_1191",
+        "Tillamook_1203",
+        "Tillamook_1204",
+        "Tillamook_1208",
+        "Tillamook_1212",
+        "Tillamook_3153"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_1168",
+        "Tillamook_1169",
+        "Tillamook_1173",
+        "Tillamook_1190",
+        "Tillamook_1191",
+        "Tillamook_1203",
+        "Tillamook_1204",
+        "Tillamook_1208",
+        "Tillamook_1212",
+        "Tillamook_3153"
+      ],
+      "ignored_polygon_keys": [
+        "Tillamook_1174",
+        "Tillamook_3154"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04890w13770.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 869589,
+      "ground_cell_fraction": 0.09205728491480292,
+      "missing_ground_cell_fraction": 0.9079427150851971,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.09146594213060111,
+          "min": 0.046539306640625,
+          "max": 0.1626739501953125
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2299",
+        "Tillamook_2342"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04890w13770.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 869589,
+      "ground_cell_fraction": 0.1876960070689293,
+      "missing_ground_cell_fraction": 0.8123039929310707,
+      "patches": {
+        "total": 196,
+        "accepted": 1,
+        "accepted_fraction": 0.00510204081632653,
+        "rejected_ground": 195,
+        "positive_total": 1,
+        "positive_interior": 1,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.18566263938436703,
+          "min": 0.1093902587890625,
+          "max": 0.300811767578125
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.985321044921875,
+          "max": 0.985321044921875
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2299",
+        "Tillamook_2342"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2299"
+      ],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04890w13770.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 869589,
+      "ground_cell_fraction": 0.27897635198564047,
+      "missing_ground_cell_fraction": 0.7210236480143595,
+      "patches": {
+        "total": 100,
+        "accepted": 21,
+        "accepted_fraction": 0.21,
+        "rejected_ground": 79,
+        "positive_total": 20,
+        "positive_interior": 20,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 1,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.2767247009277344,
+          "min": 0.1921234130859375,
+          "max": 0.4278106689453125
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.8283982049851191,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2299",
+        "Tillamook_2342"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2299"
+      ],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05160w13530.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1182528,
+      "ground_cell_fraction": 0.12377580237888049,
+      "missing_ground_cell_fraction": 0.8762241976211195,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.12331945245916193,
+          "min": 0.060211181640625,
+          "max": 0.231719970703125
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2553",
+        "Tillamook_2577"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_105"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05160w13530.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1182528,
+      "ground_cell_fraction": 0.24546347515897224,
+      "missing_ground_cell_fraction": 0.7545365248410277,
+      "patches": {
+        "total": 196,
+        "accepted": 35,
+        "accepted_fraction": 0.17857142857142858,
+        "rejected_ground": 161,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 7,
+        "ignore_only": 28,
+        "ground_fraction": {
+          "mean": 0.24263459808972418,
+          "min": 0.142333984375,
+          "max": 0.4181365966796875
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.5358158656529017,
+          "max": 1.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2553",
+        "Tillamook_2577"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2553"
+      ],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_105"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05160w13530.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1182528,
+      "ground_cell_fraction": 0.3716185656375652,
+      "missing_ground_cell_fraction": 0.6283814343624348,
+      "patches": {
+        "total": 100,
+        "accepted": 82,
+        "accepted_fraction": 0.82,
+        "rejected_ground": 18,
+        "positive_total": 21,
+        "positive_interior": 12,
+        "positive_boundary": 4,
+        "positive_trace": 5,
+        "positive_with_ignore": 20,
+        "negative": 4,
+        "ignore_only": 57,
+        "ground_fraction": {
+          "mean": 0.363326416015625,
+          "min": 0.239349365234375,
+          "max": 0.597900390625
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.061983620248189784,
+          "max": 0.983856201171875
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.7174811014314977,
+          "max": 1.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2553",
+        "Tillamook_2577"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2553",
+        "Tillamook_2577"
+      ],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_105"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05130w14070.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1351683,
+      "ground_cell_fraction": 0.14248999084055175,
+      "missing_ground_cell_fraction": 0.8575100091594483,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.14140310366291645,
+          "min": 0.084320068359375,
+          "max": 0.215118408203125
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2053",
+        "Tillamook_2079"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05130w14070.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1351683,
+      "ground_cell_fraction": 0.28827165627581014,
+      "missing_ground_cell_fraction": 0.7117283437241899,
+      "patches": {
+        "total": 196,
+        "accepted": 60,
+        "accepted_fraction": 0.30612244897959184,
+        "rejected_ground": 136,
+        "positive_total": 30,
+        "positive_interior": 29,
+        "positive_boundary": 0,
+        "positive_trace": 1,
+        "positive_with_ignore": 0,
+        "negative": 30,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.2849444175253109,
+          "min": 0.2017974853515625,
+          "max": 0.3761749267578125
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.45959218343098956,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2053",
+        "Tillamook_2079"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2053"
+      ],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05130w14070.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1351683,
+      "ground_cell_fraction": 0.4248200511229245,
+      "missing_ground_cell_fraction": 0.5751799488770755,
+      "patches": {
+        "total": 100,
+        "accepted": 100,
+        "accepted_fraction": 1.0,
+        "rejected_ground": 0,
+        "positive_total": 76,
+        "positive_interior": 72,
+        "positive_boundary": 4,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 24,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.41877655029296873,
+          "min": 0.325103759765625,
+          "max": 0.5204315185546875
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.636346435546875,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2053",
+        "Tillamook_2079"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2053",
+        "Tillamook_2079"
+      ],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05070w13830.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3002
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1002598,
+      "ground_cell_fraction": 0.1040339429384076,
+      "missing_ground_cell_fraction": 0.8959660570615924,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.10402260141924394,
+          "min": 0.0542144775390625,
+          "max": 0.16436767578125
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2276",
+        "Tillamook_2283",
+        "Tillamook_2284",
+        "Tillamook_2294"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05070w13830.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2002
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1002598,
+      "ground_cell_fraction": 0.20877598163954986,
+      "missing_ground_cell_fraction": 0.7912240183604502,
+      "patches": {
+        "total": 196,
+        "accepted": 1,
+        "accepted_fraction": 0.00510204081632653,
+        "rejected_ground": 195,
+        "positive_total": 1,
+        "positive_interior": 1,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.20951726485271843,
+          "min": 0.1342010498046875,
+          "max": 0.3054351806640625
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.1392822265625,
+          "max": 0.1392822265625
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2276",
+        "Tillamook_2283",
+        "Tillamook_2284",
+        "Tillamook_2294"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2276"
+      ],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05070w13830.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1502
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1002598,
+      "ground_cell_fraction": 0.30686244678425656,
+      "missing_ground_cell_fraction": 0.6931375532157434,
+      "patches": {
+        "total": 100,
+        "accepted": 52,
+        "accepted_fraction": 0.52,
+        "rejected_ground": 48,
+        "positive_total": 49,
+        "positive_interior": 43,
+        "positive_boundary": 6,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 3,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.3082267761230469,
+          "min": 0.2230682373046875,
+          "max": 0.417083740234375
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.6022541339580829,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2276",
+        "Tillamook_2283",
+        "Tillamook_2284",
+        "Tillamook_2294"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2276",
+        "Tillamook_2283"
+      ],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04710w14520.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 984134,
+      "ground_cell_fraction": 0.10297678181470334,
+      "missing_ground_cell_fraction": 0.8970232181852966,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.10337757079069279,
+          "min": 0.011627197265625,
+          "max": 0.210113525390625
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_335",
+        "Tillamook_337"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [
+        "SchlHG1972hazards_63"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04710w14520.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 984134,
+      "ground_cell_fraction": 0.2080234245695743,
+      "missing_ground_cell_fraction": 0.7919765754304258,
+      "patches": {
+        "total": 196,
+        "accepted": 12,
+        "accepted_fraction": 0.061224489795918366,
+        "rejected_ground": 184,
+        "positive_total": 2,
+        "positive_interior": 0,
+        "positive_boundary": 1,
+        "positive_trace": 1,
+        "positive_with_ignore": 2,
+        "negative": 3,
+        "ignore_only": 7,
+        "ground_fraction": {
+          "mean": 0.2100879902742347,
+          "min": 0.0777435302734375,
+          "max": 0.3652191162109375
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.008124033610026041,
+          "max": 0.0968170166015625
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.6323839823404948,
+          "max": 1.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_335",
+        "Tillamook_337"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_337"
+      ],
+      "ignored_polygon_keys": [
+        "SchlHG1972hazards_63"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04710w14520.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 984134,
+      "ground_cell_fraction": 0.30703404037548143,
+      "missing_ground_cell_fraction": 0.6929659596245186,
+      "patches": {
+        "total": 100,
+        "accepted": 59,
+        "accepted_fraction": 0.59,
+        "rejected_ground": 41,
+        "positive_total": 12,
+        "positive_interior": 3,
+        "positive_boundary": 6,
+        "positive_trace": 3,
+        "positive_with_ignore": 9,
+        "negative": 19,
+        "ignore_only": 28,
+        "ground_fraction": {
+          "mean": 0.3113380432128906,
+          "min": 0.1625823974609375,
+          "max": 0.4797821044921875
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.020368673033633475,
+          "max": 0.43505859375
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.4721095198291843,
+          "max": 1.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_335",
+        "Tillamook_337"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_335",
+        "Tillamook_337"
+      ],
+      "ignored_polygon_keys": [
+        "SchlHG1972hazards_63"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04680w13380.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        2187
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 463701,
+      "ground_cell_fraction": 0.06762812030192039,
+      "missing_ground_cell_fraction": 0.9323718796980796,
+      "patches": {
+        "total": 352,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 352,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.0681557221846147,
+          "min": 0.0,
+          "max": 0.1934661865234375
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_4529",
+        "Tillamook_4531",
+        "Tillamook_4533",
+        "Tillamook_4543",
+        "Tillamook_4544",
+        "Tillamook_4548"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04680w13380.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        1459
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 463701,
+      "ground_cell_fraction": 0.1363036781814713,
+      "missing_ground_cell_fraction": 0.8636963218185287,
+      "patches": {
+        "total": 140,
+        "accepted": 6,
+        "accepted_fraction": 0.04285714285714286,
+        "rejected_ground": 134,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 6,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.1371140616280692,
+          "min": 0.0,
+          "max": 0.3779296875
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_4529",
+        "Tillamook_4531",
+        "Tillamook_4533",
+        "Tillamook_4543",
+        "Tillamook_4544",
+        "Tillamook_4548"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04680w13380.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1094
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 463701,
+      "ground_cell_fraction": 0.2095757002948674,
+      "missing_ground_cell_fraction": 0.7904242997051326,
+      "patches": {
+        "total": 70,
+        "accepted": 22,
+        "accepted_fraction": 0.3142857142857143,
+        "rejected_ground": 48,
+        "positive_total": 8,
+        "positive_interior": 5,
+        "positive_boundary": 3,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 14,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.20899244035993303,
+          "min": 0.0,
+          "max": 0.5122833251953125
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.13385703346946023,
+          "max": 0.98162841796875
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_4529",
+        "Tillamook_4531",
+        "Tillamook_4533",
+        "Tillamook_4543",
+        "Tillamook_4544",
+        "Tillamook_4548"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_4531",
+        "Tillamook_4543",
+        "Tillamook_4544"
+      ],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04560w14400.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 969231,
+      "ground_cell_fraction": 0.10242748140934028,
+      "missing_ground_cell_fraction": 0.8975725185906597,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.10427935261371707,
+          "min": 0.0314788818359375,
+          "max": 0.1831817626953125
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1065",
+        "Tillamook_984",
+        "Tillamook_990",
+        "Tillamook_998"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04560w14400.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 969231,
+      "ground_cell_fraction": 0.21088206521426942,
+      "missing_ground_cell_fraction": 0.7891179347857306,
+      "patches": {
+        "total": 196,
+        "accepted": 25,
+        "accepted_fraction": 0.12755102040816327,
+        "rejected_ground": 171,
+        "positive_total": 11,
+        "positive_interior": 9,
+        "positive_boundary": 1,
+        "positive_trace": 1,
+        "positive_with_ignore": 0,
+        "negative": 14,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.21758659518494897,
+          "min": 0.0962677001953125,
+          "max": 0.3386688232421875
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.219420166015625,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1065",
+        "Tillamook_984",
+        "Tillamook_990",
+        "Tillamook_998"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_984"
+      ],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04560w14400.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 969231,
+      "ground_cell_fraction": 0.3135932917917036,
+      "missing_ground_cell_fraction": 0.6864067082082964,
+      "patches": {
+        "total": 100,
+        "accepted": 55,
+        "accepted_fraction": 0.55,
+        "rejected_ground": 45,
+        "positive_total": 39,
+        "positive_interior": 30,
+        "positive_boundary": 6,
+        "positive_trace": 3,
+        "positive_with_ignore": 0,
+        "negative": 16,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.3268780517578125,
+          "min": 0.169403076171875,
+          "max": 0.4832611083984375
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.38632313121448864,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1065",
+        "Tillamook_984",
+        "Tillamook_990",
+        "Tillamook_998"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_984",
+        "Tillamook_990"
+      ],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04620w13770.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 841265,
+      "ground_cell_fraction": 0.08872761617503706,
+      "missing_ground_cell_fraction": 0.9112723838249629,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.08814977220267303,
+          "min": 0.0341033935546875,
+          "max": 0.1889801025390625
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2498",
+        "Tillamook_2499",
+        "Tillamook_2500",
+        "Tillamook_2501",
+        "Tillamook_2502",
+        "Tillamook_3227"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04620w13770.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 841265,
+      "ground_cell_fraction": 0.17992927574193912,
+      "missing_ground_cell_fraction": 0.8200707242580609,
+      "patches": {
+        "total": 196,
+        "accepted": 1,
+        "accepted_fraction": 0.00510204081632653,
+        "rejected_ground": 195,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 1,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.1794144766671317,
+          "min": 0.095123291015625,
+          "max": 0.3138275146484375
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2498",
+        "Tillamook_2499",
+        "Tillamook_2500",
+        "Tillamook_2501",
+        "Tillamook_2502",
+        "Tillamook_3227"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04620w13770.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 841265,
+      "ground_cell_fraction": 0.2647397848469663,
+      "missing_ground_cell_fraction": 0.7352602151530336,
+      "patches": {
+        "total": 100,
+        "accepted": 18,
+        "accepted_fraction": 0.18,
+        "rejected_ground": 82,
+        "positive_total": 6,
+        "positive_interior": 3,
+        "positive_boundary": 2,
+        "positive_trace": 1,
+        "positive_with_ignore": 0,
+        "negative": 12,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.264608154296875,
+          "min": 0.16217041015625,
+          "max": 0.4140625
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.08360714382595485,
+          "max": 0.9742889404296875
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2498",
+        "Tillamook_2499",
+        "Tillamook_2500",
+        "Tillamook_2501",
+        "Tillamook_2502",
+        "Tillamook_3227"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2499",
+        "Tillamook_2501",
+        "Tillamook_3227"
+      ],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05100w13680.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 915905,
+      "ground_cell_fraction": 0.09640594088319555,
+      "missing_ground_cell_fraction": 0.9035940591168045,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.0972545403094331,
+          "min": 0.0533905029296875,
+          "max": 0.1595916748046875
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2562",
+        "Tillamook_2576",
+        "Tillamook_2612"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_65"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05100w13680.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 915905,
+      "ground_cell_fraction": 0.19280464715168652,
+      "missing_ground_cell_fraction": 0.8071953528483135,
+      "patches": {
+        "total": 196,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 196,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.19547380719866073,
+          "min": 0.1274566650390625,
+          "max": 0.28411865234375
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2562",
+        "Tillamook_2576",
+        "Tillamook_2612"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_65"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05100w13680.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 915905,
+      "ground_cell_fraction": 0.29393950557500864,
+      "missing_ground_cell_fraction": 0.7060604944249913,
+      "patches": {
+        "total": 100,
+        "accepted": 48,
+        "accepted_fraction": 0.48,
+        "rejected_ground": 52,
+        "positive_total": 16,
+        "positive_interior": 13,
+        "positive_boundary": 1,
+        "positive_trace": 2,
+        "positive_with_ignore": 9,
+        "negative": 1,
+        "ignore_only": 31,
+        "ground_fraction": {
+          "mean": 0.2982061767578125,
+          "min": 0.1994476318359375,
+          "max": 0.4056396484375
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.12937386830647787,
+          "max": 0.89739990234375
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.6941792170206705,
+          "max": 1.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2562",
+        "Tillamook_2576",
+        "Tillamook_2612"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2562",
+        "Tillamook_2576",
+        "Tillamook_2612"
+      ],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_65"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05280w14190.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1625655,
+      "ground_cell_fraction": 0.14830000574061672,
+      "missing_ground_cell_fraction": 0.8516999942593833,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.14816886334379842,
+          "min": 0.0790252685546875,
+          "max": 0.2567138671875
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1881",
+        "Tillamook_1884",
+        "Tillamook_1893",
+        "Tillamook_1906"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_209",
+        "Tillamook_1882"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05280w14190.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1625655,
+      "ground_cell_fraction": 0.2965249009678069,
+      "missing_ground_cell_fraction": 0.7034750990321931,
+      "patches": {
+        "total": 196,
+        "accepted": 71,
+        "accepted_fraction": 0.3622448979591837,
+        "rejected_ground": 125,
+        "positive_total": 64,
+        "positive_interior": 61,
+        "positive_boundary": 3,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 7,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.2959421897421078,
+          "min": 0.181671142578125,
+          "max": 0.4695281982421875
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.7203285324741417,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1881",
+        "Tillamook_1884",
+        "Tillamook_1893",
+        "Tillamook_1906"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_1881",
+        "Tillamook_1884",
+        "Tillamook_1893",
+        "Tillamook_1906"
+      ],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_209",
+        "Tillamook_1882"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05280w14190.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1625655,
+      "ground_cell_fraction": 0.4329634119114905,
+      "missing_ground_cell_fraction": 0.5670365880885095,
+      "patches": {
+        "total": 100,
+        "accepted": 100,
+        "accepted_fraction": 1.0,
+        "rejected_ground": 0,
+        "positive_total": 70,
+        "positive_interior": 59,
+        "positive_boundary": 9,
+        "positive_trace": 2,
+        "positive_with_ignore": 4,
+        "negative": 26,
+        "ignore_only": 4,
+        "ground_fraction": {
+          "mean": 0.43045150756835937,
+          "min": 0.3214111328125,
+          "max": 0.6399688720703125
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.45164199829101564,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0081103515625,
+          "max": 0.4443817138671875
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1881",
+        "Tillamook_1884",
+        "Tillamook_1893",
+        "Tillamook_1906"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_1881",
+        "Tillamook_1884",
+        "Tillamook_1893",
+        "Tillamook_1906"
+      ],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_209",
+        "Tillamook_1882"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05130w13650.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 805411,
+      "ground_cell_fraction": 0.08485697481046249,
+      "missing_ground_cell_fraction": 0.9151430251895375,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.08542702414772728,
+          "min": 0.0244598388671875,
+          "max": 0.1718597412109375
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2544",
+        "Tillamook_2558",
+        "Tillamook_2559",
+        "Tillamook_2560"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_65",
+        "WellRE1995_406"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05130w13650.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 805411,
+      "ground_cell_fraction": 0.17004890857919366,
+      "missing_ground_cell_fraction": 0.8299510914208064,
+      "patches": {
+        "total": 196,
+        "accepted": 1,
+        "accepted_fraction": 0.00510204081632653,
+        "rejected_ground": 195,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 1,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.1725989361198581,
+          "min": 0.06536865234375,
+          "max": 0.30572509765625
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2544",
+        "Tillamook_2558",
+        "Tillamook_2559",
+        "Tillamook_2560"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_65",
+        "WellRE1995_406"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05130w13650.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 805411,
+      "ground_cell_fraction": 0.2614690361877336,
+      "missing_ground_cell_fraction": 0.7385309638122664,
+      "patches": {
+        "total": 100,
+        "accepted": 25,
+        "accepted_fraction": 0.25,
+        "rejected_ground": 75,
+        "positive_total": 10,
+        "positive_interior": 8,
+        "positive_boundary": 2,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 15,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.2685281372070312,
+          "min": 0.10430908203125,
+          "max": 0.4037017822265625
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.1273486328125,
+          "max": 0.9680328369140625
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2544",
+        "Tillamook_2558",
+        "Tillamook_2559",
+        "Tillamook_2560"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2544",
+        "Tillamook_2559"
+      ],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_65",
+        "WellRE1995_406"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05160w14070.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1343871,
+      "ground_cell_fraction": 0.14015665776630493,
+      "missing_ground_cell_fraction": 0.8598433422336951,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.14188810616485342,
+          "min": 0.082550048828125,
+          "max": 0.213958740234375
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2050",
+        "Tillamook_2051",
+        "Tillamook_2052",
+        "Tillamook_2053",
+        "Tillamook_2054",
+        "Tillamook_2056",
+        "Tillamook_2057",
+        "Tillamook_2058",
+        "Tillamook_2076",
+        "Tillamook_2077",
+        "Tillamook_2078",
+        "Tillamook_2079"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_224"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05160w14070.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1343871,
+      "ground_cell_fraction": 0.28065652331255664,
+      "missing_ground_cell_fraction": 0.7193434766874434,
+      "patches": {
+        "total": 196,
+        "accepted": 64,
+        "accepted_fraction": 0.32653061224489793,
+        "rejected_ground": 132,
+        "positive_total": 43,
+        "positive_interior": 43,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 21,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.2864448391661352,
+          "min": 0.191802978515625,
+          "max": 0.3898468017578125
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.5839800834655762,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2050",
+        "Tillamook_2051",
+        "Tillamook_2052",
+        "Tillamook_2053",
+        "Tillamook_2054",
+        "Tillamook_2056",
+        "Tillamook_2057",
+        "Tillamook_2058",
+        "Tillamook_2076",
+        "Tillamook_2077",
+        "Tillamook_2078",
+        "Tillamook_2079"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2053",
+        "Tillamook_2054",
+        "Tillamook_2078",
+        "Tillamook_2079"
+      ],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_224"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05160w14070.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1343871,
+      "ground_cell_fraction": 0.4130104691475947,
+      "missing_ground_cell_fraction": 0.5869895308524054,
+      "patches": {
+        "total": 100,
+        "accepted": 99,
+        "accepted_fraction": 0.99,
+        "rejected_ground": 1,
+        "positive_total": 75,
+        "positive_interior": 63,
+        "positive_boundary": 10,
+        "positive_trace": 2,
+        "positive_with_ignore": 1,
+        "negative": 21,
+        "ignore_only": 3,
+        "ground_fraction": {
+          "mean": 0.42243988037109376,
+          "min": 0.2993621826171875,
+          "max": 0.5361328125
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.44389235371291036,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0031285141453598485,
+          "max": 0.1525115966796875
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2050",
+        "Tillamook_2051",
+        "Tillamook_2052",
+        "Tillamook_2053",
+        "Tillamook_2054",
+        "Tillamook_2056",
+        "Tillamook_2057",
+        "Tillamook_2058",
+        "Tillamook_2076",
+        "Tillamook_2077",
+        "Tillamook_2078",
+        "Tillamook_2079"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2052",
+        "Tillamook_2053",
+        "Tillamook_2054",
+        "Tillamook_2056",
+        "Tillamook_2057",
+        "Tillamook_2058",
+        "Tillamook_2077",
+        "Tillamook_2078",
+        "Tillamook_2079"
+      ],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_224"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05310w14100.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1268463,
+      "ground_cell_fraction": 0.13462145962453256,
+      "missing_ground_cell_fraction": 0.8653785403754675,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.138847823970574,
+          "min": 0.0367431640625,
+          "max": 0.237701416015625
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1964",
+        "Tillamook_1966",
+        "Tillamook_1967",
+        "Tillamook_3204"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05310w14100.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1268463,
+      "ground_cell_fraction": 0.2758353456954681,
+      "missing_ground_cell_fraction": 0.7241646543045319,
+      "patches": {
+        "total": 196,
+        "accepted": 108,
+        "accepted_fraction": 0.5510204081632653,
+        "rejected_ground": 88,
+        "positive_total": 82,
+        "positive_interior": 70,
+        "positive_boundary": 9,
+        "positive_trace": 3,
+        "positive_with_ignore": 0,
+        "negative": 26,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.29054026701012436,
+          "min": 0.116363525390625,
+          "max": 0.4114532470703125
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.48447276927806715,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1964",
+        "Tillamook_1966",
+        "Tillamook_1967",
+        "Tillamook_3204"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_1964",
+        "Tillamook_1966",
+        "Tillamook_3204"
+      ],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05310w14100.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1268463,
+      "ground_cell_fraction": 0.41641925591688594,
+      "missing_ground_cell_fraction": 0.583580744083114,
+      "patches": {
+        "total": 100,
+        "accepted": 90,
+        "accepted_fraction": 0.9,
+        "rejected_ground": 10,
+        "positive_total": 66,
+        "positive_interior": 58,
+        "positive_boundary": 4,
+        "positive_trace": 4,
+        "positive_with_ignore": 0,
+        "negative": 24,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.4440283203125,
+          "min": 0.2173614501953125,
+          "max": 0.5621795654296875
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.46657274034288193,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1964",
+        "Tillamook_1966",
+        "Tillamook_1967",
+        "Tillamook_3204"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_1964",
+        "Tillamook_1966",
+        "Tillamook_3204"
+      ],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05310w14160.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1534160,
+      "ground_cell_fraction": 0.1181565491720465,
+      "missing_ground_cell_fraction": 0.8818434508279535,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.11970504256319409,
+          "min": 0.053314208984375,
+          "max": 0.29248046875
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1885",
+        "Tillamook_1894",
+        "Tillamook_1895",
+        "Tillamook_1904",
+        "Tillamook_1912",
+        "Tillamook_1913"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [
+        "Tillamook_1911"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05310w14160.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1534160,
+      "ground_cell_fraction": 0.23930138878586693,
+      "missing_ground_cell_fraction": 0.7606986112141331,
+      "patches": {
+        "total": 196,
+        "accepted": 24,
+        "accepted_fraction": 0.12244897959183673,
+        "rejected_ground": 172,
+        "positive_total": 24,
+        "positive_interior": 22,
+        "positive_boundary": 2,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.2425282536720743,
+          "min": 0.13873291015625,
+          "max": 0.49652099609375
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.8604679107666016,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1885",
+        "Tillamook_1894",
+        "Tillamook_1895",
+        "Tillamook_1904",
+        "Tillamook_1912",
+        "Tillamook_1913"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_1885",
+        "Tillamook_1895",
+        "Tillamook_1912",
+        "Tillamook_1913"
+      ],
+      "ignored_polygon_keys": [
+        "Tillamook_1911"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05310w14160.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1534160,
+      "ground_cell_fraction": 0.35032829546014405,
+      "missing_ground_cell_fraction": 0.6496717045398559,
+      "patches": {
+        "total": 100,
+        "accepted": 78,
+        "accepted_fraction": 0.78,
+        "rejected_ground": 22,
+        "positive_total": 69,
+        "positive_interior": 64,
+        "positive_boundary": 2,
+        "positive_trace": 3,
+        "positive_with_ignore": 7,
+        "negative": 5,
+        "ignore_only": 4,
+        "ground_fraction": {
+          "mean": 0.35332565307617186,
+          "min": 0.239227294921875,
+          "max": 0.5977935791015625
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.5811092670147235,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.030308258839142628,
+          "max": 0.7783660888671875
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_1885",
+        "Tillamook_1894",
+        "Tillamook_1895",
+        "Tillamook_1904",
+        "Tillamook_1912",
+        "Tillamook_1913"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_1885",
+        "Tillamook_1894",
+        "Tillamook_1895",
+        "Tillamook_1904",
+        "Tillamook_1912",
+        "Tillamook_1913"
+      ],
+      "ignored_polygon_keys": [
+        "Tillamook_1911"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05160w13590.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 905560,
+      "ground_cell_fraction": 0.09485797303375827,
+      "missing_ground_cell_fraction": 0.9051420269662417,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.0943500424219557,
+          "min": 0.02166748046875,
+          "max": 0.1898956298828125
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2549",
+        "Tillamook_2550"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_74"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05160w13590.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 905560,
+      "ground_cell_fraction": 0.18894650625711631,
+      "missing_ground_cell_fraction": 0.8110534937428837,
+      "patches": {
+        "total": 196,
+        "accepted": 4,
+        "accepted_fraction": 0.02040816326530612,
+        "rejected_ground": 192,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 4,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.1873407947773836,
+          "min": 0.0666656494140625,
+          "max": 0.344696044921875
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2549",
+        "Tillamook_2550"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_74"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05160w13590.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 905560,
+      "ground_cell_fraction": 0.2875262816128355,
+      "missing_ground_cell_fraction": 0.7124737183871646,
+      "patches": {
+        "total": 100,
+        "accepted": 35,
+        "accepted_fraction": 0.35,
+        "rejected_ground": 65,
+        "positive_total": 24,
+        "positive_interior": 23,
+        "positive_boundary": 1,
+        "positive_trace": 0,
+        "positive_with_ignore": 2,
+        "negative": 11,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.2843309020996094,
+          "min": 0.1244964599609375,
+          "max": 0.4727935791015625
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.5024074009486608,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.010101318359375,
+          "max": 0.3039093017578125
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2549",
+        "Tillamook_2550"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2549",
+        "Tillamook_2550"
+      ],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_74"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05040w13830.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1092361,
+      "ground_cell_fraction": 0.11494269210052276,
+      "missing_ground_cell_fraction": 0.8850573078994772,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.11515325751186402,
+          "min": 0.0535125732421875,
+          "max": 0.1745147705078125
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2282",
+        "Tillamook_2292",
+        "Tillamook_2294"
+      ],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_238"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05040w13830.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1092361,
+      "ground_cell_fraction": 0.23076292937988777,
+      "missing_ground_cell_fraction": 0.7692370706201123,
+      "patches": {
+        "total": 196,
+        "accepted": 3,
+        "accepted_fraction": 0.015306122448979591,
+        "rejected_ground": 193,
+        "positive_total": 3,
+        "positive_interior": 2,
+        "positive_boundary": 1,
+        "positive_trace": 0,
+        "positive_with_ignore": 1,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.23247987396863043,
+          "min": 0.1332550048828125,
+          "max": 0.317779541015625
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.6661224365234375,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.011591593424479166,
+          "max": 0.0347747802734375
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2282",
+        "Tillamook_2292",
+        "Tillamook_2294"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2282"
+      ],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_238"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05040w13830.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1092361,
+      "ground_cell_fraction": 0.3450908366219101,
+      "missing_ground_cell_fraction": 0.6549091633780899,
+      "patches": {
+        "total": 100,
+        "accepted": 79,
+        "accepted_fraction": 0.79,
+        "rejected_ground": 21,
+        "positive_total": 57,
+        "positive_interior": 49,
+        "positive_boundary": 7,
+        "positive_trace": 1,
+        "positive_with_ignore": 18,
+        "negative": 11,
+        "ignore_only": 11,
+        "ground_fraction": {
+          "mean": 0.35090911865234375,
+          "min": 0.2232513427734375,
+          "max": 0.437469482421875
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.4377988018567049,
+          "max": 1.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.22117904469936708,
+          "max": 1.0
+        }
+      },
+      "eligible_polygon_keys": [
+        "Tillamook_2282",
+        "Tillamook_2292",
+        "Tillamook_2294"
+      ],
+      "retained_polygon_keys": [
+        "Tillamook_2282"
+      ],
+      "ignored_polygon_keys": [
+        "BeauJD1973hazards_238"
+      ],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05070w14550.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3002
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1368827,
+      "ground_cell_fraction": 0.14377574785753183,
+      "missing_ground_cell_fraction": 0.8562242521424681,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.1429730565094751,
+          "min": 0.090423583984375,
+          "max": 0.224456787109375
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05070w14550.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2002
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1368827,
+      "ground_cell_fraction": 0.2896056966521734,
+      "missing_ground_cell_fraction": 0.7103943033478266,
+      "patches": {
+        "total": 196,
+        "accepted": 63,
+        "accepted_fraction": 0.32142857142857145,
+        "rejected_ground": 133,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 63,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.2862667161591199,
+          "min": 0.2072906494140625,
+          "max": 0.4136199951171875
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05070w14550.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1502
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1368827,
+      "ground_cell_fraction": 0.43060950932844594,
+      "missing_ground_cell_fraction": 0.5693904906715541,
+      "patches": {
+        "total": 100,
+        "accepted": 100,
+        "accepted_fraction": 1.0,
+        "rejected_ground": 0,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 100,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.42438568115234376,
+          "min": 0.3078460693359375,
+          "max": 0.5716400146484375
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04770w14130.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1409341,
+      "ground_cell_fraction": 0.1470770434069461,
+      "missing_ground_cell_fraction": 0.8529229565930538,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.14412859451672264,
+          "min": 0.0803070068359375,
+          "max": 0.2201080322265625
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04770w14130.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1409341,
+      "ground_cell_fraction": 0.2961545214399297,
+      "missing_ground_cell_fraction": 0.7038454785600703,
+      "patches": {
+        "total": 196,
+        "accepted": 71,
+        "accepted_fraction": 0.3622448979591837,
+        "rejected_ground": 125,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 71,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.2876179753517618,
+          "min": 0.2008056640625,
+          "max": 0.407135009765625
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04770w14130.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1409341,
+      "ground_cell_fraction": 0.4406598132890309,
+      "missing_ground_cell_fraction": 0.5593401867109691,
+      "patches": {
+        "total": 100,
+        "accepted": 100,
+        "accepted_fraction": 1.0,
+        "rejected_ground": 0,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 100,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.425675048828125,
+          "min": 0.3375091552734375,
+          "max": 0.5526123046875
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04950w13260.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1177740,
+      "ground_cell_fraction": 0.12424004838551539,
+      "missing_ground_cell_fraction": 0.8757599516144846,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.1251196743043001,
+          "min": 0.071807861328125,
+          "max": 0.171417236328125
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04950w13260.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1177740,
+      "ground_cell_fraction": 0.24902666108225247,
+      "missing_ground_cell_fraction": 0.7509733389177475,
+      "patches": {
+        "total": 196,
+        "accepted": 22,
+        "accepted_fraction": 0.11224489795918367,
+        "rejected_ground": 174,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 22,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.25136418245276626,
+          "min": 0.1727294921875,
+          "max": 0.3310089111328125
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04950w13260.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1177740,
+      "ground_cell_fraction": 0.3832581521268743,
+      "missing_ground_cell_fraction": 0.6167418478731257,
+      "patches": {
+        "total": 100,
+        "accepted": 98,
+        "accepted_fraction": 0.98,
+        "rejected_ground": 2,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 98,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.38795364379882813,
+          "min": 0.288604736328125,
+          "max": 0.48150634765625
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05310w14520.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 884431,
+      "ground_cell_fraction": 0.09478157952680663,
+      "missing_ground_cell_fraction": 0.9052184204731933,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.09521802791879197,
+          "min": 0.0523529052734375,
+          "max": 0.14239501953125
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05310w14520.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 884431,
+      "ground_cell_fraction": 0.19805564484124755,
+      "missing_ground_cell_fraction": 0.8019443551587524,
+      "patches": {
+        "total": 196,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 196,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.20045385555345185,
+          "min": 0.1298370361328125,
+          "max": 0.263275146484375
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05310w14520.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 884431,
+      "ground_cell_fraction": 0.3102311095290237,
+      "missing_ground_cell_fraction": 0.6897688904709762,
+      "patches": {
+        "total": 100,
+        "accepted": 71,
+        "accepted_fraction": 0.71,
+        "rejected_ground": 29,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 71,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.3161036682128906,
+          "min": 0.226226806640625,
+          "max": 0.3945465087890625
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04980w14280.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1275704,
+      "ground_cell_fraction": 0.13361624099308894,
+      "missing_ground_cell_fraction": 0.866383759006911,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.13404152610085227,
+          "min": 0.0970001220703125,
+          "max": 0.203582763671875
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04980w14280.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1275704,
+      "ground_cell_fraction": 0.2685638689900427,
+      "missing_ground_cell_fraction": 0.7314361310099573,
+      "patches": {
+        "total": 196,
+        "accepted": 37,
+        "accepted_fraction": 0.18877551020408162,
+        "rejected_ground": 159,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 37,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.2698720036720743,
+          "min": 0.214569091796875,
+          "max": 0.352294921875
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s04980w14280.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1275704,
+      "ground_cell_fraction": 0.4009332441485823,
+      "missing_ground_cell_fraction": 0.5990667558514178,
+      "patches": {
+        "total": 100,
+        "accepted": 100,
+        "accepted_fraction": 1.0,
+        "rejected_ground": 0,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 100,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.4041070556640625,
+          "min": 0.3361968994140625,
+          "max": 0.5040130615234375
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05310w13800.laz",
+      "cell_size": 1.0,
+      "shape": [
+        3001,
+        3001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1226955,
+      "ground_cell_fraction": 0.12909403407794426,
+      "missing_ground_cell_fraction": 0.8709059659220557,
+      "patches": {
+        "total": 484,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 484,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.1295635128809401,
+          "min": 0.065460205078125,
+          "max": 0.215087890625
+        },
+        "accepted_positive_fraction": {
+          "mean": null,
+          "max": null
+        },
+        "accepted_ignore_fraction": {
+          "mean": null,
+          "max": null
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05310w13800.laz",
+      "cell_size": 1.5,
+      "shape": [
+        2001,
+        2001
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1226955,
+      "ground_cell_fraction": 0.25868150382579824,
+      "missing_ground_cell_fraction": 0.7413184961742018,
+      "patches": {
+        "total": 196,
+        "accepted": 41,
+        "accepted_fraction": 0.20918367346938777,
+        "rejected_ground": 155,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 41,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.2614180895746971,
+          "min": 0.174774169921875,
+          "max": 0.381683349609375
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    },
+    {
+      "project": "USGS_LPC_OR_WesternWildfires_A22",
+      "tile": "USGS_LPC_OR_WesternWildfires_A22_s05310w13800.laz",
+      "cell_size": 2.0,
+      "shape": [
+        1501,
+        1501
+      ],
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "ground_point_count": 1226955,
+      "ground_cell_fraction": 0.395030450496915,
+      "missing_ground_cell_fraction": 0.604969549503085,
+      "patches": {
+        "total": 100,
+        "accepted": 98,
+        "accepted_fraction": 0.98,
+        "rejected_ground": 2,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 98,
+        "ignore_only": 0,
+        "ground_fraction": {
+          "mean": 0.4024024963378906,
+          "min": 0.2965087890625,
+          "max": 0.5463104248046875
+        },
+        "accepted_positive_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "accepted_ignore_fraction": {
+          "mean": 0.0,
+          "max": 0.0
+        }
+      },
+      "eligible_polygon_keys": [],
+      "retained_polygon_keys": [],
+      "ignored_polygon_keys": [],
+      "temporally_excluded_polygon_keys": []
+    }
+  ],
+  "cell_size_summary": [
+    {
+      "cell_size": 1.0,
+      "tile_count": 24,
+      "ground_cell_fraction": {
+        "mean": 0.11605475301468321,
+        "min": 0.06762812030192039,
+        "max": 0.14830000574061672
+      },
+      "missing_ground_cell_fraction": {
+        "mean": 0.8839452469853167
+      },
+      "patches": {
+        "total": 11462,
+        "accepted": 0,
+        "accepted_fraction": 0.0,
+        "rejected_ground": 11462,
+        "positive_total": 0,
+        "positive_interior": 0,
+        "positive_boundary": 0,
+        "positive_trace": 0,
+        "positive_with_ignore": 0,
+        "negative": 0,
+        "ignore_only": 0
+      },
+      "polygons": {
+        "eligible_unique": 74,
+        "retained_unique": 0,
+        "retained_fraction": 0.0,
+        "ignored_unique": 12,
+        "temporally_excluded_unique": 0,
+        "retention_definition": "positive polygon intersects at least one patch passing the minimum ground-fraction threshold"
+      }
+    },
+    {
+      "cell_size": 1.5,
+      "tile_count": 24,
+      "ground_cell_fraction": {
+        "mean": 0.23420904568399994,
+        "min": 0.1363036781814713,
+        "max": 0.2965249009678069
+      },
+      "missing_ground_cell_fraction": {
+        "mean": 0.7657909543160001
+      },
+      "patches": {
+        "total": 4634,
+        "accepted": 779,
+        "accepted_fraction": 0.16810530858869227,
+        "rejected_ground": 3855,
+        "positive_total": 349,
+        "positive_interior": 307,
+        "positive_boundary": 30,
+        "positive_trace": 12,
+        "positive_with_ignore": 3,
+        "negative": 389,
+        "ignore_only": 41
+      },
+      "polygons": {
+        "eligible_unique": 74,
+        "retained_unique": 28,
+        "retained_fraction": 0.3783783783783784,
+        "ignored_unique": 12,
+        "temporally_excluded_unique": 0,
+        "retention_definition": "positive polygon intersects at least one patch passing the minimum ground-fraction threshold"
+      }
+    },
+    {
+      "cell_size": 2.0,
+      "tile_count": 24,
+      "ground_cell_fraction": {
+        "mean": 0.3500605211599656,
+        "min": 0.2095757002948674,
+        "max": 0.4406598132890309
+      },
+      "missing_ground_cell_fraction": {
+        "mean": 0.6499394788400344
+      },
+      "patches": {
+        "total": 2370,
+        "accepted": 1689,
+        "accepted_fraction": 0.7126582278481013,
+        "rejected_ground": 681,
+        "positive_total": 753,
+        "positive_interior": 631,
+        "positive_boundary": 92,
+        "positive_trace": 30,
+        "positive_with_ignore": 75,
+        "negative": 793,
+        "ignore_only": 143
+      },
+      "polygons": {
+        "eligible_unique": 74,
+        "retained_unique": 56,
+        "retained_fraction": 0.7567567567567568,
+        "ignored_unique": 12,
+        "temporally_excluded_unique": 0,
+        "retention_definition": "positive polygon intersects at least one patch passing the minimum ground-fraction threshold"
+      }
+    }
+  ],
+  "failures": []
+}
