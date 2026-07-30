@@ -1,0 +1,32 @@
+{
+  "retrieved_at_utc": "2026-07-29T23:33:58+00:00",
+  "service_url": "https://gis.dogami.oregon.gov/arcgis/rest/services/Public/SLIDO42/MapServer/3/query",
+  "region_id": "R1",
+  "region_slug": "tillamook",
+  "bbox_wgs84": [
+    -123.95,
+    45.35,
+    -123.55,
+    45.7
+  ],
+  "where": "DESCRIPTION = 'Landslide'",
+  "feature_count": 2206,
+  "max_features": 5000,
+  "counts_by_confidence": {
+    "high": 515,
+    "moderate": 1214,
+    "low": 179,
+    "unknown": 298
+  },
+  "counts_by_source": {
+    "AllaJC2001": 14,
+    "BeauJD1973hazards": 67,
+    "CalhNC2020a": 1904,
+    "SchlHG1972hazards": 9,
+    "WalkGW2002": 2,
+    "WellRE1983": 5,
+    "WellRE1995": 205
+  },
+  "output": "F:\\LIDAR\\oregon\\slido_tillamook.geojson",
+  "note": "DESCRIPTION='Landslide' is the default to exclude Fan and Talus-Colluvium labels."
+}

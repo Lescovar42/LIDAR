@@ -1,0 +1,81 @@
+{
+  "region_id": "R1",
+  "slug": "tillamook",
+  "name": "Tillamook Coast Range",
+  "status": "active",
+  "role": "train_val",
+  "bbox_wgs84": [
+    -123.95,
+    45.35,
+    -123.55,
+    45.7
+  ],
+  "tile_budget": 60,
+  "storage_budget_gb": 20,
+  "candidate_projects": [
+    "OR_TILLAMOOK_ODF_2007",
+    "OR_NORTHCOAST_2008_2009",
+    "OR_WesternWildfires_A22",
+    "CA_West_Coast_LiDAR_2016"
+  ],
+  "inputs": {
+    "slido": "F:\\LIDAR\\oregon\\slido_tillamook.geojson",
+    "tnm": "F:\\LIDAR\\oregon\\regions\\tillamook_tnm.json",
+    "naip": "F:\\LIDAR\\oregon\\regions\\tillamook_naip.json"
+  },
+  "slido": {
+    "available": true,
+    "feature_count": 2206,
+    "by_confidence": {
+      "high": 515,
+      "moderate": 1214,
+      "low": 179,
+      "unknown": 298
+    },
+    "by_source": {
+      "AllaJC2001": 14,
+      "BeauJD1973hazards": 67,
+      "CalhNC2020a": 1904,
+      "SchlHG1972hazards": 9,
+      "WalkGW2002": 2,
+      "WellRE1983": 5,
+      "WellRE1995": 205
+    }
+  },
+  "tnm_lpc": {
+    "available": true,
+    "record_count": 2338,
+    "projects": {
+      "USGS_LPC_CA_West_Coast_LiDAR_2016_B16": {
+        "tile_count": 28,
+        "summed_bytes": 3507595720,
+        "summed_gb": 3.5076,
+        "aoi_coverage_share": 0.014453,
+        "projected_gb_at_tile_budget": 7.5163,
+        "registry_candidates": []
+      },
+      "USGS_LPC_OR_WesternWildfires_A22": {
+        "tile_count": 1082,
+        "summed_bytes": 190187804189,
+        "summed_gb": 190.1878,
+        "aoi_coverage_share": 0.681796,
+        "projected_gb_at_tile_budget": 10.5465,
+        "registry_candidates": []
+      },
+      "USGS_LPC_legacy": {
+        "tile_count": 1228,
+        "summed_bytes": 225292555420,
+        "summed_gb": 225.2926,
+        "aoi_coverage_share": 0.986632,
+        "projected_gb_at_tile_budget": 11.0078,
+        "registry_candidates": []
+      }
+    }
+  },
+  "naip": {
+    "available": true,
+    "years": [
+      2022
+    ]
+  }
+}
