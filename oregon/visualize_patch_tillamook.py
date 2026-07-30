@@ -30,10 +30,13 @@ for row in rows:
         continue
     with np.load(p) as data:
         mask = data["mask"]
-    landslide_frac = mask.sum() / mask.size
+    landslide_frac = float(np.mean(mask == 1))
     if landslide_frac > 0.01:  # at least 1% landslide coverage
         positive_patch_path = p
-        print(f"Found positive patch: {p.name} ({landslide_frac*100:.1f}% landslide)")
+        print(
+            f"Found positive patch: {p.name} "
+            f"({landslide_frac:.1%} landslide)"
+        )
         break
 
 # Fallback to first available patch
@@ -54,10 +57,22 @@ with np.load(positive_patch_path) as data:
     features = data["features"]  # (C, H, W)
     mask = data["mask"]           # (H, W)
 
+positive_pixels = int(np.sum(mask == 1))
+ignore_pixels = int(np.sum(mask == 255))
+positive_fraction = float(np.mean(mask == 1))
+ignore_fraction = float(np.mean(mask == 255))
+
 print(f"\nPatch: {positive_patch_path.name}")
 print(f"  features shape: {features.shape}  (channels, height, width)")
 print(f"  mask shape:     {mask.shape}")
-print(f"  landslide pixels: {int(mask.sum())} / {mask.size} ({mask.sum()/mask.size*100:.2f}%)")
+print(
+    f"  landslide pixels: {positive_pixels} / {mask.size} "
+    f"({positive_fraction:.2%})"
+)
+print(
+    f"  ignore pixels:    {ignore_pixels} / {mask.size} "
+    f"({ignore_fraction:.2%})"
+)
 print()
 
 for i, name in enumerate(channels):
@@ -98,9 +113,35 @@ for i, name in enumerate(channels):
 
 # Mask
 ax = axes[n_channels]
-im = ax.imshow(mask, cmap="Reds", interpolation="nearest", vmin=0, vmax=1)
-landslide_pct = mask.sum() / mask.size * 100
-ax.set_title(f"MASK (landslide)\n{landslide_pct:.1f}% positive", fontsize=10, fontweight="bold", color="red")
+
+display_mask = np.zeros(mask.shape, dtype=np.uint8)
+display_mask[mask == 1] = 1
+display_mask[mask == 255] = 2
+
+im = ax.imshow(
+    display_mask,
+    cmap=plt.matplotlib.colors.ListedColormap([
+        "white",
+        "red",
+        "gray",
+    ]),
+    interpolation="nearest",
+    vmin=0,
+    vmax=2,
+)
+
+positive_fraction = float(np.mean(mask == 1))
+ignore_fraction = float(np.mean(mask == 255))
+
+ax.set_title(
+    f"MASK\n"
+    f"{positive_fraction:.1%} landslide, "
+    f"{ignore_fraction:.1%} ignore",
+    fontsize=10,
+    fontweight="bold",
+    color="red",
+)
+
 ax.set_xticks([])
 ax.set_yticks([])
 plt.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
