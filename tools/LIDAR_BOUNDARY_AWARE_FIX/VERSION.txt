@@ -1,0 +1,4 @@
+Boundary-aware training manifest fix
+Package version: 1.0.0
+Target repository: https://github.com/Lescovar42/LIDAR
+Prepared against current main containing LiDAR vintage provenance changes.
