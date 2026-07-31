@@ -54,8 +54,8 @@
     "seed": 42,
     "remove_cross_split_polygon_overlap": true
   },
-  "dataset_dir": "D:\\LIDAR\\oregon\\dataset_tillamook_probe_15m",
-  "input_manifest": "D:\\LIDAR\\oregon\\dataset_tillamook_probe_15m\\patches.csv",
-  "slido": "D:\\LIDAR\\oregon\\slido_tillamook.geojson",
+  "dataset_dir": "F:\\LIDAR\\oregon\\dataset_tillamook_probe_15m",
+  "input_manifest": "F:\\LIDAR\\oregon\\dataset_tillamook_probe_15m\\patches.csv",
+  "slido": "F:\\LIDAR\\oregon\\slido_tillamook.geojson",
   "slido_polygon_count": 2206
 }
