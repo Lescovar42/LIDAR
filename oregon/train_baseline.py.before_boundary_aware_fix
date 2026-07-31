@@ -350,17 +350,6 @@ def evaluate(model: nn.Module, loader: DataLoader, device: torch.device) -> dict
 def main() -> int:
     parser = argparse.ArgumentParser(description="Train an ignore-aware rural landslide segmentation baseline.")
     parser.add_argument("--dataset-dir", type=Path, default=Path("dataset_pilot"))
-    # BEGIN BOUNDARY-AWARE MANIFEST SUPPORT
-    parser.add_argument(
-        "--manifest",
-        type=Path,
-        default=None,
-        help=(
-            "Optional patch manifest. Relative paths are resolved inside --dataset-dir. "
-            "Use patches_boundary_aware.csv for training-only interior capping."
-        ),
-    )
-    # END BOUNDARY-AWARE MANIFEST SUPPORT
     parser.add_argument("--outdir", type=Path, default=Path("training_output"))
     parser.add_argument("--epochs", type=int, default=15)
     parser.add_argument("--batch-size", type=int, default=8)
@@ -397,26 +386,13 @@ def main() -> int:
         torch.cuda.manual_seed_all(args.seed)
 
     dataset_dir = args.dataset_dir.resolve()
-    # BEGIN BOUNDARY-AWARE MANIFEST SUPPORT
-    if args.manifest is not None:
-        manifest_path = args.manifest
-        if not manifest_path.is_absolute():
-            manifest_path = dataset_dir / manifest_path
-        manifest_path = manifest_path.resolve()
-    else:
-        boundary_manifest_path = dataset_dir / "patches_boundary_aware.csv"
-        qc_manifest_path = dataset_dir / "patches_qc.csv"
-        if boundary_manifest_path.exists():
-            manifest_path = boundary_manifest_path
-        else:
-            manifest_path = qc_manifest_path if qc_manifest_path.exists() else dataset_dir / "patches.csv"
-    # END BOUNDARY-AWARE MANIFEST SUPPORT
+    qc_manifest_path = dataset_dir / "patches_qc.csv"
+    manifest_path = qc_manifest_path if qc_manifest_path.exists() else dataset_dir / "patches.csv"
     channels_path = dataset_dir / "channels.json"
     if not manifest_path.exists() or not channels_path.exists():
         parser.error("Dataset is missing patches.csv/patches_qc.csv or channels.json; run build_dataset.py first")
 
     rows = read_manifest(manifest_path)
-    print(f"Manifest: {manifest_path}")
     try:
         train_rows, training_regions = select_training_rows(
             rows, args.require_qc, args.training_region
