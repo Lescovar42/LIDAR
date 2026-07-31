@@ -1,0 +1,61 @@
+{
+  "input_rows": 783,
+  "output_rows": 567,
+  "input_split_counts": {
+    "validation": 54,
+    "train": 729
+  },
+  "output_split_counts": {
+    "validation": 54,
+    "train": 513
+  },
+  "input_coverage_counts": {
+    "negative": 281,
+    "mixed_positive": 197,
+    "full_positive": 219,
+    "low_coverage_positive": 49,
+    "near_full_positive": 37
+  },
+  "output_coverage_counts": {
+    "negative": 281,
+    "mixed_positive": 197,
+    "low_coverage_positive": 49,
+    "near_full_positive": 22,
+    "full_positive": 18
+  },
+  "input_train_coverage_counts": {
+    "full_positive": 219,
+    "mixed_positive": 190,
+    "low_coverage_positive": 42,
+    "negative": 241,
+    "near_full_positive": 37
+  },
+  "output_train_coverage_counts": {
+    "mixed_positive": 190,
+    "low_coverage_positive": 42,
+    "negative": 241,
+    "near_full_positive": 22,
+    "full_positive": 18
+  },
+  "cross_split_polygon_keys": [],
+  "cross_split_polygon_key_count": 0,
+  "dropped_train_rows_for_polygon_split_overlap": 0,
+  "sampling_reason_counts": {
+    "preserved_nontraining_split": 54,
+    "dropped_redundant_full_interior_within_group": 201,
+    "kept_all_negative_or_boundary_context": 473,
+    "kept_near_full_within_group_cap": 22,
+    "dropped_redundant_near_full_within_group": 15,
+    "kept_full_interior_within_group_cap": 18
+  },
+  "parameters": {
+    "max_near_full_per_landslide_group": 4,
+    "max_full_per_landslide_group": 2,
+    "seed": 42,
+    "remove_cross_split_polygon_overlap": true
+  },
+  "dataset_dir": "D:\\LIDAR\\oregon\\dataset_tillamook_probe_15m",
+  "input_manifest": "D:\\LIDAR\\oregon\\dataset_tillamook_probe_15m\\patches.csv",
+  "slido": "D:\\LIDAR\\oregon\\slido_tillamook.geojson",
+  "slido_polygon_count": 2206
+}
