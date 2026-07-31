@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "generated_at_utc": "2026-07-31T03:34:30+00:00",
+  "mode": "refresh_manifest_only",
+  "source_service": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+  "dataset_dir": "F:\\LIDAR\\oregon\\dataset_tillamook_probe_15m",
+  "patch_manifest": "F:\\LIDAR\\oregon\\dataset_tillamook_probe_15m\\patches.csv",
+  "outdir": "F:\\LIDAR\\oregon\\dataset_tillamook_probe_15m\\naip",
+  "requested_context_size_m": 512.0,
+  "requested_resolution_m": 0.6,
+  "sample_per_region": 0,
+  "sample_seed": 42,
+  "source_patch_count": 783,
+  "lidar_year_target": "authoritative lidar_acquisition_year",
+  "trust_legacy_lidar_year": false,
+  "status_counts": {
+    "missing_cache": 747,
+    "cached": 36
+  },
+  "tile_count": 16,
+  "patch_count": 783
+}
