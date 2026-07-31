@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "regions": [
     {
       "id": "R1",
@@ -19,6 +19,15 @@
         "OR_WesternWildfires_A22",
         "CA_West_Coast_LiDAR_2016"
       ],
+      "lidar_acquisition": {
+        "start_year": 2020,
+        "end_year": 2020,
+        "nominal_year": 2020,
+        "source": "User-supplied project decision for the Tillamook subset of USGS 3DEP OR_WesternWildfires_A22",
+        "evidence": "regions/tillamook_lidar_acquisition.md",
+        "verified": true,
+        "lidar_project": "OR_WesternWildfires_A22"
+      },
       "include_in_candidate_report": true
     },
     {

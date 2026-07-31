@@ -1,0 +1,12 @@
+{
+  "_note": "Illustrative schema only. The agent must integrate it with the current registry and must not pin a project/cell size automatically.",
+  "lidar_project": "OR_WesternWildfires_A22",
+  "lidar_acquisition": {
+    "start_year": 2020,
+    "end_year": 2020,
+    "nominal_year": 2020,
+    "source": "USGS project/acquisition metadata",
+    "evidence": "replace with a traceable project record or repository path",
+    "verified": true
+  }
+}

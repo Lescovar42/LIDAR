@@ -12,9 +12,20 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Mapping
 
+from lidar_vintage import (
+    REGISTRY_ORIGIN,
+    AcquisitionMetadataError,
+    LidarAcquisition,
+    parse_acquisition,
+)
+
 REGISTRY_PATH = Path(__file__).with_name("regions.json")
 VALID_ROLES = {"train_val", "test_rural", "test_urban_ood"}
 _REQUIRED_PATHS = ("slido_output", "tnm_records", "naip_records")
+
+# 1 -> original registry.
+# 2 -> optional per-project ``lidar_acquisition`` provenance block.
+SCHEMA_VERSION = 2
 
 
 def _validate_bbox(value: Any, label: str) -> tuple[float, float, float, float]:
@@ -36,6 +47,9 @@ def validate_registry(data: Mapping[str, Any]) -> None:
     """Validate registry structure and split-safety invariants."""
     regions = data.get("regions")
     candidates = data.get("comparison_candidates", [])
+    schema_version = data.get("schema_version", SCHEMA_VERSION)
+    if isinstance(schema_version, bool) or not isinstance(schema_version, int) or schema_version < 1:
+        raise ValueError("registry schema_version must be a positive integer")
     if not isinstance(regions, list) or not regions:
         raise ValueError("registry must define a non-empty regions list")
     if not isinstance(candidates, list):
@@ -93,6 +107,18 @@ def validate_registry(data: Mapping[str, Any]) -> None:
             reason = decision.get("reason")
             if not isinstance(reason, str) or not reason.strip():
                 raise ValueError(f"{label}.selection_decision.reason must be a non-empty string")
+        if "lidar_acquisition" in entry:
+            try:
+                parse_acquisition(
+                    entry["lidar_acquisition"],
+                    origin=REGISTRY_ORIGIN,
+                    label=f"{label}.lidar_acquisition",
+                    require_evidence=True,
+                    allowed_projects=projects,
+                    expected_project=str(entry.get("lidar_project") or "") or None,
+                )
+            except AcquisitionMetadataError as exc:
+                raise ValueError(str(exc)) from exc
         if entry in regions:
             active_bboxes.append((label, bbox))
 
@@ -160,6 +186,16 @@ def pin_region_decision(
         raise ValueError("reason must be a non-empty string")
     if decision_metadata is not None and not isinstance(decision_metadata, Mapping):
         raise ValueError("decision_metadata must be an object")
+    existing_acquisition = region.get("lidar_acquisition")
+    if isinstance(existing_acquisition, Mapping):
+        declared = str(existing_acquisition.get("lidar_project") or "").strip()
+        if declared and declared != project:
+            raise ValueError(
+                f"{region['id']} already stores lidar_acquisition metadata for project "
+                f"{declared!r}; pinning {project!r} would leave an acquisition vintage "
+                "attached to the wrong project. Update or remove "
+                f"{region['id']}.lidar_acquisition first (see set_region_acquisition)."
+            )
 
     decision = dict(decision_metadata or {})
     decision["reason"] = reason.strip()
@@ -174,7 +210,12 @@ def pin_region_decision(
             entry["selection_decision"] = decision
             break
     validate_registry(data)
+    _atomic_write_json(path, data)
+    return resolve_region(region["id"], data)
 
+
+def _atomic_write_json(path: Path, data: Mapping[str, Any]) -> None:
+    """Write beside the registry, fsync, then replace it atomically."""
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary_name: str | None = None
     try:
@@ -196,6 +237,83 @@ def pin_region_decision(
     finally:
         if temporary_name is not None:
             Path(temporary_name).unlink(missing_ok=True)
+
+
+def region_acquisition(
+    region: Mapping[str, Any],
+    *,
+    expected_project: str | None = None,
+) -> LidarAcquisition | None:
+    """Return validated acquisition metadata for a resolved registry region.
+
+    ``expected_project`` guards against reusing one project's acquisition
+    vintage for a different project selected at build time.
+    """
+    if "lidar_acquisition" not in region:
+        return None
+    label = f"{region.get('id', '<region>')}.lidar_acquisition"
+    return parse_acquisition(
+        region["lidar_acquisition"],
+        origin=REGISTRY_ORIGIN,
+        label=label,
+        require_evidence=True,
+        allowed_projects=region.get("candidate_projects"),
+        expected_project=expected_project or (str(region.get("lidar_project") or "") or None),
+    )
+
+
+def set_region_acquisition(
+    registry_path: str | Path,
+    region_name: str,
+    *,
+    lidar_project: str,
+    source: str,
+    evidence: str,
+    nominal_year: int | None = None,
+    start_year: int | None = None,
+    end_year: int | None = None,
+    verified: bool = False,
+) -> dict[str, Any]:
+    """Atomically persist authoritative acquisition metadata for a region.
+
+    This is the auditable registry-mode path. It never derives a year from a LAS
+    header, project token, or filename; the caller must supply the evidence.
+    """
+    path = Path(registry_path)
+    with path.open("r", encoding="utf-8") as handle:
+        data = json.load(handle)
+    validate_registry(data)
+    region = resolve_region(region_name, data)
+
+    payload: dict[str, Any] = {"source": source, "evidence": evidence, "verified": bool(verified)}
+    if nominal_year is not None:
+        payload["nominal_year"] = nominal_year
+    if start_year is not None or end_year is not None:
+        payload["start_year"] = start_year
+        payload["end_year"] = end_year
+    elif nominal_year is not None:
+        payload["start_year"] = nominal_year
+        payload["end_year"] = nominal_year
+    payload["lidar_project"] = lidar_project
+
+    acquisition = parse_acquisition(
+        payload,
+        origin=REGISTRY_ORIGIN,
+        label=f"{region['id']}.lidar_acquisition",
+        require_evidence=True,
+        allowed_projects=region.get("candidate_projects"),
+        expected_project=str(region.get("lidar_project") or "") or None,
+    )
+    assert acquisition is not None
+    for entry in data["regions"]:
+        if entry["id"] == region["id"]:
+            entry["lidar_acquisition"] = acquisition.as_registry_mapping()
+            break
+    else:
+        raise KeyError(f"{region['id']} is not an active region; acquisition not stored")
+    data["schema_version"] = max(int(data.get("schema_version", 1)), SCHEMA_VERSION)
+    validate_registry(data)
+    _atomic_write_json(path, data)
     return resolve_region(region["id"], data)
 
 

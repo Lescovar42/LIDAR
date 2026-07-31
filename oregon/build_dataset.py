@@ -12,7 +12,7 @@ import re
 import shutil
 from collections import Counter, defaultdict
 from dataclasses import dataclass
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
@@ -23,7 +23,27 @@ from shapely.geometry import box
 from shapely.geometry.base import BaseGeometry
 from shapely.ops import transform as shapely_transform
 
-from region_registry import REGISTRY_PATH, load_registry, resolve_path, resolve_region
+from lidar_vintage import (
+    CLI_ORIGIN,
+    REGISTRY_ORIGIN,
+    AcquisitionMetadataError,
+    LidarAcquisition,
+    LidarVintage,
+    acquisition_from_cli,
+    file_metadata_from_header,
+    infer_year_hint,
+    parse_year_hint,
+    resolve_acquisition,
+    summarize_vintages,
+    VINTAGE_ROW_FIELDS,
+)
+from region_registry import (
+    REGISTRY_PATH,
+    load_registry,
+    region_acquisition,
+    resolve_path,
+    resolve_region,
+)
 from terrain_utils import (
     build_feature_stack,
     classify_patch,
@@ -37,6 +57,39 @@ from terrain_utils import (
 METRIC_CRS = CRS.from_epsg(5070)
 VALID_SPLITS = {"train", "validation", "test_rural", "test_urban_ood"}
 
+#: ``patches.csv`` column order. Temporal provenance columns come from
+#: ``lidar_vintage.VINTAGE_ROW_FIELDS`` so every writer/reader agrees.
+PATCH_FIELDS: tuple[str, ...] = (
+    "patch_id",
+    "split",
+    "category",
+    "region_id",
+    "region_role",
+    "lidar_project",
+    *VINTAGE_ROW_FIELDS,
+    "label_quality",
+    "tile_name",
+    "tile_path",
+    "patch_path",
+    "row_offset",
+    "col_offset",
+    "x_min",
+    "y_min",
+    "x_max",
+    "y_max",
+    "crs",
+    "positive_fraction",
+    "ignore_fraction",
+    "ground_fraction",
+    "mean_slope_degrees",
+    "distance_to_positive_m",
+    "is_hard_negative",
+    "landslide_ids_in_tile",
+    "slido_ref_ids_in_tile",
+    "qc_status",
+    "qc_notes",
+)
+
 
 @dataclass(frozen=True)
 class RegionInput:
@@ -47,6 +100,7 @@ class RegionInput:
     lidar_project_hint: str = ""
     cell_size: float | None = None
     lidar_project_pinned: bool = False
+    lidar_acquisition: LidarAcquisition | None = None
 
 
 @dataclass(frozen=True)
@@ -65,10 +119,24 @@ class TileMetadata:
     region_id: str
     region_role: str
     lidar_project: str
-    lidar_year: int | None
-    lidar_year_source: str
+    vintage: LidarVintage
     source_crs: CRS
     metric_footprint: BaseGeometry
+
+    @property
+    def lidar_year(self) -> int | None:
+        """Compatibility alias for the authoritative nominal acquisition year."""
+        return self.vintage.legacy_lidar_year
+
+    @property
+    def lidar_year_source(self) -> str:
+        return self.vintage.legacy_lidar_year_source
+
+    def slido_lidar_year(self) -> int | None:
+        """The only year permitted to drive SLIDO temporal filtering."""
+        return self.vintage.temporal_filter_year(
+            f"SLIDO temporal filtering for {self.tile_id}"
+        )
 
 
 @dataclass(frozen=True)
@@ -84,38 +152,12 @@ def safe_name(value: str) -> str:
 
 
 def parse_lidar_year(text: str) -> int | None:
-    """Parse an explicit four-digit year or TNM-style ``A22`` token."""
-    full_years = [int(value) for value in re.findall(r"(?<!\d)((?:19|20)\d{2})(?!\d)", text)]
-    if full_years:
-        return max(full_years)
-    short_years = [int(value) for value in re.findall(r"(?:^|[_-])A(\d{2})(?:[_-]|$)", text, re.I)]
-    if short_years:
-        value = max(short_years)
-        return 2000 + value if value <= 79 else 1900 + value
-    return None
+    """Parse a NON-AUTHORITATIVE four-digit year or TNM-style ``A22`` token.
 
-
-def _trustworthy_header_year(value: Any) -> int | None:
-    if not isinstance(value, date):
-        return None
-    current_year = datetime.now(timezone.utc).year
-    return value.year if 1900 <= value.year <= current_year + 1 else None
-
-
-def determine_lidar_year(
-    header_creation_date: Any, project_name: str, tile_name: str
-) -> tuple[int | None, str]:
-    """Choose a trustworthy header year, then explicit project/name fallbacks."""
-    header_year = _trustworthy_header_year(header_creation_date)
-    if header_year is not None:
-        return header_year, "las_header.creation_date"
-    project_year = parse_lidar_year(project_name)
-    if project_year is not None:
-        return project_year, "project_name"
-    name_year = parse_lidar_year(tile_name)
-    if name_year is not None:
-        return name_year, "tile_name"
-    return None, "unknown"
+    Retained as a diagnostic hint parser only. A project or filename token is
+    never acquisition evidence; see ``lidar_vintage`` for the authoritative path.
+    """
+    return parse_year_hint(text)
 
 
 def _project_from_name(path: Path) -> str:
@@ -154,7 +196,24 @@ def read_tile_metadata(path: Path, region: RegionInput) -> TileMetadata:
         header_creation_date = getattr(header, "creation_date", None)
 
     lidar_project = region.lidar_project_hint or _project_from_name(path)
-    lidar_year, year_source = determine_lidar_year(header_creation_date, lidar_project, path.name)
+    acquisition = region.lidar_acquisition
+    if (
+        acquisition is not None
+        and acquisition.lidar_project
+        and not tile_matches_project(path, acquisition.lidar_project)
+    ):
+        raise RuntimeError(
+            f"Acquisition metadata is declared for LiDAR project "
+            f"{acquisition.lidar_project!r} but tile {path.name} does not belong to it; "
+            "acquisition vintages must not be reused across projects"
+        )
+    # The header date and any name token are recorded as provenance only. The
+    # authoritative acquisition vintage comes from the region/CLI resolution.
+    vintage = LidarVintage(
+        acquisition=acquisition,
+        file_metadata=file_metadata_from_header(header_creation_date),
+        hint=infer_year_hint(lidar_project, path.name),
+    )
 
     transformer = Transformer.from_crs(source_crs, METRIC_CRS, always_xy=True)
     metric_footprint = shapely_transform(transformer.transform, box(xmin, ymin, xmax, ymax))
@@ -165,10 +224,35 @@ def read_tile_metadata(path: Path, region: RegionInput) -> TileMetadata:
         region_id=region.region_id,
         region_role=region.region_role,
         lidar_project=lidar_project,
-        lidar_year=lidar_year,
-        lidar_year_source=year_source,
+        vintage=vintage,
         source_crs=source_crs,
         metric_footprint=metric_footprint,
+    )
+
+
+def rasterize_tile_mask(
+    item: TileMetadata,
+    region: RegionInput,
+    tile: Any,
+    *,
+    description: str = "Landslide",
+    positive_buffer_m: float = 0.0,
+    all_touched: bool = False,
+    rasterize: Any = None,
+) -> tuple[np.ndarray, list[dict[str, object]]]:
+    """Rasterize SLIDO labels using ONLY the authoritative acquisition year.
+
+    Isolated so tests can assert the exact ``lidar_year`` argument that reaches
+    temporal filtering. ``rasterize`` is injectable for that purpose.
+    """
+    rasterize_fn = rasterize_slido_mask if rasterize is None else rasterize
+    return rasterize_fn(
+        region.slido_path,
+        tile,
+        description=description,
+        lidar_year=item.slido_lidar_year(),
+        positive_buffer_m=positive_buffer_m,
+        all_touched=all_touched,
     )
 
 
@@ -313,8 +397,48 @@ def _flatten_region_args(region: list[str] | None, regions: list[list[str]] | No
     return list(dict.fromkeys(value.strip() for value in values if value.strip()))
 
 
+def cli_acquisition(args: argparse.Namespace) -> LidarAcquisition | None:
+    """Build the explicit CLI acquisition override, if any was supplied."""
+    return acquisition_from_cli(
+        year=getattr(args, "lidar_acquisition_year", None),
+        start_year=getattr(args, "lidar_acquisition_start_year", None),
+        end_year=getattr(args, "lidar_acquisition_end_year", None),
+        source=getattr(args, "lidar_acquisition_source", None),
+        evidence=getattr(args, "lidar_acquisition_evidence", None),
+        verified=bool(getattr(args, "lidar_acquisition_verified", False)),
+        origin=CLI_ORIGIN,
+    )
+
+
+def missing_acquisition_regions(region_inputs: Sequence[RegionInput]) -> list[str]:
+    """Regions that reached the builder without authoritative acquisition metadata."""
+    return [
+        region.region_id for region in region_inputs if region.lidar_acquisition is None
+    ]
+
+
+def acquisition_scalar_errors(region_inputs: Sequence[RegionInput]) -> list[str]:
+    """Regions whose multi-year acquisition range lacks a required nominal year."""
+    errors: list[str] = []
+    for region in region_inputs:
+        acquisition = region.lidar_acquisition
+        if acquisition is None:
+            continue
+        try:
+            acquisition.require_nominal_year(
+                f"Region {region.region_id} SLIDO temporal filtering"
+            )
+        except AcquisitionMetadataError as exc:
+            errors.append(str(exc))
+    return errors
+
+
 def resolve_region_inputs(args: argparse.Namespace, parser: argparse.ArgumentParser) -> list[RegionInput]:
     names = _flatten_region_args(args.region, args.regions)
+    try:
+        override = cli_acquisition(args)
+    except AcquisitionMetadataError as exc:
+        parser.error(str(exc))
     if not names:
         return [
             RegionInput(
@@ -322,6 +446,7 @@ def resolve_region_inputs(args: argparse.Namespace, parser: argparse.ArgumentPar
                 region_role="train_val",
                 laz_dir=args.laz_dir.resolve(),
                 slido_path=args.slido_geojson.resolve(),
+                lidar_acquisition=override,
             )
         ]
 
@@ -351,6 +476,20 @@ def resolve_region_inputs(args: argparse.Namespace, parser: argparse.ArgumentPar
                 "or use --allow-unpinned-rural-diagnostic only for diagnostics"
             )
         project_hint = pinned_project or (str(projects[0]) if len(projects) == 1 else "")
+        try:
+            registry_acquisition = region_acquisition(
+                entry, expected_project=project_hint or None
+            )
+            acquisition = resolve_acquisition(
+                [
+                    (f"{CLI_ORIGIN} (CLI)", override),
+                    (f"{REGISTRY_ORIGIN} ({entry['id']} in {registry_path.name})",
+                     registry_acquisition),
+                ],
+                context=f"region {entry['id']}",
+            )
+        except AcquisitionMetadataError as exc:
+            parser.error(str(exc))
         output.append(
             RegionInput(
                 region_id=str(entry["id"]),
@@ -360,6 +499,7 @@ def resolve_region_inputs(args: argparse.Namespace, parser: argparse.ArgumentPar
                 lidar_project_hint=project_hint,
                 cell_size=float(pinned_cell_size) if pinned_cell_size is not None else None,
                 lidar_project_pinned=bool(pinned_project),
+                lidar_acquisition=acquisition,
             )
         )
     return output
@@ -418,6 +558,11 @@ def _region_summaries(
         }
         result[region_id] = {
             "region_role": region.region_role,
+            "lidar_acquisition": (
+                None
+                if region.lidar_acquisition is None
+                else region.lidar_acquisition.as_summary_mapping()
+            ),
             "status": "complete" if region_tiles else "incomplete",
             "processed_tiles": len(region_tiles),
             "failed_or_dropped_tiles": len(region_failures),
@@ -448,6 +593,59 @@ def _build_parser() -> argparse.ArgumentParser:
         "--allow-unpinned-rural-diagnostic",
         action="store_true",
         help="DIAGNOSTIC ONLY: allow an unpinned train/test rural registry region; requires explicit --cell-size.",
+    )
+    acquisition = parser.add_argument_group(
+        "authoritative LiDAR acquisition metadata",
+        "Explicit airborne acquisition vintage for legacy/single-region builds. The LAS/LAZ "
+        "header creation_date, project tokens such as A22, and filename years are NEVER used "
+        "as acquisition evidence.",
+    )
+    acquisition.add_argument(
+        "--lidar-acquisition-year",
+        "--lidar-year",
+        dest="lidar_acquisition_year",
+        type=int,
+        default=None,
+        help="Nominal acquisition year used for SLIDO temporal filtering and NAIP selection. "
+        "--lidar-year is a deprecated alias routed to this field.",
+    )
+    acquisition.add_argument(
+        "--lidar-acquisition-start-year",
+        dest="lidar_acquisition_start_year",
+        type=int,
+        default=None,
+        help="First year of a multi-year survey; requires --lidar-acquisition-end-year.",
+    )
+    acquisition.add_argument(
+        "--lidar-acquisition-end-year",
+        dest="lidar_acquisition_end_year",
+        type=int,
+        default=None,
+        help="Last year of a multi-year survey; requires --lidar-acquisition-start-year.",
+    )
+    acquisition.add_argument(
+        "--lidar-acquisition-source",
+        dest="lidar_acquisition_source",
+        default=None,
+        help="Required whenever acquisition metadata is supplied: who/what states the vintage.",
+    )
+    acquisition.add_argument(
+        "--lidar-acquisition-evidence",
+        dest="lidar_acquisition_evidence",
+        default=None,
+        help="Traceable record or repository path backing the acquisition claim.",
+    )
+    acquisition.add_argument(
+        "--lidar-acquisition-verified",
+        dest="lidar_acquisition_verified",
+        action="store_true",
+        help="Mark the acquisition metadata as verified against the cited evidence.",
+    )
+    acquisition.add_argument(
+        "--allow-unknown-lidar-acquisition",
+        action="store_true",
+        help="DIAGNOSTIC ONLY: build without authoritative acquisition metadata. SLIDO temporal "
+        "filtering is then disabled for the affected regions and no vintage gap is claimed.",
     )
     parser.add_argument("--patch-size", type=int, default=256)
     parser.add_argument("--stride", type=int, default=128)
@@ -497,6 +695,27 @@ def main() -> int:
 
     region_inputs = resolve_region_inputs(args, parser)
     args.cell_size = resolve_build_cell_size(args.cell_size, region_inputs, parser)
+
+    scalar_errors = acquisition_scalar_errors(region_inputs)
+    if scalar_errors:
+        parser.error(" | ".join(scalar_errors))
+    unknown_acquisition = missing_acquisition_regions(region_inputs)
+    if unknown_acquisition and not args.allow_unknown_lidar_acquisition:
+        parser.error(
+            "No authoritative LiDAR acquisition metadata for: "
+            + ", ".join(unknown_acquisition)
+            + ". Supply --lidar-acquisition-year with --lidar-acquisition-source, add a "
+            "validated lidar_acquisition block to the registry region, or pass "
+            "--allow-unknown-lidar-acquisition for a diagnostic build. The LAS header "
+            "creation_date and filename/project year tokens are never used instead."
+        )
+    if unknown_acquisition:
+        print(
+            "WARNING: building without authoritative LiDAR acquisition metadata for "
+            f"{', '.join(unknown_acquisition)}; SLIDO temporal filtering is disabled for "
+            "those regions and no LiDAR/NAIP vintage gap can be claimed."
+        )
+
     for region in region_inputs:
         if not region.laz_dir.exists():
             parser.error(f"LAZ directory does not exist for {region.region_id}: {region.laz_dir}")
@@ -548,6 +767,7 @@ def main() -> int:
 
     rows: list[dict[str, Any]] = []
     tile_summaries: list[dict[str, Any]] = []
+    processed_vintages: list[LidarVintage] = []
     feature_names: tuple[str, ...] | None = None
     retained = [item for item in metadata if item.tile_id in split_result.assignments]
     print(f"Processing {len(retained)} retained tile(s); split-buffer dropped {len(split_result.dropped)}")
@@ -570,11 +790,11 @@ def main() -> int:
             elif feature_names != current_feature_names:
                 raise RuntimeError("Feature channel definitions changed between tiles")
 
-            mask, intersecting_records = rasterize_slido_mask(
-                region.slido_path,
+            mask, intersecting_records = rasterize_tile_mask(
+                item,
+                region,
                 tile,
                 description="Landslide",
-                lidar_year=item.lidar_year,
                 positive_buffer_m=args.positive_ignore_buffer_m,
                 all_touched=args.all_touched,
             )
@@ -662,8 +882,9 @@ def main() -> int:
                     {
                         "patch_id": patch_id, "split": split, "category": candidate["category"],
                         "region_id": item.region_id, "region_role": item.region_role,
-                        "lidar_project": item.lidar_project, "lidar_year": item.lidar_year or "",
-                        "lidar_year_source": item.lidar_year_source, "label_quality": candidate["label_quality"],
+                        "lidar_project": item.lidar_project,
+                        **item.vintage.as_row_fields(),
+                        "label_quality": candidate["label_quality"],
                         "tile_name": laz_path.name, "tile_path": str(laz_path),
                         "patch_path": str(patch_path.relative_to(outdir)),
                         "row_offset": row_offset, "col_offset": col_offset,
@@ -681,8 +902,11 @@ def main() -> int:
             category_counts = Counter(row["category"] for row in selected_candidates)
             tile_summary = {
                 "tile_name": laz_path.name, "region_id": item.region_id, "region_role": item.region_role,
-                "split": split, "lidar_project": item.lidar_project, "lidar_year": item.lidar_year,
-                "lidar_year_source": item.lidar_year_source, "crs": tile.crs.to_string(),
+                "split": split, "lidar_project": item.lidar_project,
+                "lidar_year": item.lidar_year, "lidar_year_source": item.lidar_year_source,
+                "lidar_vintage": item.vintage.as_summary_mapping(),
+                "slido_temporal_filter_year": item.slido_lidar_year(),
+                "crs": tile.crs.to_string(),
                 "dem_shape": list(tile.shape), "ground_point_count": tile.ground_point_count,
                 "ground_cell_fraction": tile.ground_cell_fraction,
                 "intersecting_slido_polygons": len(intersecting_records),
@@ -701,23 +925,20 @@ def main() -> int:
                 "eligible_negative_candidates": len(negative_candidates),
             }
             tile_summaries.append(tile_summary)
+            processed_vintages.append(item.vintage)
             print(json.dumps(tile_summary, indent=2))
         except Exception as exc:
             failed_tiles.append({"region_id": item.region_id, "tile_name": laz_path.name, "error": f"{type(exc).__name__}: {exc}"})
             print(f"FAILED: {type(exc).__name__}: {exc}")
 
-    fields = [
-        "patch_id", "split", "category", "region_id", "region_role", "lidar_project", "lidar_year",
-        "lidar_year_source", "label_quality", "tile_name", "tile_path", "patch_path", "row_offset",
-        "col_offset", "x_min", "y_min", "x_max", "y_max", "crs", "positive_fraction", "ignore_fraction",
-        "ground_fraction", "mean_slope_degrees", "distance_to_positive_m", "is_hard_negative",
-        "landslide_ids_in_tile", "slido_ref_ids_in_tile", "qc_status", "qc_notes",
-    ]
-    write_csv(outdir / "patches.csv", rows, fields)
+    write_csv(outdir / "patches.csv", rows, list(PATCH_FIELDS))
     write_csv(outdir / "failed_tiles.csv", failed_tiles, ["region_id", "tile_name", "error"])
     split_category_counts: dict[str, Counter[str]] = defaultdict(Counter)
     for row in rows:
         split_category_counts[str(row["split"])][str(row["category"])] += 1
+    acquisition_conflict_failures = [
+        item for item in failed_tiles if "acquisition" in item["error"].casefold()
+    ]
     summary = {
         "generated_at_utc": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "regions": [region.region_id for region in region_inputs], "outdir": str(outdir),
@@ -727,6 +948,19 @@ def main() -> int:
         "category_counts": dict(Counter(row["category"] for row in rows)),
         "split_category_counts": {key: dict(value) for key, value in split_category_counts.items()},
         "region_summaries": _region_summaries(region_inputs, tile_summaries, rows, failed_tiles),
+        "lidar_vintage_summary": {
+            **summarize_vintages(processed_vintages),
+            "acquisition_conflict_failures": acquisition_conflict_failures,
+            "requested_region_acquisition": {
+                region.region_id: (
+                    None
+                    if region.lidar_acquisition is None
+                    else region.lidar_acquisition.as_summary_mapping()
+                )
+                for region in region_inputs
+            },
+            "unknown_acquisition_allowed": bool(args.allow_unknown_lidar_acquisition),
+        },
         "feature_names": list(feature_names or []), "feature_dtype": args.feature_dtype,
         "cell_size": args.cell_size, "patch_size": args.patch_size, "stride": args.stride,
         "description_filter": "Landslide", "mask_codes": {"negative": 0, "positive": 1, "ignore": 255},
