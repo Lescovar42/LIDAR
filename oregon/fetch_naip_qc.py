@@ -44,7 +44,6 @@ import json
 import math
 import os
 import random
-import re
 import tempfile
 import time
 from collections import Counter, defaultdict
@@ -57,6 +56,12 @@ import numpy as np
 import rasterio
 import requests
 from pyproj import CRS, Transformer
+
+from lidar_vintage import (
+    acquisition_provenance_from_row,
+    acquisition_year_from_row,
+    row_has_acquisition_columns,
+)
 
 SERVICE_ROOT = (
     "https://imagery.nationalmap.gov/arcgis/rest/services/"
@@ -93,13 +98,34 @@ def atomic_write_csv(path: Path, rows: list[dict[str, Any]], fields: list[str]) 
         raise
 
 
-def infer_year(text: str) -> int | None:
-    years = [
-        int(value)
-        for value in re.findall(r"(?<!\d)((?:19|20)\d{2})(?!\d)", text or "")
-    ]
-    plausible = [year for year in years if 2003 <= year <= 2035]
-    return plausible[0] if plausible else None
+NAIP_MANIFEST_FIELDS: tuple[str, ...] = (
+    "patch_id",
+    "tile_name",
+    "split",
+    "naip_path",
+    "lidar_year",
+    "lidar_year_source",
+    "lidar_acquisition_year",
+    "lidar_acquisition_start_year",
+    "lidar_acquisition_end_year",
+    "lidar_acquisition_source",
+    "lidar_acquisition_evidence",
+    "lidar_acquisition_verified",
+    "lidar_file_creation_year",
+    "lidar_file_creation_date",
+    "lidar_inferred_year_hint",
+    "lidar_inferred_year_hint_source",
+    "naip_year",
+    "year_gap",
+    "gap_flag",
+    "naip_width",
+    "naip_height",
+    "naip_resolution_m",
+    "naip_valid_fraction",
+    "naip_has_nir",
+    "status",
+    "error",
+)
 
 
 def transform_bounds(
@@ -213,32 +239,191 @@ def compute_year_gap(
     return gap, abs(gap) > 2
 
 
-def lidar_year_for_row(row: dict[str, str]) -> int | None:
-    """Read the authoritative manifest year, with legacy manifest fallback."""
-    if "lidar_year" in row:
-        raw_year = row.get("lidar_year", "").strip()
-        year = parse_year(raw_year)
-        if raw_year and year is None:
-            raise ValueError(
-                f"Patch {row.get('patch_id', '<unknown>')} has invalid "
-                f"lidar_year={raw_year!r}"
-            )
-        return year
-    return infer_year(row.get("tile_name", ""))
+def acquisition_year_for_row(
+    row: dict[str, str], *, trust_legacy_lidar_year: bool = False
+) -> int | None:
+    """Read the authoritative LiDAR acquisition year from a patch row.
+
+    Never falls back to the LAS file-creation year, a filename year, or a
+    project token. A legacy manifest that only carries ``lidar_year`` is treated
+    as unknown unless ``trust_legacy_lidar_year`` is set explicitly, because
+    that historical column may hold a file-creation year.
+    """
+    return acquisition_year_from_row(
+        row,
+        trust_legacy_lidar_year=trust_legacy_lidar_year,
+        label=f"Patch {row.get('patch_id', '<unknown>')}",
+    )
 
 
-def lidar_year_for_tile(rows: list[dict[str, str]]) -> int | None:
-    """Return the single authoritative LiDAR year represented by a tile."""
+def acquisition_year_for_tile(
+    rows: list[dict[str, str]], *, trust_legacy_lidar_year: bool = False
+) -> int | None:
+    """Return the one authoritative acquisition year a tile represents."""
     years = {
-        year for row in rows if (year := lidar_year_for_row(row)) is not None
+        year
+        for row in rows
+        if (
+            year := acquisition_year_for_row(
+                row, trust_legacy_lidar_year=trust_legacy_lidar_year
+            )
+        )
+        is not None
     }
     if len(years) > 1:
         tile_name = rows[0].get("tile_name", "<unknown>") if rows else "<unknown>"
         raise ValueError(
-            f"Tile {tile_name} contains conflicting lidar_year values: "
-            f"{sorted(years)}"
+            f"Tile {tile_name} contains conflicting authoritative LiDAR acquisition "
+            f"years: {sorted(years)}"
         )
     return next(iter(years), None)
+
+
+def manifest_provenance(
+    row: dict[str, str], *, trust_legacy_lidar_year: bool = False
+) -> dict[str, Any]:
+    """Rebuild LiDAR provenance columns from the CURRENT patch manifest row.
+
+    Always sourced from ``patches.csv``, never from a cached NAIP NPZ, so a
+    stale cache cannot push an outdated vintage back into a fresh manifest.
+    """
+    return acquisition_provenance_from_row(
+        row,
+        trust_legacy_lidar_year=trust_legacy_lidar_year,
+        label=f"Patch {row.get('patch_id', '<unknown>')}",
+    )
+
+
+def blank_manifest_row(
+    row: dict[str, str],
+    *,
+    tile_name: str,
+    status: str,
+    error: str = "",
+    naip_path: str = "",
+    trust_legacy_lidar_year: bool = False,
+) -> dict[str, Any]:
+    """A manifest row with provenance but no usable imagery, so no claimed gap."""
+    return {
+        "patch_id": row.get("patch_id", ""),
+        "tile_name": tile_name,
+        "split": row.get("split", ""),
+        "naip_path": naip_path,
+        **manifest_provenance(row, trust_legacy_lidar_year=trust_legacy_lidar_year),
+        "naip_year": "",
+        "year_gap": "",
+        "gap_flag": "",
+        "naip_width": "",
+        "naip_height": "",
+        "naip_resolution_m": "",
+        "naip_valid_fraction": "",
+        "naip_has_nir": "",
+        "status": status,
+        "error": error,
+    }
+
+
+def read_cached_naip(path: Path, *, default_resolution_m: float) -> dict[str, Any]:
+    """Read geometry/quality facts from a cached NAIP NPZ.
+
+    Only NAIP-side facts are taken from the cache. LiDAR vintage is never read
+    from here.
+    """
+    with np.load(path) as cached:
+        raw_metadata = cached["metadata_json"] if "metadata_json" in cached else None
+        metadata = (
+            json.loads(str(raw_metadata.item())) if raw_metadata is not None else {}
+        )
+        valid = cached["valid_mask"].astype(bool)
+        shape = tuple(int(value) for value in valid.shape)
+    return {
+        "height": shape[0],
+        "width": shape[1],
+        "valid_fraction": float(valid.mean()),
+        "has_nir": bool(metadata.get("has_nir", True)),
+        "actual_resolution_m": float(
+            metadata.get("actual_pixel_size_x", default_resolution_m)
+        ),
+        "selected_year": parse_year(metadata.get("selected_year")),
+    }
+
+
+def refresh_manifest_from_cache(
+    rows: list[dict[str, str]],
+    *,
+    outdir: Path,
+    default_resolution_m: float,
+    trust_legacy_lidar_year: bool = False,
+) -> tuple[list[dict[str, Any]], Counter[str]]:
+    """Rewrite the NAIP manifest from cached imagery, with no network access.
+
+    Imagery is reused as-is; every LiDAR provenance column is refreshed from the
+    supplied patch rows, and the vintage gap is recomputed against the
+    authoritative acquisition year only.
+    """
+    result_rows: list[dict[str, Any]] = []
+    status_counts: Counter[str] = Counter()
+    for row in rows:
+        tile_name = row.get("tile_name", "")
+        relative = Path("patches") / row.get("split", "") / f"{row.get('patch_id', '')}.npz"
+        destination = outdir / relative
+        if not destination.exists():
+            result_rows.append(
+                blank_manifest_row(
+                    row,
+                    tile_name=tile_name,
+                    status="missing_cache",
+                    error=f"No cached NAIP imagery at {relative.as_posix()}",
+                    trust_legacy_lidar_year=trust_legacy_lidar_year,
+                )
+            )
+            status_counts["missing_cache"] += 1
+            continue
+        try:
+            cached = read_cached_naip(
+                destination, default_resolution_m=default_resolution_m
+            )
+        except Exception as exc:
+            result_rows.append(
+                blank_manifest_row(
+                    row,
+                    tile_name=tile_name,
+                    status="error",
+                    error=f"{type(exc).__name__}: {exc}",
+                    naip_path=str(relative),
+                    trust_legacy_lidar_year=trust_legacy_lidar_year,
+                )
+            )
+            status_counts["error"] += 1
+            continue
+
+        provenance = manifest_provenance(
+            row, trust_legacy_lidar_year=trust_legacy_lidar_year
+        )
+        acquisition_year = provenance["lidar_acquisition_year"]
+        naip_year = cached["selected_year"]
+        year_gap, gap_flag = compute_year_gap(acquisition_year, naip_year)
+        result_rows.append(
+            {
+                "patch_id": row.get("patch_id", ""),
+                "tile_name": tile_name,
+                "split": row.get("split", ""),
+                "naip_path": str(relative),
+                **provenance,
+                "naip_year": "" if naip_year is None else naip_year,
+                "year_gap": "" if year_gap is None else year_gap,
+                "gap_flag": "" if gap_flag is None else gap_flag,
+                "naip_width": cached["width"],
+                "naip_height": cached["height"],
+                "naip_resolution_m": cached["actual_resolution_m"],
+                "naip_valid_fraction": cached["valid_fraction"],
+                "naip_has_nir": cached["has_nir"],
+                "status": "cached",
+                "error": "",
+            }
+        )
+        status_counts["cached"] += 1
+    return result_rows, status_counts
 
 
 def stratified_sample_rows(
@@ -522,6 +707,48 @@ def tif_to_npz(
     }
 
 
+def write_naip_summary(
+    outdir: Path,
+    *,
+    args: argparse.Namespace,
+    dataset_dir: Path,
+    manifest_path: Path,
+    full_manifest_count: int,
+    status_counts: Counter[str],
+    tile_count: int,
+    patch_count: int,
+    mode: str,
+) -> dict[str, Any]:
+    outdir.mkdir(parents=True, exist_ok=True)
+    summary = {
+        "version": 2,
+        "generated_at_utc": datetime.now(timezone.utc)
+        .replace(microsecond=0)
+        .isoformat(),
+        "mode": mode,
+        "source_service": SERVICE_ROOT,
+        "dataset_dir": str(dataset_dir),
+        "patch_manifest": str(manifest_path),
+        "outdir": str(outdir),
+        "requested_context_size_m": args.context_size_m,
+        "requested_resolution_m": args.resolution,
+        "sample_per_region": args.sample_per_region,
+        "sample_seed": args.seed,
+        "source_patch_count": full_manifest_count,
+        "lidar_year_target": "authoritative lidar_acquisition_year",
+        "trust_legacy_lidar_year": bool(
+            getattr(args, "trust_legacy_lidar_year", False)
+        ),
+        "status_counts": dict(status_counts),
+        "tile_count": tile_count,
+        "patch_count": patch_count,
+    }
+    (outdir / "summary.json").write_text(
+        json.dumps(summary, indent=2), encoding="utf-8"
+    )
+    return summary
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Cache clipped USGS NAIP imagery for Oregon patch QC."
@@ -577,6 +804,19 @@ def main() -> int:
     parser.add_argument("--timeout", type=float, default=60.0)
     parser.add_argument("--retries", type=int, default=3)
     parser.add_argument("--overwrite", action="store_true")
+    parser.add_argument(
+        "--refresh-manifest-only",
+        action="store_true",
+        help="Rewrite naip_manifest.csv from cached imagery and the current patch "
+        "manifest. No imagery is queried or downloaded.",
+    )
+    parser.add_argument(
+        "--trust-legacy-lidar-year",
+        action="store_true",
+        help="Treat a legacy patches.csv 'lidar_year' column as the authoritative "
+        "acquisition year. Off by default because that column may hold a LAS "
+        "file-creation year.",
+    )
     args = parser.parse_args()
 
     if args.context_size_m <= 0 or args.resolution <= 0:
@@ -622,12 +862,59 @@ def main() -> int:
     if args.max_patches:
         rows = rows[: args.max_patches]
 
+    legacy_schema = bool(rows) and not row_has_acquisition_columns(rows[0])
+    if legacy_schema:
+        if args.trust_legacy_lidar_year:
+            print(
+                "WARNING: patch manifest predates acquisition provenance; treating its "
+                "'lidar_year' column as authoritative because --trust-legacy-lidar-year "
+                "was passed."
+            )
+        else:
+            print(
+                "WARNING: patch manifest predates acquisition provenance and has no "
+                "lidar_acquisition_year column. LiDAR acquisition is treated as unknown, "
+                "NAIP falls back to the most recent available year, and no vintage gap is "
+                "claimed. Rebuild the dataset with build_dataset.py acquisition metadata, "
+                "or pass --trust-legacy-lidar-year if that column really is the "
+                "acquisition year."
+            )
+
     rows_by_tile: dict[str, list[dict[str, str]]] = defaultdict(list)
     for row in rows:
         rows_by_tile[row["tile_name"]].append(row)
     tile_names = sorted(rows_by_tile, key=str.casefold)
     if args.max_tiles:
         tile_names = tile_names[: args.max_tiles]
+
+    if args.refresh_manifest_only:
+        selected_rows = [row for name in tile_names for row in rows_by_tile[name]]
+        try:
+            result_rows, status_counts = refresh_manifest_from_cache(
+                selected_rows,
+                outdir=outdir,
+                default_resolution_m=args.resolution,
+                trust_legacy_lidar_year=args.trust_legacy_lidar_year,
+            )
+        except ValueError as exc:
+            parser.error(str(exc))
+        atomic_write_csv(
+            outdir / "naip_manifest.csv", result_rows, list(NAIP_MANIFEST_FIELDS)
+        )
+        write_naip_summary(
+            outdir,
+            args=args,
+            dataset_dir=dataset_dir,
+            manifest_path=manifest_path,
+            full_manifest_count=full_manifest_count,
+            status_counts=status_counts,
+            tile_count=len(tile_names),
+            patch_count=len(result_rows),
+            mode="refresh_manifest_only",
+        )
+        print(f"\nStatus counts: {dict(status_counts)}")
+        print(f"Manifest refreshed from cache: {outdir / 'naip_manifest.csv'}")
+        return 0 if result_rows and status_counts["cached"] else 2
 
     session = requests.Session()
     session.headers.update(
@@ -679,7 +966,9 @@ def main() -> int:
                 timeout=args.timeout,
                 retries=args.retries,
             )
-            target_year = lidar_year_for_tile(tile_rows)
+            target_year = acquisition_year_for_tile(
+                tile_rows, trust_legacy_lidar_year=args.trust_legacy_lidar_year
+            )
             selected_year = choose_year(
                 records,
                 target_year=target_year,
@@ -691,14 +980,15 @@ def main() -> int:
                 if parse_year(record.get("Year")) == selected_year
             ]
             print(
-                f"  selected NAIP year={selected_year} "
-                f"(LiDAR year={target_year}, records={len(selected_records)})"
+                f"  selected NAIP year={selected_year} (target LiDAR acquisition year="
+                f"{target_year if target_year is not None else 'unknown'}, "
+                f"records={len(selected_records)})"
             )
 
             selections.append(
                 {
                     "tile_name": tile_name,
-                    "target_lidar_year": target_year,
+                    "target_lidar_acquisition_year": target_year,
                     "selected_naip_year": selected_year,
                     "available_years": sorted(
                         {
@@ -721,23 +1011,13 @@ def main() -> int:
                 destination = outdir / relative
 
                 if destination.exists() and not args.overwrite:
-                    with np.load(destination) as cached:
-                        metadata = json.loads(str(cached["metadata_json"].item()))
-                        valid = cached["valid_mask"].astype(bool)
-                        shape = cached["valid_mask"].shape
-                    result = {
-                        "height": int(shape[0]),
-                        "width": int(shape[1]),
-                        "valid_fraction": float(valid.mean()),
-                        "has_nir": bool(metadata.get("has_nir", True)),
-                        "actual_resolution_m": float(
-                            metadata.get("actual_pixel_size_x", args.resolution)
-                        ),
-                        "selected_year": (
-                            parse_year(metadata.get("selected_year"))
-                            or selected_year
-                        ),
-                    }
+                    # Only NAIP-side facts are reused from the cache; LiDAR
+                    # provenance is always refreshed from the patch manifest.
+                    result = read_cached_naip(
+                        destination, default_resolution_m=args.resolution
+                    )
+                    if result["selected_year"] is None:
+                        result["selected_year"] = selected_year
                     status = "cached"
                 else:
                     temporary_tif = temp_dir / f"{row['patch_id']}.tif"
@@ -764,10 +1044,12 @@ def main() -> int:
                     temporary_tif.unlink(missing_ok=True)
                     status = "ok"
 
-                lidar_year = lidar_year_for_row(row)
+                provenance = manifest_provenance(
+                    row, trust_legacy_lidar_year=args.trust_legacy_lidar_year
+                )
                 actual_naip_year = result["selected_year"]
                 year_gap, gap_flag = compute_year_gap(
-                    lidar_year, actual_naip_year
+                    provenance["lidar_acquisition_year"], actual_naip_year
                 )
                 result_rows.append(
                     {
@@ -775,7 +1057,7 @@ def main() -> int:
                         "tile_name": tile_name,
                         "split": row["split"],
                         "naip_path": str(relative),
-                        "lidar_year": lidar_year if lidar_year is not None else "",
+                        **provenance,
                         "naip_year": actual_naip_year,
                         "year_gap": year_gap if year_gap is not None else "",
                         "gap_flag": gap_flag if gap_flag is not None else "",
@@ -800,39 +1082,28 @@ def main() -> int:
             print(f"  FAILED TILE: {error}")
             selections.append({"tile_name": tile_name, "error": error})
             for row in tile_rows:
-                lidar_year = (
-                    parse_year(row.get("lidar_year"))
-                    if "lidar_year" in row
-                    else infer_year(tile_name)
-                )
-                result_rows.append(
-                    {
-                        "patch_id": row["patch_id"],
+                try:
+                    failed_row = blank_manifest_row(
+                        row,
+                        tile_name=tile_name,
+                        status="error",
+                        error=error,
+                        trust_legacy_lidar_year=args.trust_legacy_lidar_year,
+                    )
+                except ValueError as provenance_error:
+                    failed_row = {
+                        "patch_id": row.get("patch_id", ""),
                         "tile_name": tile_name,
-                        "split": row["split"],
-                        "naip_path": "",
-                        "lidar_year": lidar_year if lidar_year is not None else "",
-                        "naip_year": "",
-                        "year_gap": "",
-                        "gap_flag": "",
-                        "naip_width": "",
-                        "naip_height": "",
-                        "naip_resolution_m": "",
-                        "naip_valid_fraction": "",
-                        "naip_has_nir": "",
+                        "split": row.get("split", ""),
                         "status": "error",
-                        "error": error,
+                        "error": f"{error} | provenance unreadable: {provenance_error}",
                     }
-                )
+                result_rows.append(failed_row)
                 status_counts["error"] += 1
 
-        fields = [
-            "patch_id", "tile_name", "split", "naip_path", "lidar_year",
-            "naip_year", "year_gap", "gap_flag", "naip_width", "naip_height",
-            "naip_resolution_m", "naip_valid_fraction", "naip_has_nir",
-            "status", "error",
-        ]
-        atomic_write_csv(outdir / "naip_manifest.csv", result_rows, fields)
+        atomic_write_csv(
+            outdir / "naip_manifest.csv", result_rows, list(NAIP_MANIFEST_FIELDS)
+        )
         outdir.mkdir(parents=True, exist_ok=True)
         (outdir / "tile_selections.json").write_text(
             json.dumps(selections, indent=2), encoding="utf-8"
@@ -850,26 +1121,16 @@ def main() -> int:
         except OSError:
             pass
 
-    summary = {
-        "version": 1,
-        "generated_at_utc": datetime.now(timezone.utc)
-        .replace(microsecond=0)
-        .isoformat(),
-        "source_service": SERVICE_ROOT,
-        "dataset_dir": str(dataset_dir),
-        "patch_manifest": str(manifest_path),
-        "outdir": str(outdir),
-        "requested_context_size_m": args.context_size_m,
-        "requested_resolution_m": args.resolution,
-        "sample_per_region": args.sample_per_region,
-        "sample_seed": args.seed,
-        "source_patch_count": full_manifest_count,
-        "status_counts": dict(status_counts),
-        "tile_count": len(tile_names),
-        "patch_count": len(result_rows),
-    }
-    (outdir / "summary.json").write_text(
-        json.dumps(summary, indent=2), encoding="utf-8"
+    write_naip_summary(
+        outdir,
+        args=args,
+        dataset_dir=dataset_dir,
+        manifest_path=manifest_path,
+        full_manifest_count=full_manifest_count,
+        status_counts=status_counts,
+        tile_count=len(tile_names),
+        patch_count=len(result_rows),
+        mode="download",
     )
 
     print(f"\nStatus counts: {dict(status_counts)}")

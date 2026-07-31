@@ -53,6 +53,8 @@ import rasterio
 from pyproj import CRS, Transformer
 from rasterio.enums import Resampling
 from rasterio.transform import from_bounds
+
+from lidar_vintage import acquisition_year_from_row
 from rasterio.warp import reproject
 
 
@@ -367,22 +369,30 @@ def resolve_date_range(
     explicit_start: str | None,
     explicit_end: str | None,
     year_radius: int,
+    acquisition_year: int | None = None,
 ) -> tuple[str, str, int]:
+    """Choose the Sentinel-2 search window.
+
+    The authoritative LiDAR acquisition year is preferred. The filename year is
+    only a fallback for manifests that predate acquisition provenance, and it is
+    never treated as acquisition evidence.
+    """
     if bool(explicit_start) != bool(explicit_end):
         raise ValueError("--start-date and --end-date must be supplied together")
     inferred = infer_year(tile_name)
+    target = acquisition_year if acquisition_year is not None else inferred
     if explicit_start and explicit_end:
-        target_year = inferred or int(explicit_start[:4])
-        return explicit_start, explicit_end, target_year
-    if inferred is None:
+        return explicit_start, explicit_end, target or int(explicit_start[:4])
+    if target is None:
         raise ValueError(
-            f"Could not infer a year from tile name {tile_name!r}. "
-            "Supply --start-date and --end-date."
+            f"No authoritative LiDAR acquisition year for tile {tile_name!r} and no year "
+            "in its filename. Rebuild the dataset with acquisition metadata, or supply "
+            "--start-date and --end-date."
         )
     return (
-        f"{inferred - year_radius:04d}-06-01",
-        f"{inferred + year_radius:04d}-09-30",
-        inferred,
+        f"{target - year_radius:04d}-06-01",
+        f"{target + year_radius:04d}-09-30",
+        target,
     )
 
 
@@ -496,12 +506,27 @@ def main() -> int:
         print("=" * 78)
 
         try:
+            acquisition_year = next(
+                (
+                    year
+                    for row in tile_rows
+                    if (year := acquisition_year_from_row(row)) is not None
+                ),
+                None,
+            )
             start_date, end_date, target_year = resolve_date_range(
                 tile_name=tile_name,
                 explicit_start=args.start_date,
                 explicit_end=args.end_date,
                 year_radius=args.year_radius,
+                acquisition_year=acquisition_year,
             )
+            if acquisition_year is None:
+                print(
+                    "WARNING: no authoritative LiDAR acquisition year in the patch "
+                    f"manifest for {tile_name}; falling back to the non-authoritative "
+                    "filename year for the search window only."
+                )
             source_crs = tile_rows[0]["crs"]
             xmin = min(float(row["x_min"]) for row in tile_rows)
             ymin = min(float(row["y_min"]) for row in tile_rows)

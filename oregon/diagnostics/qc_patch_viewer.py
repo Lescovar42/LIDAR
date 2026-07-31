@@ -34,12 +34,20 @@ import csv
 import json
 import os
 import random
+import sys
 import tempfile
 from collections import Counter
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 import numpy as np
+
+OREGON_DIR = Path(__file__).resolve().parents[1]
+if str(OREGON_DIR) not in sys.path:
+    sys.path.insert(0, str(OREGON_DIR))
+
+from lidar_vintage import parse_bool_field, row_has_acquisition_columns
 
 try:
     import tkinter as tk
@@ -173,25 +181,151 @@ def parse_optional_int(value: Any) -> int | None:
         return None
 
 
-def vintage_context(
-    row: dict[str, str], naip_record: dict[str, str]
-) -> tuple[int | None, int | None, int | None, bool]:
-    """Resolve displayed vintage values, including legacy NAIP manifests."""
-    lidar_year = parse_optional_int(
-        naip_record.get("lidar_year") or row.get("lidar_year")
-    )
-    naip_year = parse_optional_int(naip_record.get("naip_year"))
-    year_gap = parse_optional_int(naip_record.get("year_gap"))
-    if year_gap is None and lidar_year is not None and naip_year is not None:
-        year_gap = naip_year - lidar_year
+LEGACY_ACQUISITION_SOURCE = "legacy manifest lidar_year (explicitly trusted)"
 
-    raw_flag = naip_record.get("gap_flag", "").strip()
-    gap_flag = (
-        parse_bool(raw_flag)
-        if raw_flag
-        else year_gap is not None and abs(year_gap) > 2
+
+@dataclass(frozen=True)
+class VintageDisplay:
+    """Everything the viewer is allowed to say about vintage.
+
+    ``acquisition_year`` is the only year used in the LiDAR/NAIP gap.
+    ``file_creation_year`` is shown separately and never enters the gap.
+    """
+
+    acquisition_year: int | None = None
+    acquisition_source: str = ""
+    acquisition_verified: bool | None = None
+    file_creation_year: int | None = None
+    naip_year: int | None = None
+    inferred_hint_year: int | None = None
+    inferred_hint_source: str = ""
+
+    @property
+    def year_gap(self) -> int | None:
+        if self.acquisition_year is None or self.naip_year is None:
+            return None
+        return self.naip_year - self.acquisition_year
+
+    @property
+    def gap_available(self) -> bool:
+        return self.year_gap is not None
+
+    @property
+    def gap_flag(self) -> bool | None:
+        gap = self.year_gap
+        return None if gap is None else abs(gap) > 2
+
+    @property
+    def acquisition_text(self) -> str:
+        return "unknown" if self.acquisition_year is None else str(self.acquisition_year)
+
+    @property
+    def file_creation_text(self) -> str:
+        return (
+            "unknown" if self.file_creation_year is None else str(self.file_creation_year)
+        )
+
+    @property
+    def naip_text(self) -> str:
+        return "unknown" if self.naip_year is None else str(self.naip_year)
+
+    @property
+    def gap_text(self) -> str:
+        gap = self.year_gap
+        return "unavailable" if gap is None else f"{gap:+d} years"
+
+    @property
+    def banner_text(self) -> str:
+        if not self.gap_available:
+            reason = (
+                "LiDAR acquisition year unknown"
+                if self.acquisition_year is None
+                else "NAIP year unknown"
+            )
+            return f"Vintage gap unavailable ({reason}); do not assume the vintages match."
+        if self.gap_flag:
+            return (
+                "WARNING: NAIP - LiDAR acquisition gap "
+                f"{self.gap_text} exceeds 2 years; do not interpret land-cover "
+                "differences as terrain change."
+            )
+        return f"NAIP - LiDAR acquisition gap: {self.gap_text} (within 2 years)."
+
+    @property
+    def title_text(self) -> str:
+        parts = [
+            f"LiDAR acquisition {self.acquisition_text}",
+            f"LAS file created {self.file_creation_text}",
+            f"NAIP {self.naip_text}",
+            f"gap {self.gap_text}",
+        ]
+        if self.gap_flag:
+            parts.append("VINTAGE WARNING")
+        return " | ".join(parts)
+
+
+def _acquisition_from_mapping(
+    values: dict[str, str], *, trust_legacy_lidar_year: bool
+) -> tuple[int | None, str, bool | None]:
+    """Read acquisition year/source, refusing to reuse the legacy alias by default."""
+    if row_has_acquisition_columns(values):
+        return (
+            parse_optional_int(values.get("lidar_acquisition_year")),
+            str(values.get("lidar_acquisition_source", "") or "").strip(),
+            parse_bool_field(values.get("lidar_acquisition_verified")),
+        )
+    if trust_legacy_lidar_year:
+        return (
+            parse_optional_int(values.get("lidar_year")),
+            LEGACY_ACQUISITION_SOURCE,
+            False,
+        )
+    return None, "", None
+
+
+def vintage_context(
+    row: dict[str, str],
+    naip_record: dict[str, str],
+    *,
+    trust_legacy_lidar_year: bool = False,
+) -> VintageDisplay:
+    """Resolve displayed vintage values from patch and NAIP manifest rows.
+
+    The gap is always recomputed from the authoritative acquisition year so a
+    stale ``year_gap``/``gap_flag`` in an old NAIP manifest cannot be displayed.
+    """
+    acquisition_year, acquisition_source, verified = _acquisition_from_mapping(
+        naip_record, trust_legacy_lidar_year=trust_legacy_lidar_year
     )
-    return lidar_year, naip_year, year_gap, gap_flag
+    if acquisition_year is None:
+        acquisition_year, row_source, row_verified = _acquisition_from_mapping(
+            row, trust_legacy_lidar_year=trust_legacy_lidar_year
+        )
+        acquisition_source = acquisition_source or row_source
+        verified = row_verified if verified is None else verified
+
+    file_creation_year = parse_optional_int(
+        naip_record.get("lidar_file_creation_year")
+        or row.get("lidar_file_creation_year")
+    )
+    hint_year = parse_optional_int(
+        naip_record.get("lidar_inferred_year_hint")
+        or row.get("lidar_inferred_year_hint")
+    )
+    hint_source = str(
+        naip_record.get("lidar_inferred_year_hint_source")
+        or row.get("lidar_inferred_year_hint_source")
+        or ""
+    ).strip()
+    return VintageDisplay(
+        acquisition_year=acquisition_year,
+        acquisition_source=acquisition_source,
+        acquisition_verified=verified,
+        file_creation_year=file_creation_year,
+        naip_year=parse_optional_int(naip_record.get("naip_year")),
+        inferred_hint_year=hint_year,
+        inferred_hint_source=hint_source,
+    )
 
 
 def load_naip_manifest(path: Path) -> dict[str, dict[str, str]]:
@@ -302,8 +436,10 @@ class PatchQCViewer:
         start_position: int,
         naip_by_patch: dict[str, dict[str, str]],
         naip_root: Path,
+        trust_legacy_lidar_year: bool = False,
     ) -> None:
         self.root = root
+        self.trust_legacy_lidar_year = trust_legacy_lidar_year
         self.dataset_dir = dataset_dir
         self.output_path = output_path
         self.rows = rows
@@ -550,23 +686,19 @@ class PatchQCViewer:
         slope_max = max(45.0, float(np.nanpercentile(slope, 99)))
 
         naip_record = self.naip_by_patch.get(row.get("patch_id", ""), {})
-        lidar_year, naip_year, year_gap, gap_flag = vintage_context(
-            row, naip_record
+        vintage = vintage_context(
+            row, naip_record, trust_legacy_lidar_year=self.trust_legacy_lidar_year
         )
-        if gap_flag:
-            self.vintage_warning_var.set(
-                "WARNING: LiDAR/NAIP vintage mismatch exceeds 2 years; "
-                "do not interpret land-cover differences as terrain change."
-            )
+        self.vintage_warning_var.set(vintage.banner_text)
+        if vintage.gap_flag:
             self.vintage_warning_label.configure(
                 background="#8B0000", foreground="white"
             )
-        else:
-            self.vintage_warning_var.set(
-                "LiDAR/NAIP vintage gap is within 2 years."
-                if year_gap is not None
-                else "LiDAR/NAIP vintage gap unavailable."
+        elif not vintage.gap_available:
+            self.vintage_warning_label.configure(
+                background="#4A4A00", foreground="white"
             )
+        else:
             self.vintage_warning_label.configure(
                 background=self.root.cget("background"), foreground="black"
             )
@@ -697,16 +829,11 @@ class PatchQCViewer:
             "LiDAR + SLIDO ground truth (red=positive, blue=ignore)"
         )
 
-        lidar_year_text = str(lidar_year) if lidar_year is not None else "unknown"
-        naip_year_text = str(naip_year) if naip_year is not None else "unknown"
-        gap_text = f"{year_gap:+d} years" if year_gap is not None else "unknown"
-        warning_title = " | VINTAGE WARNING" if gap_flag else ""
         self.figure.suptitle(
             f"{row.get('patch_id', '')}\n{row.get('tile_name', '')}\n"
-            f"LiDAR {lidar_year_text} | NAIP {naip_year_text} | "
-            f"gap {gap_text}{warning_title}",
+            f"{vintage.title_text}",
             fontsize=12,
-            color="darkred" if gap_flag else "black",
+            color="darkred" if vintage.gap_flag else "black",
         )
         self.canvas.draw_idle()
 
@@ -726,8 +853,14 @@ class PatchQCViewer:
             f"row/col={row.get('row_offset', '')}/{row.get('col_offset', '')}    "
             f"CRS={row.get('crs', '')}    distance to positive={row.get('distance_to_positive_m', '')} m\n"
             f"SLIDO refs in tile={row.get('slido_ref_ids_in_tile', '')}\n"
-            f"LiDAR year={lidar_year_text}    NAIP year={naip_year_text}    "
-            f"year gap={gap_text}    gap flag={gap_flag}\n"
+            f"LiDAR acquisition={vintage.acquisition_text}    "
+            f"acquisition source={vintage.acquisition_source or 'unknown'}    "
+            f"verified={'unknown' if vintage.acquisition_verified is None else vintage.acquisition_verified}\n"
+            f"LAS file created={vintage.file_creation_text}    "
+            f"non-authoritative name hint={vintage.inferred_hint_year if vintage.inferred_hint_year is not None else 'none'}"
+            f" ({vintage.inferred_hint_source or 'none'})\n"
+            f"NAIP year={vintage.naip_text}    NAIP - LiDAR acquisition gap={vintage.gap_text}    "
+            f"gap flag={'unavailable' if vintage.gap_flag is None else vintage.gap_flag}\n"
             f"NAIP resolution={naip_record.get('naip_resolution_m', '')} m    "
             f"valid={naip_record.get('naip_valid_fraction', '')}    "
             f"NIR={naip_record.get('naip_has_nir', '')}"
@@ -783,6 +916,12 @@ def main() -> int:
     parser.add_argument("--only-unreviewed", action="store_true")
     parser.add_argument("--shuffle", action="store_true")
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument(
+        "--trust-legacy-lidar-year",
+        action="store_true",
+        help="Display a legacy manifest's 'lidar_year' column as the LiDAR acquisition "
+        "year. Off by default because that column may hold a LAS file-creation year.",
+    )
     args = parser.parse_args()
 
     dataset_dir = args.dataset_dir.resolve()
@@ -859,6 +998,7 @@ def main() -> int:
             start_position=start,
             naip_by_patch=naip_by_patch,
             naip_root=naip_root,
+            trust_legacy_lidar_year=args.trust_legacy_lidar_year,
         )
     except Exception as exc:
         root.destroy()

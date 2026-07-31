@@ -1,0 +1,35 @@
+Work on the repository https://github.com/Lescovar42/LIDAR, primarily under
+oregon/. Implement the task in AGENT_INSTRUCTIONS.md from the attached agent
+pack.
+
+Important constraints:
+
+1. Preserve the current HEAD and all user changes. Do not reset or revert
+   unrelated work.
+2. Fix LiDAR acquisition-year provenance generally. Do not hardcode Tillamook
+   or 2020 inside generic code.
+3. LAS/LAZ header creation_date is file metadata, not authoritative acquisition
+   metadata. Preserve it separately, but never silently use it to drive SLIDO
+   temporal filtering, NAIP selection, or vintage-gap claims.
+4. A project token such as A22 or a year embedded in a filename is not
+   authoritative acquisition evidence. It may be retained as an unverified hint
+   only.
+5. Add an explicit, auditable acquisition metadata path for both registry mode
+   and legacy/single-region CLI mode.
+6. Propagate authoritative acquisition metadata through patches.csv,
+   tile summaries, dataset_summary.json, NAIP manifests, and the QC viewer.
+7. When acquisition metadata is unknown, keep it unknown and display
+   “gap unavailable”; do not claim the gap is within two years.
+8. Ensure SLIDO temporal filtering receives only the authoritative acquisition
+   year, never the file creation year.
+9. Add focused unit tests; no network or large LAZ downloads should be required.
+10. Run the complete relevant test suite and compile checks.
+11. Do not pin cell size, change the scientific split design, modify masks,
+    change label policy, or scale the dataset as part of this task.
+12. End with a concise report: files changed, schema chosen, tests run/results,
+    migration/rebuild commands, and any unresolved provenance evidence.
+
+The current research decision supplied by the user is that the Tillamook portion
+of USGS_LPC_OR_WesternWildfires_A22 was acquired in 2020. Treat that as
+user-provided project metadata for the current diagnostic rebuild, but store it
+through the general provenance mechanism rather than hardcoding it.
