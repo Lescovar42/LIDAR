@@ -1,0 +1,21 @@
+{
+  "best_epoch": 28,
+  "validation": {
+    "loss": 1.5813035879816328,
+    "dice": 0.13868895925923383,
+    "iou": 0.07451143641421601,
+    "precision": 0.07711569531390246,
+    "recall": 0.6881224225486521,
+    "specificity": 0.5708481947962589,
+    "ignore_fraction": 0.16306333188657407
+  },
+  "test": null,
+  "train_rows": 513,
+  "validation_rows": 54,
+  "test_rows": 0,
+  "training_regions": {
+    "legacy": "train_val"
+  },
+  "excluded_validation_regions": [],
+  "require_qc": false
+}

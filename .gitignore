@@ -17,6 +17,7 @@ Thumbs.db
 *.copc.laz
 *.part
 *.tmp
+*.log
 hro_tiles/
 lidar_tiles/
 oregon/lidar_tiles/
