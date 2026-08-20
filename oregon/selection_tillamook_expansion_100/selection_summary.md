@@ -17,11 +17,11 @@
 - Positive-diversity tiles: **60**.
 - Hard-negative tiles: **40**.
 - Hard-negative target fraction: **40%**.
-- Already downloaded and reusable: **9**.
-- Still requiring download: **91**.
+- Already downloaded and reusable: **7**.
+- Still requiring download: **93**.
 - Planned storage: **16.25 GB**.
-- Unique new high/moderate SLIDO polygons represented by selected positive tiles: **0**.
-- Positive polygons already represented by the frozen training tiles: **1**.
+- Unique new high/moderate SLIDO polygons represented by selected positive tiles: **361**.
+- Positive polygons already represented by the frozen training tiles: **34**.
 
 ## Interpretation
 
