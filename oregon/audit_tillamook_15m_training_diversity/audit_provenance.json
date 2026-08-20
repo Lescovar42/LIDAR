@@ -1,0 +1,13 @@
+{
+  "dataset_dir": "F:\\LIDAR\\oregon\\dataset_tillamook_probe_15m",
+  "external_test_regions_used": false,
+  "feature_status": "processed 3969 patch-channel records; missing patch files=0",
+  "ignore_policy_changed": false,
+  "manifest": "F:\\LIDAR\\oregon\\dataset_tillamook_probe_15m\\patches_boundary_aware.csv",
+  "missing_patch_files": 0,
+  "outdir": "F:\\LIDAR\\oregon\\audit_tillamook_15m_training_diversity",
+  "source_splits": [
+    "train",
+    "validation"
+  ]
+}

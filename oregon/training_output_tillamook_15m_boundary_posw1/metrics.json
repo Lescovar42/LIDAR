@@ -1,0 +1,25 @@
+{
+  "best_epoch": 10,
+  "validation": {
+    "loss": 1.337808404650007,
+    "dice": 0.1950786547638074,
+    "iou": 0.10808152680929115,
+    "precision": 0.12336507970885018,
+    "recall": 0.4659282233052725,
+    "specificity": 0.827461390389984,
+    "ignore_fraction": 0.16306333188657407
+  },
+  "test": null,
+  "train_rows": 513,
+  "validation_rows": 54,
+  "test_rows": 0,
+  "training_regions": {
+    "legacy": "train_val"
+  },
+  "excluded_validation_regions": [],
+  "require_qc": false,
+  "pos_weight_mode": "fixed",
+  "pos_weight_used": 1.0,
+  "auto_pos_weight": 2.5982112383440406,
+  "run_config_path": "F:\\LIDAR\\oregon\\training_output_tillamook_15m_boundary_posw1\\run_config.json"
+}

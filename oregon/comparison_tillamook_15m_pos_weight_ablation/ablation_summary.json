@@ -1,0 +1,22 @@
+{
+  "auto_evaluation": "F:\\LIDAR\\oregon\\evaluation_tillamook_15m_boundary_auto_control_validation",
+  "decision_rule_rationale": "The weight-only ablation did not provide a decisive precision/FP improvement; prioritize measured diversity limitations before architecture changes.",
+  "decision_rule_result": "retain_weight_but_improve_diversity_first",
+  "dice_tolerance": 0.01,
+  "max_recall_loss": 0.05,
+  "measured_deltas_posw1_minus_auto": {
+    "dice": 0.0009985561605397597,
+    "fn": -2033,
+    "fp": 15268,
+    "gt_positive_fraction": 0.0,
+    "iou": 0.0006189269641928147,
+    "precision": -0.000964403997767066,
+    "predicted_positive_fraction": 0.0058412382439214094,
+    "recall": 0.013857741726594153,
+    "specificity": -0.005423479317567925,
+    "threshold": -0.1499999999999999
+  },
+  "posw1_evaluation": "F:\\LIDAR\\oregon\\evaluation_tillamook_15m_boundary_posw1_validation",
+  "validation_fingerprints_match": true,
+  "warning": "This is a source-validation ablation conclusion, not external-test or cross-region generalization evidence."
+}

@@ -1,0 +1,13 @@
+{
+  "dataset_dir": "/mnt/data/lidar_phase",
+  "external_test_regions_used": false,
+  "feature_status": "skipped by --skip-npz",
+  "ignore_policy_changed": false,
+  "manifest": "/mnt/data/lidar_phase/patches_boundary_aware.csv",
+  "missing_patch_files": 0,
+  "outdir": "/mnt/data/lidar_class_weight_diversity_phase/measured_audit",
+  "source_splits": [
+    "train",
+    "validation"
+  ]
+}

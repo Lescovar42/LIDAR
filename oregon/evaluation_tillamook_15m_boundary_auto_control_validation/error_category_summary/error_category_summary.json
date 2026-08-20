@@ -1,0 +1,65 @@
+[
+  {
+    "error_category": "boundary_mismatch",
+    "evidence_status": "measured_after_manual_visual_review",
+    "fn_pixels": 13043,
+    "fp_pixels": 8497,
+    "mean_precision": 0.22904459429645016,
+    "mean_recall": 0.284940324832828,
+    "patches": 3
+  },
+  {
+    "error_category": "drainage_or_valley_side",
+    "evidence_status": "measured_after_manual_visual_review",
+    "fn_pixels": 5251,
+    "fp_pixels": 29065,
+    "mean_precision": 0.1603666737453104,
+    "mean_recall": 0.23159885503986916,
+    "patches": 2
+  },
+  {
+    "error_category": "other",
+    "evidence_status": "measured_after_manual_visual_review",
+    "fn_pixels": 56058,
+    "fp_pixels": 107,
+    "mean_precision": 0.6644441674975075,
+    "mean_recall": 0.17710578308514732,
+    "patches": 3
+  },
+  {
+    "error_category": "ridge_or_convex_terrain",
+    "evidence_status": "measured_after_manual_visual_review",
+    "fn_pixels": 0,
+    "fp_pixels": 36878,
+    "mean_precision": 0.0,
+    "mean_recall": 0.0,
+    "patches": 2
+  },
+  {
+    "error_category": "rough_natural_terrain",
+    "evidence_status": "measured_after_manual_visual_review",
+    "fn_pixels": 6991,
+    "fp_pixels": 61655,
+    "mean_precision": 0.12623726276825992,
+    "mean_recall": 0.3189456207333983,
+    "patches": 3
+  },
+  {
+    "error_category": "steep_non_landslide_slope",
+    "evidence_status": "measured_after_manual_visual_review",
+    "fn_pixels": 0,
+    "fp_pixels": 37849,
+    "mean_precision": 0.0,
+    "mean_recall": 0.0,
+    "patches": 2
+  },
+  {
+    "error_category": "unreviewed",
+    "evidence_status": "not_yet_reviewed",
+    "fn_pixels": 8533,
+    "fp_pixels": 0,
+    "mean_precision": 1.0,
+    "mean_recall": 0.652838529490765,
+    "patches": 3
+  }
+]

@@ -1,0 +1,8 @@
+error_category,patches,fp_pixels,fn_pixels,mean_precision,mean_recall,evidence_status
+boundary_mismatch,3,8497,13043,0.22904459429645016,0.284940324832828,measured_after_manual_visual_review
+drainage_or_valley_side,2,29065,5251,0.1603666737453104,0.23159885503986916,measured_after_manual_visual_review
+other,3,107,56058,0.6644441674975075,0.17710578308514732,measured_after_manual_visual_review
+ridge_or_convex_terrain,2,36878,0,0.0,0.0,measured_after_manual_visual_review
+rough_natural_terrain,3,61655,6991,0.12623726276825992,0.3189456207333983,measured_after_manual_visual_review
+steep_non_landslide_slope,2,37849,0,0.0,0.0,measured_after_manual_visual_review
+unreviewed,3,0,8533,1.0,0.652838529490765,not_yet_reviewed

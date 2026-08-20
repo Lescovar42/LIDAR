@@ -1,0 +1,11 @@
+[
+  {
+    "error_category": "unreviewed",
+    "evidence_status": "not_yet_reviewed",
+    "fn_pixels": 88543,
+    "fp_pixels": 178254,
+    "mean_precision": 0.37061163616304393,
+    "mean_recall": 0.250384330236499,
+    "patches": 19
+  }
+]

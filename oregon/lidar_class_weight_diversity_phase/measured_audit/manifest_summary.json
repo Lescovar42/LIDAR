@@ -1,0 +1,42 @@
+{
+  "train": {
+    "boundary_patches": 263,
+    "category_counts": {
+      "negative": 241,
+      "positive_boundary": 42,
+      "positive_interior": 230
+    },
+    "coverage_counts": {
+      "full_positive": 18,
+      "low_coverage_positive": 42,
+      "mixed_positive": 190,
+      "near_full_positive": 22,
+      "negative": 241
+    },
+    "hard_negative_patches": 225,
+    "negative_patches": 241,
+    "patches": 513,
+    "positive_patches": 272,
+    "unique_positive_polygon_keys": 23,
+    "unique_tiles": 13
+  },
+  "validation": {
+    "boundary_patches": 14,
+    "category_counts": {
+      "negative": 40,
+      "positive_boundary": 7,
+      "positive_interior": 7
+    },
+    "coverage_counts": {
+      "low_coverage_positive": 7,
+      "mixed_positive": 7,
+      "negative": 40
+    },
+    "hard_negative_patches": 35,
+    "negative_patches": 40,
+    "patches": 54,
+    "positive_patches": 14,
+    "unique_positive_polygon_keys": 3,
+    "unique_tiles": 3
+  }
+}

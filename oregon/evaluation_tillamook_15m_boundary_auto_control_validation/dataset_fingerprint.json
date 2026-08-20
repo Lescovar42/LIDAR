@@ -1,0 +1,14 @@
+{
+  "manifest_path": "F:\\LIDAR\\oregon\\dataset_tillamook_probe_15m\\patches_boundary_aware.csv",
+  "manifest_sha256": "27587eeb5c8ae521eca636a9e1e465f4ad61212111f95f1d24950b5709091422",
+  "patch_ids_sha256": "b0b833e5e3393c1aed4517e58e013e2791c177a0de457748dece17def0da194a",
+  "patch_paths_sha256": "49dbb07b47543593dc0b4c98758a5522ef8731330841e95ec13a324cacee32e5",
+  "region_ids": [
+    "legacy"
+  ],
+  "region_roles": [
+    "train_val"
+  ],
+  "row_count": 54,
+  "split": "validation"
+}

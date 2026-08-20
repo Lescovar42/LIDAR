@@ -1,0 +1,27 @@
+{
+  "best": {
+    "dice": 0.2041881493544766,
+    "fn": 90409,
+    "fp": 348412,
+    "gt_positive_fraction": 0.049531174878590295,
+    "ignore_fraction": 0.16306333188657407,
+    "ignored": 577072,
+    "iou": 0.11370241781235546,
+    "precision": 0.1391027605088113,
+    "predicted_positive_fraction": 0.136639260575744,
+    "recall": 0.3837360689819706,
+    "specificity": 0.8762375375954606,
+    "threshold": 0.55,
+    "tn": 2466755,
+    "tp": 56296,
+    "valid_pixels": 2961872
+  },
+  "checkpoint": "F:\\LIDAR\\oregon\\training_output_tillamook_15m_boundary_posw1\\best_model.pt",
+  "checkpoint_auto_pos_weight": 2.5982112383440406,
+  "checkpoint_epoch": 10,
+  "checkpoint_pos_weight_mode": "fixed",
+  "checkpoint_pos_weight_used": 1.0,
+  "region": "legacy",
+  "selection_metric": "dice",
+  "split": "validation"
+}

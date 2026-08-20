@@ -1,0 +1,27 @@
+{
+  "checkpoint": "F:\\LIDAR\\oregon\\training_output_tillamook_15m_boundary_auto_control\\best_model.pt",
+  "dataset_dir": "F:\\LIDAR\\oregon\\dataset_tillamook_probe_15m",
+  "device": "cuda",
+  "ignore_policy_changed": false,
+  "manifest": "F:\\LIDAR\\oregon\\dataset_tillamook_probe_15m\\patches_boundary_aware.csv",
+  "normalization_source": "checkpoint_train_only_statistics",
+  "outdir": "F:\\LIDAR\\oregon\\evaluation_tillamook_15m_boundary_auto_control_validation",
+  "region": "legacy",
+  "rows": 54,
+  "split": "validation",
+  "thresholds": [
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9
+  ]
+}

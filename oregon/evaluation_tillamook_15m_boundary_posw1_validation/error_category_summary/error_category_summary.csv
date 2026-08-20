@@ -1,0 +1,2 @@
+error_category,patches,fp_pixels,fn_pixels,mean_precision,mean_recall,evidence_status
+unreviewed,19,178254,88543,0.37061163616304393,0.250384330236499,not_yet_reviewed

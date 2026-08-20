@@ -1,0 +1,7 @@
+{
+  "note": "Potential redundancy indicator only; overlapping windows are not automatically invalid samples.",
+  "overlap_threshold_of_smaller_patch": 0.5,
+  "pairs_overlap_fraction_ge_threshold": 323,
+  "positive_patch_pairs_within_tile": 5052,
+  "same_polygon_pairs_overlap_fraction_ge_threshold": 322
+}

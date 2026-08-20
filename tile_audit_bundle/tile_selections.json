@@ -1,0 +1,958 @@
+[
+  {
+    "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04380w14100.laz",
+    "target_lidar_year": 2024,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 161012,
+        "Name": "m_4512325_ne_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512325_ne_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224507",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161318,
+        "Name": "Ov_i02_L01_R0000016F_C0000003F.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161347,
+        "Name": "Ov_i02_L02_R000000B7_C0000001F.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161361,
+        "Name": "Ov_i02_L03_R0000005B_C0000000F.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04560w14400.laz",
+    "target_lidar_year": 2024,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 160987,
+        "Name": "m_4512318_sw_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512318_sw_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224482",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161318,
+        "Name": "Ov_i02_L01_R0000016F_C0000003F.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161347,
+        "Name": "Ov_i02_L02_R000000B7_C0000001F.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161361,
+        "Name": "Ov_i02_L03_R0000005B_C0000000F.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04620w13770.laz",
+    "target_lidar_year": 2024,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 161048,
+        "Name": "m_4512334_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512334_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224543",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161049,
+        "Name": "m_4512334_nw_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512334_nw_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224544",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161318,
+        "Name": "Ov_i02_L01_R0000016F_C0000003F.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161347,
+        "Name": "Ov_i02_L02_R000000B7_C0000001F.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161361,
+        "Name": "Ov_i02_L03_R0000005B_C0000000F.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04680w13380.laz",
+    "target_lidar_year": 2024,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 161050,
+        "Name": "m_4512334_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512334_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224545",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161318,
+        "Name": "Ov_i02_L01_R0000016F_C0000003F.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161319,
+        "Name": "Ov_i02_L01_R0000016F_C00000040.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161347,
+        "Name": "Ov_i02_L02_R000000B7_C0000001F.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161361,
+        "Name": "Ov_i02_L03_R0000005B_C0000000F.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04710w14520.laz",
+    "target_lidar_year": 2024,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 160986,
+        "Name": "m_4512318_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512318_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224481",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 160984,
+        "Name": "m_4512318_ne_10_030_20220624",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512318_ne_10_030_20220624",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224479",
+        "acquisition_date": 1656028800000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161318,
+        "Name": "Ov_i02_L01_R0000016F_C0000003F.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161347,
+        "Name": "Ov_i02_L02_R000000B7_C0000001F.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161361,
+        "Name": "Ov_i02_L03_R0000005B_C0000000F.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04770w14130.laz",
+    "target_lidar_year": 2024,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 161016,
+        "Name": "m_4512326_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512326_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224511",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161319,
+        "Name": "Ov_i02_L01_R0000016F_C00000040.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s05040w13830.laz",
+    "target_lidar_year": 2024,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 161022,
+        "Name": "m_4512327_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512327_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224517",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161319,
+        "Name": "Ov_i02_L01_R0000016F_C00000040.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s05070w13830.laz",
+    "target_lidar_year": 2024,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 161022,
+        "Name": "m_4512327_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512327_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224517",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161319,
+        "Name": "Ov_i02_L01_R0000016F_C00000040.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s05070w14550.laz",
+    "target_lidar_year": 2024,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 160988,
+        "Name": "m_4512319_ne_10_030_20220624",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512319_ne_10_030_20220624",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224483",
+        "acquisition_date": 1656028800000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161319,
+        "Name": "Ov_i02_L01_R0000016F_C00000040.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s05100w13680.laz",
+    "target_lidar_year": 2024,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 161052,
+        "Name": "m_4512335_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512335_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224547",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161057,
+        "Name": "m_4512336_nw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512336_nw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224552",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161319,
+        "Name": "Ov_i02_L01_R0000016F_C00000040.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s05130w13650.laz",
+    "target_lidar_year": 2024,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 161057,
+        "Name": "m_4512336_nw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512336_nw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224552",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161319,
+        "Name": "Ov_i02_L01_R0000016F_C00000040.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s05130w14070.laz",
+    "target_lidar_year": 2024,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 161020,
+        "Name": "m_4512327_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512327_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224515",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161025,
+        "Name": "m_4512328_nw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512328_nw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224520",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161319,
+        "Name": "Ov_i02_L01_R0000016F_C00000040.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  },
+  {
+    "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s05160w13530.laz",
+    "target_lidar_year": 2024,
+    "selected_naip_year": 2022,
+    "available_years": [
+      2022
+    ],
+    "source_records": [
+      {
+        "OBJECTID": 161059,
+        "Name": "m_4512336_sw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512336_sw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224554",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      },
+      {
+        "OBJECTID": 161319,
+        "Name": "Ov_i02_L01_R0000016F_C00000040.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161348,
+        "Name": "Ov_i02_L02_R000000B7_C00000020.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      },
+      {
+        "OBJECTID": 161362,
+        "Name": "Ov_i02_L03_R0000005B_C00000010.tif",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": null,
+        "download_url": null,
+        "acquisition_date": null,
+        "agency": null,
+        "vendor": null,
+        "resolution_value": null,
+        "resolution_units": null,
+        "band_count": null
+      }
+    ]
+  }
+]

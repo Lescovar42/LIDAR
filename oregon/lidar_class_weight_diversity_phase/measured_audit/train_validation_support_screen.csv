@@ -1,0 +1,8 @@
+metric,train_min,train_p01,train_median,train_p99,train_max,validation_min,validation_median,validation_max,validation_outside_train_p01_p99_count,validation_outside_train_p01_p99_fraction,interpretation
+positive_fraction,0.0,0.0,0.0343017578125,1.0,1.0,0.0,0.0,0.547592163086,0,0.0,"screening indicator, not proof of terrain-domain mismatch"
+ignore_fraction,0.0,0.0,0.00764465332031,0.82824096679672,0.983810424805,0.0,0.0,0.988693237305,5,0.09259259259259259,"screening indicator, not proof of terrain-domain mismatch"
+ground_fraction,0.2000885009765625,0.2004461669921875,0.24761962890625,0.3761383056640625,0.41741943359375,0.2002105712890625,0.2291259765625,0.43084716796875,3,0.05555555555555555,"screening indicator, not proof of terrain-domain mismatch"
+mean_slope_degrees,1.7838722467422485,3.8259195137023925,25.002914428710938,41.375257110595705,43.53438949584961,5.121443271636963,24.39520835876465,40.15520095825195,0,0.0,"screening indicator, not proof of terrain-domain mismatch"
+distance_to_positive_m,0.0,0.0,0.0,1105.309348039518,1351.4001072961332,0.0,269.86501509373926,1302.7541018933696,4,0.07407407407407407,"screening indicator, not proof of terrain-domain mismatch"
+boundary_pixel_fraction,0.0,0.0,0.00105285644531,0.009315795898441597,0.0115966796875,0.0,0.0,0.0109405517578,2,0.037037037037037035,"screening indicator, not proof of terrain-domain mismatch"
+boundary_of_positive_fraction,0.0,0.0,0.00106096717152,0.097090220278508,0.173359451518,0.0,0.0,0.146318732526,3,0.05555555555555555,"screening indicator, not proof of terrain-domain mismatch"
