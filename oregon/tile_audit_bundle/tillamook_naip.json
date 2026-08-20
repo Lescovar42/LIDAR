@@ -1,0 +1,804 @@
+{
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 160986,
+        "Name": "m_4512318_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512318_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224481",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 160990,
+        "Name": "m_4512319_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512319_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224485",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 160991,
+        "Name": "m_4512319_sw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512319_sw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224486",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 160994,
+        "Name": "m_4512320_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512320_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224489",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 160995,
+        "Name": "m_4512320_sw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512320_sw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224490",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161016,
+        "Name": "m_4512326_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512326_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224511",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161018,
+        "Name": "m_4512326_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512326_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224513",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161020,
+        "Name": "m_4512327_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512327_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224515",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161021,
+        "Name": "m_4512327_nw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512327_nw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224516",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161022,
+        "Name": "m_4512327_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512327_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224517",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161023,
+        "Name": "m_4512327_sw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512327_sw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224518",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161024,
+        "Name": "m_4512328_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512328_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224519",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161025,
+        "Name": "m_4512328_nw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512328_nw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224520",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161026,
+        "Name": "m_4512328_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512328_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224521",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161027,
+        "Name": "m_4512328_sw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512328_sw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224522",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161048,
+        "Name": "m_4512334_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512334_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224543",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161050,
+        "Name": "m_4512334_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512334_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224545",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161052,
+        "Name": "m_4512335_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512335_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224547",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161053,
+        "Name": "m_4512335_nw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512335_nw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224548",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161054,
+        "Name": "m_4512335_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512335_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224549",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161055,
+        "Name": "m_4512335_sw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512335_sw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224550",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161056,
+        "Name": "m_4512336_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512336_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224551",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161057,
+        "Name": "m_4512336_nw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512336_nw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224552",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161058,
+        "Name": "m_4512336_se_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512336_se_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224553",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161059,
+        "Name": "m_4512336_sw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512336_sw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224554",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161080,
+        "Name": "m_4512342_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512342_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224575",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161084,
+        "Name": "m_4512343_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512343_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224579",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161085,
+        "Name": "m_4512343_nw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512343_nw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224580",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161088,
+        "Name": "m_4512344_ne_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512344_ne_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224583",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161089,
+        "Name": "m_4512344_nw_10_030_20220711",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512344_nw_10_030_20220711",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224584",
+        "acquisition_date": 1657497600000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 160982,
+        "Name": "m_4512317_se_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512317_se_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224477",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 160983,
+        "Name": "m_4512317_sw_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512317_sw_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224478",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 160987,
+        "Name": "m_4512318_sw_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512318_sw_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224482",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 160992,
+        "Name": "m_4512320_ne_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512320_ne_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224487",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 160993,
+        "Name": "m_4512320_nw_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512320_nw_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224488",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161012,
+        "Name": "m_4512325_ne_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512325_ne_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224507",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161013,
+        "Name": "m_4512325_nw_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512325_nw_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224508",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161014,
+        "Name": "m_4512325_se_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512325_se_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224509",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161015,
+        "Name": "m_4512325_sw_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512325_sw_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224510",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161017,
+        "Name": "m_4512326_nw_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512326_nw_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224512",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161019,
+        "Name": "m_4512326_sw_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512326_sw_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224514",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161044,
+        "Name": "m_4512333_ne_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512333_ne_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224539",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161045,
+        "Name": "m_4512333_nw_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512333_nw_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224540",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161046,
+        "Name": "m_4512333_se_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512333_se_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224541",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161047,
+        "Name": "m_4512333_sw_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512333_sw_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224542",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161049,
+        "Name": "m_4512334_nw_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512334_nw_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224544",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161051,
+        "Name": "m_4512334_sw_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512334_sw_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224546",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161076,
+        "Name": "m_4512341_ne_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512341_ne_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224571",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161077,
+        "Name": "m_4512341_nw_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512341_nw_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224572",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 161081,
+        "Name": "m_4512342_nw_10_030_20220625",
+        "State": "OR",
+        "Year": 2022,
+        "raster_name": "m_4512342_nw_10_030_20220625",
+        "download_url": "https://earthexplorer.usgs.gov/download/options/naip/3224576",
+        "acquisition_date": 1656115200000,
+        "agency": "USDA",
+        "vendor": "USDA-FSA-APFO",
+        "resolution_value": 0.3,
+        "resolution_units": "METER",
+        "band_count": 4
+      }
+    }
+  ]
+}

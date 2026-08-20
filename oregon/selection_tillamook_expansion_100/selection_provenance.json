@@ -1,0 +1,11 @@
+{
+  "target_tiles": 100,
+  "hard_negative_fraction": 0.4,
+  "validation_buffer_m": 500.0,
+  "selected_count": 100,
+  "selected_positive_diversity": 60,
+  "selected_hard_negative": 40,
+  "selected_already_downloaded": 9,
+  "downloaded_input_unique": 32,
+  "new_positive_polygon_count": 0
+}

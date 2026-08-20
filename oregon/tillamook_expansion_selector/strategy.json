@@ -1,0 +1,26 @@
+{
+  "phase": "Tillamook source-region data expansion",
+  "target_tiles": 100,
+  "hard_negative_fraction": 0.4,
+  "validation_buffer_m": 500,
+  "measured_error_review_priorities": [
+    "rough_natural_terrain",
+    "steep_non_landslide_slope",
+    "ridge_or_convex_terrain",
+    "drainage_or_valley_side"
+  ],
+  "secondary_context_required": [
+    "road_or_engineered_cut",
+    "forest_management_disturbance"
+  ],
+  "positive_priorities": [
+    "new_slido_polygon_groups",
+    "spatially_distinct_tiles",
+    "underrepresented_positive_morphology",
+    "high_fn_morphology_followup"
+  ],
+  "notes": [
+    "Semantic terrain classes cannot be assigned to unseen TNM records from metadata alone.",
+    "The selector operationalizes inventory novelty, spatial novelty, split safety, probe quality, and clean hard-negative status before download."
+  ]
+}
