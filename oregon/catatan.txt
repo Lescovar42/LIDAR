@@ -1,0 +1,4 @@
+Request prof:
+- Ngambil slope + aspect aja coba
+- Coba buat DTM
+- Cari paper (buat sitas, bukan hanya misal "cara buat aspect_sin/aspect_cos" tetapi "kenapa pakai aspect_sin/aspect_cos"

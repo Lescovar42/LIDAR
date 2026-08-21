@@ -1,0 +1,9 @@
+{
+  "selected_tiles": 100,
+  "already_complete": 100,
+  "to_download": 0,
+  "selected_bytes": 16247166967,
+  "missing_bytes": 0,
+  "input_file": "F:\\LIDAR\\oregon\\download_tillamook_expansion_100_status\\aria2_input.txt",
+  "outdir": "F:\\LIDAR\\oregon\\lidar_tiles\\tillamook_expansion_100"
+}
