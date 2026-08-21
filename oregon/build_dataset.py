@@ -658,9 +658,12 @@ def _build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--include-trace-positives", action="store_true")
     parser.add_argument("--negative-buffer-m", type=float, default=50.0)
     parser.add_argument(
-        "--positive-buffer-m", "--positive-ignore-buffer-m",
-        dest="positive_ignore_buffer_m", type=float, default=50.0,
-        help="Width of the uint8=255 ring outside accepted positives.",
+        "--positive-buffer-m",
+        "--positive-ignore-buffer-m",
+        dest="positive_ignore_buffer_m",
+        type=float,
+        default=0.0,
+        help="Deprecated compatibility option. Must be 0 for strict binary ground truth.",
     )
     parser.add_argument("--hard-negative-slope", type=float, default=8.0)
     parser.add_argument("--negative-ratio", type=float, default=1.5)
@@ -678,6 +681,11 @@ def _build_parser() -> argparse.ArgumentParser:
 def main() -> int:
     parser = _build_parser()
     args = parser.parse_args()
+    if args.positive_ignore_buffer_m != 0:
+        parser.error(
+            "--positive-buffer-m must be 0 because this experiment uses "
+            "strict binary ground truth."
+        )
     if args.patch_size <= 0 or args.stride <= 0:
         parser.error("--patch-size and --stride must be positive")
     if args.cell_size is not None and args.cell_size <= 0:
@@ -818,7 +826,11 @@ def main() -> int:
                     skipped_low_coverage += 1
                     continue
                 positive_fraction = float(np.mean(patch_mask == 1))
-                ignore_fraction = float(np.mean(patch_mask == 255))
+                if not np.all((patch_mask == 0) | (patch_mask == 1)):
+                    raise RuntimeError(
+                        f"Non-binary mask encountered: {np.unique(patch_mask)}"
+                    )
+                ignore_fraction = 0.0
                 category = classify_patch(
                     positive_fraction,
                     interior_threshold=args.interior_threshold,
@@ -839,9 +851,7 @@ def main() -> int:
                     "is_hard_negative": category == "negative" and patch_slope_mean >= args.hard_negative_slope,
                 }
                 if category == "negative":
-                    if ignore_fraction > 0:
-                        skipped_ignore_only += 1
-                    elif min_distance >= args.negative_buffer_m:
+                    if min_distance >= args.negative_buffer_m:
                         negative_candidates.append(candidate)
                 elif category == "positive_trace" and not args.include_trace_positives:
                     skipped_trace += 1
@@ -917,8 +927,8 @@ def main() -> int:
                     if record["temporal_excluded"]
                 ),
                 "mask_positive_fraction": float(np.mean(mask == 1)),
-                "mask_ignore_fraction": float(np.mean(mask == 255)),
-                "mask_pixels": int(mask.size), "ignore_pixels": int(np.sum(mask == 255)),
+                "mask_ignore_fraction": 0.0,
+                "mask_pixels": int(mask.size), "ignore_pixels": 0,
                 "saved_patches": len(selected_candidates), "category_counts": dict(category_counts),
                 "skipped_low_ground_coverage": skipped_low_coverage,
                 "skipped_trace_positives": skipped_trace, "skipped_ignore_only": skipped_ignore_only,
@@ -963,7 +973,7 @@ def main() -> int:
         },
         "feature_names": list(feature_names or []), "feature_dtype": args.feature_dtype,
         "cell_size": args.cell_size, "patch_size": args.patch_size, "stride": args.stride,
-        "description_filter": "Landslide", "mask_codes": {"negative": 0, "positive": 1, "ignore": 255},
+        "description_filter": "Landslide", "mask_codes": {"negative": 0, "positive": 1},
         "tile_summaries": tile_summaries,
         "parameters": {key: str(value) if isinstance(value, Path) else value for key, value in vars(args).items()},
     }

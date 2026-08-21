@@ -224,16 +224,13 @@ def _property_value(properties: Mapping[str, Any], name: str) -> Any:
 
 
 def label_quality(mask: np.ndarray) -> str:
-    """Describe the scoreability of a three-state label array."""
-    has_positive = bool(np.any(mask == 1))
-    has_ignore = bool(np.any(mask == 255))
-    if has_positive and has_ignore:
-        return "accepted_with_ignore"
-    if has_positive:
-        return "accepted"
-    if has_ignore:
-        return "ignore_only"
-    return "negative"
+    """Describe a strictly binary landslide label array."""
+    values = set(np.unique(mask).tolist())
+
+    if not values <= {0, 1}:
+        raise ValueError(f"Binary ground-truth mask contains unexpected values: {values}")
+
+    return "accepted" if np.any(mask == 1) else "negative"
 
 
 def rasterize_slido_mask(
@@ -245,28 +242,36 @@ def rasterize_slido_mask(
     positive_buffer_m: float = 0.0,
     all_touched: bool = False,
 ) -> tuple[np.ndarray, list[dict[str, object]]]:
-    """Create a three-state (negative/positive/ignore) SLIDO mask.
+    """Create a strictly binary SLIDO mask.
 
-    High and moderate confidence polygons are positive unless their known event
-    year postdates the LiDAR year. Low/unknown confidence and post-LiDAR
-    polygons are ignore. Exclusion polygons override positives when geometries
-    overlap; the configurable ring only replaces background, so accepted
-    positive interiors remain positive.
+    1 = accepted landslide polygon
+    0 = all other pixels
+
+    Only high/moderate-confidence polygons that are temporally valid
+    for the LiDAR acquisition are rasterized as positive.
     """
-    if positive_buffer_m < 0:
-        raise ValueError("positive_buffer_m must be non-negative")
+
+    if positive_buffer_m != 0:
+        raise ValueError(
+            "Binary ground-truth mode does not support a positive ignore buffer; "
+            "positive_buffer_m must be 0."
+        )
+
     deposits = load_deposits(slido_geojson, description=description)
     transformer = Transformer.from_crs("EPSG:4326", tile.crs, always_xy=True)
     tile_polygon = box(*tile.bounds)
 
-    positive_shapes: list[tuple[dict[str, object], int]] = []
-    excluded_shapes: list[tuple[dict[str, object], int]] = []
-    records: list[dict[str, object]] = []
+    positive_shapes = []
+    records = []
+
     for geometry, properties in deposits:
         projected = shapely_transform(transformer.transform, geometry)
+
         if projected.is_empty or not projected.intersects(tile_polygon):
             continue
+
         clipped = projected.intersection(tile_polygon)
+
         if clipped.is_empty:
             continue
 
@@ -274,17 +279,41 @@ def rasterize_slido_mask(
             _property_value(properties, "confidence_class")
             or _property_value(properties, "CONFIDENCE")
         )
+
         event_date, event_date_source = extract_landslide_date(properties)
         event_year = event_date.year if event_date is not None else None
+
         temporal_excluded = bool(
-            lidar_year is not None and event_year is not None and event_year > lidar_year
+            lidar_year is not None
+            and event_year is not None
+            and event_year > lidar_year
         )
+
         confidence_excluded = confidence not in {"high", "moderate"}
-        disposition = "ignore" if confidence_excluded or temporal_excluded else "positive"
-        target = excluded_shapes if disposition == "ignore" else positive_shapes
-        target.append((mapping(clipped), 1))
-        landslide_id = _property_value(properties, "UNIQUE_ID") or _property_value(properties, "OBJECTID") or ""
-        polygon_key = str(landslide_id) if landslide_id else hashlib.sha1(geometry.wkb).hexdigest()
+
+        accepted_positive = (
+            not temporal_excluded
+            and not confidence_excluded
+        )
+
+        if accepted_positive:
+            positive_shapes.append((mapping(clipped), 1))
+            disposition = "positive"
+        else:
+            disposition = "negative_excluded"
+
+        landslide_id = (
+            _property_value(properties, "UNIQUE_ID")
+            or _property_value(properties, "OBJECTID")
+            or ""
+        )
+
+        polygon_key = (
+            str(landslide_id)
+            if landslide_id
+            else hashlib.sha1(geometry.wkb).hexdigest()
+        )
+
         records.append(
             {
                 "landslide_id": landslide_id,
@@ -295,6 +324,7 @@ def rasterize_slido_mask(
                 "event_year": event_year,
                 "event_year_source": event_date_source or "",
                 "temporal_excluded": temporal_excluded,
+                "confidence_excluded": confidence_excluded,
                 "disposition": disposition,
                 "move_code": _property_value(properties, "MOVE_CODE") or "",
                 "description": _property_value(properties, "DESCRIPTION") or "",
@@ -302,6 +332,7 @@ def rasterize_slido_mask(
         )
 
     mask = np.zeros(tile.dem.shape, dtype=np.uint8)
+
     if positive_shapes:
         positives = rasterize(
             shapes=positive_shapes,
@@ -312,25 +343,17 @@ def rasterize_slido_mask(
             all_touched=all_touched,
             dtype="uint8",
         ).astype(bool)
-        mask[positives] = 1
-        if positive_buffer_m > 0:
-            x_size = abs(float(tile.transform.a))
-            y_size = abs(float(tile.transform.e))
-            distances = distance_transform_edt(~positives, sampling=(y_size, x_size))
-            ring = (~positives) & (distances <= positive_buffer_m)
-            mask[ring] = 255
 
-    if excluded_shapes:
-        excluded = rasterize(
-            shapes=excluded_shapes,
-            out_shape=tile.dem.shape,
-            transform=tile.transform,
-            fill=0,
-            default_value=1,
-            all_touched=all_touched,
-            dtype="uint8",
-        ).astype(bool)
-        mask[excluded] = 255
+        mask[positives] = 1
+
+    # Hard assertion: absolutely no grey / 255 pixels.
+    values = set(np.unique(mask).tolist())
+
+    if not values <= {0, 1}:
+        raise RuntimeError(
+            f"Binary rasterization produced invalid mask values: {values}"
+        )
+
     return mask, records
 
 
