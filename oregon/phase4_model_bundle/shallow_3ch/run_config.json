@@ -1,0 +1,51 @@
+{
+  "dataset_dir": "F:\\LIDAR\\oregon\\dataset_tillamook_100_binary_15m_split641620",
+  "manifest_path": "F:\\LIDAR\\oregon\\dataset_tillamook_100_binary_15m_split641620\\patches.csv",
+  "ground_truth_policy": "strict_binary_0_1",
+  "test_policy": "LOCKED_NOT_LOADED",
+  "train_rows": 3950,
+  "validation_rows": 891,
+  "test_rows_locked": 1210,
+  "train_patch_id_sha256": "ffb309bdcb6c64852d7784149572f9c39e18a6e563db5db3c7812b8c58574dda",
+  "validation_patch_id_sha256": "fc12bb8460c38c52a96e38e07c78dd3523f5e4ced175dfb622c17f855689f554",
+  "test_patch_id_sha256_metadata_only": "ef052a60751a71bd1566decf2d361714291521336d053c57132d607d46cf49f5",
+  "architecture": "shallow",
+  "feature_set": "3ch",
+  "channels": [
+    "slope_degrees",
+    "aspect_sin",
+    "aspect_cos"
+  ],
+  "channel_indices": [
+    1,
+    2,
+    3
+  ],
+  "parameter_count": 467809,
+  "trainable_parameter_count": 467809,
+  "epochs": 50,
+  "batch_size": 2,
+  "learning_rate": 0.001,
+  "seed": 42,
+  "optimizer": "AdamW",
+  "loss": "BCEWithLogits(pos_weight) + soft Dice",
+  "pos_weight_mode": "auto",
+  "pos_weight_used": 4.596402144897774,
+  "auto_pos_weight": 4.596402144897774,
+  "normalization_source": "train_only",
+  "mean": [
+    26.046283721923828,
+    -0.012078448198735714,
+    -0.01390625350177288
+  ],
+  "std": [
+    16.158462524414062,
+    0.6972790956497192,
+    0.7165645360946655
+  ],
+  "amp": false,
+  "device": "cuda",
+  "device_name": "NVIDIA GeForce RTX 2060 SUPER",
+  "torch_version": "2.13.0+cu126",
+  "numpy_version": "2.5.1"
+}

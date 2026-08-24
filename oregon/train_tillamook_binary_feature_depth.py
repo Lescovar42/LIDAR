@@ -13,8 +13,8 @@ Ground truth:
 - no ignore index
 
 Controlled factors:
-- architecture: shallow | deep
-- features: 7ch | 3ch
+- architecture label: shallow | deep (shared EfficientNetV2-S U-Net)
+- features: 3ch
 """
 
 from __future__ import annotations
@@ -28,6 +28,7 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
+import segmentation_models_pytorch as smp
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -263,11 +264,17 @@ class DeepUNet(nn.Module):
 
 
 def build_model(architecture: str, in_channels: int):
-    if architecture == "shallow":
-        return ShallowUNet(in_channels)
-    if architecture == "deep":
-        return DeepUNet(in_channels)
-    raise ValueError(architecture)
+    """Build the shared EfficientNetV2-S U-Net for either legacy label."""
+    if architecture not in {"shallow", "deep"}:
+        raise ValueError(architecture)
+    if in_channels != 3:
+        raise ValueError("EfficientNetV2 U-Net requires exactly 3 input channels")
+    return smp.Unet(
+        encoder_name="tu-efficientnetv2_s",
+        encoder_weights="imagenet",
+        in_channels=3,
+        classes=1,
+    )
 
 
 def binary_loss(logits, target, pos_weight):
@@ -370,7 +377,7 @@ def main():
     ap.add_argument("--dataset-dir", type=Path, required=True)
     ap.add_argument("--outdir", type=Path, required=True)
     ap.add_argument("--architecture", choices=("shallow", "deep"), required=True)
-    ap.add_argument("--features", choices=("7ch", "3ch"), required=True)
+    ap.add_argument("--features", choices=("3ch",), required=True)
     ap.add_argument("--epochs", type=int, default=50)
     ap.add_argument("--batch-size", type=int, default=2)
     ap.add_argument("--learning-rate", type=float, default=1e-3)
@@ -482,7 +489,7 @@ def main():
         pin_memory=pin,
     )
 
-    model = build_model(args.architecture, len(indices)).to(device)
+    model = build_model(args.architecture, 3).to(device)
     parameter_count = sum(p.numel() for p in model.parameters())
     trainable_count = sum(p.numel() for p in model.parameters() if p.requires_grad)
 

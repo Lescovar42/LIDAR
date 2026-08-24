@@ -1,0 +1,59 @@
+Deep U-Net — Tillamook LiDAR landslide segmentation
+====================================================
+
+Input:
+    7 x 256 x 256
+
+Terrain channels:
+    1. local_relief
+    2. slope_degrees
+    3. aspect_sin
+    4. aspect_cos
+    5. curvature
+    6. multidirectional_hillshade
+    7. tri
+
+Encoder:
+    Encoder 1: 7 -> 32 channels, 256 x 256
+    MaxPool
+    Encoder 2: 32 -> 64 channels, 128 x 128
+    MaxPool
+    Encoder 3: 64 -> 128 channels, 64 x 64
+    MaxPool
+    Encoder 4: 128 -> 256 channels, 32 x 32
+    MaxPool
+
+Bottleneck:
+    256 -> 512 channels, 16 x 16
+
+Decoder:
+    UpConv 512 -> 256
+    concatenate Encoder 4
+    ConvBlock 512 -> 256
+
+    UpConv 256 -> 128
+    concatenate Encoder 3
+    ConvBlock 256 -> 128
+
+    UpConv 128 -> 64
+    concatenate Encoder 2
+    ConvBlock 128 -> 64
+
+    UpConv 64 -> 32
+    concatenate Encoder 1
+    ConvBlock 64 -> 32
+
+Head:
+    1x1 Conv: 32 -> 1
+    output: 1 x 256 x 256 landslide logits
+
+Each ConvBlock:
+    Conv3x3 -> BatchNorm -> ReLU
+    Conv3x3 -> BatchNorm -> ReLU
+
+Parameters:
+    7,767,137
+
+Segmentation:
+    sigmoid(logit) -> probability
+    validation-selected threshold -> binary landslide prediction
