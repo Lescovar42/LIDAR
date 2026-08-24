@@ -1,0 +1,11 @@
+{
+  "feature_names": [
+    "local_relief",
+    "slope_degrees",
+    "aspect_sin",
+    "aspect_cos",
+    "curvature",
+    "multidirectional_hillshade",
+    "tri"
+  ]
+}

@@ -14,6 +14,7 @@ Thumbs.db
 # Large LiDAR and temporary downloads
 *.laz
 *.las
+*.npz
 *.copc.laz
 *.part
 *.tmp

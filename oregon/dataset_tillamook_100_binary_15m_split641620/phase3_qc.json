@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "dataset_dir": "F:\\LIDAR\\oregon\\dataset_tillamook_100_binary_15m_split641620",
+  "ground_truth_policy": "strict_binary_0_1",
+  "total_patches": 6051,
+  "split_patch_counts": {
+    "train": 3950,
+    "test": 1210,
+    "validation": 891
+  },
+  "split_tile_counts": {
+    "train": 63,
+    "validation": 16,
+    "test": 19
+  },
+  "feature_shapes": {
+    "(7, 256, 256)": 6051
+  },
+  "mask_shapes": {
+    "(256, 256)": 6051
+  },
+  "mask_values": [
+    0,
+    1
+  ],
+  "spatial_buffer_m": 500.0,
+  "spatial_violation_count": 0,
+  "cross_split_polygon_overlap_count": {
+    "train__validation": 0,
+    "train__test": 0,
+    "validation__test": 0
+  },
+  "split_unique_polygon_ids": {
+    "train": 227,
+    "validation": 80,
+    "test": 73
+  },
+  "split_categories": {
+    "train": {
+      "negative": 2335,
+      "positive_interior": 1258,
+      "positive_boundary": 357
+    },
+    "validation": {
+      "negative": 578,
+      "positive_boundary": 76,
+      "positive_interior": 237
+    },
+    "test": {
+      "negative": 709,
+      "positive_boundary": 101,
+      "positive_interior": 400
+    }
+  },
+  "split_hard_negative_patch_counts": {
+    "train": 2209,
+    "test": 685,
+    "validation": 542
+  },
+  "split_positive_manifest_patch_counts": {
+    "train": 1615,
+    "test": 501,
+    "validation": 313
+  },
+  "split_pixel_counts": {
+    "train": {
+      "positive": 46256004,
+      "negative": 212611196,
+      "positive_fraction": 0.17868622985067248
+    },
+    "validation": {
+      "positive": 8327071,
+      "negative": 50065505,
+      "positive_fraction": 0.14260496060321093
+    },
+    "test": {
+      "positive": 16868846,
+      "negative": 62429714,
+      "positive_fraction": 0.21272575441470817
+    }
+  },
+  "split_ground_fraction": {
+    "train": {
+      "mean": 0.26795201941381525,
+      "min": 0.2000274658203125,
+      "max": 0.4519500732421875
+    },
+    "validation": {
+      "mean": 0.2571401885061553,
+      "min": 0.20001220703125,
+      "max": 0.4270782470703125
+    },
+    "test": {
+      "mean": 0.25784112599270403,
+      "min": 0.20001220703125,
+      "max": 0.49652099609375
+    }
+  },
+  "channels": [
+    "local_relief",
+    "slope_degrees",
+    "aspect_sin",
+    "aspect_cos",
+    "curvature",
+    "multidirectional_hillshade",
+    "tri"
+  ],
+  "test_lock_present": true,
+  "test_policy": "Test is locked and must not be used for normalization, class weighting, checkpoint selection, threshold selection, architecture selection, feature selection, or hyperparameter tuning."
+}

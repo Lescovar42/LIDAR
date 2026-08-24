@@ -1,0 +1,61 @@
+{
+  "source_manifest": "F:\\LIDAR\\oregon\\dataset_tillamook_expansion_100_train_binary_15m\\patches.csv",
+  "seed": 42,
+  "buffer_m": 500.0,
+  "target_fractions": {
+    "train": 0.64,
+    "validation": 0.16,
+    "test": 0.2
+  },
+  "nominal_tile_targets": {
+    "train": 63,
+    "validation": 16,
+    "test": 19
+  },
+  "usable_tiles": 98,
+  "patches": 6051,
+  "atomic_components": 43,
+  "largest_component_tiles": 17,
+  "spatial_union_edges": 82,
+  "polygon_union_edges": 59,
+  "optimization_score": 0.027846147366896702,
+  "split_summary": {
+    "train": {
+      "tiles": 63,
+      "patches": 3950,
+      "positive_patches": 1615,
+      "negative_patches": 2335,
+      "positive_interior": 1258,
+      "positive_boundary": 357,
+      "hard_negatives": 2209,
+      "polygons": 227
+    },
+    "validation": {
+      "tiles": 16,
+      "patches": 891,
+      "positive_patches": 313,
+      "negative_patches": 578,
+      "positive_interior": 237,
+      "positive_boundary": 76,
+      "hard_negatives": 542,
+      "polygons": 80
+    },
+    "test": {
+      "tiles": 19,
+      "patches": 1210,
+      "positive_patches": 501,
+      "negative_patches": 709,
+      "positive_interior": 400,
+      "positive_boundary": 101,
+      "hard_negatives": 685,
+      "polygons": 73
+    }
+  },
+  "cross_split_polygon_overlap_count": {
+    "train__validation": 0,
+    "train__test": 0,
+    "validation__test": 0
+  },
+  "ground_truth_policy": "strict_binary_0_1",
+  "phase": "Phase 1 split planning only; source NPZ files unchanged"
+}

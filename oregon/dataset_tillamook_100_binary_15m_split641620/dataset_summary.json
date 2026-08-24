@@ -1,0 +1,60 @@
+{
+  "ground_truth_policy": "strict_binary_0_1",
+  "source_dataset": "F:\\LIDAR\\oregon\\dataset_tillamook_expansion_100_train_binary_15m",
+  "phase1_split_dir": "F:\\LIDAR\\oregon\\phase1_tillamook_split_64_16_20",
+  "total_patches": 6051,
+  "usable_tiles": 98,
+  "split_counts": {
+    "train": 3950,
+    "test": 1210,
+    "validation": 891
+  },
+  "split_tile_counts": {
+    "train": 63,
+    "validation": 16,
+    "test": 19
+  },
+  "split_category_counts": {
+    "train": {
+      "negative": 2335,
+      "positive_interior": 1258,
+      "positive_boundary": 357
+    },
+    "validation": {
+      "negative": 578,
+      "positive_boundary": 76,
+      "positive_interior": 237
+    },
+    "test": {
+      "negative": 709,
+      "positive_boundary": 101,
+      "positive_interior": 400
+    }
+  },
+  "unique_polygon_ids": {
+    "train": 227,
+    "validation": 80,
+    "test": 73
+  },
+  "cross_split_polygon_overlap_count": {
+    "train__validation": 0,
+    "train__test": 0,
+    "validation__test": 0
+  },
+  "mask_values_observed": [
+    0,
+    1
+  ],
+  "materialization": {
+    "linked": 6051
+  },
+  "split_policy": {
+    "target": "64/16/20 by spatially grouped tiles",
+    "buffer_m": 500,
+    "seed": 42,
+    "train_fraction_actual_tiles": 0.6428571428571429,
+    "validation_fraction_actual_tiles": 0.16326530612244897,
+    "test_fraction_actual_tiles": 0.19387755102040816
+  },
+  "test_policy": "Internal test split is locked. Do not use test rows for normalization, checkpoint selection, threshold selection, architecture selection, feature selection, or class-weight tuning."
+}

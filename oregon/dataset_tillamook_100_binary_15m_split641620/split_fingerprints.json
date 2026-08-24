@@ -1,0 +1,26 @@
+{
+  "train": {
+    "patch_count": 3950,
+    "tile_count": 63,
+    "patch_id_sha256": "ffb309bdcb6c64852d7784149572f9c39e18a6e563db5db3c7812b8c58574dda",
+    "tile_name_sha256": "2d3653d0a0d91c974adff8bf63a4bc706f1a169077f7b3794f054d5655b72214",
+    "landslide_id_sha256": "27e2630b663f79a742b208a0e3a2c3dc1f5c51c7bfadc03027355cbd5179ad94",
+    "unique_landslide_ids": 227
+  },
+  "validation": {
+    "patch_count": 891,
+    "tile_count": 16,
+    "patch_id_sha256": "fc12bb8460c38c52a96e38e07c78dd3523f5e4ced175dfb622c17f855689f554",
+    "tile_name_sha256": "23ca6edeaf79775777ee1ac3761c7ddf7b6e1c7cfcd647a02c5ccdc41d83f632",
+    "landslide_id_sha256": "475e601a886d400b68dc098ec8f42df6b91ae46a5feb7762b8b2a20b2c5c322a",
+    "unique_landslide_ids": 80
+  },
+  "test": {
+    "patch_count": 1210,
+    "tile_count": 19,
+    "patch_id_sha256": "ef052a60751a71bd1566decf2d361714291521336d053c57132d607d46cf49f5",
+    "tile_name_sha256": "2063d7576f2da68fb5405e9b66dc051d9f35c20b632b2c115bbda8d19eaec451",
+    "landslide_id_sha256": "13a4d17800c7e7111656e30bf373b541b7a3bcbaf86c0376184cda99b3f575cb",
+    "unique_landslide_ids": 73
+  }
+}

@@ -1,0 +1,19 @@
+TILLAMOOK INTERNAL TEST SET — LOCKED
+
+This directory contains the frozen 20%-target internal Tillamook test partition.
+
+Do NOT use test rows for:
+- normalization statistics
+- positive-class-weight calculation
+- checkpoint / epoch selection
+- threshold selection
+- architecture selection
+- feature selection
+- hyperparameter tuning
+- repeated error-guided model changes
+
+Use TRAIN for fitting.
+Use VALIDATION for development/model selection.
+Use TEST only after the final Tillamook configuration and validation threshold are frozen.
+
+External Buxton/Vernonia and Oregon City regions remain separate external tests.

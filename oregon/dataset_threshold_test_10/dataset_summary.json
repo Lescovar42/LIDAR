@@ -1,0 +1,681 @@
+{
+  "generated_at_utc": "2026-08-21T14:22:59+00:00",
+  "regions": [
+    "legacy"
+  ],
+  "outdir": "F:\\LIDAR\\oregon\\dataset_threshold_test_10",
+  "processed_tiles": 10,
+  "failed_or_dropped_tiles": 0,
+  "split_buffer_dropped_tiles": 0,
+  "saved_patches": 454,
+  "split_counts": {
+    "train": 454
+  },
+  "category_counts": {
+    "negative": 336,
+    "positive_interior": 69,
+    "positive_boundary": 49
+  },
+  "split_category_counts": {
+    "train": {
+      "negative": 336,
+      "positive_interior": 69,
+      "positive_boundary": 49
+    }
+  },
+  "region_summaries": {
+    "legacy": {
+      "region_role": "train_val",
+      "lidar_acquisition": {
+        "start_year": 2020,
+        "end_year": 2020,
+        "nominal_year": 2020,
+        "source": "User-confirmed Tillamook A22 project metadata",
+        "evidence": ".\\regions\\tillamook_lidar_acquisition.md",
+        "verified": true,
+        "origin": "cli_acquisition_override",
+        "lidar_project": ""
+      },
+      "status": "complete",
+      "processed_tiles": 10,
+      "failed_or_dropped_tiles": 0,
+      "saved_patches": 454,
+      "split_counts": {
+        "train": 454
+      },
+      "category_counts": {
+        "negative": 336,
+        "positive_interior": 69,
+        "positive_boundary": 49
+      },
+      "ignore_pixel_fraction": 0.0,
+      "temporally_excluded_polygon_count": 0
+    }
+  },
+  "lidar_vintage_summary": {
+    "distinct_acquisition_vintages": [
+      {
+        "start_year": 2020,
+        "end_year": 2020,
+        "nominal_year": 2020,
+        "source": "User-confirmed Tillamook A22 project metadata",
+        "evidence": ".\\regions\\tillamook_lidar_acquisition.md",
+        "verified": true,
+        "origin": "cli_acquisition_override",
+        "lidar_project": "",
+        "tile_count": 10
+      }
+    ],
+    "distinct_acquisition_vintage_count": 1,
+    "unknown_acquisition_tiles": 0,
+    "distinct_file_creation_years": {
+      "2024": 10
+    },
+    "inferred_year_hints": {
+      "2022": 10
+    },
+    "acquisition_conflict_failures": [],
+    "requested_region_acquisition": {
+      "legacy": {
+        "start_year": 2020,
+        "end_year": 2020,
+        "nominal_year": 2020,
+        "source": "User-confirmed Tillamook A22 project metadata",
+        "evidence": ".\\regions\\tillamook_lidar_acquisition.md",
+        "verified": true,
+        "origin": "cli_acquisition_override",
+        "lidar_project": ""
+      }
+    },
+    "unknown_acquisition_allowed": false
+  },
+  "feature_names": [
+    "local_relief",
+    "slope_degrees",
+    "aspect_sin",
+    "aspect_cos",
+    "curvature",
+    "multidirectional_hillshade",
+    "tri"
+  ],
+  "feature_dtype": "float16",
+  "cell_size": 1.5,
+  "patch_size": 256,
+  "stride": 128,
+  "description_filter": "Landslide",
+  "mask_codes": {
+    "negative": 0,
+    "positive": 1
+  },
+  "tile_summaries": [
+    {
+      "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04410w13920.laz",
+      "region_id": "legacy",
+      "region_role": "train_val",
+      "split": "train",
+      "lidar_project": "USGS_LPC_OR_WesternWildfires_A22_s04410w13920",
+      "lidar_year": 2020,
+      "lidar_year_source": "cli_acquisition_override",
+      "lidar_vintage": {
+        "acquisition": {
+          "start_year": 2020,
+          "end_year": 2020,
+          "nominal_year": 2020,
+          "source": "User-confirmed Tillamook A22 project metadata",
+          "evidence": ".\\regions\\tillamook_lidar_acquisition.md",
+          "verified": true,
+          "origin": "cli_acquisition_override",
+          "lidar_project": ""
+        },
+        "file_metadata": {
+          "creation_year": 2024,
+          "creation_date": "2024-03-17"
+        },
+        "inferred_year_hint": {
+          "year": 2022,
+          "source": "project_name"
+        }
+      },
+      "slido_temporal_filter_year": 2020,
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "dem_shape": [
+        207,
+        1741
+      ],
+      "ground_point_count": 95617,
+      "ground_cell_fraction": 0.2293118231234756,
+      "intersecting_slido_polygons": 0,
+      "temporally_excluded_polygons": 0,
+      "temporally_excluded_polygon_keys": [],
+      "mask_positive_fraction": 0.0,
+      "mask_ignore_fraction": 0.0,
+      "mask_pixels": 360387,
+      "ignore_pixels": 0,
+      "saved_patches": 0,
+      "category_counts": {},
+      "skipped_low_ground_coverage": 0,
+      "skipped_trace_positives": 0,
+      "skipped_ignore_only": 0,
+      "eligible_negative_candidates": 0
+    },
+    {
+      "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04410w13950.laz",
+      "region_id": "legacy",
+      "region_role": "train_val",
+      "split": "train",
+      "lidar_project": "USGS_LPC_OR_WesternWildfires_A22_s04410w13950",
+      "lidar_year": 2020,
+      "lidar_year_source": "cli_acquisition_override",
+      "lidar_vintage": {
+        "acquisition": {
+          "start_year": 2020,
+          "end_year": 2020,
+          "nominal_year": 2020,
+          "source": "User-confirmed Tillamook A22 project metadata",
+          "evidence": ".\\regions\\tillamook_lidar_acquisition.md",
+          "verified": true,
+          "origin": "cli_acquisition_override",
+          "lidar_project": ""
+        },
+        "file_metadata": {
+          "creation_year": 2024,
+          "creation_date": "2024-03-17"
+        },
+        "inferred_year_hint": {
+          "year": 2022,
+          "source": "project_name"
+        }
+      },
+      "slido_temporal_filter_year": 2020,
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "dem_shape": [
+        2001,
+        2001
+      ],
+      "ground_point_count": 875320,
+      "ground_cell_fraction": 0.18821024270473458,
+      "intersecting_slido_polygons": 0,
+      "temporally_excluded_polygons": 0,
+      "temporally_excluded_polygon_keys": [],
+      "mask_positive_fraction": 0.0,
+      "mask_ignore_fraction": 0.0,
+      "mask_pixels": 4004001,
+      "ignore_pixels": 0,
+      "saved_patches": 40,
+      "category_counts": {
+        "negative": 40
+      },
+      "skipped_low_ground_coverage": 104,
+      "skipped_trace_positives": 0,
+      "skipped_ignore_only": 0,
+      "eligible_negative_candidates": 92
+    },
+    {
+      "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04410w13980.laz",
+      "region_id": "legacy",
+      "region_role": "train_val",
+      "split": "train",
+      "lidar_project": "USGS_LPC_OR_WesternWildfires_A22_s04410w13980",
+      "lidar_year": 2020,
+      "lidar_year_source": "cli_acquisition_override",
+      "lidar_vintage": {
+        "acquisition": {
+          "start_year": 2020,
+          "end_year": 2020,
+          "nominal_year": 2020,
+          "source": "User-confirmed Tillamook A22 project metadata",
+          "evidence": ".\\regions\\tillamook_lidar_acquisition.md",
+          "verified": true,
+          "origin": "cli_acquisition_override",
+          "lidar_project": ""
+        },
+        "file_metadata": {
+          "creation_year": 2024,
+          "creation_date": "2024-03-17"
+        },
+        "inferred_year_hint": {
+          "year": 2022,
+          "source": "project_name"
+        }
+      },
+      "slido_temporal_filter_year": 2020,
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "dem_shape": [
+        2001,
+        2002
+      ],
+      "ground_point_count": 736672,
+      "ground_cell_fraction": 0.15694999653020641,
+      "intersecting_slido_polygons": 10,
+      "temporally_excluded_polygons": 0,
+      "temporally_excluded_polygon_keys": [],
+      "mask_positive_fraction": 0.05689737548808014,
+      "mask_ignore_fraction": 0.0,
+      "mask_pixels": 4006002,
+      "ignore_pixels": 0,
+      "saved_patches": 35,
+      "category_counts": {
+        "positive_interior": 11,
+        "negative": 17,
+        "positive_boundary": 7
+      },
+      "skipped_low_ground_coverage": 155,
+      "skipped_trace_positives": 1,
+      "skipped_ignore_only": 0,
+      "eligible_negative_candidates": 17
+    },
+    {
+      "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04410w14010.laz",
+      "region_id": "legacy",
+      "region_role": "train_val",
+      "split": "train",
+      "lidar_project": "USGS_LPC_OR_WesternWildfires_A22_s04410w14010",
+      "lidar_year": 2020,
+      "lidar_year_source": "cli_acquisition_override",
+      "lidar_vintage": {
+        "acquisition": {
+          "start_year": 2020,
+          "end_year": 2020,
+          "nominal_year": 2020,
+          "source": "User-confirmed Tillamook A22 project metadata",
+          "evidence": ".\\regions\\tillamook_lidar_acquisition.md",
+          "verified": true,
+          "origin": "cli_acquisition_override",
+          "lidar_project": ""
+        },
+        "file_metadata": {
+          "creation_year": 2024,
+          "creation_date": "2024-03-17"
+        },
+        "inferred_year_hint": {
+          "year": 2022,
+          "source": "project_name"
+        }
+      },
+      "slido_temporal_filter_year": 2020,
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "dem_shape": [
+        2001,
+        2002
+      ],
+      "ground_point_count": 758279,
+      "ground_cell_fraction": 0.1609796999602097,
+      "intersecting_slido_polygons": 8,
+      "temporally_excluded_polygons": 0,
+      "temporally_excluded_polygon_keys": [],
+      "mask_positive_fraction": 0.15396173042349953,
+      "mask_ignore_fraction": 0.0,
+      "mask_pixels": 4006002,
+      "ignore_pixels": 0,
+      "saved_patches": 49,
+      "category_counts": {
+        "positive_interior": 10,
+        "negative": 39
+      },
+      "skipped_low_ground_coverage": 147,
+      "skipped_trace_positives": 0,
+      "skipped_ignore_only": 0,
+      "eligible_negative_candidates": 39
+    },
+    {
+      "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04440w14040.laz",
+      "region_id": "legacy",
+      "region_role": "train_val",
+      "split": "train",
+      "lidar_project": "USGS_LPC_OR_WesternWildfires_A22_s04440w14040",
+      "lidar_year": 2020,
+      "lidar_year_source": "cli_acquisition_override",
+      "lidar_vintage": {
+        "acquisition": {
+          "start_year": 2020,
+          "end_year": 2020,
+          "nominal_year": 2020,
+          "source": "User-confirmed Tillamook A22 project metadata",
+          "evidence": ".\\regions\\tillamook_lidar_acquisition.md",
+          "verified": true,
+          "origin": "cli_acquisition_override",
+          "lidar_project": ""
+        },
+        "file_metadata": {
+          "creation_year": 2024,
+          "creation_date": "2024-03-17"
+        },
+        "inferred_year_hint": {
+          "year": 2022,
+          "source": "project_name"
+        }
+      },
+      "slido_temporal_filter_year": 2020,
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "dem_shape": [
+        2001,
+        2001
+      ],
+      "ground_point_count": 890928,
+      "ground_cell_fraction": 0.19039330909258015,
+      "intersecting_slido_polygons": 8,
+      "temporally_excluded_polygons": 0,
+      "temporally_excluded_polygon_keys": [],
+      "mask_positive_fraction": 0.017506988634618224,
+      "mask_ignore_fraction": 0.0,
+      "mask_pixels": 4004001,
+      "ignore_pixels": 0,
+      "saved_patches": 51,
+      "category_counts": {
+        "negative": 40,
+        "positive_interior": 1,
+        "positive_boundary": 10
+      },
+      "skipped_low_ground_coverage": 134,
+      "skipped_trace_positives": 1,
+      "skipped_ignore_only": 0,
+      "eligible_negative_candidates": 48
+    },
+    {
+      "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04470w13920.laz",
+      "region_id": "legacy",
+      "region_role": "train_val",
+      "split": "train",
+      "lidar_project": "USGS_LPC_OR_WesternWildfires_A22_s04470w13920",
+      "lidar_year": 2020,
+      "lidar_year_source": "cli_acquisition_override",
+      "lidar_vintage": {
+        "acquisition": {
+          "start_year": 2020,
+          "end_year": 2020,
+          "nominal_year": 2020,
+          "source": "User-confirmed Tillamook A22 project metadata",
+          "evidence": ".\\regions\\tillamook_lidar_acquisition.md",
+          "verified": true,
+          "origin": "cli_acquisition_override",
+          "lidar_project": ""
+        },
+        "file_metadata": {
+          "creation_year": 2024,
+          "creation_date": "2024-03-17"
+        },
+        "inferred_year_hint": {
+          "year": 2022,
+          "source": "project_name"
+        }
+      },
+      "slido_temporal_filter_year": 2020,
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "dem_shape": [
+        1709,
+        2001
+      ],
+      "ground_point_count": 880005,
+      "ground_cell_fraction": 0.22554024333649442,
+      "intersecting_slido_polygons": 5,
+      "temporally_excluded_polygons": 0,
+      "temporally_excluded_polygon_keys": [],
+      "mask_positive_fraction": 0.01137816112423601,
+      "mask_ignore_fraction": 0.0,
+      "mask_pixels": 3419709,
+      "ignore_pixels": 0,
+      "saved_patches": 57,
+      "category_counts": {
+        "positive_boundary": 12,
+        "positive_interior": 5,
+        "negative": 40
+      },
+      "skipped_low_ground_coverage": 43,
+      "skipped_trace_positives": 1,
+      "skipped_ignore_only": 0,
+      "eligible_negative_candidates": 99
+    },
+    {
+      "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04470w14010.laz",
+      "region_id": "legacy",
+      "region_role": "train_val",
+      "split": "train",
+      "lidar_project": "USGS_LPC_OR_WesternWildfires_A22_s04470w14010",
+      "lidar_year": 2020,
+      "lidar_year_source": "cli_acquisition_override",
+      "lidar_vintage": {
+        "acquisition": {
+          "start_year": 2020,
+          "end_year": 2020,
+          "nominal_year": 2020,
+          "source": "User-confirmed Tillamook A22 project metadata",
+          "evidence": ".\\regions\\tillamook_lidar_acquisition.md",
+          "verified": true,
+          "origin": "cli_acquisition_override",
+          "lidar_project": ""
+        },
+        "file_metadata": {
+          "creation_year": 2024,
+          "creation_date": "2024-03-17"
+        },
+        "inferred_year_hint": {
+          "year": 2022,
+          "source": "project_name"
+        }
+      },
+      "slido_temporal_filter_year": 2020,
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "dem_shape": [
+        2001,
+        2001
+      ],
+      "ground_point_count": 839273,
+      "ground_cell_fraction": 0.18201918530989378,
+      "intersecting_slido_polygons": 0,
+      "temporally_excluded_polygons": 0,
+      "temporally_excluded_polygon_keys": [],
+      "mask_positive_fraction": 0.0,
+      "mask_ignore_fraction": 0.0,
+      "mask_pixels": 4004001,
+      "ignore_pixels": 0,
+      "saved_patches": 40,
+      "category_counts": {
+        "negative": 40
+      },
+      "skipped_low_ground_coverage": 126,
+      "skipped_trace_positives": 0,
+      "skipped_ignore_only": 0,
+      "eligible_negative_candidates": 70
+    },
+    {
+      "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04470w14100.laz",
+      "region_id": "legacy",
+      "region_role": "train_val",
+      "split": "train",
+      "lidar_project": "USGS_LPC_OR_WesternWildfires_A22_s04470w14100",
+      "lidar_year": 2020,
+      "lidar_year_source": "cli_acquisition_override",
+      "lidar_vintage": {
+        "acquisition": {
+          "start_year": 2020,
+          "end_year": 2020,
+          "nominal_year": 2020,
+          "source": "User-confirmed Tillamook A22 project metadata",
+          "evidence": ".\\regions\\tillamook_lidar_acquisition.md",
+          "verified": true,
+          "origin": "cli_acquisition_override",
+          "lidar_project": ""
+        },
+        "file_metadata": {
+          "creation_year": 2024,
+          "creation_date": "2024-03-17"
+        },
+        "inferred_year_hint": {
+          "year": 2022,
+          "source": "project_name"
+        }
+      },
+      "slido_temporal_filter_year": 2020,
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "dem_shape": [
+        2001,
+        2001
+      ],
+      "ground_point_count": 1107594,
+      "ground_cell_fraction": 0.244696242583356,
+      "intersecting_slido_polygons": 6,
+      "temporally_excluded_polygons": 0,
+      "temporally_excluded_polygon_keys": [],
+      "mask_positive_fraction": 0.11471300831343449,
+      "mask_ignore_fraction": 0.0,
+      "mask_pixels": 4004001,
+      "ignore_pixels": 0,
+      "saved_patches": 75,
+      "category_counts": {
+        "negative": 40,
+        "positive_interior": 25,
+        "positive_boundary": 10
+      },
+      "skipped_low_ground_coverage": 81,
+      "skipped_trace_positives": 3,
+      "skipped_ignore_only": 0,
+      "eligible_negative_candidates": 68
+    },
+    {
+      "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04470w14160.laz",
+      "region_id": "legacy",
+      "region_role": "train_val",
+      "split": "train",
+      "lidar_project": "USGS_LPC_OR_WesternWildfires_A22_s04470w14160",
+      "lidar_year": 2020,
+      "lidar_year_source": "cli_acquisition_override",
+      "lidar_vintage": {
+        "acquisition": {
+          "start_year": 2020,
+          "end_year": 2020,
+          "nominal_year": 2020,
+          "source": "User-confirmed Tillamook A22 project metadata",
+          "evidence": ".\\regions\\tillamook_lidar_acquisition.md",
+          "verified": true,
+          "origin": "cli_acquisition_override",
+          "lidar_project": ""
+        },
+        "file_metadata": {
+          "creation_year": 2024,
+          "creation_date": "2024-03-17"
+        },
+        "inferred_year_hint": {
+          "year": 2022,
+          "source": "project_name"
+        }
+      },
+      "slido_temporal_filter_year": 2020,
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "dem_shape": [
+        2001,
+        2001
+      ],
+      "ground_point_count": 1084997,
+      "ground_cell_fraction": 0.2365329079588142,
+      "intersecting_slido_polygons": 4,
+      "temporally_excluded_polygons": 0,
+      "temporally_excluded_polygon_keys": [],
+      "mask_positive_fraction": 0.015156090120856613,
+      "mask_ignore_fraction": 0.0,
+      "mask_pixels": 4004001,
+      "ignore_pixels": 0,
+      "saved_patches": 46,
+      "category_counts": {
+        "positive_boundary": 5,
+        "positive_interior": 1,
+        "negative": 40
+      },
+      "skipped_low_ground_coverage": 82,
+      "skipped_trace_positives": 0,
+      "skipped_ignore_only": 0,
+      "eligible_negative_candidates": 107
+    },
+    {
+      "tile_name": "USGS_LPC_OR_WesternWildfires_A22_s04470w14190.laz",
+      "region_id": "legacy",
+      "region_role": "train_val",
+      "split": "train",
+      "lidar_project": "USGS_LPC_OR_WesternWildfires_A22_s04470w14190",
+      "lidar_year": 2020,
+      "lidar_year_source": "cli_acquisition_override",
+      "lidar_vintage": {
+        "acquisition": {
+          "start_year": 2020,
+          "end_year": 2020,
+          "nominal_year": 2020,
+          "source": "User-confirmed Tillamook A22 project metadata",
+          "evidence": ".\\regions\\tillamook_lidar_acquisition.md",
+          "verified": true,
+          "origin": "cli_acquisition_override",
+          "lidar_project": ""
+        },
+        "file_metadata": {
+          "creation_year": 2024,
+          "creation_date": "2024-03-17"
+        },
+        "inferred_year_hint": {
+          "year": 2022,
+          "source": "project_name"
+        }
+      },
+      "slido_temporal_filter_year": 2020,
+      "crs": "COMPD_CS[\"NAD83(2011) / Oregon GIC Lambert (ft) + NAVD88 height - Geoid12B (Intl Feet)\",PROJCS[\"NAD83(2011) / Oregon GIC Lambert (ft)\",GEOGCS[\"NAD83(2011)\",DATUM[\"NAD83_National_Spatial_Reference_System_2011\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"1116\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"6318\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",43],PARAMETER[\"standard_parallel_2\",45.5],PARAMETER[\"latitude_of_origin\",41.75],PARAMETER[\"central_meridian\",-120.5],PARAMETER[\"false_easting\",1312335.958],PARAMETER[\"false_northing\",0],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"6557\"]],VERT_CS[\"NAVD88 height - Geoid12B (Intl Feet)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"foot\",0.3048,AUTHORITY[\"EPSG\",\"9002\"]],AXIS[\"Gravity-related height\",UP],AUTHORITY[\"EPSG\",\"8228\"]]]",
+      "dem_shape": [
+        2001,
+        2001
+      ],
+      "ground_point_count": 891097,
+      "ground_cell_fraction": 0.18741428885757022,
+      "intersecting_slido_polygons": 9,
+      "temporally_excluded_polygons": 0,
+      "temporally_excluded_polygon_keys": [],
+      "mask_positive_fraction": 0.06301921503016608,
+      "mask_ignore_fraction": 0.0,
+      "mask_pixels": 4004001,
+      "ignore_pixels": 0,
+      "saved_patches": 61,
+      "category_counts": {
+        "negative": 40,
+        "positive_interior": 16,
+        "positive_boundary": 5
+      },
+      "skipped_low_ground_coverage": 118,
+      "skipped_trace_positives": 1,
+      "skipped_ignore_only": 0,
+      "eligible_negative_candidates": 55
+    }
+  ],
+  "parameters": {
+    "region": null,
+    "regions": null,
+    "registry": "F:\\LIDAR\\oregon\\regions.json",
+    "laz_dir": "lidar_tiles\\tillamook_expansion_100_complete",
+    "slido_geojson": "slido_tillamook.geojson",
+    "outdir": "dataset_threshold_test_10",
+    "cell_size": 1.5,
+    "allow_unpinned_rural_diagnostic": false,
+    "lidar_acquisition_year": 2020,
+    "lidar_acquisition_start_year": null,
+    "lidar_acquisition_end_year": null,
+    "lidar_acquisition_source": "User-confirmed Tillamook A22 project metadata",
+    "lidar_acquisition_evidence": ".\\regions\\tillamook_lidar_acquisition.md",
+    "lidar_acquisition_verified": true,
+    "allow_unknown_lidar_acquisition": false,
+    "patch_size": 256,
+    "stride": 128,
+    "max_tiles": 10,
+    "max_cells": 80000000,
+    "min_ground_cell_fraction": 0.15,
+    "min_patch_ground_fraction": 0.2,
+    "interior_threshold": 0.1,
+    "boundary_threshold": 0.01,
+    "include_trace_positives": false,
+    "negative_buffer_m": 50.0,
+    "positive_ignore_buffer_m": 0.0,
+    "hard_negative_slope": 8.0,
+    "negative_ratio": 40.0,
+    "max_negatives_per_tile": 40,
+    "block_size_m": 5000.0,
+    "split_buffer_m": 500.0,
+    "validation_fraction": 0.0,
+    "seed": 42,
+    "feature_dtype": "float16",
+    "all_touched": false,
+    "overwrite": false
+  }
+}

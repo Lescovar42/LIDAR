@@ -1,0 +1,12 @@
+{
+  "manifest": "F:\\LIDAR\\oregon\\dataset_tillamook_100_binary_15m_split641620\\patches.csv",
+  "buffer_m": 500.0,
+  "patch_count": 6051,
+  "split_counts": {
+    "test": 1210,
+    "train": 3950,
+    "validation": 891
+  },
+  "violation_count": 0,
+  "violations": []
+}

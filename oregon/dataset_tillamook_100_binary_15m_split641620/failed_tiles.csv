@@ -1,0 +1,2 @@
+region_id,tile_name,error
+legacy,USGS_LPC_OR_WesternWildfires_A22_s04470w14250.laz,RuntimeError: ground-cell coverage 0.124 below minimum 0.150
