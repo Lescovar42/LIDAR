@@ -264,14 +264,17 @@ class DeepUNet(nn.Module):
 
 
 def build_model(architecture: str, in_channels: int):
-    """Build the shared EfficientNetV2-S U-Net for either legacy label."""
     if architecture not in {"shallow", "deep"}:
         raise ValueError(architecture)
+
     if in_channels != 3:
-        raise ValueError("EfficientNetV2 U-Net requires exactly 3 input channels")
+        raise ValueError(
+            "EfficientNetV2-S U-Net requires exactly 3 input channels"
+        )
+
     return smp.Unet(
-        encoder_name="tu-efficientnetv2_s",
-        encoder_weights="imagenet",
+        encoder_name="tu-tf_efficientnetv2_s.in21k_ft_in1k",
+        encoder_weights=True,
         in_channels=3,
         classes=1,
     )

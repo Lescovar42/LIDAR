@@ -1,0 +1,7 @@
+Landslide4Sense literal-source reproduction: P=0.5449, R=0.6577, F1=0.5960, IoU=0.4245.
+Absolute difference from official reference: ΔP=0.0274, ΔR=0.0027, ΔF1=0.0178.
+Landslide4Sense EfficientNetV2-S U-Net: P=0.6301, R=0.6026, F1=0.6161, IoU=0.4452.
+EfficientNet change vs plain literal U-Net: ΔP=+0.0852, ΔR=-0.0551, ΔF1=+0.0200, ΔIoU=+0.0206, FP reduction=35.61%.
+Tillamook current validation winner: deep_7ch (Dice=0.4085, IoU=0.2567, P=0.2961, R=0.6584).
+Tillamook positive-area prevalence: GT=14.26% vs predicted=31.71%.
+Tillamook internal test remains locked and is not loaded by this notebook.

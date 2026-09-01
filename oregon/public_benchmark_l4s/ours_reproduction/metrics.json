@@ -1,0 +1,25 @@
+{
+  "selected_checkpoint": "F:\\LIDAR\\oregon\\public_benchmark_l4s\\ours_reproduction\\checkpoints\\batch2500_F1_6309.pth",
+  "validation": {
+    "tp": 41110,
+    "fp": 20458,
+    "fn": 27635,
+    "tn": 3924877,
+    "precision": 0.6677169958419958,
+    "recall": 0.5980071277911121,
+    "f1": 0.6309424232424958,
+    "iou": 0.46085893972175823,
+    "overall_accuracy": 0.9880189233896683
+  },
+  "reported_reference": {
+    "precision": 0.5175,
+    "recall": 0.655,
+    "f1": 0.5782
+  },
+  "absolute_difference_from_reported": {
+    "precision": 0.15021699584199588,
+    "recall": 0.056992872208887935,
+    "f1": 0.052742423242495784
+  },
+  "prediction_dir": "F:\\LIDAR\\oregon\\public_benchmark_l4s\\ours_reproduction\\validation_predictions"
+}

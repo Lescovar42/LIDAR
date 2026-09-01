@@ -1,0 +1,36 @@
+{
+  "selected_checkpoint": "F:\\LIDAR\\oregon\\public_benchmark_l4s\\efficientnetv2_s_pretrained\\checkpoints\\step3500_selectF1_7235.pt",
+  "selected_optimizer_step": 3500,
+  "checkpoint_selection_protocol": "literal-source",
+  "validation": {
+    "tp": 41427,
+    "fp": 24317,
+    "fn": 27318,
+    "tn": 3921018,
+    "precision": 0.6301259430518374,
+    "recall": 0.6026183722452542,
+    "f1": 0.6160652544074187,
+    "iou": 0.4451548430078872,
+    "overall_accuracy": 0.9871365294164541
+  },
+  "reported_official_reference": {
+    "precision": 0.5175,
+    "recall": 0.655,
+    "f1": 0.5782
+  },
+  "project_plain_unet_literal_reference": {
+    "precision": 0.5449144372137864,
+    "recall": 0.6577496545203287,
+    "f1": 0.5960388861426874,
+    "iou": 0.424540879558343
+  },
+  "difference_vs_project_plain_unet": {
+    "precision": 0.08521150583805104,
+    "recall": -0.05513128227507458,
+    "f1": 0.020026368264731254,
+    "iou": 0.020613963449544193
+  },
+  "relative_f1_change_vs_project_plain_unet_percent": 3.359909685479327,
+  "efficientnet_improves_project_plain_unet_f1": true,
+  "prediction_dir": "F:\\LIDAR\\oregon\\public_benchmark_l4s\\efficientnetv2_s_pretrained\\validation_predictions"
+}

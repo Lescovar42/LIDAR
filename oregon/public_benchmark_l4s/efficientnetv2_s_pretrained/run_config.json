@@ -1,0 +1,48 @@
+{
+  "experiment": "landslide4sense_efficientnetv2_s_unet",
+  "goal": "test whether EfficientNet-based U-Net improves segmentation metrics",
+  "data_root": "F:\\LIDAR\\public_benchmarks\\Landslide4sense",
+  "protocol": "literal-source",
+  "train_count": 3799,
+  "validation_count": 245,
+  "input_channels": 14,
+  "input_size": [
+    128,
+    128
+  ],
+  "normalization": "official_fixed_landslide4sense_mean_std",
+  "architecture": "smp.Unet",
+  "encoder_name": "tu-tf_efficientnetv2_s.in21k_ft_in1k",
+  "encoder_pretrained": true,
+  "encoder_pretraining": "ImageNet-21k pretraining + ImageNet-1k fine-tuning",
+  "classes": 2,
+  "parameter_count": 22095994,
+  "trainable_parameter_count": 22095994,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "weight_decay": 0.0005,
+  "loss": "CrossEntropyLoss(ignore_index=255)",
+  "optimizer_steps": 5000,
+  "eval_every_optimizer_steps": 500,
+  "micro_batch_size": 8,
+  "gradient_accumulation_steps": 4,
+  "effective_batch_size": 32,
+  "amp": true,
+  "seed": null,
+  "device": "cuda",
+  "device_name": "NVIDIA GeForce RTX 2060 SUPER",
+  "torch_version": "2.13.0+cu126",
+  "numpy_version": "2.5.1",
+  "reported_reference": {
+    "precision": 0.5175,
+    "recall": 0.655,
+    "f1": 0.5782
+  },
+  "project_literal_plain_unet_reference": {
+    "precision": 0.5449144372137864,
+    "recall": 0.6577496545203287,
+    "f1": 0.5960388861426874,
+    "iou": 0.424540879558343
+  },
+  "comparison_note": "Architecture and encoder pretraining change together. This is a practical model-improvement test, not an isolated causal ablation."
+}
