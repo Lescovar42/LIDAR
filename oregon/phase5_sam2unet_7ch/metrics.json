@@ -1,0 +1,62 @@
+{
+  "architecture": "SAM2-UNet Hiera-L + terrain input adapter",
+  "feature_set": "7ch",
+  "channels": [
+    "local_relief",
+    "slope_degrees",
+    "aspect_sin",
+    "aspect_cos",
+    "curvature",
+    "multidirectional_hillshade",
+    "tri"
+  ],
+  "best_epoch": 5,
+  "validation_at_0_5": {
+    "loss": 4.05568488442269,
+    "threshold": 0.5,
+    "tp": 3851660,
+    "fp": 6016600,
+    "fn": 4475411,
+    "tn": 44048905,
+    "dice": 0.42336795082210926,
+    "iou": 0.268526794849101,
+    "precision": 0.3903079164918638,
+    "recall": 0.46254679466525506,
+    "specificity": 0.8798254406901518,
+    "gt_positive_fraction": 0.14260496060321093,
+    "predicted_positive_fraction": 0.16899853844433924
+  },
+  "validation_best_threshold": {
+    "threshold": 0.45,
+    "tp": 3995922,
+    "fp": 6512007,
+    "fn": 4331149,
+    "tn": 43553498,
+    "dice": 0.4243081497212636,
+    "iou": 0.26928371156213343,
+    "precision": 0.380276836663057,
+    "recall": 0.4798712536496927,
+    "specificity": 0.8699302643606611,
+    "gt_positive_fraction": 0.14260496060321093,
+    "predicted_positive_fraction": 0.1799531673341488
+  },
+  "threshold_grid": [
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9
+  ],
+  "train_rows": 3950,
+  "validation_rows": 891,
+  "test_rows_locked_not_evaluated": 1210,
+  "test": null
+}
