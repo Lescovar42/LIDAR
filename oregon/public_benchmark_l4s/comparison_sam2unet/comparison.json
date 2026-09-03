@@ -1,0 +1,28 @@
+{
+  "reported_reference": {
+    "precision": 0.5175,
+    "recall": 0.655,
+    "f1": 0.5782
+  },
+  "f1_tolerance_for_diagnostic": 0.05,
+  "official": null,
+  "ours": {
+    "files": 245,
+    "tp": 29697,
+    "fp": 21252,
+    "fn": 39048,
+    "tn": 3924083,
+    "precision": 0.5828769946417005,
+    "recall": 0.43198778092952217,
+    "f1": 0.4962153491403029,
+    "iou": 0.3299776659221974,
+    "overall_accuracy": 0.984977877869898,
+    "delta_from_reported": {
+      "precision_abs_delta": 0.06537699464170055,
+      "recall_abs_delta": 0.22301221907047786,
+      "f1_abs_delta": 0.08198465085969714
+    },
+    "within_f1_tolerance_of_reported": false
+  },
+  "official_vs_ours": null
+}

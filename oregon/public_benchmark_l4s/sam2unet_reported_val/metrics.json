@@ -1,0 +1,54 @@
+{
+  "selected_checkpoint": "F:\\LIDAR\\oregon\\public_benchmark_l4s\\sam2unet_reported_val\\checkpoints\\step2000_selectF1_4962.pt",
+  "selected_optimizer_step": 2000,
+  "checkpoint_selection_protocol": "reported-validation",
+  "validation_at_default_threshold": {
+    "tp": 29697,
+    "fp": 21252,
+    "fn": 39048,
+    "tn": 3924083,
+    "precision": 0.5828769946417005,
+    "recall": 0.43198778092952217,
+    "f1": 0.4962153491403029,
+    "iou": 0.3299776659221974,
+    "overall_accuracy": 0.984977877869898,
+    "threshold": 0.5
+  },
+  "validation_at_best_threshold": {
+    "tp": 32276,
+    "fp": 26946,
+    "fn": 36469,
+    "tn": 3918389,
+    "precision": 0.5450001688561683,
+    "recall": 0.4695032365990254,
+    "f1": 0.5044425515953281,
+    "iou": 0.33729399839065327,
+    "overall_accuracy": 0.9842018594547194,
+    "threshold": 0.3
+  },
+  "reported_official_reference": {
+    "precision": 0.5175,
+    "recall": 0.655,
+    "f1": 0.5782
+  },
+  "project_plain_unet_literal_reference": {
+    "precision": 0.5449144372137864,
+    "recall": 0.6577496545203287,
+    "f1": 0.5960388861426874,
+    "iou": 0.424540879558343
+  },
+  "difference_vs_project_plain_unet": {
+    "precision": 0.0379625574279141,
+    "recall": -0.22576187359080657,
+    "f1": -0.0998235370023845,
+    "iou": -0.09456321363614562
+  },
+  "difference_vs_reported_official": {
+    "precision": 0.06537699464170055,
+    "recall": -0.22301221907047786,
+    "f1": -0.08198465085969714
+  },
+  "sam2unet_improves_project_plain_unet_f1": false,
+  "sam2unet_improves_reported_official_f1": false,
+  "prediction_dir": "F:\\LIDAR\\oregon\\public_benchmark_l4s\\sam2unet_reported_val\\validation_predictions"
+}

@@ -19,7 +19,12 @@ from lidar_vintage import (
     parse_acquisition,
 )
 
-REGISTRY_PATH = Path(__file__).with_name("regions.json")
+_candidate_paths = [
+    Path(__file__).resolve().parents[2] / "data_boundaries" / "regions.json",
+    Path(__file__).resolve().parents[1] / "data_boundaries" / "regions.json",
+    Path(__file__).with_name("regions.json"),
+]
+REGISTRY_PATH = next((p for p in _candidate_paths if p.exists()), Path(__file__).with_name("regions.json"))
 VALID_ROLES = {"train_val", "test_rural", "test_urban_ood"}
 _REQUIRED_PATHS = ("slido_output", "tnm_records", "naip_records")
 

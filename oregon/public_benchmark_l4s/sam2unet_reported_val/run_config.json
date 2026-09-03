@@ -1,0 +1,52 @@
+{
+  "experiment": "landslide4sense_sam2unet",
+  "goal": "evaluate official SAM2-UNet transfer performance on Landslide4Sense 14-band benchmark",
+  "data_root": "F:\\LIDAR\\public_benchmarks\\Landslide4sense",
+  "protocol": "reported-validation",
+  "train_count": 3799,
+  "validation_count": 245,
+  "input_channels": 14,
+  "input_size": [
+    128,
+    128
+  ],
+  "normalization": "official_fixed_landslide4sense_mean_std",
+  "sam2unet_repo": "F:\\LIDAR\\oregon\\third_party\\SAM2-UNet",
+  "hiera_checkpoint": "F:\\LIDAR\\oregon\\third_party\\SAM2-UNet\\sam2_hiera_large.pt",
+  "architecture": "Official SAM2-UNet Hiera-L + Learnable 14->3ch Input Adapter",
+  "input_adapter_init": "rgb",
+  "total_parameters": 216529936,
+  "trainable_parameters": 4380640,
+  "sam_prompt_parameters": 1714416,
+  "task_adapter_decoder_parameters": 2666224,
+  "loss": "3-scale deep supervision structure loss",
+  "optimizer": "AdamW",
+  "task_lr": 0.0003,
+  "sam_adapter_lr": 0.0001,
+  "weight_decay": 0.0001,
+  "scheduler": "linear warmup (300 steps) + cosine decay (min_ratio=0.01)",
+  "grad_clip_norm": 1.0,
+  "optimizer_steps": 5000,
+  "eval_every_optimizer_steps": 500,
+  "micro_batch_size": 8,
+  "gradient_accumulation_steps": 4,
+  "effective_batch_size": 32,
+  "default_threshold": 0.5,
+  "amp": true,
+  "seed": 42,
+  "device": "cuda",
+  "device_name": "NVIDIA GeForce RTX 2060 SUPER",
+  "torch_version": "2.13.0+cu126",
+  "numpy_version": "2.5.1",
+  "reported_official_reference": {
+    "precision": 0.5175,
+    "recall": 0.655,
+    "f1": 0.5782
+  },
+  "project_plain_unet_literal_reference": {
+    "precision": 0.5449144372137864,
+    "recall": 0.6577496545203287,
+    "f1": 0.5960388861426874,
+    "iou": 0.424540879558343
+  }
+}
