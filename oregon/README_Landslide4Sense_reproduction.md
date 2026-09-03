@@ -169,3 +169,20 @@ Best order:
 Do NOT require pixel-identical output between separately trained models. Random
 initialization and non-deterministic GPU kernels can change the exact prediction map.
 The primary check is metric-level reproduction under the same protocol.
+
+## 5. Run SAM2-UNet on Landslide4Sense
+
+Train official SAM2-UNet (Hiera-L + trainable adapters + RFB + U-Net decoder) with learnable 14->3ch input adapter:
+
+    python .\train_landslide4sense_sam2unet.py `
+      --data-root F:\LIDAR\public_benchmarks\Landslide4sense `
+      --outdir .\public_benchmark_l4s\sam2unet `
+      --protocol reported-validation `
+      --batch-size 8 `
+      --accumulation-steps 4 `
+      --task-lr 3e-4 `
+      --sam-adapter-lr 1e-4 `
+      --steps 5000 `
+      --eval-every 500 `
+      --device cuda
+
